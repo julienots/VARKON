@@ -58,6 +58,7 @@ BTN_OPEN,Ouvrir,Open
 BTN_PAUSE,Pause,Pause
 BTN_PLACE,Placer,Place
 BTN_PREVIEW,Aperçu,Preview
+BTN_QUIT,Quitter,Quit
 BTN_RECYCLE,Recycler,Recycle
 BTN_REMOVE_DECK,Retirer du deck,Remove from deck
 BTN_REPAIR,Réparer,Repair
@@ -127,6 +128,7 @@ CONFIRM_CRAFT,Fabriquer %s ? Les matériaux sont consommés au lancement.,Craft 
 CONFIRM_FORFEIT,Abandonner ce combat ? Il comptera comme une défaite.,Forfeit this battle? It will count as a defeat.
 CONFIRM_MUTATION,Débloquer la mutation %s ?,Unlock mutation %s?
 CONFIRM_PREMIUM,Débloquer la voie premium de la saison avec des cristaux ?,Unlock this season's premium track with crystals?
+CONFIRM_QUIT,Quitter VARKON ? Votre progression est sauvegardée.,Quit VARKON? Your progress is saved.
 CONFIRM_RECYCLE,Recycler définitivement %s ?,Permanently recycle %s?
 CONFIRM_RELIC,Améliorer la relique %s ?,Upgrade relic %s?
 CONFIRM_REPAIR,Réparer le laboratoire ?,Repair the laboratory?

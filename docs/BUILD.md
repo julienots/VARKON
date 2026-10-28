@@ -36,8 +36,17 @@ L'AAB nécessite le *build Gradle* :
    `gradle_build/export_format = AAB`.
 3. Exporter avec **JDK 17** (Gradle 8.2 ne fonctionne pas avec JDK 21).
 
-Le résultat de la tentative dans l'environnement de développement est indiqué dans
-`docs/STATUS.md`.
+Le préréglage **« Android AAB »** est déjà présent dans `export_presets.cfg` :
+
+```bash
+export JAVA_HOME=/chemin/vers/jdk-17
+godot --headless --install-android-build-template --export-debug "Android AAB" build/VARKON-debug.aab
+java -jar bundletool.jar validate --bundle=build/VARKON-debug.aab
+```
+
+Vérifié dans l'environnement de développement : AAB de 57 Mo, `bundletool validate` OK.
+En cas d'erreurs HTTP 429 de Maven Central, un script `~/.gradle/init.d/mirror.gradle` peut
+rediriger vers `https://maven-central.storage-download.googleapis.com/maven2/`.
 
 ## Publication (ce qui manque, à fournir par SuperEssence Studio)
 

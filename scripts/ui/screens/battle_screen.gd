@@ -59,6 +59,13 @@ func on_back() -> bool:
 	return true
 
 
+func _notification(what: int) -> void:
+	# Leaving the app (call, home button…) pauses solo battles automatically.
+	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT]:
+		if sim and not sim.finished and not sim.paused:
+			_pause()
+
+
 # ------------------------------------------------------------------ HUD
 func _build_hud() -> void:
 	var bsc := UI.bs()

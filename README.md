@@ -52,6 +52,12 @@ des raids, des défenses, la survie, des défis et **5 boss** à phases.
 - **Paramètres** complets (graphismes, audio par bus, commandes, accessibilité, langue FR/EN,
   notifications in-game, compte), documents légaux intégrés.
 
+## Télécharger l'APK de test
+
+**[`releases/VARKON-0.9.0-debug.apk`](releases/VARKON-0.9.0-debug.apk)** — Android 5.0+,
+arm64-v8a / armeabi-v7a, signé avec une clé de débogage (installation directe). Voir
+[`releases/README.md`](releases/README.md).
+
 ## Démarrage rapide
 
 ```bash

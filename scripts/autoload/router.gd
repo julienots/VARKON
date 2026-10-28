@@ -93,7 +93,12 @@ func back() -> void:
 	if current and current.has_method("on_back") and current.on_back():
 		return
 	if history.is_empty():
-		if current_name != "menu" and current_name != "boot":
+		if current_name == "menu":
+			# Android back button on the main menu: ask before leaving the game.
+			confirm(tr("CONFIRM_QUIT"), func() -> void:
+				Game.save_now()
+				get_tree().quit(), tr("BTN_QUIT"), true)
+		elif current_name != "boot":
 			goto("menu", {}, false)
 		return
 	var h: Dictionary = history.pop_back()

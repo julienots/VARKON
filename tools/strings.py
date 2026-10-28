@@ -115,6 +115,8 @@ S = {
     "CONFIRM_RELIC": ("Améliorer la relique %s ?", "Upgrade relic %s?"), "CONFIRM_MUTATION": ("Débloquer la mutation %s ?", "Unlock mutation %s?"),
     "CONFIRM_BUY": ("Acheter %s ?", "Buy %s?"), "CONFIRM_PREMIUM": ("Débloquer la voie premium de la saison avec des cristaux ?", "Unlock this season's premium track with crystals?"),
     "CONFIRM_FORFEIT": ("Abandonner ce combat ? Il comptera comme une défaite.", "Forfeit this battle? It will count as a defeat."),
+    "CONFIRM_QUIT": ("Quitter VARKON ? Votre progression est sauvegardée.", "Quit VARKON? Your progress is saved."),
+    "BTN_QUIT": ("Quitter", "Quit"),
     "CONFIRM_RESET_SETTINGS": ("Rétablir les paramètres par défaut ?", "Restore default settings?"),
     "CONFIRM_RESET_PROFILE": ("Effacer toute votre progression sur cet appareil ?", "Erase all your progress on this device?"),
     "CONFIRM_RESET_PROFILE_2": ("Action irréversible. Confirmer la suppression ?", "This cannot be undone. Confirm deletion?"),

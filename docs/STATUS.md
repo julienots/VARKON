@@ -8,12 +8,14 @@ Ce document distingue ce qui est **opérationnel et testé**, ce qui est **incom
 | Vérification | Résultat |
 |---|---|
 | Suite de tests headless `tools/run_tests.sh` | **53 tests, 0 échec**, aucune erreur GDScript |
+| Comportement Android ajouté | bouton Retour (menu → confirmation pour quitter, combat → pause), pause automatique quand l'app passe en arrière-plan, sauvegarde à la mise en pause |
 | Parcours UI automatisé (tous les écrans, onglets, popups, achats, construction, 4 combats via la vue 3D) | OK (`test_ui_smoke.gd`) |
 | Bots facile/normal/expert : matchs bot contre bot menés à terme | OK |
 | Équilibrage (deck de départ, joueur simulé « normal ») | c1m1 100 %, c1m2 75 %, c1m3 75 %, c1m4 (raid) 100 %, c1m5 100 %, c1m8 (boss) 100 % |
 | Rendu réel (Linux, Xvfb, Mesa llvmpipe, renderer Compatibility) | captures de tous les écrans dans `docs/screenshots` |
 | Export APK `godot --export-debug "Android"` | **APK généré**, 57 Mo, `apksigner verify` OK (v1+v2+v3), arm64-v8a + armeabi-v7a |
-| Export AAB (Gradle) | voir section « AAB » ci-dessous |
+| Export AAB (Gradle 8.2, JDK 17) | **AAB généré**, 57 Mo, `bundletool validate` OK, minSdk 24, targetSdk 34 |
+| Export complet exécuté hors éditeur (PCK filtré, Linux + Xvfb) | OK : lancement, combat en mode Défense, aucune ressource manquante |
 | Exécution sur un vrai téléphone Android | **non réalisée** (aucun appareil ni émulateur disponible dans l'environnement) |
 | Mesure de fréquence d'images sur appareil | **non réalisée** — aucune valeur de FPS n'est revendiquée |
 
@@ -70,10 +72,17 @@ Ce document distingue ce qui est **opérationnel et testé**, ce qui est **incom
 - Les emojis/symboles non présents dans les polices ont été remplacés par des icônes vectorielles ;
   un texte saisi par le joueur contenant des emojis peut s'afficher sans glyphe.
 
-## AAB
+## Livrables binaires
 
-Résultat de la tentative de build Gradle dans l'environnement de développement : voir la
-section ajoutée en fin de document.
+| Fichier | Description |
+|---|---|
+| `releases/VARKON-0.9.0-debug.apk` | APK de test signé avec une clé de **débogage** (installation directe, pas pour le Play Store) |
+| `build/VARKON-debug.aab` (non versionné) | AAB de test (signature de débogage) produit par le build Gradle ; pour Google Play, ré-exporter en *release* avec votre keystore de production |
+
+Note : dans l'environnement de développement, Maven Central a renvoyé des erreurs 429 (limite de
+débit) ; le build a réussi en redirigeant Gradle vers le miroir officiel de Google
+(`maven-central.storage-download.googleapis.com`) via un script d'init Gradle. Ce contournement
+n'est normalement pas nécessaire sur un poste de développement.
 
 ## Prochaines étapes recommandées
 
