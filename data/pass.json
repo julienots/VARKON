@@ -1,0 +1,378 @@
+{
+ "season_id": "s1",
+ "name": "Saison 1 — L'Éveil des Forges",
+ "start": "2026-10-01",
+ "end": "2027-01-04",
+ "xp_per_tier": 100,
+ "premium_price": {
+  "crystals": 650
+ },
+ "tiers": [
+  {
+   "tier": 1,
+   "free": {
+    "gold": 300
+   },
+   "premium": {
+    "item": "w_epee_parade"
+   }
+  },
+  {
+   "tier": 2,
+   "free": {
+    "fragments": 30
+   },
+   "premium": {
+    "gold": 440
+   }
+  },
+  {
+   "tier": 3,
+   "free": {
+    "chest": "chest_wood"
+   },
+   "premium": {
+    "cosmetic": "emote_cross"
+   }
+  },
+  {
+   "tier": 4,
+   "free": {
+    "components": 40
+   },
+   "premium": {
+    "gold": 480
+   }
+  },
+  {
+   "tier": 5,
+   "free": {
+    "war_tokens": 40
+   },
+   "premium": {
+    "item": "a_embers"
+   }
+  },
+  {
+   "tier": 6,
+   "free": {
+    "gold": 500
+   },
+   "premium": {
+    "gold": 520
+   }
+  },
+  {
+   "tier": 7,
+   "free": {
+    "chest": "chest_reinforced"
+   },
+   "premium": {
+    "item": "t_mystic_robe"
+   }
+  },
+  {
+   "tier": 8,
+   "free": {
+    "mutant_essence": 30
+   },
+   "premium": {
+    "gold": 560
+   }
+  },
+  {
+   "tier": 9,
+   "free": {
+    "crystals": 10
+   },
+   "premium": {
+    "item": "h_horned_helm_cos"
+   }
+  },
+  {
+   "tier": 10,
+   "free": {
+    "chest": "chest_royal"
+   },
+   "premium": {
+    "gold": 600
+   }
+  },
+  {
+   "tier": 11,
+   "free": {
+    "gold": 300
+   },
+   "premium": {
+    "cosmetic": "victory_flex"
+   }
+  },
+  {
+   "tier": 12,
+   "free": {
+    "fragments": 30
+   },
+   "premium": {
+    "gold": 640
+   }
+  },
+  {
+   "tier": 13,
+   "free": {
+    "chest": "chest_wood"
+   },
+   "premium": {
+    "item": "w_epine_arcanique"
+   }
+  },
+  {
+   "tier": 14,
+   "free": {
+    "components": 40
+   },
+   "premium": {
+    "gold": 680
+   }
+  },
+  {
+   "tier": 15,
+   "free": {
+    "war_tokens": 40
+   },
+   "premium": {
+    "cosmetic": "entry_smoke"
+   }
+  },
+  {
+   "tier": 16,
+   "free": {
+    "gold": 500
+   },
+   "premium": {
+    "gold": 720
+   }
+  },
+  {
+   "tier": 17,
+   "free": {
+    "chest": "chest_reinforced"
+   },
+   "premium": {
+    "item": "b_banner"
+   }
+  },
+  {
+   "tier": 18,
+   "free": {
+    "mutant_essence": 30
+   },
+   "premium": {
+    "gold": 760
+   }
+  },
+  {
+   "tier": 19,
+   "free": {
+    "crystals": 10
+   },
+   "premium": {
+    "cosmetic": "emote_roar"
+   }
+  },
+  {
+   "tier": 20,
+   "free": {
+    "item": "a_embers"
+   },
+   "premium": {
+    "gold": 800
+   }
+  },
+  {
+   "tier": 21,
+   "free": {
+    "gold": 300
+   },
+   "premium": {
+    "item": "a_toxic"
+   }
+  },
+  {
+   "tier": 22,
+   "free": {
+    "fragments": 30
+   },
+   "premium": {
+    "gold": 840
+   }
+  },
+  {
+   "tier": 23,
+   "free": {
+    "chest": "chest_wood"
+   },
+   "premium": {
+    "item": "s_royal"
+   }
+  },
+  {
+   "tier": 24,
+   "free": {
+    "components": 40
+   },
+   "premium": {
+    "gold": 880
+   }
+  },
+  {
+   "tier": 25,
+   "free": {
+    "war_tokens": 40
+   },
+   "premium": {
+    "cosmetic": "defeat_shrug"
+   }
+  },
+  {
+   "tier": 26,
+   "free": {
+    "gold": 500
+   },
+   "premium": {
+    "gold": 920
+   }
+  },
+  {
+   "tier": 27,
+   "free": {
+    "chest": "chest_reinforced"
+   },
+   "premium": {
+    "item": "le_runner"
+   }
+  },
+  {
+   "tier": 28,
+   "free": {
+    "mutant_essence": 30
+   },
+   "premium": {
+    "gold": 960
+   }
+  },
+  {
+   "tier": 29,
+   "free": {
+    "crystals": 10
+   },
+   "premium": {
+    "item": "b_wings"
+   }
+  },
+  {
+   "tier": 30,
+   "free": {
+    "chest": "chest_module"
+   },
+   "premium": {
+    "gold": 1000
+   }
+  },
+  {
+   "tier": 31,
+   "free": {
+    "gold": 300
+   },
+   "premium": {
+    "item": "a_storm"
+   }
+  },
+  {
+   "tier": 32,
+   "free": {
+    "fragments": 30
+   },
+   "premium": {
+    "gold": 1040
+   }
+  },
+  {
+   "tier": 33,
+   "free": {
+    "chest": "chest_wood"
+   },
+   "premium": {
+    "cosmetic": "emote_spin"
+   }
+  },
+  {
+   "tier": 34,
+   "free": {
+    "components": 40
+   },
+   "premium": {
+    "gold": 1080
+   }
+  },
+  {
+   "tier": 35,
+   "free": {
+    "war_tokens": 40
+   },
+   "premium": {
+    "item": "w_faux_ombre"
+   }
+  },
+  {
+   "tier": 36,
+   "free": {
+    "gold": 500
+   },
+   "premium": {
+    "gold": 1120
+   }
+  },
+  {
+   "tier": 37,
+   "free": {
+    "chest": "chest_reinforced"
+   },
+   "premium": {
+    "item": "h_royal_crown"
+   }
+  },
+  {
+   "tier": 38,
+   "free": {
+    "mutant_essence": 30
+   },
+   "premium": {
+    "gold": 1160
+   }
+  },
+  {
+   "tier": 39,
+   "free": {
+    "crystals": 10
+   },
+   "premium": {
+    "crystals": 15
+   }
+  },
+  {
+   "tier": 40,
+   "free": {
+    "chest": "chest_ancestral"
+   },
+   "premium": {
+    "cosmetic": "victory_throne"
+   }
+  }
+ ],
+ "xp_sources": {
+  "battle_win": 30,
+  "battle_loss": 10,
+  "daily_mission": 50,
+  "weekly_mission": 150
+ }
+}

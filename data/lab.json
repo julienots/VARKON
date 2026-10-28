@@ -1,0 +1,595 @@
+{
+ "unlock": [
+  {
+   "type": "building_level",
+   "building": "fortress",
+   "level": 4,
+   "text": "Forteresse de niveau 4"
+  },
+  {
+   "type": "campaign",
+   "mission": "c2m8",
+   "text": "Chapitre 2 terminé"
+  },
+  {
+   "type": "flag",
+   "flag": "lab_repaired",
+   "text": "Mission de réparation accomplie"
+  }
+ ],
+ "repair_cost": {
+  "gold": 800,
+  "components": 60
+ },
+ "rooms": [
+  {
+   "id": "design",
+   "name": "Salle de conception",
+   "desc": "Équiper, modifier et fabriquer des modules.",
+   "lab_level": 1
+  },
+  {
+   "id": "mutation",
+   "name": "Salle de mutation",
+   "desc": "Débloquer des transformations physiques.",
+   "lab_level": 1
+  },
+  {
+   "id": "experiment",
+   "name": "Salle d'expérimentation",
+   "desc": "Tester une configuration contre des mannequins ou des bots.",
+   "lab_level": 1
+  },
+  {
+   "id": "research",
+   "name": "Salle de recherche",
+   "desc": "Améliorer des technologies.",
+   "lab_level": 2
+  },
+  {
+   "id": "recycle",
+   "name": "Salle de recyclage",
+   "desc": "Transformer des objets en matériaux.",
+   "lab_level": 2
+  },
+  {
+   "id": "relics",
+   "name": "Salle des reliques",
+   "desc": "Étudier et améliorer les reliques.",
+   "lab_level": 3
+  }
+ ],
+ "recycle": {
+  "common": {
+   "components": 8
+  },
+  "rare": {
+   "components": 25
+  },
+  "epic": {
+   "components": 60,
+   "mutant_essence": 10
+  },
+  "legendary": {
+   "components": 140,
+   "ancestral": 2
+  },
+  "mythic": {
+   "components": 300,
+   "ancestral": 6
+  },
+  "ancestral": {
+   "components": 600,
+   "ancestral": 15
+  }
+ },
+ "relic_upgrade": {
+  "max_level": 5,
+  "cost_per_level": {
+   "ancestral": 4,
+   "gold": 1000
+  },
+  "bonus_pct_per_level": 10
+ },
+ "mutation_slots": 2,
+ "research": [
+  {
+   "id": "economy",
+   "name": "Économie gobeline",
+   "desc": "+5 % d'or gagné en combat par niveau.",
+   "max": 3,
+   "cost": {
+    "gold": 800,
+    "components": 40
+   },
+   "time": 120,
+   "per_level": {
+    "battle_gold_pct": 5
+   }
+  },
+  {
+   "id": "engineering",
+   "name": "Ingénierie",
+   "desc": "-15 % de temps de fabrication par niveau.",
+   "max": 3,
+   "cost": {
+    "gold": 700,
+    "components": 60
+   },
+   "time": 120,
+   "per_level": {
+    "craft_time_pct": -15
+   }
+  },
+  {
+   "id": "tactics",
+   "name": "Tactique",
+   "desc": "+0,5 rage au début des combats par niveau.",
+   "max": 2,
+   "cost": {
+    "gold": 1500,
+    "components": 80
+   },
+   "time": 300,
+   "per_level": {
+    "start_energy": 0.5
+   }
+  },
+  {
+   "id": "fortification",
+   "name": "Fortification",
+   "desc": "+5 % PV des structures en combat par niveau.",
+   "max": 3,
+   "cost": {
+    "gold": 900,
+    "components": 50
+   },
+   "time": 180,
+   "per_level": {
+    "structure_hp_pct": 5
+   }
+  },
+  {
+   "id": "genetics",
+   "name": "Génétique",
+   "desc": "+1 emplacement de mutation.",
+   "max": 1,
+   "cost": {
+    "gold": 3000,
+    "mutant_essence": 200
+   },
+   "time": 600,
+   "per_level": {
+    "mutation_slots": 1
+   }
+  },
+  {
+   "id": "logistics",
+   "name": "Logistique",
+   "desc": "+1 emplacement de configuration du King.",
+   "max": 1,
+   "cost": {
+    "gold": 2500,
+    "components": 150
+   },
+   "time": 600,
+   "per_level": {
+    "loadout_slots": 1
+   }
+  },
+  {
+   "id": "advanced_forge",
+   "name": "Forge avancée",
+   "desc": "Débloque les recettes légendaires.",
+   "max": 1,
+   "cost": {
+    "gold": 4000,
+    "components": 200,
+    "ancestral": 5
+   },
+   "time": 900,
+   "per_level": {
+    "unlock_legendary_recipes": 1
+   }
+  }
+ ],
+ "recipes": [
+  {
+   "id": "rc_w_brise_fer",
+   "item": "w_brise_fer",
+   "station": "forge",
+   "cost": {
+    "gold": 600,
+    "components": 40
+   },
+   "time": 60,
+   "requires": {
+    "royal_forge": 1
+   }
+  },
+  {
+   "id": "rc_w_crocs_noirs",
+   "item": "w_crocs_noirs",
+   "station": "forge",
+   "cost": {
+    "gold": 600,
+    "components": 40
+   },
+   "time": 60,
+   "requires": {
+    "royal_forge": 1
+   }
+  },
+  {
+   "id": "rc_w_arbalete",
+   "item": "w_arbalete",
+   "station": "workshop",
+   "cost": {
+    "gold": 500,
+    "components": 50
+   },
+   "time": 60,
+   "requires": {
+    "workshop": 2
+   }
+  },
+  {
+   "id": "rc_w_fendoir_royal",
+   "item": "w_fendoir_royal",
+   "station": "forge",
+   "cost": {
+    "gold": 1500,
+    "components": 90
+   },
+   "time": 180,
+   "requires": {
+    "royal_forge": 3
+   }
+  },
+  {
+   "id": "rc_w_epine_arcanique",
+   "item": "w_epine_arcanique",
+   "station": "lab",
+   "cost": {
+    "gold": 1500,
+    "components": 60,
+    "mutant_essence": 40
+   },
+   "time": 180,
+   "requires": {
+    "laboratory": 1
+   }
+  },
+  {
+   "id": "rc_w_machoire_acier",
+   "item": "w_machoire_acier",
+   "station": "lab",
+   "cost": {
+    "gold": 1600,
+    "components": 120
+   },
+   "time": 180,
+   "requires": {
+    "laboratory": 1
+   }
+  },
+  {
+   "id": "rc_w_canon_main",
+   "item": "w_canon_main",
+   "station": "lab",
+   "cost": {
+    "gold": 4000,
+    "components": 250,
+    "ancestral": 4
+   },
+   "time": 600,
+   "requires": {
+    "laboratory": 3,
+    "research": "advanced_forge"
+   }
+  },
+  {
+   "id": "rc_w_marteau_roi",
+   "item": "w_marteau_roi",
+   "station": "forge",
+   "cost": {
+    "gold": 4500,
+    "components": 200,
+    "ancestral": 5
+   },
+   "time": 600,
+   "requires": {
+    "royal_forge": 5,
+    "research": "advanced_forge"
+   }
+  },
+  {
+   "id": "rc_l_iron_shield",
+   "item": "l_iron_shield",
+   "station": "forge",
+   "cost": {
+    "gold": 500,
+    "components": 40
+   },
+   "time": 60,
+   "requires": {
+    "royal_forge": 1
+   }
+  },
+  {
+   "id": "rc_l_rune_shield",
+   "item": "l_rune_shield",
+   "station": "lab",
+   "cost": {
+    "gold": 1400,
+    "components": 70,
+    "mutant_essence": 20
+   },
+   "time": 180,
+   "requires": {
+    "laboratory": 1
+   }
+  },
+  {
+   "id": "rc_l_royal_shield",
+   "item": "l_royal_shield",
+   "station": "forge",
+   "cost": {
+    "gold": 4000,
+    "components": 180,
+    "ancestral": 4
+   },
+   "time": 600,
+   "requires": {
+    "royal_forge": 5,
+    "research": "advanced_forge"
+   }
+  },
+  {
+   "id": "rc_h_bone_crown",
+   "item": "h_bone_crown",
+   "station": "forge",
+   "cost": {
+    "gold": 500,
+    "components": 30
+   },
+   "time": 60,
+   "requires": {
+    "royal_forge": 1
+   }
+  },
+  {
+   "id": "rc_h_gear_helm",
+   "item": "h_gear_helm",
+   "station": "lab",
+   "cost": {
+    "gold": 1500,
+    "components": 100
+   },
+   "time": 180,
+   "requires": {
+    "laboratory": 1
+   }
+  },
+  {
+   "id": "rc_t_scrap",
+   "item": "t_scrap",
+   "station": "workshop",
+   "cost": {
+    "gold": 400,
+    "components": 50
+   },
+   "time": 60,
+   "requires": {
+    "workshop": 1
+   }
+  },
+  {
+   "id": "rc_t_plate",
+   "item": "t_plate",
+   "station": "forge",
+   "cost": {
+    "gold": 1500,
+    "components": 100
+   },
+   "time": 180,
+   "requires": {
+    "royal_forge": 3
+   }
+  },
+  {
+   "id": "rc_t_carapace",
+   "item": "t_carapace",
+   "station": "lab",
+   "cost": {
+    "gold": 1500,
+    "components": 40,
+    "mutant_essence": 80
+   },
+   "time": 180,
+   "requires": {
+    "laboratory": 2
+   }
+  },
+  {
+   "id": "rc_t_mech_frame",
+   "item": "t_mech_frame",
+   "station": "lab",
+   "cost": {
+    "gold": 1800,
+    "components": 140
+   },
+   "time": 240,
+   "requires": {
+    "laboratory": 1
+   }
+  },
+  {
+   "id": "rc_t_royal_armor",
+   "item": "t_royal_armor",
+   "station": "forge",
+   "cost": {
+    "gold": 5000,
+    "components": 220,
+    "ancestral": 6
+   },
+   "time": 600,
+   "requires": {
+    "royal_forge": 6,
+    "research": "advanced_forge"
+   }
+  },
+  {
+   "id": "rc_s_royal",
+   "item": "s_royal",
+   "station": "forge",
+   "cost": {
+    "gold": 3500,
+    "components": 150,
+    "ancestral": 3
+   },
+   "time": 480,
+   "requires": {
+    "royal_forge": 5,
+    "research": "advanced_forge"
+   }
+  },
+  {
+   "id": "rc_ha_gantelet_broyeur",
+   "item": "ha_gantelet_broyeur",
+   "station": "lab",
+   "cost": {
+    "gold": 1600,
+    "components": 110
+   },
+   "time": 180,
+   "requires": {
+    "laboratory": 1
+   }
+  },
+  {
+   "id": "rc_le_runner",
+   "item": "le_runner",
+   "station": "workshop",
+   "cost": {
+    "gold": 1200,
+    "components": 70
+   },
+   "time": 120,
+   "requires": {
+    "workshop": 3
+   }
+  },
+  {
+   "id": "rc_f_hooves",
+   "item": "f_hooves",
+   "station": "lab",
+   "cost": {
+    "gold": 1200,
+    "mutant_essence": 70
+   },
+   "time": 120,
+   "requires": {
+    "laboratory": 2
+   }
+  },
+  {
+   "id": "rc_b_moteur_gobelin",
+   "item": "b_moteur_gobelin",
+   "station": "lab",
+   "cost": {
+    "gold": 2000,
+    "components": 160
+   },
+   "time": 300,
+   "requires": {
+    "laboratory": 2
+   }
+  },
+  {
+   "id": "rc_b_jetpack",
+   "item": "b_jetpack",
+   "station": "lab",
+   "cost": {
+    "gold": 4200,
+    "components": 260,
+    "ancestral": 4
+   },
+   "time": 600,
+   "requires": {
+    "laboratory": 4,
+    "research": "advanced_forge"
+   }
+  },
+  {
+   "id": "rc_be_flasks",
+   "item": "be_flasks",
+   "station": "workshop",
+   "cost": {
+    "gold": 600,
+    "components": 30,
+    "mutant_essence": 10
+   },
+   "time": 60,
+   "requires": {
+    "workshop": 2
+   }
+  },
+  {
+   "id": "rc_be_tools",
+   "item": "be_tools",
+   "station": "workshop",
+   "cost": {
+    "gold": 700,
+    "components": 60
+   },
+   "time": 90,
+   "requires": {
+    "workshop": 2
+   }
+  },
+  {
+   "id": "rc_r_coeur_fourneau",
+   "item": "r_coeur_fourneau",
+   "station": "lab",
+   "cost": {
+    "gold": 1800,
+    "components": 60,
+    "mutant_essence": 60
+   },
+   "time": 240,
+   "requires": {
+    "laboratory": 2
+   }
+  },
+  {
+   "id": "rc_r_noyau_instable",
+   "item": "r_noyau_instable",
+   "station": "lab",
+   "cost": {
+    "gold": 4500,
+    "components": 200,
+    "mutant_essence": 120,
+    "ancestral": 4
+   },
+   "time": 600,
+   "requires": {
+    "laboratory": 4,
+    "research": "advanced_forge"
+   }
+  },
+  {
+   "id": "rc_r_etendard_royal",
+   "item": "r_etendard_royal",
+   "station": "lab",
+   "cost": {
+    "gold": 2200,
+    "components": 100
+   },
+   "time": 240,
+   "requires": {
+    "laboratory": 3
+   }
+  }
+ ]
+}

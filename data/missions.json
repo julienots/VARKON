@@ -1,0 +1,435 @@
+{
+ "daily": [
+  {
+   "id": "d_win3",
+   "stat": "battle_won",
+   "target": 3,
+   "name": "Gagner 3 combats",
+   "reward": {
+    "gold": 250,
+    "crystals": 5
+   }
+  },
+  {
+   "id": "d_collect2",
+   "stat": "resources_collected",
+   "target": 2,
+   "name": "Collecter 2 fois vos bâtiments",
+   "reward": {
+    "gold": 150
+   }
+  },
+  {
+   "id": "d_upgrade_card",
+   "stat": "card_upgraded",
+   "target": 1,
+   "name": "Améliorer une carte",
+   "reward": {
+    "fragments": 30
+   }
+  },
+  {
+   "id": "d_open_chest",
+   "stat": "chest_opened",
+   "target": 1,
+   "name": "Ouvrir un coffre",
+   "reward": {
+    "gold": 150,
+    "components": 10
+   }
+  },
+  {
+   "id": "d_craft",
+   "stat": "item_crafted",
+   "target": 1,
+   "name": "Fabriquer un module",
+   "reward": {
+    "components": 30
+   }
+  },
+  {
+   "id": "d_building",
+   "stat": "building_upgraded",
+   "target": 1,
+   "name": "Améliorer un bâtiment",
+   "reward": {
+    "gold": 200
+   }
+  },
+  {
+   "id": "d_challenge",
+   "stat": "challenge_won",
+   "target": 1,
+   "name": "Terminer un défi",
+   "reward": {
+    "war_tokens": 40
+   }
+  },
+  {
+   "id": "d_deploy",
+   "stat": "units_deployed",
+   "target": 30,
+   "name": "Déployer 30 unités",
+   "reward": {
+    "gold": 200
+   }
+  },
+  {
+   "id": "d_ability",
+   "stat": "king_ability_used",
+   "target": 6,
+   "name": "Utiliser 6 capacités du King",
+   "reward": {
+    "fragments": 40
+   }
+  },
+  {
+   "id": "d_battles",
+   "stat": "battle_played",
+   "target": 4,
+   "name": "Jouer 4 combats",
+   "reward": {
+    "gold": 200,
+    "war_tokens": 10
+   }
+  }
+ ],
+ "weekly": [
+  {
+   "id": "w_boss",
+   "stat": "boss_defeated",
+   "target": 1,
+   "name": "Vaincre un boss",
+   "reward": {
+    "crystals": 30,
+    "chest": "chest_reinforced"
+   }
+  },
+  {
+   "id": "w_defense",
+   "stat": "defense_won",
+   "target": 2,
+   "name": "Défendre la base 2 fois",
+   "reward": {
+    "gold": 800,
+    "war_tokens": 60
+   }
+  },
+  {
+   "id": "w_raids",
+   "stat": "raid_won",
+   "target": 3,
+   "name": "Réussir 3 raids",
+   "reward": {
+    "gold": 1000,
+    "components": 60
+   }
+  },
+  {
+   "id": "w_unlock_card",
+   "stat": "card_unlocked",
+   "target": 1,
+   "name": "Débloquer une carte",
+   "reward": {
+    "fragments": 100
+   }
+  },
+  {
+   "id": "w_king",
+   "stat": "king_upgraded",
+   "target": 2,
+   "name": "Améliorer le King Gobelin 2 fois",
+   "reward": {
+    "mutant_essence": 40,
+    "crystals": 20
+   }
+  },
+  {
+   "id": "w_win15",
+   "stat": "battle_won",
+   "target": 15,
+   "name": "Gagner 15 combats",
+   "reward": {
+    "chest": "chest_royal"
+   }
+  }
+ ],
+ "achievements": [
+  {
+   "id": "a_first_win",
+   "stat": "battle_won",
+   "target": 1,
+   "name": "Première victoire",
+   "reward": {
+    "crystals": 20
+   }
+  },
+  {
+   "id": "a_wins_25",
+   "stat": "battle_won",
+   "target": 25,
+   "name": "Chef de guerre",
+   "reward": {
+    "crystals": 50
+   }
+  },
+  {
+   "id": "a_wins_100",
+   "stat": "battle_won",
+   "target": 100,
+   "name": "Conquérant",
+   "reward": {
+    "crystals": 150,
+    "chest": "chest_ancestral"
+   }
+  },
+  {
+   "id": "a_first_legendary",
+   "stat": "legendary_card_owned",
+   "target": 1,
+   "name": "Première carte légendaire",
+   "reward": {
+    "crystals": 50
+   }
+  },
+  {
+   "id": "a_first_mutation",
+   "stat": "mutation_unlocked",
+   "target": 1,
+   "name": "Première mutation",
+   "reward": {
+    "mutant_essence": 60
+   }
+  },
+  {
+   "id": "a_first_craft",
+   "stat": "item_crafted",
+   "target": 1,
+   "name": "Premier module fabriqué",
+   "reward": {
+    "components": 80
+   }
+  },
+  {
+   "id": "a_first_zone",
+   "stat": "zone_unlocked",
+   "target": 1,
+   "name": "Première zone débloquée",
+   "reward": {
+    "gold": 500
+   }
+  },
+  {
+   "id": "a_streak_5",
+   "stat": "best_win_streak",
+   "target": 5,
+   "name": "Série de 5 victoires",
+   "reward": {
+    "crystals": 40
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_streak_10",
+   "stat": "best_win_streak",
+   "target": 10,
+   "name": "Série de 10 victoires",
+   "reward": {
+    "item": "s_trophy"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_boss_hunter",
+   "stat": "boss_defeated",
+   "target": 5,
+   "name": "Chasseur de boss",
+   "reward": {
+    "material": "mat_larme_ancestrale",
+    "crystals": 30
+   }
+  },
+  {
+   "id": "a_raider",
+   "stat": "raid_won",
+   "target": 10,
+   "name": "Pilleur de forteresses",
+   "reward": {
+    "war_tokens": 200
+   }
+  },
+  {
+   "id": "a_campaign_done",
+   "stat": "campaign_completed",
+   "target": 1,
+   "name": "Fin de la campagne",
+   "reward": {
+    "item": "w_lame_ancestrale"
+   }
+  },
+  {
+   "id": "a_all_stars",
+   "stat": "campaign_stars",
+   "target": 120,
+   "name": "Perfection royale",
+   "reward": {
+    "item": "a_ancestral"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_fortress_5",
+   "stat": "fortress_level",
+   "target": 5,
+   "name": "Forteresse imposante",
+   "reward": {
+    "crystals": 60
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_survivor",
+   "stat": "survival_best",
+   "target": 10,
+   "name": "Survivant (10 vagues)",
+   "reward": {
+    "chest": "chest_royal"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_fire",
+   "stat": "family_complete_fire",
+   "target": 1,
+   "name": "Collection complète : Feu",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_ice",
+   "stat": "family_complete_ice",
+   "target": 1,
+   "name": "Collection complète : Glace",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_toxic",
+   "stat": "family_complete_toxic",
+   "target": 1,
+   "name": "Collection complète : Toxique",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_mech",
+   "stat": "family_complete_mech",
+   "target": 1,
+   "name": "Collection complète : Mécanique",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_shadow",
+   "stat": "family_complete_shadow",
+   "target": 1,
+   "name": "Collection complète : Ombre",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_wild",
+   "stat": "family_complete_wild",
+   "target": 1,
+   "name": "Collection complète : Sauvage",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_mystic",
+   "stat": "family_complete_mystic",
+   "target": 1,
+   "name": "Collection complète : Mystique",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_royal",
+   "stat": "family_complete_royal",
+   "target": 1,
+   "name": "Collection complète : Royale",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_mutant",
+   "stat": "family_complete_mutant",
+   "target": 1,
+   "name": "Collection complète : Mutante",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_air",
+   "stat": "family_complete_air",
+   "target": 1,
+   "name": "Collection complète : Aérienne",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_support",
+   "stat": "family_complete_support",
+   "target": 1,
+   "name": "Collection complète : Soutien",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  },
+  {
+   "id": "a_family_raider",
+   "stat": "family_complete_raider",
+   "target": 1,
+   "name": "Collection complète : Pillards",
+   "reward": {
+    "crystals": 40,
+    "chest": "chest_goblin"
+   },
+   "mode": "max"
+  }
+ ],
+ "daily_count": 3,
+ "weekly_count": 3
+}

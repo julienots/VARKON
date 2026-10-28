@@ -1,0 +1,939 @@
+{
+ "resources": [
+  {
+   "id": "gold",
+   "name": "Or",
+   "color": "#ffd23f",
+   "desc": "Améliorations, bâtiments et achats courants."
+  },
+  {
+   "id": "crystals",
+   "name": "Cristaux",
+   "color": "#58a6ff",
+   "desc": "Monnaie premium, aussi gagnée gratuitement (missions, pass, succès, Cristallerie)."
+  },
+  {
+   "id": "fragments",
+   "name": "Fragments",
+   "color": "#e0a0ff",
+   "desc": "Remplacent des copies manquantes pour améliorer les cartes."
+  },
+  {
+   "id": "components",
+   "name": "Composants",
+   "color": "#b7a27a",
+   "desc": "Fabrication des modules et équipements mécaniques."
+  },
+  {
+   "id": "mutant_essence",
+   "name": "Essence mutante",
+   "color": "#d03fd9",
+   "desc": "Mutations et transformations."
+  },
+  {
+   "id": "war_tokens",
+   "name": "Jetons de guerre",
+   "color": "#c9472b",
+   "desc": "Défis, événements et boutique d'événement."
+  },
+  {
+   "id": "ancestral",
+   "name": "Matériaux ancestraux",
+   "color": "#3ff0e0",
+   "desc": "Fabrication d'objets rares et reliques."
+  }
+ ],
+ "chests": [
+  {
+   "id": "chest_wood",
+   "name": "Coffre de bois",
+   "rarity": "common",
+   "color": "#8a5a2b",
+   "desc": "Or, cartes communes et composants simples.",
+   "gold": [
+    80,
+    150
+   ],
+   "resources": {
+    "components": [
+     5,
+     15
+    ]
+   },
+   "rolls": [
+    {
+     "type": "card",
+     "count": 3,
+     "weights": {
+      "common": 85,
+      "rare": 15
+     }
+    }
+   ]
+  },
+  {
+   "id": "chest_reinforced",
+   "name": "Coffre renforcé",
+   "rarity": "rare",
+   "color": "#6d7076",
+   "desc": "Ressources et cartes de rareté variable.",
+   "gold": [
+    200,
+    400
+   ],
+   "resources": {
+    "fragments": [
+     15,
+     30
+    ],
+    "components": [
+     10,
+     25
+    ]
+   },
+   "rolls": [
+    {
+     "type": "card",
+     "count": 6,
+     "weights": {
+      "common": 68,
+      "rare": 26,
+      "epic": 6
+     }
+    }
+   ]
+  },
+  {
+   "id": "chest_royal",
+   "name": "Coffre royal",
+   "rarity": "epic",
+   "color": "#d9b44a",
+   "desc": "Sélection de récompenses prestigieuses.",
+   "gold": [
+    600,
+    1000
+   ],
+   "resources": {
+    "fragments": [
+     40,
+     80
+    ],
+    "crystals": [
+     5,
+     15
+    ]
+   },
+   "rolls": [
+    {
+     "type": "card",
+     "count": 12,
+     "weights": {
+      "common": 50,
+      "rare": 33,
+      "epic": 13,
+      "legendary": 3.5,
+      "mythic": 0.5
+     }
+    },
+    {
+     "type": "item",
+     "count": 1,
+     "weights": {
+      "rare": 60,
+      "epic": 32,
+      "legendary": 7,
+      "mythic": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "chest_goblin",
+   "name": "Coffre de gobelins",
+   "rarity": "rare",
+   "color": "#5f8f3a",
+   "desc": "Uniquement des cartes de gobelins.",
+   "gold": [
+    50,
+    100
+   ],
+   "resources": {},
+   "rolls": [
+    {
+     "type": "card",
+     "count": 15,
+     "weights": {
+      "common": 45,
+      "rare": 35,
+      "epic": 15,
+      "legendary": 4,
+      "mythic": 0.8,
+      "ancestral": 0.2
+     }
+    }
+   ]
+  },
+  {
+   "id": "chest_module",
+   "name": "Coffre de modules",
+   "rarity": "epic",
+   "color": "#8d8f94",
+   "desc": "Équipements du King Gobelin.",
+   "gold": [
+    100,
+    200
+   ],
+   "resources": {
+    "components": [
+     30,
+     60
+    ]
+   },
+   "rolls": [
+    {
+     "type": "item",
+     "count": 2,
+     "weights": {
+      "common": 40,
+      "rare": 35,
+      "epic": 18,
+      "legendary": 6,
+      "mythic": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "chest_mutation",
+   "name": "Coffre de mutation",
+   "rarity": "epic",
+   "color": "#d03fd9",
+   "desc": "Matériaux de transformation.",
+   "gold": [
+    50,
+    100
+   ],
+   "resources": {
+    "mutant_essence": [
+     40,
+     90
+    ]
+   },
+   "rolls": [
+    {
+     "type": "material",
+     "id": "mat_larme_ancestrale",
+     "chance": 8
+    },
+    {
+     "type": "resource",
+     "id": "ancestral",
+     "amount": [
+      1,
+      3
+     ],
+     "chance": 40
+    }
+   ]
+  },
+  {
+   "id": "chest_ancestral",
+   "name": "Coffre ancestral",
+   "rarity": "ancestral",
+   "color": "#3ff0e0",
+   "desc": "Récompenses rares des défis et événements. Garantit un objet épique ou mieux.",
+   "gold": [
+    1000,
+    2000
+   ],
+   "resources": {
+    "ancestral": [
+     5,
+     10
+    ],
+    "crystals": [
+     20,
+     40
+    ]
+   },
+   "rolls": [
+    {
+     "type": "card",
+     "count": 20,
+     "weights": {
+      "rare": 55,
+      "epic": 30,
+      "legendary": 11,
+      "mythic": 3,
+      "ancestral": 1
+     }
+    },
+    {
+     "type": "item",
+     "count": 1,
+     "weights": {
+      "epic": 60,
+      "legendary": 30,
+      "mythic": 8,
+      "ancestral": 2
+     }
+    }
+   ]
+  },
+  {
+   "id": "chest_victory",
+   "name": "Coffre de victoire",
+   "rarity": "common",
+   "color": "#c9472b",
+   "desc": "Récompense certains combats.",
+   "gold": [
+    40,
+    80
+   ],
+   "resources": {},
+   "rolls": [
+    {
+     "type": "card",
+     "count": 2,
+     "weights": {
+      "common": 80,
+      "rare": 18,
+      "epic": 2
+     }
+    },
+    {
+     "type": "resource",
+     "id": "crystals",
+     "amount": [
+      3,
+      6
+     ],
+     "chance": 10
+    }
+   ]
+  }
+ ],
+ "shop": {
+  "daily_count": 6,
+  "daily_pool": [
+   {
+    "kind": "card_copies",
+    "rarity": "common",
+    "amount": 20,
+    "price": {
+     "gold": 200
+    }
+   },
+   {
+    "kind": "card_copies",
+    "rarity": "rare",
+    "amount": 10,
+    "price": {
+     "gold": 600
+    }
+   },
+   {
+    "kind": "card_copies",
+    "rarity": "epic",
+    "amount": 4,
+    "price": {
+     "gold": 2000
+    }
+   },
+   {
+    "kind": "card_copies",
+    "rarity": "legendary",
+    "amount": 1,
+    "price": {
+     "crystals": 150
+    }
+   },
+   {
+    "kind": "resource",
+    "id": "components",
+    "amount": 60,
+    "price": {
+     "gold": 500
+    }
+   },
+   {
+    "kind": "resource",
+    "id": "mutant_essence",
+    "amount": 40,
+    "price": {
+     "gold": 700
+    }
+   },
+   {
+    "kind": "resource",
+    "id": "fragments",
+    "amount": 50,
+    "price": {
+     "gold": 400
+    }
+   },
+   {
+    "kind": "chest",
+    "id": "chest_reinforced",
+    "price": {
+     "gold": 900
+    }
+   },
+   {
+    "kind": "item_random",
+    "rarity": "rare",
+    "price": {
+     "gold": 1500
+    }
+   },
+   {
+    "kind": "item_random",
+    "rarity": "epic",
+    "price": {
+     "crystals": 120
+    }
+   }
+  ],
+  "sections": [
+   {
+    "id": "chests",
+    "name": "Coffres",
+    "offers": [
+     {
+      "id": "o_chest_wood",
+      "kind": "chest",
+      "ref": "chest_wood",
+      "price": {
+       "gold": 250
+      }
+     },
+     {
+      "id": "o_chest_reinforced",
+      "kind": "chest",
+      "ref": "chest_reinforced",
+      "price": {
+       "gold": 900
+      }
+     },
+     {
+      "id": "o_chest_royal",
+      "kind": "chest",
+      "ref": "chest_royal",
+      "price": {
+       "crystals": 200
+      }
+     },
+     {
+      "id": "o_chest_goblin",
+      "kind": "chest",
+      "ref": "chest_goblin",
+      "price": {
+       "crystals": 150
+      }
+     },
+     {
+      "id": "o_chest_module",
+      "kind": "chest",
+      "ref": "chest_module",
+      "price": {
+       "crystals": 180
+      }
+     },
+     {
+      "id": "o_chest_mutation",
+      "kind": "chest",
+      "ref": "chest_mutation",
+      "price": {
+       "gold": 1500
+      }
+     }
+    ]
+   },
+   {
+    "id": "weapons",
+    "name": "Armes",
+    "offers": [
+     {
+      "id": "o_w_bone_axe",
+      "kind": "item",
+      "ref": "w_bone_axe",
+      "price": {
+       "gold": 800
+      }
+     },
+     {
+      "id": "o_w_pike",
+      "kind": "item",
+      "ref": "w_pike",
+      "price": {
+       "gold": 800
+      }
+     },
+     {
+      "id": "o_w_brise_fer",
+      "kind": "item",
+      "ref": "w_brise_fer",
+      "price": {
+       "gold": 3000
+      }
+     },
+     {
+      "id": "o_w_lance_tempete",
+      "kind": "item",
+      "ref": "w_lance_tempete",
+      "price": {
+       "gold": 3000
+      }
+     },
+     {
+      "id": "o_w_fendoir_royal",
+      "kind": "item",
+      "ref": "w_fendoir_royal",
+      "price": {
+       "crystals": 350
+      }
+     },
+     {
+      "id": "o_w_marteau_roi",
+      "kind": "item",
+      "ref": "w_marteau_roi",
+      "price": {
+       "crystals": 900
+      }
+     },
+     {
+      "id": "o_w_epee_parade",
+      "kind": "item",
+      "ref": "w_epee_parade",
+      "price": {
+       "crystals": 120
+      },
+      "limit": 1
+     }
+    ]
+   },
+   {
+    "id": "armors",
+    "name": "Armures",
+    "offers": [
+     {
+      "id": "o_t_leather",
+      "kind": "item",
+      "ref": "t_leather",
+      "price": {
+       "gold": 700
+      }
+     },
+     {
+      "id": "o_h_iron_helm",
+      "kind": "item",
+      "ref": "h_iron_helm",
+      "price": {
+       "gold": 600
+      }
+     },
+     {
+      "id": "o_le_greaves",
+      "kind": "item",
+      "ref": "le_greaves",
+      "price": {
+       "gold": 1800
+      }
+     },
+     {
+      "id": "o_f_iron_boots",
+      "kind": "item",
+      "ref": "f_iron_boots",
+      "price": {
+       "gold": 1800
+      }
+     },
+     {
+      "id": "o_t_plate",
+      "kind": "item",
+      "ref": "t_plate",
+      "price": {
+       "crystals": 300
+      }
+     },
+     {
+      "id": "o_t_royal_armor",
+      "kind": "item",
+      "ref": "t_royal_armor",
+      "price": {
+       "crystals": 950
+      }
+     },
+     {
+      "id": "o_l_royal_shield",
+      "kind": "item",
+      "ref": "l_royal_shield",
+      "price": {
+       "crystals": 800
+      }
+     }
+    ]
+   },
+   {
+    "id": "accessories",
+    "name": "Accessoires",
+    "offers": [
+     {
+      "id": "o_h_war_mask",
+      "kind": "item",
+      "ref": "h_war_mask",
+      "price": {
+       "gold": 2200
+      }
+     },
+     {
+      "id": "o_e_red_lenses",
+      "kind": "item",
+      "ref": "e_red_lenses",
+      "price": {
+       "gold": 2500
+      }
+     },
+     {
+      "id": "o_s_spikes",
+      "kind": "item",
+      "ref": "s_spikes",
+      "price": {
+       "gold": 2200
+      }
+     },
+     {
+      "id": "o_ha_iron_gloves",
+      "kind": "item",
+      "ref": "ha_iron_gloves",
+      "price": {
+       "gold": 2000
+      }
+     },
+     {
+      "id": "o_b_quiver",
+      "kind": "item",
+      "ref": "b_quiver",
+      "price": {
+       "gold": 2400
+      }
+     },
+     {
+      "id": "o_h_royal_crown",
+      "kind": "item",
+      "ref": "h_royal_crown",
+      "price": {
+       "crystals": 400
+      }
+     }
+    ]
+   },
+   {
+    "id": "auras",
+    "name": "Auras",
+    "offers": [
+     {
+      "id": "o_a_frost",
+      "kind": "item",
+      "ref": "a_frost",
+      "price": {
+       "crystals": 150
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_a_toxic",
+      "kind": "item",
+      "ref": "a_toxic",
+      "price": {
+       "crystals": 300
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_a_storm",
+      "kind": "item",
+      "ref": "a_storm",
+      "price": {
+       "crystals": 600
+      },
+      "limit": 1
+     }
+    ]
+   },
+   {
+    "id": "cosmetics",
+    "name": "Apparences et emotes",
+    "offers": [
+     {
+      "id": "o_emote_cross",
+      "kind": "cosmetic",
+      "ref": "emote_cross",
+      "price": {
+       "crystals": 80
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_emote_roar",
+      "kind": "cosmetic",
+      "ref": "emote_roar",
+      "price": {
+       "crystals": 150
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_taunt",
+      "kind": "cosmetic",
+      "ref": "taunt_tongue",
+      "price": {
+       "crystals": 80
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_victory_flex",
+      "kind": "cosmetic",
+      "ref": "victory_flex",
+      "price": {
+       "crystals": 200
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_entry_smoke",
+      "kind": "cosmetic",
+      "ref": "entry_smoke",
+      "price": {
+       "crystals": 150
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_entry_lightning",
+      "kind": "cosmetic",
+      "ref": "entry_lightning",
+      "price": {
+       "crystals": 450
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_b_banner",
+      "kind": "item",
+      "ref": "b_banner",
+      "price": {
+       "gold": 2500
+      },
+      "limit": 1
+     }
+    ]
+   },
+   {
+    "id": "event",
+    "name": "Objets d'événement",
+    "offers": [
+     {
+      "id": "o_ev_ancestral",
+      "kind": "chest",
+      "ref": "chest_ancestral",
+      "price": {
+       "war_tokens": 400
+      }
+     },
+     {
+      "id": "o_ev_l_griffe",
+      "kind": "item",
+      "ref": "l_griffe_traqueur",
+      "price": {
+       "war_tokens": 250
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_ev_totem",
+      "kind": "item",
+      "ref": "be_totem_hurleur",
+      "price": {
+       "war_tokens": 250
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_ev_oeil",
+      "kind": "item",
+      "ref": "e_oeil_pillard",
+      "price": {
+       "war_tokens": 300
+      },
+      "limit": 1
+     },
+     {
+      "id": "o_ev_mutation",
+      "kind": "chest",
+      "ref": "chest_mutation",
+      "price": {
+       "war_tokens": 120
+      }
+     },
+     {
+      "id": "o_ev_larme",
+      "kind": "material",
+      "ref": "mat_larme_ancestrale",
+      "price": {
+       "war_tokens": 600
+      },
+      "limit": 2
+     }
+    ]
+   },
+   {
+    "id": "crystals",
+    "name": "Cristaux (argent réel)",
+    "real_money": true,
+    "offers": [
+     {
+      "id": "o_cr_small",
+      "kind": "iap",
+      "ref": "crystals_80",
+      "amount": 80,
+      "label_price": "—"
+     },
+     {
+      "id": "o_cr_medium",
+      "kind": "iap",
+      "ref": "crystals_500",
+      "amount": 500,
+      "label_price": "—"
+     },
+     {
+      "id": "o_cr_large",
+      "kind": "iap",
+      "ref": "crystals_1200",
+      "amount": 1200,
+      "label_price": "—"
+     }
+    ]
+   }
+  ],
+  "free_daily": {
+   "gold": 100,
+   "chest": "chest_wood"
+  }
+ },
+ "player": {
+  "xp_curve": [
+   0,
+   100,
+   250,
+   450,
+   700,
+   1000,
+   1400,
+   1900,
+   2500,
+   3200,
+   4000,
+   5000,
+   6200,
+   7600,
+   9200,
+   11000,
+   13000,
+   15500,
+   18500,
+   22000
+  ],
+  "level_rewards": {
+   "gold": 300,
+   "crystals": 10
+  },
+  "start_resources": {
+   "gold": 600,
+   "crystals": 60,
+   "fragments": 20,
+   "components": 30,
+   "mutant_essence": 0,
+   "war_tokens": 0,
+   "ancestral": 0
+  },
+  "start_cards": [
+   "pillard",
+   "frondeur",
+   "pyrogobelin",
+   "givregriffes",
+   "croquefer",
+   "boulon",
+   "venin",
+   "medecin_guerre",
+   "porte_bouclier",
+   "aile_griffe"
+  ],
+  "start_deck": [
+   "pillard",
+   "frondeur",
+   "pyrogobelin",
+   "givregriffes",
+   "croquefer",
+   "boulon",
+   "medecin_guerre",
+   "aile_griffe"
+  ],
+  "start_items": [
+   "w_rusty_blade",
+   "l_buckler",
+   "h_leather_cap",
+   "t_rags",
+   "ha_wraps",
+   "le_trousers",
+   "f_sandals",
+   "be_rope"
+  ],
+  "start_cosmetics": [
+   "emote_laugh",
+   "emote_smash",
+   "victory_jump"
+  ],
+  "loadout_slots": [
+   {
+    "level": 1,
+    "slots": 2
+   },
+   {
+    "level": 6,
+    "slots": 3
+   },
+   {
+    "level": 12,
+    "slots": 4
+   }
+  ],
+  "battle": {
+   "duration": 180,
+   "overtime": 60,
+   "energy_start": 5,
+   "energy_max": 10,
+   "energy_regen": 2.8,
+   "hand_size": 4,
+   "deck_size": 8,
+   "hero_respawn": 12.0,
+   "ultimate_charge_per_sec": 1.0,
+   "ultimate_charge_per_dmg": 0.02
+  },
+  "battle_rewards": {
+   "win_gold": [
+    60,
+    120
+   ],
+   "loss_gold": [
+    15,
+    30
+   ],
+   "win_xp": 30,
+   "loss_xp": 10,
+   "victory_chest_chance": 35,
+   "war_tokens_challenge": 20
+  }
+ }
+}

@@ -1,0 +1,643 @@
+keys,fr,en
+ABSLOT_ACTIVE,Compétence active,Active skill
+ABSLOT_DEFENSIVE,Compétence défensive,Defensive skill
+ABSLOT_PASSIVE,Passif,Passive
+ABSLOT_ULTIMATE,Capacité ultime,Ultimate
+APP_BULK,Carrure,Build
+APP_CREST,Crête,Crest
+APP_EARS,Oreilles,Ears
+APP_EXPRESSION,Expression,Expression
+APP_EYES,Yeux,Eyes
+APP_EYE_COLOR,Couleur des yeux,Eye color
+APP_FACE_SHAPE,Visage,Face
+APP_HAIR,Cheveux,Hair
+APP_HAIR_COLOR,Couleur cheveux,Hair color
+APP_HEIGHT,Taille,Height
+APP_HORNS,Cornes,Horns
+APP_JAW,Mâchoire,Jaw
+APP_MUSCLE,Musculature,Muscles
+APP_NOSE,Nez,Nose
+APP_PAINT,Peinture,War paint
+APP_PAINT_COLOR,Couleur peinture,Paint color
+APP_SCARS,Cicatrices,Scars
+APP_SKIN,Peau,Skin
+APP_TEETH,Dents,Teeth
+APP_TUSKS,Défenses,Tusks
+APP_VOICE,Voix,Voice
+BTN_ACTIVATE,Activer,Activate
+BTN_ADD_DECK,Ajouter au deck,Add to deck
+BTN_BACK,Retour,Back
+BTN_BUILD,Construire,Build
+BTN_BUY,Acheter,Buy
+BTN_BUY_PREMIUM,Voie premium — %d cristaux,Premium track — %d crystals
+BTN_CANCEL,Annuler,Cancel
+BTN_CLAIM,Réclamer,Claim
+BTN_CLAIM_ALL,Tout réclamer,Claim all
+BTN_CLOSE,Fermer,Close
+BTN_COLLECT,Collecter,Collect
+BTN_COLLECT_ALL,Tout collecter,Collect all
+BTN_CONFIRM,Confirmer,Confirm
+BTN_CONTINUE,Continuer,Continue
+BTN_CRAFT,Fabriquer,Craft
+BTN_DEACTIVATE,Désactiver,Deactivate
+BTN_DECK,Mon deck,My deck
+BTN_DELETE,Supprimer,Delete
+BTN_DUMMIES,Mannequins d'entraînement,Training dummies
+BTN_EMOTE,Emote,Emote
+BTN_EQUIP,Équiper,Equip
+BTN_FIGHT,Combattre,Fight
+BTN_FORFEIT,Abandonner,Forfeit
+BTN_GO,Voir,Go
+BTN_LOAD,Charger,Load
+BTN_MENU,Menu,Menu
+BTN_MOVE,Déplacer,Move
+BTN_NEXT_MISSION,Mission suivante,Next mission
+BTN_ODDS,Probabilités,Odds
+BTN_OK,OK,OK
+BTN_OPEN,Ouvrir,Open
+BTN_PAUSE,Pause,Pause
+BTN_PLACE,Placer,Place
+BTN_PREVIEW,Aperçu,Preview
+BTN_RECYCLE,Recycler,Recycle
+BTN_REMOVE_DECK,Retirer du deck,Remove from deck
+BTN_REPAIR,Réparer,Repair
+BTN_REPLAY,Rejouer,Play again
+BTN_RESEARCH,Rechercher,Research
+BTN_RESET_PROFILE,Effacer la progression,Erase progress
+BTN_RESET_SETTINGS,Réinitialiser les paramètres,Reset settings
+BTN_RESUME,Reprendre,Resume
+BTN_RETRY,Rejouer,Retry
+BTN_ROTATE,Pivoter,Rotate
+BTN_SAVE,Enregistrer,Save
+BTN_SAVE_NOW,Sauvegarder maintenant,Save now
+BTN_SPEEDUP,Accélérer (%d cristaux),Speed up (%d crystals)
+BTN_UNEQUIP,Retirer,Unequip
+BTN_UNLOCK,Débloquer,Unlock
+BTN_UPGRADE,Améliorer,Upgrade
+BTN_VS_BOT,Contre un bot (%s),Against a bot (%s)
+BTN_ZONES,Zones,Zones
+CAT_AURA,Aura,Aura
+CAT_AXE,Hache,Axe
+CAT_BAG,Sac,Bag
+CAT_BANNER,Bannière,Banner
+CAT_BELT,Ceinture,Belt
+CAT_BOOTS,Bottes,Boots
+CAT_CARAPACE,Carapace,Carapace
+CAT_CLAWS,Griffes,Claws
+CAT_CLOTH,Tissu,Cloth
+CAT_CROWN,Couronne,Crown
+CAT_DAGGER,Dague,Dagger
+CAT_GLOVES,Gants,Gloves
+CAT_HAMMER,Marteau,Hammer
+CAT_HELMET,Casque,Helmet
+CAT_HORNS,Cornes,Horns
+CAT_LEATHER,Cuir,Leather
+CAT_LENS,Lentilles,Lenses
+CAT_MAGIC,Arme magique,Magic weapon
+CAT_MASK,Masque,Mask
+CAT_MECH,Mécanique,Mechanical
+CAT_MUTATION,Mutation,Mutation
+CAT_MUTATION_EYE,Mutation (yeux),Mutation (eyes)
+CAT_NONE,Mains nues,Bare hands
+CAT_PADS,Épaulières,Pauldrons
+CAT_PLATE,Plaques,Plate
+CAT_QUIVER,Carquois,Quiver
+CAT_RANGED,Distance,Ranged
+CAT_RELIC,Relique,Relic
+CAT_RELIC_BELT,Relique (ceinture),Relic (belt)
+CAT_RELIC_EYE,Relique (yeux),Relic (eyes)
+CAT_RELIC_GLOVE,Relique (mains),Relic (hands)
+CAT_RINGS,Bagues,Rings
+CAT_SHIELD,Bouclier,Shield
+CAT_SPEAR,Lance,Spear
+CAT_SWORD,Épée,Sword
+CAT_TROPHY,Trophée,Trophy
+CAT_WINGS,Ailes,Wings
+CH_DOUBLE_RAGE,Rage double,Double rage
+CH_FORTIFIED,Tours ennemies renforcées (x2 PV),Fortified enemy towers (x2 HP)
+CH_MAX_COST,Cartes de coût 4 maximum,Cards costing 4 or less
+CH_NO_KING,Sans King Gobelin,No Goblin King
+CH_RAIDER_WILD,Pillards et Sauvages uniquement,Raiders and Wild only
+COND_CAMPAIGN,Terminer %s (%s),Complete %s (%s)
+COND_FORTRESS,Forteresse niveau %d,Fortress level %d
+COND_PLAYER_LEVEL,Niveau du joueur %d,Player level %d
+CONFIRM_BUY,Acheter %s ?,Buy %s?
+CONFIRM_CANCEL_CRAFT,Annuler la fabrication ? Les matériaux seront intégralement rendus.,Cancel crafting? Materials will be fully refunded.
+CONFIRM_CRAFT,Fabriquer %s ? Les matériaux sont consommés au lancement.,Craft %s? Materials are consumed when crafting starts.
+CONFIRM_FORFEIT,Abandonner ce combat ? Il comptera comme une défaite.,Forfeit this battle? It will count as a defeat.
+CONFIRM_MUTATION,Débloquer la mutation %s ?,Unlock mutation %s?
+CONFIRM_PREMIUM,Débloquer la voie premium de la saison avec des cristaux ?,Unlock this season's premium track with crystals?
+CONFIRM_RECYCLE,Recycler définitivement %s ?,Permanently recycle %s?
+CONFIRM_RELIC,Améliorer la relique %s ?,Upgrade relic %s?
+CONFIRM_REPAIR,Réparer le laboratoire ?,Repair the laboratory?
+CONFIRM_RESEARCH,Lancer la recherche %s ?,Start research %s?
+CONFIRM_RESET_PROFILE,Effacer toute votre progression sur cet appareil ?,Erase all your progress on this device?
+CONFIRM_RESET_PROFILE_2,Action irréversible. Confirmer la suppression ?,This cannot be undone. Confirm deletion?
+CONFIRM_RESET_SETTINGS,Rétablir les paramètres par défaut ?,Restore default settings?
+CONFIRM_SPEEDUP,Terminer immédiatement ?,Finish now?
+CONFIRM_UPGRADE_BUILDING,Améliorer %s ?,Upgrade %s?
+CONFIRM_UPGRADE_CARD,Améliorer %s ?,Upgrade %s?
+CONFIRM_ZONE,Débloquer %s ?,Unlock %s?
+COSKIND_DEFEAT,Animation de défaite,Defeat animation
+COSKIND_EMOTE,Emote,Emote
+COSKIND_ENTRY,Effet d'entrée,Entry effect
+COSKIND_VICTORY,Animation de victoire,Victory animation
+COS_DEFEAT,Défaite,Defeat
+COS_EMOTE_1,Emote 1,Emote 1
+COS_EMOTE_2,Emote 2,Emote 2
+COS_ENTRY,Entrée,Entry
+COS_VICTORY,Victoire,Victory
+DESC_CHESTS,Les probabilités affichées sont calculées à partir des tables de butin réellement utilisées.,Displayed odds are computed from the loot tables actually used.
+DESC_CRAFT_RULES,Les matériaux sont consommés au lancement. Une fabrication ne peut pas échouer et peut être annulée avec remboursement complet.,Materials are consumed when crafting starts. Crafting cannot fail and can be cancelled for a full refund.
+DESC_EVENTS_LOCAL,Défis locaux hors ligne : ils changent chaque semaine selon le calendrier de votre appareil. Aucun événement en ligne n'est actif.,Offline local challenges: they rotate weekly using your device calendar. No online event is active.
+DESC_EXPERIMENT,"Testez votre configuration actuelle contre des mannequins ou des bots. Aucune récompense, aucune perte.","Test your current loadout against dummies or bots. No rewards, no losses."
+DESC_IAP_DISABLED,Les achats avec de l'argent réel ne sont pas configurés dans cette version : aucun paiement n'est possible ni simulé.,Real-money purchases are not configured in this build: no payment is possible or simulated.
+DESC_IAP_ITEM,Pack de cristaux (paiement réel non configuré).,Crystal pack (real payment not configured).
+DESC_LOADOUTS,"Votre King unique peut mémoriser %d configuration(s) d'équipement, de capacités et d'apparence.","Your unique King can store %d loadout(s) of equipment, abilities and appearance."
+DESC_MODE_DEFENSE,"Protégez votre base contre des vagues ennemies. Vos murailles, pièges et tours de garde construits dans Ma base sont présents.","Protect your base against enemy waves. Walls, traps and watchtowers built in My base are present."
+DESC_MODE_RAID,"Attaquez une forteresse défendue par un bot : murailles, pièges et tours. Détruisez le Trône avant la fin du temps.","Attack a bot-defended fortress: walls, traps and towers. Destroy the Throne before time runs out."
+DESC_MODE_SURVIVAL,Des vagues de plus en plus fortes. Combien en repousserez-vous ?,Ever stronger waves. How many can you hold?
+DESC_MODE_TRAINING,"Entraînez-vous sans risque : mannequins ou bots, rage doublée face aux mannequins.","Practice risk-free: dummies or bots, double rage against dummies."
+DESC_MUTATION_ROOM,Les mutations transforment le corps du King et modifient ses statistiques.,Mutations transform the King's body and change his stats.
+DESC_ONLINE_UNAVAILABLE,Le multijoueur en ligne n'est pas disponible : aucune infrastructure réseau n'existe encore. L'architecture de combat est prête à l'accueillir (simulation déterministe séparée de l'affichage).,Online multiplayer is not available: no network infrastructure exists yet. The combat architecture is ready for it (deterministic simulation separated from rendering).
+DESC_PASS,"Les récompenses gratuites ne nécessitent jamais la voie premium. La voie premium s'achète avec des cristaux, gagnables en jouant.","Free rewards never require the premium track. The premium track is bought with crystals, which can be earned by playing."
+DESC_PASS_SHOP,"La voie premium du pass coûte %d cristaux (monnaie du jeu, gagnable gratuitement).","The pass premium track costs %d crystals (in-game currency, earnable for free)."
+DESC_RECYCLE,Transformez les objets non équipés en matériaux selon leur rareté.,Turn unequipped items into materials based on rarity.
+DESC_RELICS,Chaque niveau de relique renforce ses effets de 10 %.,Each relic level strengthens its effects by 10%.
+DESC_RESEARCH,Niveau de recherche maximal : %d (Salle de recherche). Une recherche à la fois.,Max research level: %d (Research Hall). One research at a time.
+DESC_SYNERGIES,Les synergies s'activent selon le nombre de cartes d'une même famille dans votre deck.,Synergies activate based on how many cards of the same family are in your deck.
+DIFF_EASY,Facile,Easy
+DIFF_EXPERT,Expert,Expert
+DIFF_NORMAL,Normal,Normal
+DOC_CONDUCT,Code de conduite,Code of conduct
+DOC_CREDITS,Crédits,Credits
+DOC_MINORS,Mineurs,Minors
+DOC_PRIVACY,Confidentialité,Privacy
+DOC_PURCHASES,Achats,Purchases
+DOC_TERMS,Conditions,Terms
+EFF_ALLY_AURA,Aura alliée,Ally aura
+EFF_ALL_STATS,Toutes les statistiques,All stats
+EFF_BONUS_VS_ISOLATED,Bonus contre les isolés,Bonus vs isolated
+EFF_BONUS_VS_STRUCTURES,Bonus contre les structures,Bonus vs structures
+EFF_CDR_ABILITY,Recharge réduite,Reduced cooldown
+EFF_FAMILY_DMG,Dégâts d'une famille,Family damage
+EFF_FAMILY_HP,PV d'une famille,Family health
+EFF_HEAVY_EVERY,Frappe lourde périodique,Periodic heavy strike
+EFF_HERO_LIFESTEAL,Vol de vie,Lifesteal
+EFF_HERO_ON_HIT,Effet à l'impact,On-hit effect
+EFF_HERO_ROOT_EVERY,Immobilisation périodique,Periodic root
+EFF_HERO_SPLASH,Attaques de zone,Area attacks
+EFF_LAST_STAND_EXPLOSION,Explosion de dernier recours,Last stand explosion
+EFF_MECH_MODULE,Module mécanique,Mechanical module
+EFF_REGEN,Régénération,Regeneration
+EFF_REVEAL,Révèle furtifs et pièges,Reveals stealth and traps
+EFF_THORNS,Épines,Thorns
+EFF_UNLOCK_PAINTS,Peintures exclusives,Exclusive paints
+ERR_ALREADY_CLAIMED,Déjà réclamé,Already claimed
+ERR_ALREADY_DONE,Déjà effectué,Already done
+ERR_ALREADY_OWNED,Déjà possédé,Already owned
+ERR_BUILDERS,Tous les bâtisseurs sont occupés,All builders are busy
+ERR_BUILDING_LEVEL,Niveau de bâtiment insuffisant,Building level too low
+ERR_BUSY,Une recherche est déjà en cours,A research is already running
+ERR_CARD,Carte invalide,Invalid card
+ERR_CARD_HALL,Améliorez la Salle des cartes,Upgrade the Card Hall
+ERR_CHARGING,Capacité ultime en charge,Ultimate charging
+ERR_CONDITIONS,Conditions non remplies,Conditions not met
+ERR_COOLDOWN,Capacité en recharge,Ability on cooldown
+ERR_DECK_FULL,Deck complet,Deck full
+ERR_DECK_INCOMPLETE,Votre deck doit contenir 8 cartes,Your deck must contain 8 cards
+ERR_DECK_MIN,Le deck ne peut pas être vide,The deck cannot be empty
+ERR_DECK_PICK_FIRST,Touchez d'abord la carte du deck à remplacer,First tap the deck card to replace
+ERR_ENERGY,Pas assez de rage,Not enough rage
+ERR_EQUIPPED,Objet équipé (dans une configuration),Item equipped (in a loadout)
+ERR_FINISHED,Combat terminé,Battle over
+ERR_FORTRESS_LEVEL,Niveau de Forteresse insuffisant,Fortress level too low
+ERR_FRAGMENTS,Fragments insuffisants,Not enough fragments
+ERR_GOLD,Or insuffisant,Not enough gold
+ERR_HERO_DOWN,Le King est à terre,The King is down
+ERR_IAP_UNAVAILABLE,Achats réels non configurés dans cette version,Real-money purchases are not configured in this build
+ERR_LAB_LOCKED,Laboratoire verrouillé,Laboratory locked
+ERR_MAX_COUNT,Nombre maximum atteint,Maximum number reached
+ERR_MAX_LEVEL,Niveau maximum,Maximum level
+ERR_MUTATION_SLOTS,Tous les emplacements de mutation sont utilisés,All mutation slots are used
+ERR_NAME,Nom trop court,Name too short
+ERR_NOT_OWNED,Non possédé,Not owned
+ERR_NOT_RELIC,Ce n'est pas une relique,Not a relic
+ERR_NO_CARDS,Aucune carte dans ce défi,No cards in this challenge
+ERR_OUT_OF_BOUNDS,Hors des limites,Out of bounds
+ERR_OVERLAP,Emplacement occupé,Space occupied
+ERR_PLAYER_LEVEL,Niveau du joueur insuffisant,Player level too low
+ERR_PREMIUM_REQUIRED,Voie premium requise,Premium track required
+ERR_PURCHASE,Achat impossible,Purchase failed
+ERR_QUEUE_FULL,File de fabrication pleine,Crafting queue full
+ERR_REQ_BUILDING,Bâtiment requis manquant,Required building missing
+ERR_RESEARCH_HALL,Améliorez la Salle de recherche,Upgrade the Research Hall
+ERR_RESEARCH_REQUIRED,Recherche requise,Research required
+ERR_RESOURCES,Ressources insuffisantes,Not enough resources
+ERR_ROOM_LOCKED,Salle verrouillée,Room locked
+ERR_RUIN,Ce bâtiment doit d'abord être réparé,This building must be repaired first
+ERR_SEASON_ENDED,Saison terminée,Season over
+ERR_SLOT_LOCKED,Emplacement verrouillé,Slot locked
+ERR_SOLD_OUT,Épuisé,Sold out
+ERR_STUNNED,Le King est étourdi,The King is stunned
+ERR_TIER_LOCKED,Palier non atteint,Tier not reached
+ERR_UPGRADING,Amélioration déjà en cours,Already upgrading
+ERR_WRONG_ZONE,Ce bâtiment doit être placé dans sa zone,This building must be placed in its zone
+ERR_ZONE,Déployez sur votre moitié du terrain,Deploy on your half of the field
+ERR_ZONE_LOCKED,Zone verrouillée,Zone locked
+FAMILY_AIR,Aérienne,Air
+FAMILY_FIRE,Feu,Fire
+FAMILY_ICE,Glace,Ice
+FAMILY_MECH,Mécanique,Mechanical
+FAMILY_MUTANT,Mutante,Mutant
+FAMILY_MYSTIC,Mystique,Mystic
+FAMILY_RAIDER,Pillards,Raiders
+FAMILY_ROYAL,Royale,Royal
+FAMILY_SHADOW,Ombre,Shadow
+FAMILY_SUPPORT,Soutien,Support
+FAMILY_TOXIC,Toxique,Toxic
+FAMILY_WILD,Sauvage,Wild
+FILTER_ALL_FAMILIES,Toutes les familles,All families
+FILTER_ALL_RARITIES,Toutes les raretés,All rarities
+FILTER_ALL_TYPES,Tous les types,All types
+FILTER_EQUIPPED,Équipés / en deck,Equipped / in deck
+FILTER_OWNED,Possédées,Owned
+FX_ARMOR_BROKEN,ARMURE BRISÉE !,ARMOR BROKEN!
+FX_EXHAUSTED,ÉPUISÉ !,EXHAUSTED!
+HINT_APPEARANCE,Les options avancées se débloquent avec votre niveau. Les mutations du laboratoire modifient aussi l'apparence.,Advanced options unlock with your level. Laboratory mutations also change the look.
+HINT_BASE,Glissez pour déplacer la vue · Touchez un bâtiment · Pincez ou +/- pour zoomer,Drag to pan · Tap a building · Pinch or +/- to zoom
+HINT_CAPS,Les bonus sont plafonnés pour éviter les combinaisons abusives.,Bonuses are capped to prevent abusive combinations.
+HINT_COSMETICS,"Les emotes sont utilisables en combat ; les animations de victoire, d'entrée et de défaite se jouent automatiquement.","Emotes can be used in battle; victory, entry and defeat animations play automatically."
+HINT_PICK_SLOT,Choisissez un emplacement pour voir vos objets. Touchez un objet pour le prévisualiser sur le King et comparer les statistiques.,Pick a slot to see your items. Tap an item to preview it on the King and compare stats.
+INVK_CARD,Carte,Card
+INVK_CHEST,Coffre,Chest
+INVK_COSMETIC,Cosmétique,Cosmetic
+INVK_ITEM,Équipement,Equipment
+INVK_MATERIAL,Matériau,Material
+INVK_RESOURCE,Ressource,Resource
+INV_CARDS,Cartes,Cards
+INV_CHESTS,Coffres,Chests
+INV_COSMETICS,Cosmétiques,Cosmetics
+INV_ITEMS,Équipements,Equipment
+INV_MATERIALS,Matériaux,Materials
+INV_RESOURCES,Ressources,Resources
+LAB_LOCKED_MSG,Laboratoire verrouillé. Progressez dans la campagne pour débloquer la conception du King Gobelin.,Laboratory locked. Progress through the campaign to unlock Goblin King design.
+LBL_ACH_PROGRESS,Succès obtenus : %d / %d,Achievements: %d / %d
+LBL_ACTIVE,actif,active
+LBL_ACTIVE_EFFECTS,Effets actifs,Active effects
+LBL_ACTIVE_SYNERGIES,Synergies actives :,Active synergies:
+LBL_ARMOR,Armure,Armor
+LBL_AVG_COST,Coût moyen : %.1f,Average cost: %.1f
+LBL_BUILDERS,Bâtisseurs : %d / %d,Builders: %d / %d
+LBL_CAMPAIGN,Campagne,Campaign
+LBL_CHAPTER,Chapitre %d,Chapter %d
+LBL_CLAIMED,Réclamé,Claimed
+LBL_COLLECTION_COUNT,%d / %d cartes,%d / %d cards
+LBL_COPIES,Copies : %d / %d,Copies: %d / %d
+LBL_COSMETIC,Cosmétique,Cosmetic
+LBL_COSMETIC_ONLY,Purement esthétique,Cosmetic only
+LBL_CREATED,Profil créé le,Profile created
+LBL_DAILY_RESET,Nouvelles offres dans %s,New offers in %s
+LBL_DECK_PICK_HINT,Touchez une carte de votre collection pour l'échanger.,Tap a collection card to swap it in.
+LBL_DECK_SIZE,Deck : %d / %d,Deck: %d / %d
+LBL_DECK_TAP_HINT,Touchez une carte du deck pour la remplacer.,Tap a deck card to replace it.
+LBL_DEFEAT,Défaite,Defeat
+LBL_DEFENSES,"Vos défenses : %d segments de muraille, %d pièges, tours +%d %%","Your defenses: %d wall segments, %d traps, towers +%d %%"
+LBL_DONE,Terminé,Done
+LBL_DOUBLE_RAGE,RAGE x2,RAGE x2
+LBL_DRAG_ROTATE,Glissez pour faire pivoter le King.,Drag to rotate the King.
+LBL_DRAW,Égalité,Draw
+LBL_DURATION,Durée : %s,Duration: %s
+LBL_EMPTY,Vide,Empty
+LBL_ENEMY_DECK,Deck ennemi,Enemy deck
+LBL_ENEMY_LEVEL,Niveau ennemi %d,Enemy level %d
+LBL_EQUIPPED,Équipé,Equipped
+LBL_EVENT_DONE,Récompense de la semaine obtenue.,Weekly reward collected.
+LBL_FIRST_CLEAR,Première victoire,First clear
+LBL_FLYING,Volant,Flying
+LBL_FORTRESS_LEVEL,Forteresse niv. %d,Fortress lv. %d
+LBL_FRAGMENTS_REPLACE,%d copie(s) manquante(s) remplacée(s) par %d fragments.,%d missing cop(ies) replaced by %d fragments.
+LBL_FREE_DAILY,Récompense gratuite du jour,Free daily reward
+LBL_IAP_PRICE_NA,Prix indisponible,Price unavailable
+LBL_IN_DECK,Dans le deck,In deck
+LBL_IN_WEEKS,Dans %d sem.,In %d wk
+LBL_KING,King Gobelin,Goblin King
+LBL_KING_RESPAWN,Retour du King dans %d s,King returns in %d s
+LBL_LAB_SEALED,Laboratoire scellé,Sealed laboratory
+LBL_LARMES,Larmes ancestrales : %d,Ancestral tears: %d
+LBL_LEGAL,Documents,Documents
+LBL_LEVEL,Niveau %d,Level %d
+LBL_LEVEL_SHORT,N.%d,L.%d
+LBL_LIMIT,Achats : %d / %d,Purchases: %d / %d
+LBL_LOCKED,Verrouillé,Locked
+LBL_LOCKED_OPTION,%s verrouillé : %s,%s locked: %s
+LBL_MAX_LEVEL,Niveau maximum atteint,Maximum level reached
+LBL_MUTATION_SLOTS,Mutations actives : %d / %d,Active mutations: %d / %d
+LBL_NEW,Nouvelle !,New!
+LBL_NEXT,Suivante,Next
+LBL_NEXT_LEVEL,Niveau %d :,Level %d:
+LBL_NO,Non,No
+LBL_NONE,Aucun,None
+LBL_NONE_OWNED,Aucun possédé,None owned
+LBL_NOTHING_TO_RECYCLE,Aucun objet recyclable (les objets équipés sont protégés).,Nothing to recycle (equipped items are protected).
+LBL_NOTIFICATIONS,Notifications,Notifications
+LBL_NOT_OWNED,Carte non possédée,Card not owned
+LBL_NO_ITEM_SLOT,"Aucun objet pour cet emplacement. Coffres, boutique, fabrication et pass en fournissent.","No item for this slot yet. Chests, shop, crafting and the pass provide them."
+LBL_NO_RELICS,Vous ne possédez pas encore de relique.,You do not own any relic yet.
+LBL_NO_REWARDS,Aucune récompense supplémentaire.,No extra rewards.
+LBL_OBTAIN_CARD,"Obtenable dans les coffres à partir du niveau %d, la boutique et la campagne.","Obtainable from chests from level %d, the shop and the campaign."
+LBL_ORIGIN,Origine,Source
+LBL_OWNED,Possédés : %d,Owned: %d
+LBL_PASS_XP_SOURCES,"XP de pass : victoire +%d, mission quotidienne +%d, hebdomadaire +%d","Pass XP: win +%d, daily mission +%d, weekly +%d"
+LBL_PAUSE,Pause,Paused
+LBL_PHASE,Phase,Phase
+LBL_PLAYER_LEVEL,Niveau du joueur,Player level
+LBL_POWER,Puissance %d,Power %d
+LBL_PREMIUM_ACTIVE,Premium actif,Premium active
+LBL_PRODUCTION,Production,Production
+LBL_PROFILE,Profil,Profile
+LBL_PURCHASED,Achat effectué,Purchased
+LBL_QUEUE,File de fabrication : %d / %d,Crafting queue: %d / %d
+LBL_RELIC_LEVEL,Relique niveau %d,Relic level %d
+LBL_REPAIR_MISSION,Mission de réparation,Repair mission
+LBL_REQUIRES,Requiert,Requires
+LBL_REQ_FORTRESS,(Forteresse niv. %d requise),(Fortress lv. %d required)
+LBL_RESEARCHING,Recherche en cours : %s (%s),Researching: %s (%s)
+LBL_RESET_IN,Renouvellement dans %s,Resets in %s
+LBL_REWARDS,Récompenses,Rewards
+LBL_ROTATION,Prochains défis locaux,Upcoming local challenges
+LBL_SAVED,Enregistrée,Saved
+LBL_SAVE_LOCAL,Locale (sur cet appareil),Local (this device)
+LBL_SAVE_MODE,Sauvegarde,Save
+LBL_SEASON_ENDED,Saison terminée,Season over
+LBL_SEASON_LOCAL,Saison locale (horloge de l'appareil) — fin dans %s,Local season (device clock) — ends in %s
+LBL_STARS_CHAPTER,Étoiles : %d / %d,Stars: %d / %d
+LBL_STATS,Statistiques,Statistics
+LBL_STORED,En stock,Stored
+LBL_SURVIVAL_BEST,Record : %d vagues,Best: %d waves
+LBL_SWAP_HINT,Touchez la carte à remplacer par %s,Tap the card to replace with %s
+LBL_SYNERGY,Synergie,Synergy
+LBL_TAP_TO_SKIP,Touchez pour passer,Tap to skip
+LBL_THIS_WEEK,Cette semaine,This week
+LBL_TIER,Palier %d / %d,Tier %d / %d
+LBL_TIER_SHORT,Palier %d,Tier %d
+LBL_TRAINING_NO_REWARDS,L'entraînement ne donne pas de récompense.,Training gives no rewards.
+LBL_UNLOCKED,Débloquée,Unlocked
+LBL_UPGRADING,Amélioration en cours : %s,Upgrading: %s
+LBL_VERSION,Version du jeu,Game version
+LBL_VICTORY,Victoire !,Victory!
+LBL_WAVE,Vague %d / %d,Wave %d / %d
+LBL_WAVE_ENDLESS,Vague %d,Wave %d
+LBL_WEEKLY_EVENT,Événement de la semaine,Weekly event
+LBL_YES,Oui,Yes
+LOAD_AUDIO,Préparation des sons…,Preparing sounds…
+LOAD_CARDS,Illustration des cartes…,Illustrating cards…
+LOAD_DATA,Chargement des données de jeu…,Loading game data…
+LOAD_ERROR,Erreur de chargement (voir journal),Loading error (see log)
+LOAD_SAVE,Lecture de la sauvegarde…,Reading save…
+LOAD_TIMERS,Mise à jour de la forteresse…,Updating the fortress…
+LOCK_BOSS,Battez le boss du chapitre %d pour le réaffronter.,Defeat the chapter %d boss to fight it again.
+LOCK_LAB,Le laboratoire est verrouillé.,The laboratory is locked.
+LOCK_RAID_PORTAL,Construisez le Portail de raid (Ma base) pour lancer des raids libres.,Build the Raid Portal (My base) to start free raids.
+LOCK_ROOM,Salle disponible au niveau %d du laboratoire.,Room available at laboratory level %d.
+LO_CUSTOM,Personnalisée,Custom
+LO_DEFENSIVE,Défensive,Defensive
+LO_FAST,Rapide,Fast
+LO_MAGIC,Magique,Magic
+LO_OFFENSIVE,Offensive,Offensive
+MENU_ACHIEVEMENTS,Succès,Achievements
+MENU_BASE,Ma base,My base
+MENU_CHESTS,Coffres,Chests
+MENU_COLLECTION,Collection,Collection
+MENU_COMBAT,Combat,Battle
+MENU_EVENTS,Événements,Events
+MENU_INVENTORY,Inventaire,Inventory
+MENU_KING,King Gobelin,Goblin King
+MENU_LAB,Laboratoire,Laboratory
+MENU_MISSIONS,Missions,Missions
+MENU_PASS,Pass,Pass
+MENU_SETTINGS,Paramètres,Settings
+MENU_SHOP,Boutique,Shop
+MODE_BOSS,Boss,Boss
+MODE_CHALLENGE,Défi,Challenge
+MODE_DEFENSE,Défense,Defense
+MODE_DUEL,Duel,Duel
+MODE_RAID,Raid,Raid
+MODE_SURVIVAL,Survie,Survival
+MODE_TRAINING,Entraînement,Training
+NOTE_BOTS,Les bots jouent avec les mêmes règles que vous : ils ne voient pas votre main et ne reçoivent aucun bonus de statistiques selon la difficulté.,Bots play by your rules: they cannot see your hand and get no stat bonus from difficulty.
+NOTE_CHALLENGE_REWARD,Chaque défi gagné rapporte des jetons de guerre.,Each challenge won grants war tokens.
+NOTE_GRAPHICS,Le mode économie d'énergie force 30 FPS et la qualité basse.,Battery saver forces 30 FPS and low quality.
+NOTE_NOTIFICATIONS,Ces réglages contrôlent les badges et alertes dans le jeu. Les notifications système Android ne sont pas encore implémentées : aucune autorisation n'est demandée.,These settings control in-game badges and alerts. Android system notifications are not implemented yet: no permission is requested.
+NOTE_ONLINE_ACCOUNT,Aucun compte en ligne n'existe dans cette version ; aucune donnée n'est envoyée à un serveur.,No online account exists in this build; no data is sent to a server.
+NOTE_SAVE_LOCAL,La progression est enregistrée uniquement sur cet appareil (avec une copie de secours). Désinstaller le jeu efface la sauvegarde.,Progress is stored only on this device (with a backup copy). Uninstalling the game erases the save.
+NOTIF_CHESTS,%d coffre(s) à ouvrir,%d chest(s) to open
+NOTIF_CRAFT_DONE,Une fabrication est terminée,A craft is finished
+NOTIF_EVENT,Défi local : %s,Local challenge: %s
+NOTIF_FREE_DAILY,Récompense gratuite disponible en boutique,Free reward available in the shop
+NOTIF_MISSIONS,%d récompense(s) de mission à réclamer,%d mission reward(s) to claim
+NOTIF_NONE,Rien de nouveau.,Nothing new.
+NOTIF_PASS,%d récompense(s) du pass,%d pass reward(s)
+NOTIF_PRODUCTION,%d bâtiment(s) prêts à collecter,%d building(s) ready to collect
+ODDS_CARD,%d carte(s) — rareté de chaque carte :,%d card(s) — rarity of each card:
+ODDS_ITEM,%d équipement(s) — rareté :,%d item(s) — rarity:
+ODDS_NOTE,"Si aucune carte d'une rareté n'est disponible à votre niveau, le tirage passe à la rareté inférieure ; les pourcentages ci-dessus en tiennent compte.","If no card of a rarity is available at your level, the drop falls back to the rarity below; percentages above already include this."
+Q_HIGH,Élevée,High
+Q_LOW,Basse,Low
+Q_MEDIUM,Moyenne,Medium
+RANGE_MELEE,Mêlée,Melee
+RARITY_ANCESTRAL,Ancestral,Ancestral
+RARITY_COMMON,Commun,Common
+RARITY_EPIC,Épique,Epic
+RARITY_LEGENDARY,Légendaire,Legendary
+RARITY_MYTHIC,Mythique,Mythic
+RARITY_RARE,Rare,Rare
+REQ_MASK_ITEM,Nécessite le Masque des Mille Visages,Requires the Mask of a Thousand Faces
+REQ_MECH_MODULE,Nécessite un module mécanique équipé,Requires an equipped mechanical module
+RES_ANCESTRAL,Matériaux ancestraux,Ancestral materials
+RES_COMPONENTS,Composants,Components
+RES_CRYSTALS,Cristaux,Crystals
+RES_FRAGMENTS,Fragments,Shards
+RES_GOLD,Or,Gold
+RES_MUTANT_ESSENCE,Essence mutante,Mutant essence
+RES_WAR_TOKENS,Jetons de guerre,War tokens
+ROLE_ASSASSIN,Assassin,Assassin
+ROLE_CASTER,Lanceur de sorts,Caster
+ROLE_FLYER,Volant,Flyer
+ROLE_MELEE,Combattant,Fighter
+ROLE_RANGED,Distance,Ranged
+ROLE_SIEGE,Siège,Siege
+ROLE_SUPPORT,Soutien,Support
+ROLE_SWARM,Nuée,Swarm
+ROLE_TANK,Tank,Tank
+SET_BATTERY,Mode économie d'énergie,Battery saver
+SET_BUTTON_SIZE,Taille des boutons,Button size
+SET_CONFIRM_IMPORTANT,Confirmer les actions importantes,Confirm important actions
+SET_CONFIRM_SPEND,Confirmer les dépenses,Confirm spending
+SET_CONTRAST,Contraste renforcé,High contrast
+SET_DAMAGE_NUMBERS,Afficher les dégâts,Show damage numbers
+SET_EFFECTS,Effets visuels,Visual effects
+SET_FPS,Limite d'images,Frame limit
+SET_LANGUAGE,Langue,Language
+SET_LEFT_HANDED,Commandes inversées (gaucher),Mirrored controls (left-handed)
+SET_LIMIT_ANIM,Limiter les animations,Limit animations
+SET_NOTIF_EVENTS,Notifications d'événements,Event notifications
+SET_NOTIF_PROGRESS,Notifications de progression,Progress notifications
+SET_NOTIF_REWARDS,Rappels de récompenses,Reward reminders
+SET_PARTICLES,Particules,Particles
+SET_PLAYER_NAME,Nom du joueur,Player name
+SET_QUALITY,Qualité graphique,Graphics quality
+SET_RANGE,Indicateurs de portée,Range indicators
+SET_REDUCE_FLASH,Réduire les effets lumineux,Reduce flashing effects
+SET_REDUCE_SHAKE,Réduire les secousses de caméra,Reduce camera shake
+SET_SHADOWS,Ombres,Shadows
+SET_SOUND_INDICATORS,Indicateurs visuels des sons,Visual sound indicators
+SET_TEXT_SIZE,Taille des textes,Text size
+SET_TUTORIALS,Conseils et tutoriels,Tips and tutorials
+SET_VIBRATION,Vibrations,Vibration
+SET_VOL_MASTER,Volume général,Master volume
+SET_VOL_MUSIC,Musique,Music
+SET_VOL_SFX,Effets sonores,Sound effects
+SET_VOL_VOICE,Voix,Voices
+SHOP_ACCESSORIES,Accessoires,Accessories
+SHOP_ARMORS,Armures,Armor
+SHOP_AURAS,Auras,Auras
+SHOP_CHESTS,Coffres,Chests
+SHOP_COSMETICS,Apparences et emotes,Looks and emotes
+SHOP_CRYSTALS,Cristaux,Crystals
+SHOP_DAILY,Offres du jour,Daily offers
+SHOP_EVENT,Objets d'événement,Event items
+SHOP_PASS,Pass saisonnier,Season pass
+SHOP_WEAPONS,Armes,Weapons
+SIZE_LARGE,Grande,Large
+SIZE_NORMAL,Normale,Normal
+SIZE_SMALL,Petite,Small
+SIZE_XL,Très grande,Extra large
+SLOT_AURA,Aura,Aura
+SLOT_BACK,Dos,Back
+SLOT_BELT,Ceinture,Belt
+SLOT_EYES,Yeux,Eyes
+SLOT_FEET,Pieds,Feet
+SLOT_HANDS,Mains,Hands
+SLOT_HEAD,Tête,Head
+SLOT_LEFT_ARM,Bras gauche,Left arm
+SLOT_LEGS,Jambes,Legs
+SLOT_RIGHT_ARM,Bras droit,Right arm
+SLOT_SHOULDERS,Épaules,Shoulders
+SLOT_SPECIAL,Emplacement spécial,Special slot
+SLOT_TORSO,Torse,Torso
+SND_EXPLOSION,Explosion,Explosion
+SND_HIT_HEAVY,Coup lourd,Heavy hit
+SND_KING_ROAR,Rugissement,Roar
+SND_TELEGRAPH,Attaque annoncée,Incoming attack
+SND_TOWER_DESTROYED,Tour détruite,Tower destroyed
+SORT_COUNT,Tri : quantité,Sort: quantity
+SORT_LEVEL,Tri : niveau,Sort: level
+SORT_NAME,Tri : nom,Sort: name
+SORT_RARITY,Tri : rareté,Sort: rarity
+SRC_ACHIEVEMENT,Succès,Achievements
+SRC_BOSS,Boss,Boss
+SRC_CAMPAIGN,Campagne,Campaign
+SRC_CHEST,Coffres,Chests
+SRC_CRAFT,Fabrication,Crafting
+SRC_EVENT,Événements,Events
+SRC_MISSION,Missions,Missions
+SRC_PASS,Pass,Pass
+SRC_SHOP,Boutique,Shop
+SRC_STARTER,Départ,Starter
+STATION_FORGE,Forge royale,Royal forge
+STATION_LAB,Laboratoire,Laboratory
+STATION_WORKSHOP,Atelier,Workshop
+STAT_ABILITIES,Capacités du King,King abilities
+STAT_AP,Puissance de capacité,Ability power
+STAT_ARMOR,Armure,Armor
+STAT_ATK_SPEED,Vitesse d'attaque,Attack speed
+STAT_CDR,Réduction de recharge,Cooldown reduction
+STAT_COUNT,Nombre,Count
+STAT_DAMAGE,Dégâts infligés,Damage dealt
+STAT_DESTROYED,Structures détruites,Structures destroyed
+STAT_DMG,Dégâts,Damage
+STAT_DPS,Dégâts / s,Damage / s
+STAT_ENERGY,Rage de départ,Starting rage
+STAT_HIT_SPEED,Vitesse de frappe,Hit speed
+STAT_HP,Points de vie,Health
+STAT_LOST,Structures perdues,Structures lost
+STAT_MECH,Module mécanique,Mechanical module
+STAT_MOVEMENT,Déplacement,Movement
+STAT_RANGE,Portée,Range
+STAT_RESIST,Résistance,Resistance
+STAT_SPEED,Vitesse,Speed
+STAT_TARGETS,Cibles,Targets
+STAT_TIME,Durée,Time
+STAT_UNITS,Unités déployées,Units deployed
+STAT_WAVES,Vagues repoussées,Waves cleared
+STAT_WEAPON,Arme,Weapon
+ST_ABILITY_POWER_PCT,Puissance %,Power %
+ST_ARMOR,Armure,Armor
+ST_ATK_SPEED_PCT,Vit. d'attaque %,Attack speed %
+ST_CDR_PCT,Recharge %,Cooldown %
+ST_DMG,Dégâts,Damage
+ST_DMG_PCT,Dégâts %,Damage %
+ST_ENERGY,Rage,Rage
+ST_HP,PV,HP
+ST_RANGE,Portée,Range
+ST_RESIST,Résistance,Resistance
+ST_SPEED_PCT,Vitesse %,Speed %
+TAB_ABILITIES,Capacités,Abilities
+TAB_ACCESS,Accessibilité,Accessibility
+TAB_ACCOUNT,Compte,Account
+TAB_ACHIEVEMENTS,Succès,Achievements
+TAB_APPEARANCE,Apparence,Appearance
+TAB_AUDIO,Audio,Audio
+TAB_BOSSES,Boss,Bosses
+TAB_CAMPAIGN,Campagne,Campaign
+TAB_CARDS,Cartes,Cards
+TAB_CHALLENGES,Défis,Challenges
+TAB_CONTROLS,Commandes,Controls
+TAB_COSMETICS,Cosmétiques,Cosmetics
+TAB_DAILY,Quotidiennes,Daily
+TAB_DECK,Deck,Deck
+TAB_DEFENSE,Défense,Defense
+TAB_DESIGN,Fabrication,Crafting
+TAB_EQUIPMENT,Équipement,Equipment
+TAB_EXPERIMENT,Expérimentation,Experiments
+TAB_GAMEPLAY,Jeu,Gameplay
+TAB_GRAPHICS,Graphismes,Graphics
+TAB_LOADOUTS,Configurations,Loadouts
+TAB_MUTATION,Mutation,Mutation
+TAB_MUTATIONS,Mutations,Mutations
+TAB_NOTIFS,Notifications,Notifications
+TAB_ONLINE,Multijoueur,Multiplayer
+TAB_RAID,Raids,Raids
+TAB_RECYCLE,Recyclage,Recycling
+TAB_RELICS,Reliques,Relics
+TAB_RESEARCH,Recherche,Research
+TAB_STATS,Statistiques,Stats
+TAB_SURVIVAL,Survie,Survival
+TAB_SYNERGIES,Synergies,Synergies
+TAB_TRAINING,Entraînement,Training
+TAB_WEEKLY,Hebdomadaires,Weekly
+TARGETS_AIR_GROUND,Air et sol,Air and ground
+TARGETS_GROUND,Sol,Ground
+TARGETS_STRUCTURES,Structures uniquement,Structures only
+TIP_1,Astuce : glissez une carte sur votre moitié du terrain pour déployer vos gobelins.,Tip: drag a card onto your half of the field to deploy goblins.
+TIP_2,Astuce : touchez le sol pour déplacer votre King Gobelin.,Tip: tap the ground to move your Goblin King.
+TIP_3,Astuce : trois cartes d'une même famille activent une synergie.,Tip: three cards of the same family activate a synergy.
+TIP_4,Astuce : frappez les boss pendant leurs phases d'épuisement (+50 % de dégâts).,Tip: hit bosses while they are exhausted (+50% damage).
+TIP_5,Astuce : vos murailles et pièges de la base défendent vraiment en mode Défense.,Tip: your base walls and traps really defend in Defense mode.
+TIP_6,"Astuce : le laboratoire se débloque après le chapitre 2, une forteresse de niveau 4 et une réparation.","Tip: the laboratory unlocks after chapter 2, a level 4 fortress and a repair."
+TOAST_BACKUP_RESTORED,Sauvegarde principale invalide : la copie de secours a été restaurée.,Main save invalid: the backup copy was restored.
+TOAST_BUILDING_DONE,%s : niveau %d terminé,%s: level %d complete
+TOAST_CARD_UPGRADED,%s passe au niveau %d,%s is now level %d
+TOAST_CRAFTED,Fabrication terminée : %s,Crafted: %s
+TOAST_LAB_UNLOCKED,Le laboratoire est opérationnel !,The laboratory is operational!
+TOAST_LEVEL_UP,Niveau %d atteint !,Level %d reached!
+TOAST_LOADOUT_PARTIAL,Configuration chargée (%d élément(s) indisponible(s)),Loadout applied (%d unavailable element(s))
+TOAST_LOADOUT_SAVED,Configuration enregistrée,Loadout saved
+TOAST_MUTATION,Mutation débloquée : %s,Mutation unlocked: %s
+TOAST_NOTHING_TO_COLLECT,Rien à collecter pour le moment,Nothing to collect yet
+TOAST_PICK_SWAP,Choisissez la carte du deck à remplacer par %s,Pick the deck card to replace with %s
+TOAST_RESEARCH_DONE,Recherche terminée : %s,Research complete: %s
+TOAST_SAVED,Sauvegardé,Saved
+TRACK_FREE,Gratuit,Free
+TRACK_PREMIUM,Premium,Premium

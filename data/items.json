@@ -1,0 +1,2388 @@
+{
+ "slots": [
+  {
+   "id": "head",
+   "name": "Tête",
+   "unlock": null
+  },
+  {
+   "id": "eyes",
+   "name": "Yeux",
+   "unlock": [
+    "campaign",
+    "c2m8"
+   ]
+  },
+  {
+   "id": "torso",
+   "name": "Torse",
+   "unlock": null
+  },
+  {
+   "id": "shoulders",
+   "name": "Épaules",
+   "unlock": [
+    "player_level",
+    4
+   ]
+  },
+  {
+   "id": "left_arm",
+   "name": "Bras gauche",
+   "unlock": [
+    "player_level",
+    3
+   ]
+  },
+  {
+   "id": "right_arm",
+   "name": "Bras droit",
+   "unlock": null
+  },
+  {
+   "id": "hands",
+   "name": "Mains",
+   "unlock": [
+    "player_level",
+    2
+   ]
+  },
+  {
+   "id": "legs",
+   "name": "Jambes",
+   "unlock": null
+  },
+  {
+   "id": "feet",
+   "name": "Pieds",
+   "unlock": null
+  },
+  {
+   "id": "back",
+   "name": "Dos",
+   "unlock": [
+    "campaign",
+    "c2m4"
+   ]
+  },
+  {
+   "id": "belt",
+   "name": "Ceinture",
+   "unlock": [
+    "campaign",
+    "c1m8"
+   ]
+  },
+  {
+   "id": "aura",
+   "name": "Aura",
+   "unlock": [
+    "player_level",
+    8
+   ]
+  },
+  {
+   "id": "special",
+   "name": "Emplacement spécial",
+   "unlock": [
+    "campaign",
+    "c3m4"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "w_rusty_blade",
+   "name": "Lame rouillée",
+   "slot": "right_arm",
+   "category": "sword",
+   "rarity": "common",
+   "desc": "Une vieille épée gobeline. Fiable.",
+   "stats": {
+    "dmg": 10
+   },
+   "visual": {
+    "mesh": "sword",
+    "color": "#8c7a66",
+    "metal": 0.6
+   },
+   "sources": [
+    "starter"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_bone_axe",
+   "name": "Hache d'os",
+   "slot": "right_arm",
+   "category": "axe",
+   "rarity": "common",
+   "desc": "Hache taillée dans un os de troll.",
+   "stats": {
+    "dmg": 16,
+    "atk_speed_pct": -5
+   },
+   "visual": {
+    "mesh": "axe",
+    "color": "#e8dcc0",
+    "metal": 0.0
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_club",
+   "name": "Gourdin clouté",
+   "slot": "right_arm",
+   "category": "hammer",
+   "rarity": "common",
+   "desc": "Simple, lourd, efficace.",
+   "stats": {
+    "dmg": 18,
+    "atk_speed_pct": -8
+   },
+   "visual": {
+    "mesh": "hammer",
+    "color": "#6b4a2b",
+    "metal": 0.1
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_shiv",
+   "name": "Surin",
+   "slot": "right_arm",
+   "category": "dagger",
+   "rarity": "common",
+   "desc": "Petite lame rapide.",
+   "stats": {
+    "dmg": 6,
+    "atk_speed_pct": 12
+   },
+   "visual": {
+    "mesh": "dagger",
+    "color": "#a0a0a0",
+    "metal": 0.8
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_pike",
+   "name": "Pique de garde",
+   "slot": "right_arm",
+   "category": "spear",
+   "rarity": "common",
+   "desc": "Garde les ennemis à distance.",
+   "stats": {
+    "dmg": 10,
+    "range": 0.6
+   },
+   "visual": {
+    "mesh": "spear",
+    "color": "#7a6a55",
+    "metal": 0.5
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_brise_fer",
+   "name": "Brise-Fer",
+   "slot": "right_arm",
+   "category": "hammer",
+   "rarity": "rare",
+   "desc": "Marteau massif qui favorise les attaques lourdes.",
+   "stats": {
+    "dmg": 34,
+    "atk_speed_pct": -12
+   },
+   "visual": {
+    "mesh": "hammer_big",
+    "color": "#5c5f66",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest",
+    "shop",
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_crocs_noirs",
+   "name": "Crocs Noirs",
+   "slot": "right_arm",
+   "category": "dagger",
+   "rarity": "rare",
+   "desc": "Dagues jumelles adaptées aux attaques rapides.",
+   "stats": {
+    "dmg": 14,
+    "atk_speed_pct": 25
+   },
+   "visual": {
+    "mesh": "dual_dagger",
+    "color": "#1d1b22",
+    "metal": 0.8,
+    "emit": "#6b2bff"
+   },
+   "sources": [
+    "chest",
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_fendoir_royal",
+   "name": "Fendoir Royal",
+   "slot": "right_arm",
+   "category": "axe",
+   "rarity": "epic",
+   "desc": "Hache imposante destinée aux coups puissants.",
+   "stats": {
+    "dmg": 42,
+    "atk_speed_pct": -6
+   },
+   "visual": {
+    "mesh": "axe_big",
+    "color": "#d9b44a",
+    "metal": 1.0
+   },
+   "sources": [
+    "chest",
+    "shop",
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_epine_arcanique",
+   "name": "Épine Arcanique",
+   "slot": "right_arm",
+   "category": "magic",
+   "rarity": "epic",
+   "desc": "Arme magique : attaques à distance, +20 % de puissance de capacité.",
+   "stats": {
+    "dmg": 24,
+    "range": 3.5,
+    "ability_power_pct": 20
+   },
+   "visual": {
+    "mesh": "staff",
+    "color": "#3a2a5a",
+    "metal": 0.2,
+    "emit": "#58a6ff"
+   },
+   "sources": [
+    "chest",
+    "craft",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_machoire_acier",
+   "name": "Mâchoire d'Acier",
+   "slot": "right_arm",
+   "category": "mech",
+   "rarity": "epic",
+   "desc": "Arme mécanique : une morsure sur quatre étourdit.",
+   "stats": {
+    "dmg": 30
+   },
+   "visual": {
+    "mesh": "mech_jaw",
+    "color": "#8d8f94",
+    "metal": 1.0,
+    "emit": "#ff8a2b"
+   },
+   "sources": [
+    "craft",
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "heavy_every",
+     "n": 4,
+     "mult": 1.6,
+     "stun": 0.6
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_lance_tempete",
+   "name": "Lance-tempête",
+   "slot": "right_arm",
+   "category": "spear",
+   "rarity": "rare",
+   "desc": "Lance électrifiée.",
+   "stats": {
+    "dmg": 22,
+    "range": 0.8
+   },
+   "visual": {
+    "mesh": "spear",
+    "color": "#5b6a8a",
+    "metal": 0.8,
+    "emit": "#9ad7ff"
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_arbalete",
+   "name": "Arbalète gobeline",
+   "slot": "right_arm",
+   "category": "ranged",
+   "rarity": "rare",
+   "desc": "Tir à distance précis.",
+   "stats": {
+    "dmg": 18,
+    "range": 4.0
+   },
+   "visual": {
+    "mesh": "crossbow",
+    "color": "#6b4a2b",
+    "metal": 0.3
+   },
+   "sources": [
+    "chest",
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_canon_main",
+   "name": "Canon à main",
+   "slot": "right_arm",
+   "category": "mech",
+   "rarity": "legendary",
+   "desc": "Arme mécanique explosive à distance.",
+   "stats": {
+    "dmg": 40,
+    "range": 4.0,
+    "atk_speed_pct": -10
+   },
+   "visual": {
+    "mesh": "blaster",
+    "color": "#7a7f88",
+    "metal": 1.0,
+    "emit": "#ffb347"
+   },
+   "sources": [
+    "craft",
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "hero_splash",
+     "radius": 1.4,
+     "pct": 0.6
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_griffes_rage",
+   "name": "Griffes de rage",
+   "slot": "right_arm",
+   "category": "claws",
+   "rarity": "rare",
+   "desc": "Griffes rapides et cruelles.",
+   "stats": {
+    "dmg": 16,
+    "atk_speed_pct": 18
+   },
+   "visual": {
+    "mesh": "claws",
+    "color": "#c4c4c4",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_lame_braise",
+   "name": "Lame de braise",
+   "slot": "right_arm",
+   "category": "sword",
+   "rarity": "epic",
+   "desc": "Épée incandescente : les coups brûlent.",
+   "stats": {
+    "dmg": 30
+   },
+   "visual": {
+    "mesh": "sword",
+    "color": "#3a2015",
+    "metal": 0.7,
+    "emit": "#ff5a1f"
+   },
+   "sources": [
+    "chest",
+    "event"
+   ],
+   "effects": [
+    {
+     "type": "hero_on_hit",
+     "effect": "burn",
+     "dps": 20,
+     "dur": 3.0
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_hache_givre",
+   "name": "Hache de givre",
+   "slot": "right_arm",
+   "category": "axe",
+   "rarity": "epic",
+   "desc": "Hache glacée qui ralentit.",
+   "stats": {
+    "dmg": 32
+   },
+   "visual": {
+    "mesh": "axe",
+    "color": "#bfe8ff",
+    "metal": 0.9,
+    "emit": "#7fd8ff"
+   },
+   "sources": [
+    "chest",
+    "event"
+   ],
+   "effects": [
+    {
+     "type": "hero_on_hit",
+     "effect": "slow",
+     "pct": 30,
+     "dur": 2.0
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_faux_ombre",
+   "name": "Faux de l'ombre",
+   "slot": "right_arm",
+   "category": "axe",
+   "rarity": "legendary",
+   "desc": "Faux maudite : +40 % contre les ennemis isolés.",
+   "stats": {
+    "dmg": 46
+   },
+   "visual": {
+    "mesh": "scythe",
+    "color": "#221a2e",
+    "metal": 0.6,
+    "emit": "#8a5cff"
+   },
+   "sources": [
+    "pass",
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "bonus_vs_isolated",
+     "mult": 1.4
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_marteau_roi",
+   "name": "Marteau du Roi",
+   "slot": "right_arm",
+   "category": "hammer",
+   "rarity": "legendary",
+   "desc": "Marteau royal : chaque coup frappe en zone.",
+   "stats": {
+    "dmg": 58,
+    "atk_speed_pct": -10
+   },
+   "visual": {
+    "mesh": "hammer_big",
+    "color": "#f0c64a",
+    "metal": 1.0,
+    "emit": "#fff2a8"
+   },
+   "sources": [
+    "craft",
+    "shop"
+   ],
+   "effects": [
+    {
+     "type": "hero_splash",
+     "radius": 1.6,
+     "pct": 0.5
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_croc_mythique",
+   "name": "Croc du Dévoreur",
+   "slot": "right_arm",
+   "category": "claws",
+   "rarity": "mythic",
+   "desc": "Arraché au Dévoreur Mutant : vol de vie 12 %.",
+   "stats": {
+    "dmg": 50,
+    "atk_speed_pct": 15
+   },
+   "visual": {
+    "mesh": "claws",
+    "color": "#4a1030",
+    "metal": 0.4,
+    "emit": "#ff3d9a"
+   },
+   "sources": [
+    "boss"
+   ],
+   "effects": [
+    {
+     "type": "hero_lifesteal",
+     "pct": 12
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_lame_ancestrale",
+   "name": "Lame des Ancêtres",
+   "slot": "right_arm",
+   "category": "sword",
+   "rarity": "ancestral",
+   "desc": "Lame légendaire des premiers rois gobelins.",
+   "stats": {
+    "dmg": 70,
+    "atk_speed_pct": 10,
+    "hp": 200
+   },
+   "visual": {
+    "mesh": "sword_big",
+    "color": "#e8f7ff",
+    "metal": 1.0,
+    "emit": "#3ff0e0"
+   },
+   "sources": [
+    "achievement"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "w_epee_parade",
+   "name": "Épée de parade",
+   "slot": "right_arm",
+   "category": "sword",
+   "rarity": "rare",
+   "desc": "Cosmétique : une lame d'apparat, sans bonus.",
+   "stats": {},
+   "visual": {
+    "mesh": "sword",
+    "color": "#ffd86b",
+    "metal": 1.0,
+    "emit": "#fff6c8"
+   },
+   "sources": [
+    "pass",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "l_buckler",
+   "name": "Rondache",
+   "slot": "left_arm",
+   "category": "shield",
+   "rarity": "common",
+   "desc": "Petit bouclier de bois.",
+   "stats": {
+    "armor": 6
+   },
+   "visual": {
+    "mesh": "shield_round",
+    "color": "#7a5230"
+   },
+   "sources": [
+    "starter",
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "l_plank_shield",
+   "name": "Bouclier de planches",
+   "slot": "left_arm",
+   "category": "shield",
+   "rarity": "common",
+   "desc": "Planches clouées.",
+   "stats": {
+    "armor": 9,
+    "speed_pct": -3
+   },
+   "visual": {
+    "mesh": "shield_square",
+    "color": "#8a6a40"
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "l_iron_shield",
+   "name": "Pavois de fer",
+   "slot": "left_arm",
+   "category": "shield",
+   "rarity": "rare",
+   "desc": "Bouclier épais.",
+   "stats": {
+    "armor": 16,
+    "hp": 120,
+    "speed_pct": -5
+   },
+   "visual": {
+    "mesh": "shield_tower",
+    "color": "#6d7076",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest",
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "l_claw_off",
+   "name": "Griffe secondaire",
+   "slot": "left_arm",
+   "category": "claws",
+   "rarity": "rare",
+   "desc": "Une seconde griffe pour frapper plus vite.",
+   "stats": {
+    "atk_speed_pct": 10,
+    "dmg": 6
+   },
+   "visual": {
+    "mesh": "claws",
+    "color": "#c4c4c4",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "l_rune_shield",
+   "name": "Égide runique",
+   "slot": "left_arm",
+   "category": "shield",
+   "rarity": "epic",
+   "desc": "Bouclier gravé : +résistance.",
+   "stats": {
+    "armor": 14,
+    "resist": 15
+   },
+   "visual": {
+    "mesh": "shield_round",
+    "color": "#2f3a60",
+    "metal": 0.8,
+    "emit": "#58a6ff"
+   },
+   "sources": [
+    "craft",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "l_royal_shield",
+   "name": "Bouclier royal",
+   "slot": "left_arm",
+   "category": "shield",
+   "rarity": "legendary",
+   "desc": "Bouclier de la garde du trône.",
+   "stats": {
+    "armor": 24,
+    "hp": 250
+   },
+   "visual": {
+    "mesh": "shield_tower",
+    "color": "#d9b44a",
+    "metal": 1.0,
+    "emit": "#fff2a8"
+   },
+   "sources": [
+    "craft",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "l_griffe_traqueur",
+   "name": "Griffe du Traqueur",
+   "slot": "left_arm",
+   "category": "claws",
+   "rarity": "epic",
+   "desc": "Relique : +30 % de dégâts contre les ennemis isolés.",
+   "stats": {
+    "dmg": 10
+   },
+   "visual": {
+    "mesh": "claws",
+    "color": "#2a2233",
+    "metal": 0.7,
+    "emit": "#8a5cff"
+   },
+   "sources": [
+    "chest",
+    "event"
+   ],
+   "effects": [
+    {
+     "type": "bonus_vs_isolated",
+     "mult": 1.3
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_leather_cap",
+   "name": "Bonnet de cuir",
+   "slot": "head",
+   "category": "helmet",
+   "rarity": "common",
+   "desc": "Protège un peu les oreilles.",
+   "stats": {
+    "armor": 3
+   },
+   "visual": {
+    "mesh": "cap",
+    "color": "#6b4a2b"
+   },
+   "sources": [
+    "starter"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_iron_helm",
+   "name": "Casque de fer",
+   "slot": "head",
+   "category": "helmet",
+   "rarity": "common",
+   "desc": "Casque cabossé.",
+   "stats": {
+    "armor": 6,
+    "hp": 60
+   },
+   "visual": {
+    "mesh": "helm",
+    "color": "#7b7f86",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_bone_crown",
+   "name": "Couronne d'os",
+   "slot": "head",
+   "category": "crown",
+   "rarity": "rare",
+   "desc": "Faite de dents d'ennemis.",
+   "stats": {
+    "hp": 120,
+    "dmg": 4
+   },
+   "visual": {
+    "mesh": "crown_spiky",
+    "color": "#e8dcc0"
+   },
+   "sources": [
+    "chest",
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_war_mask",
+   "name": "Masque de guerre",
+   "slot": "head",
+   "category": "mask",
+   "rarity": "rare",
+   "desc": "Terrifie l'adversaire.",
+   "stats": {
+    "dmg": 8,
+    "armor": 4
+   },
+   "visual": {
+    "mesh": "mask",
+    "color": "#8c2a1c"
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_ram_horns",
+   "name": "Cornes de bélier",
+   "slot": "head",
+   "category": "horns",
+   "rarity": "rare",
+   "desc": "Ornement imposant.",
+   "stats": {
+    "hp": 80
+   },
+   "visual": {
+    "mesh": "horns_ram",
+    "color": "#d8c8a8"
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_gear_helm",
+   "name": "Casque à engrenages",
+   "slot": "head",
+   "category": "helmet",
+   "rarity": "epic",
+   "desc": "Casque mécanique avec visière.",
+   "stats": {
+    "armor": 12,
+    "cdr_pct": 5
+   },
+   "visual": {
+    "mesh": "helm_gear",
+    "color": "#8d8f94",
+    "metal": 1.0,
+    "emit": "#ff8a2b"
+   },
+   "sources": [
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_royal_crown",
+   "name": "Couronne royale",
+   "slot": "head",
+   "category": "crown",
+   "rarity": "epic",
+   "desc": "La couronne d'un vrai King.",
+   "stats": {
+    "hp": 200,
+    "ability_power_pct": 10
+   },
+   "visual": {
+    "mesh": "crown",
+    "color": "#f0c64a",
+    "metal": 1.0
+   },
+   "sources": [
+    "shop",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_masque_mille",
+   "name": "Masque des Mille Visages",
+   "slot": "head",
+   "category": "mask",
+   "rarity": "legendary",
+   "desc": "Relique : débloque trois variantes de peintures de guerre exclusives.",
+   "stats": {
+    "resist": 10
+   },
+   "visual": {
+    "mesh": "mask",
+    "color": "#2b2b2b",
+    "metal": 0.3,
+    "emit": "#d03fd9"
+   },
+   "sources": [
+    "event",
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "unlock_paints",
+     "paints": [
+      "mille_1",
+      "mille_2",
+      "mille_3"
+     ]
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_couronne_dernier_roi",
+   "name": "Couronne du Dernier Roi",
+   "slot": "head",
+   "category": "crown",
+   "rarity": "ancestral",
+   "desc": "Récompense ultime : +8 % à toutes les statistiques.",
+   "stats": {},
+   "visual": {
+    "mesh": "crown_big",
+    "color": "#fff2c0",
+    "metal": 1.0,
+    "emit": "#3ff0e0"
+   },
+   "sources": [
+    "campaign"
+   ],
+   "effects": [
+    {
+     "type": "all_stats",
+     "pct": 8
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "h_horned_helm_cos",
+   "name": "Heaume cornu de parade",
+   "slot": "head",
+   "category": "helmet",
+   "rarity": "epic",
+   "desc": "Cosmétique : apparence seulement.",
+   "stats": {},
+   "visual": {
+    "mesh": "helm_horned",
+    "color": "#3a3a42",
+    "metal": 1.0,
+    "emit": "#ff4040"
+   },
+   "sources": [
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "e_monocle",
+   "name": "Monocle de mécanicien",
+   "slot": "eyes",
+   "category": "lens",
+   "rarity": "common",
+   "desc": "Améliore la précision.",
+   "stats": {
+    "range": 0.2
+   },
+   "visual": {
+    "mesh": "monocle",
+    "color": "#c0a060",
+    "metal": 1.0
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "e_red_lenses",
+   "name": "Lentilles rouges",
+   "slot": "eyes",
+   "category": "lens",
+   "rarity": "rare",
+   "desc": "Vision de combat.",
+   "stats": {
+    "dmg": 6
+   },
+   "visual": {
+    "mesh": "goggles",
+    "color": "#a01818",
+    "emit": "#ff3030"
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "e_oeil_pillard",
+   "name": "Œil du Pillard",
+   "slot": "eyes",
+   "category": "relic_eye",
+   "rarity": "epic",
+   "desc": "Relique : révèle pièges et unités furtives (rayon 5), +10 % contre les structures.",
+   "stats": {},
+   "visual": {
+    "mesh": "eye_glow",
+    "color": "#ffd23f",
+    "emit": "#ffd23f"
+   },
+   "sources": [
+    "chest",
+    "event"
+   ],
+   "effects": [
+    {
+     "type": "reveal",
+     "radius": 5.0
+    },
+    {
+     "type": "bonus_vs_structures",
+     "mult": 1.1
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "e_void_eyes",
+   "name": "Yeux du néant",
+   "slot": "eyes",
+   "category": "mutation_eye",
+   "rarity": "legendary",
+   "desc": "Yeux mutés luminescents.",
+   "stats": {
+    "range": 0.4,
+    "ability_power_pct": 8
+   },
+   "visual": {
+    "mesh": "eye_glow",
+    "color": "#8a5cff",
+    "emit": "#b28cff"
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_rags",
+   "name": "Haillons de guerre",
+   "slot": "torso",
+   "category": "cloth",
+   "rarity": "common",
+   "desc": "Tenue de départ.",
+   "stats": {
+    "hp": 40
+   },
+   "visual": {
+    "mesh": "tunic",
+    "color": "#5a4630"
+   },
+   "sources": [
+    "starter"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_leather",
+   "name": "Armure de cuir",
+   "slot": "torso",
+   "category": "leather",
+   "rarity": "common",
+   "desc": "Cuir tanné de sanglier.",
+   "stats": {
+    "hp": 120,
+    "armor": 4
+   },
+   "visual": {
+    "mesh": "vest",
+    "color": "#6b4a2b"
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_scrap",
+   "name": "Plastron de ferraille",
+   "slot": "torso",
+   "category": "plate",
+   "rarity": "rare",
+   "desc": "Assemblé avec des débris.",
+   "stats": {
+    "hp": 180,
+    "armor": 10,
+    "speed_pct": -4
+   },
+   "visual": {
+    "mesh": "plate",
+    "color": "#7b7f86",
+    "metal": 0.8
+   },
+   "sources": [
+    "chest",
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_plate",
+   "name": "Plastron d'acier",
+   "slot": "torso",
+   "category": "plate",
+   "rarity": "epic",
+   "desc": "Acier gobelin forgé.",
+   "stats": {
+    "hp": 320,
+    "armor": 16,
+    "speed_pct": -5
+   },
+   "visual": {
+    "mesh": "plate",
+    "color": "#9aa0a8",
+    "metal": 1.0
+   },
+   "sources": [
+    "craft",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_carapace",
+   "name": "Carapace mutante",
+   "slot": "torso",
+   "category": "carapace",
+   "rarity": "epic",
+   "desc": "Carapace organique vivante : régénère légèrement.",
+   "stats": {
+    "hp": 280,
+    "armor": 12
+   },
+   "visual": {
+    "mesh": "carapace",
+    "color": "#5a1e5e",
+    "emit": "#d03fd9"
+   },
+   "sources": [
+    "craft",
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "regen",
+     "pct": 1.0
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_mech_frame",
+   "name": "Châssis mécanique",
+   "slot": "torso",
+   "category": "mech",
+   "rarity": "epic",
+   "desc": "Exosquelette : compte comme module mécanique (Surcharge).",
+   "stats": {
+    "hp": 220,
+    "armor": 10,
+    "atk_speed_pct": 6
+   },
+   "visual": {
+    "mesh": "mech_frame",
+    "color": "#8d8f94",
+    "metal": 1.0,
+    "emit": "#ff8a2b"
+   },
+   "sources": [
+    "craft"
+   ],
+   "effects": [
+    {
+     "type": "mech_module"
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_mystic_robe",
+   "name": "Robe arcanique",
+   "slot": "torso",
+   "category": "cloth",
+   "rarity": "rare",
+   "desc": "Tissée de fils runiques.",
+   "stats": {
+    "hp": 100,
+    "ability_power_pct": 12,
+    "cdr_pct": 5
+   },
+   "visual": {
+    "mesh": "robe",
+    "color": "#2f3a60",
+    "emit": "#58a6ff"
+   },
+   "sources": [
+    "chest",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_royal_armor",
+   "name": "Armure royale",
+   "slot": "torso",
+   "category": "plate",
+   "rarity": "legendary",
+   "desc": "L'armure des rois de Varkon.",
+   "stats": {
+    "hp": 450,
+    "armor": 20
+   },
+   "visual": {
+    "mesh": "plate_royal",
+    "color": "#e0b84a",
+    "metal": 1.0
+   },
+   "sources": [
+    "craft",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "t_ancestral",
+   "name": "Cuirasse ancestrale",
+   "slot": "torso",
+   "category": "plate",
+   "rarity": "mythic",
+   "desc": "Gravée de runes oubliées.",
+   "stats": {
+    "hp": 520,
+    "armor": 22,
+    "resist": 15
+   },
+   "visual": {
+    "mesh": "plate_royal",
+    "color": "#d8f6ff",
+    "metal": 1.0,
+    "emit": "#3ff0e0"
+   },
+   "sources": [
+    "chest",
+    "event"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "s_pads",
+   "name": "Épaulières de cuir",
+   "slot": "shoulders",
+   "category": "pads",
+   "rarity": "common",
+   "desc": "Simples protections.",
+   "stats": {
+    "armor": 3
+   },
+   "visual": {
+    "mesh": "pads",
+    "color": "#6b4a2b"
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "s_spikes",
+   "name": "Épaulières à pointes",
+   "slot": "shoulders",
+   "category": "pads",
+   "rarity": "rare",
+   "desc": "Hérissées de clous.",
+   "stats": {
+    "armor": 6,
+    "dmg": 4
+   },
+   "visual": {
+    "mesh": "pads_spiked",
+    "color": "#6d7076",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "s_trophy",
+   "name": "Trophées de crânes",
+   "slot": "shoulders",
+   "category": "trophy",
+   "rarity": "epic",
+   "desc": "Les crânes de rivaux vaincus.",
+   "stats": {
+    "hp": 150,
+    "dmg": 6
+   },
+   "visual": {
+    "mesh": "skulls",
+    "color": "#e8dcc0"
+   },
+   "sources": [
+    "chest",
+    "achievement"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "s_royal",
+   "name": "Épaulières royales",
+   "slot": "shoulders",
+   "category": "plate",
+   "rarity": "legendary",
+   "desc": "Plaques dorées.",
+   "stats": {
+    "armor": 14,
+    "hp": 160
+   },
+   "visual": {
+    "mesh": "pads_big",
+    "color": "#e0b84a",
+    "metal": 1.0
+   },
+   "sources": [
+    "craft",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "ha_wraps",
+   "name": "Bandages",
+   "slot": "hands",
+   "category": "gloves",
+   "rarity": "common",
+   "desc": "Pour mieux tenir l'arme.",
+   "stats": {
+    "atk_speed_pct": 3
+   },
+   "visual": {
+    "mesh": "wraps",
+    "color": "#c8b896"
+   },
+   "sources": [
+    "starter",
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "ha_iron_gloves",
+   "name": "Gantelets de fer",
+   "slot": "hands",
+   "category": "gloves",
+   "rarity": "rare",
+   "desc": "Lourds mais solides.",
+   "stats": {
+    "armor": 5,
+    "dmg": 5
+   },
+   "visual": {
+    "mesh": "gauntlet",
+    "color": "#7b7f86",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "ha_gantelet_broyeur",
+   "name": "Gantelet du Broyeur",
+   "slot": "hands",
+   "category": "relic_glove",
+   "rarity": "epic",
+   "desc": "Relique : une attaque sur quatre devient une frappe lourde (x2, étourdit 0,5 s).",
+   "stats": {
+    "dmg": 8
+   },
+   "visual": {
+    "mesh": "gauntlet_big",
+    "color": "#8d8f94",
+    "metal": 1.0,
+    "emit": "#ff8a2b"
+   },
+   "sources": [
+    "craft",
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "heavy_every",
+     "n": 4,
+     "mult": 2.0,
+     "stun": 0.5
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "ha_rings",
+   "name": "Bagues de pillard",
+   "slot": "hands",
+   "category": "rings",
+   "rarity": "rare",
+   "desc": "Volées à un marchand.",
+   "stats": {
+    "ability_power_pct": 8
+   },
+   "visual": {
+    "mesh": "rings",
+    "color": "#ffd23f",
+    "metal": 1.0
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "le_trousers",
+   "name": "Braies usées",
+   "slot": "legs",
+   "category": "cloth",
+   "rarity": "common",
+   "desc": "Confortables.",
+   "stats": {
+    "speed_pct": 2
+   },
+   "visual": {
+    "mesh": "trousers",
+    "color": "#4a3a28"
+   },
+   "sources": [
+    "starter"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "le_greaves",
+   "name": "Jambières de fer",
+   "slot": "legs",
+   "category": "plate",
+   "rarity": "rare",
+   "desc": "Protègent les tibias.",
+   "stats": {
+    "armor": 6,
+    "hp": 80
+   },
+   "visual": {
+    "mesh": "greaves",
+    "color": "#7b7f86",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "le_runner",
+   "name": "Jambières de coureur",
+   "slot": "legs",
+   "category": "leather",
+   "rarity": "epic",
+   "desc": "Légères et souples.",
+   "stats": {
+    "speed_pct": 10
+   },
+   "visual": {
+    "mesh": "trousers",
+    "color": "#2b4a3a"
+   },
+   "sources": [
+    "craft",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "f_sandals",
+   "name": "Sandales",
+   "slot": "feet",
+   "category": "boots",
+   "rarity": "common",
+   "desc": "Mieux que rien.",
+   "stats": {
+    "speed_pct": 2
+   },
+   "visual": {
+    "mesh": "boots",
+    "color": "#6b4a2b"
+   },
+   "sources": [
+    "starter"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "f_iron_boots",
+   "name": "Bottes ferrées",
+   "slot": "feet",
+   "category": "boots",
+   "rarity": "rare",
+   "desc": "Écrasent tout.",
+   "stats": {
+    "armor": 4,
+    "hp": 60
+   },
+   "visual": {
+    "mesh": "boots_big",
+    "color": "#7b7f86",
+    "metal": 0.9
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "f_hooves",
+   "name": "Sabots mutants",
+   "slot": "feet",
+   "category": "mutation",
+   "rarity": "epic",
+   "desc": "Sabots organiques puissants.",
+   "stats": {
+    "speed_pct": 8,
+    "hp": 80
+   },
+   "visual": {
+    "mesh": "hooves",
+    "color": "#3a2a20"
+   },
+   "sources": [
+    "craft",
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "b_sack",
+   "name": "Sac de pillard",
+   "slot": "back",
+   "category": "bag",
+   "rarity": "common",
+   "desc": "Pour le butin.",
+   "stats": {
+    "hp": 40
+   },
+   "visual": {
+    "mesh": "sack",
+    "color": "#8a6a40"
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "b_quiver",
+   "name": "Carquois",
+   "slot": "back",
+   "category": "quiver",
+   "rarity": "rare",
+   "desc": "Améliore les armes à distance.",
+   "stats": {
+    "range": 0.5
+   },
+   "visual": {
+    "mesh": "quiver",
+    "color": "#6b4a2b"
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "b_moteur_gobelin",
+   "name": "Moteur gobelin",
+   "slot": "back",
+   "category": "mech",
+   "rarity": "epic",
+   "desc": "Relique : +15 % PV aux unités mécaniques, Surcharge -20 % de recharge. Compte comme module mécanique.",
+   "stats": {
+    "atk_speed_pct": 5
+   },
+   "visual": {
+    "mesh": "engine",
+    "color": "#8d8f94",
+    "metal": 1.0,
+    "emit": "#ff8a2b"
+   },
+   "sources": [
+    "craft"
+   ],
+   "effects": [
+    {
+     "type": "family_hp",
+     "family": "mech",
+     "pct": 15
+    },
+    {
+     "type": "cdr_ability",
+     "ability": "overcharge",
+     "pct": 20
+    },
+    {
+     "type": "mech_module"
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "b_wings",
+   "name": "Ailes de chauve-souris",
+   "slot": "back",
+   "category": "wings",
+   "rarity": "legendary",
+   "desc": "Ailes mutantes : +vitesse.",
+   "stats": {
+    "speed_pct": 12
+   },
+   "visual": {
+    "mesh": "wings",
+    "color": "#2a1a2a",
+    "emit": "#8a5cff"
+   },
+   "sources": [
+    "chest",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "b_jetpack",
+   "name": "Réacteur gobelin",
+   "slot": "back",
+   "category": "mech",
+   "rarity": "legendary",
+   "desc": "Réacteur bricolé : +vitesse, module mécanique.",
+   "stats": {
+    "speed_pct": 10,
+    "atk_speed_pct": 5
+   },
+   "visual": {
+    "mesh": "jetpack",
+    "color": "#7a7f88",
+    "metal": 1.0,
+    "emit": "#ffb347"
+   },
+   "sources": [
+    "craft"
+   ],
+   "effects": [
+    {
+     "type": "mech_module"
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "b_tentacles",
+   "name": "Tentacules dorsaux",
+   "slot": "back",
+   "category": "mutation",
+   "rarity": "mythic",
+   "desc": "Tentacules qui immobilisent : un coup sur six enracine 1 s.",
+   "stats": {
+    "hp": 200
+   },
+   "visual": {
+    "mesh": "tentacles",
+    "color": "#5a1e5e",
+    "emit": "#d03fd9"
+   },
+   "sources": [
+    "chest",
+    "event"
+   ],
+   "effects": [
+    {
+     "type": "hero_root_every",
+     "n": 6,
+     "dur": 1.0
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "b_banner",
+   "name": "Bannière de clan",
+   "slot": "back",
+   "category": "banner",
+   "rarity": "rare",
+   "desc": "Cosmétique : affiche vos couleurs.",
+   "stats": {},
+   "visual": {
+    "mesh": "banner",
+    "color": "#c9472b"
+   },
+   "sources": [
+    "pass",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "be_rope",
+   "name": "Ceinture de corde",
+   "slot": "belt",
+   "category": "belt",
+   "rarity": "common",
+   "desc": "Tient les braies.",
+   "stats": {
+    "hp": 30
+   },
+   "visual": {
+    "mesh": "belt",
+    "color": "#8a6a40"
+   },
+   "sources": [
+    "starter"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "be_flasks",
+   "name": "Ceinture à fioles",
+   "slot": "belt",
+   "category": "belt",
+   "rarity": "rare",
+   "desc": "Fioles de soin : régénération.",
+   "stats": {
+    "hp": 60
+   },
+   "visual": {
+    "mesh": "belt_flasks",
+    "color": "#6b4a2b",
+    "emit": "#7bdc3a"
+   },
+   "sources": [
+    "chest",
+    "craft"
+   ],
+   "effects": [
+    {
+     "type": "regen",
+     "pct": 0.8
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "be_totem_hurleur",
+   "name": "Totem du Hurleur",
+   "slot": "belt",
+   "category": "relic_belt",
+   "rarity": "epic",
+   "desc": "Relique : alliés à moins de 4 m +10 % dégâts.",
+   "stats": {},
+   "visual": {
+    "mesh": "totem",
+    "color": "#b5652b"
+   },
+   "sources": [
+    "chest",
+    "event"
+   ],
+   "effects": [
+    {
+     "type": "ally_aura",
+     "stat": "damage",
+     "pct": 10,
+     "radius": 4.0
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "be_tools",
+   "name": "Ceinture d'outils",
+   "slot": "belt",
+   "category": "belt",
+   "rarity": "rare",
+   "desc": "Outils de mécanicien : -8 % recharge.",
+   "stats": {
+    "cdr_pct": 8
+   },
+   "visual": {
+    "mesh": "belt_tools",
+    "color": "#5a4630",
+    "metal": 0.5
+   },
+   "sources": [
+    "craft"
+   ],
+   "effects": [],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "a_embers",
+   "name": "Aura de braises",
+   "slot": "aura",
+   "category": "aura",
+   "rarity": "rare",
+   "desc": "Cosmétique : particules de braise.",
+   "stats": {},
+   "visual": {
+    "mesh": "aura",
+    "color": "#ff6a1f"
+   },
+   "sources": [
+    "chest",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "a_frost",
+   "name": "Aura de givre",
+   "slot": "aura",
+   "category": "aura",
+   "rarity": "rare",
+   "desc": "Cosmétique : flocons tourbillonnants.",
+   "stats": {},
+   "visual": {
+    "mesh": "aura",
+    "color": "#7fd8ff"
+   },
+   "sources": [
+    "chest",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "a_toxic",
+   "name": "Aura toxique",
+   "slot": "aura",
+   "category": "aura",
+   "rarity": "epic",
+   "desc": "Cosmétique : fumée verte.",
+   "stats": {},
+   "visual": {
+    "mesh": "aura",
+    "color": "#7bdc3a"
+   },
+   "sources": [
+    "pass",
+    "shop"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "a_storm",
+   "name": "Aura électrique",
+   "slot": "aura",
+   "category": "aura",
+   "rarity": "legendary",
+   "desc": "Cosmétique : arcs électriques.",
+   "stats": {},
+   "visual": {
+    "mesh": "aura",
+    "color": "#9ad7ff"
+   },
+   "sources": [
+    "shop",
+    "pass"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "a_void",
+   "name": "Aura du néant",
+   "slot": "aura",
+   "category": "aura",
+   "rarity": "mythic",
+   "desc": "Cosmétique : énergie sombre.",
+   "stats": {},
+   "visual": {
+    "mesh": "aura",
+    "color": "#8a5cff"
+   },
+   "sources": [
+    "event",
+    "chest"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "a_ancestral",
+   "name": "Aura ancestrale",
+   "slot": "aura",
+   "category": "aura",
+   "rarity": "ancestral",
+   "desc": "Cosmétique : lumière des anciens rois.",
+   "stats": {},
+   "visual": {
+    "mesh": "aura",
+    "color": "#3ff0e0"
+   },
+   "sources": [
+    "achievement"
+   ],
+   "effects": [],
+   "cosmetic": true,
+   "requires": {}
+  },
+  {
+   "id": "r_coeur_fourneau",
+   "name": "Cœur du Fourneau",
+   "slot": "special",
+   "category": "relic",
+   "rarity": "epic",
+   "desc": "Relique : unités de feu +15 % dégâts, mais résistance du King -10.",
+   "stats": {
+    "resist": -10
+   },
+   "visual": {
+    "mesh": "relic_heart",
+    "color": "#ff6a1f",
+    "emit": "#ff6a1f"
+   },
+   "sources": [
+    "chest",
+    "craft"
+   ],
+   "effects": [
+    {
+     "type": "family_dmg",
+     "family": "fire",
+     "pct": 15
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "r_noyau_instable",
+   "name": "Noyau instable",
+   "slot": "special",
+   "category": "relic",
+   "rarity": "legendary",
+   "desc": "Relique : sous 30 % de vie, le King explose (400 dégâts, rayon 3), une fois par vie.",
+   "stats": {},
+   "visual": {
+    "mesh": "relic_core",
+    "color": "#ff3d6e",
+    "emit": "#ff3d6e"
+   },
+   "sources": [
+    "craft",
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "last_stand_explosion",
+     "threshold": 0.3,
+     "dmg": 400,
+     "radius": 3.0
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "r_sceau_glace",
+   "name": "Sceau de givre",
+   "slot": "special",
+   "category": "relic",
+   "rarity": "rare",
+   "desc": "Relique : unités de glace +15 % PV.",
+   "stats": {},
+   "visual": {
+    "mesh": "relic_core",
+    "color": "#7fd8ff",
+    "emit": "#7fd8ff"
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "family_hp",
+     "family": "ice",
+     "pct": 15
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "r_idole_toxique",
+   "name": "Idole toxique",
+   "slot": "special",
+   "category": "relic",
+   "rarity": "rare",
+   "desc": "Relique : unités toxiques +15 % dégâts.",
+   "stats": {},
+   "visual": {
+    "mesh": "relic_core",
+    "color": "#7bdc3a",
+    "emit": "#7bdc3a"
+   },
+   "sources": [
+    "chest"
+   ],
+   "effects": [
+    {
+     "type": "family_dmg",
+     "family": "toxic",
+     "pct": 15
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  },
+  {
+   "id": "r_etendard_royal",
+   "name": "Étendard de la couronne",
+   "slot": "special",
+   "category": "relic",
+   "rarity": "epic",
+   "desc": "Relique : unités royales +15 % PV et dégâts.",
+   "stats": {},
+   "visual": {
+    "mesh": "relic_heart",
+    "color": "#ffd23f",
+    "emit": "#ffd23f"
+   },
+   "sources": [
+    "craft"
+   ],
+   "effects": [
+    {
+     "type": "family_hp",
+     "family": "royal",
+     "pct": 15
+    },
+    {
+     "type": "family_dmg",
+     "family": "royal",
+     "pct": 15
+    }
+   ],
+   "cosmetic": false,
+   "requires": {}
+  }
+ ],
+ "cosmetics": [
+  {
+   "id": "emote_laugh",
+   "name": "Rire royal",
+   "kind": "emote",
+   "rarity": "common",
+   "anim": "laugh",
+   "sources": [
+    "starter"
+   ]
+  },
+  {
+   "id": "emote_smash",
+   "name": "Frappe au sol",
+   "kind": "emote",
+   "rarity": "common",
+   "anim": "smash",
+   "sources": [
+    "starter"
+   ]
+  },
+  {
+   "id": "emote_cross",
+   "name": "Bras croisés",
+   "kind": "emote",
+   "rarity": "rare",
+   "anim": "cross_arms",
+   "sources": [
+    "pass",
+    "shop"
+   ]
+  },
+  {
+   "id": "emote_spin",
+   "name": "Moulinet",
+   "kind": "emote",
+   "rarity": "rare",
+   "anim": "spin_weapon",
+   "sources": [
+    "chest",
+    "pass"
+   ]
+  },
+  {
+   "id": "emote_roar",
+   "name": "Rugissement",
+   "kind": "emote",
+   "rarity": "epic",
+   "anim": "roar",
+   "sources": [
+    "pass",
+    "shop"
+   ]
+  },
+  {
+   "id": "victory_jump",
+   "name": "Saut de victoire",
+   "kind": "victory",
+   "rarity": "common",
+   "anim": "jump",
+   "sources": [
+    "starter"
+   ]
+  },
+  {
+   "id": "victory_flex",
+   "name": "Démonstration de force",
+   "kind": "victory",
+   "rarity": "epic",
+   "anim": "flex",
+   "sources": [
+    "pass",
+    "shop"
+   ]
+  },
+  {
+   "id": "victory_throne",
+   "name": "Assis sur le trône",
+   "kind": "victory",
+   "rarity": "legendary",
+   "anim": "throne",
+   "sources": [
+    "pass"
+   ]
+  },
+  {
+   "id": "entry_smoke",
+   "name": "Entrée fumigène",
+   "kind": "entry",
+   "rarity": "rare",
+   "anim": "smoke",
+   "sources": [
+    "pass",
+    "shop"
+   ]
+  },
+  {
+   "id": "entry_lightning",
+   "name": "Entrée foudroyante",
+   "kind": "entry",
+   "rarity": "legendary",
+   "anim": "lightning",
+   "sources": [
+    "shop",
+    "event"
+   ]
+  },
+  {
+   "id": "defeat_shrug",
+   "name": "Haussement d'épaules",
+   "kind": "defeat",
+   "rarity": "rare",
+   "anim": "shrug",
+   "sources": [
+    "pass"
+   ]
+  },
+  {
+   "id": "taunt_tongue",
+   "name": "Provocation",
+   "kind": "emote",
+   "rarity": "rare",
+   "anim": "taunt",
+   "sources": [
+    "chest",
+    "shop"
+   ]
+  }
+ ],
+ "materials": [
+  {
+   "id": "mat_larme_ancestrale",
+   "name": "Larme ancestrale",
+   "rarity": "mythic",
+   "desc": "Matériau rare permettant la mutation Éveil ancestral.",
+   "sources": [
+    "chest",
+    "boss",
+    "achievement"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2369 @@
+{
+ "chapters": [
+  {
+   "id": 1,
+   "name": "Les Collines Rouillées",
+   "desc": "Les tribus voisines testent vos défenses.",
+   "families": [
+    "raider",
+    "wild",
+    "fire"
+   ],
+   "boss": "boss_colosse"
+  },
+  {
+   "id": 2,
+   "name": "Les Forges de Cendre",
+   "desc": "Au cœur des volcans, la Reine des Cendres règne.",
+   "families": [
+    "fire",
+    "mech",
+    "raider"
+   ],
+   "boss": "boss_reine"
+  },
+  {
+   "id": 3,
+   "name": "Le Marais Mutant",
+   "desc": "Des créatures difformes rôdent dans les brumes.",
+   "families": [
+    "toxic",
+    "mutant",
+    "shadow"
+   ],
+   "boss": "boss_devoreur"
+  },
+  {
+   "id": 4,
+   "name": "Les Cimes Gelées",
+   "desc": "Le Roi Exilé a rassemblé une armée dans la glace.",
+   "families": [
+    "ice",
+    "air",
+    "royal"
+   ],
+   "boss": "boss_roi_exile"
+  },
+  {
+   "id": 5,
+   "name": "Le Trône des Failles",
+   "desc": "La relique ultime vous attend : la couronne du Dernier Roi.",
+   "families": [
+    "mystic",
+    "royal",
+    "shadow",
+    "mutant"
+   ],
+   "boss": "boss_dernier_roi"
+  }
+ ],
+ "missions": [
+  {
+   "id": "c1m1",
+   "chapter": 1,
+   "index": 1,
+   "type": "duel",
+   "difficulty": "easy",
+   "enemy_level": 1,
+   "enemy_deck": [
+    "frondeur",
+    "pyrogobelin",
+    "pillard",
+    "croquefer",
+    "givregriffes",
+    "venin",
+    "boulon",
+    "medecin_guerre"
+   ],
+   "enemy_hero": false,
+   "name": "Escarmouche du Col",
+   "tip": "Faites glisser une carte sur votre moitié du terrain pour déployer une unité.",
+   "rewards": {
+    "gold": 120,
+    "xp": 40
+   },
+   "first_clear": {
+    "crystals": 10,
+    "chest": "chest_victory"
+   },
+   "requires": null
+  },
+  {
+   "id": "c1m2",
+   "chapter": 1,
+   "index": 2,
+   "type": "duel",
+   "difficulty": "easy",
+   "enemy_level": 1,
+   "enemy_deck": [
+    "bondisseur",
+    "ragecornes",
+    "pillard",
+    "frondeur",
+    "croquefer",
+    "givregriffes",
+    "venin",
+    "boulon"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Rive",
+   "tip": "Touchez le sol pour déplacer votre King Gobelin, puis utilisez sa compétence active.",
+   "rewards": {
+    "gold": 160,
+    "xp": 48
+   },
+   "first_clear": {
+    "crystals": 12,
+    "chest": "chest_victory",
+    "card": "ragecornes"
+   },
+   "requires": "c1m1"
+  },
+  {
+   "id": "c1m3",
+   "chapter": 1,
+   "index": 3,
+   "type": "duel",
+   "difficulty": "easy",
+   "enemy_level": 1,
+   "enemy_deck": [
+    "voleur",
+    "bombardier_magma",
+    "bondisseur",
+    "croquefer",
+    "frondeur",
+    "pyrogobelin",
+    "trappeur",
+    "pillard"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche des Ruines",
+   "tip": "Détruisez les tours ennemies avant d'attaquer le Trône.",
+   "rewards": {
+    "gold": 200,
+    "xp": 56
+   },
+   "first_clear": {
+    "crystals": 14,
+    "chest": "chest_victory",
+    "card": "lance_givre"
+   },
+   "requires": "c1m2"
+  },
+  {
+   "id": "c1m4",
+   "chapter": 1,
+   "index": 4,
+   "type": "raid",
+   "difficulty": "easy",
+   "enemy_level": 1,
+   "enemy_deck": [
+    "ragecornes",
+    "kamikaze",
+    "voleur",
+    "bombardier_magma",
+    "bondisseur",
+    "croquefer",
+    "frondeur",
+    "pyrogobelin"
+   ],
+   "enemy_hero": true,
+   "name": "Raid du Bastion",
+   "tip": "Raid : détruisez le Trône de la forteresse ennemie avant la fin du temps. Les murailles bloquent les unités terrestres.",
+   "rewards": {
+    "gold": 240,
+    "xp": 64
+   },
+   "first_clear": {
+    "crystals": 16,
+    "chest": "chest_victory",
+    "card": "kamikaze"
+   },
+   "requires": "c1m3",
+   "layout": "raid_1"
+  },
+  {
+   "id": "c1m5",
+   "chapter": 1,
+   "index": 5,
+   "type": "defense",
+   "difficulty": "easy",
+   "enemy_level": 2,
+   "enemy_deck": [
+    "trappeur",
+    "kamikaze",
+    "voleur",
+    "ragecornes",
+    "frondeur",
+    "pyrogobelin",
+    "hurleur",
+    "gardien_braise"
+   ],
+   "enemy_hero": false,
+   "name": "Siège du Ravin",
+   "tip": "Défense : survivez aux vagues. Vos murailles, pièges et tours de garde de la base sont présents.",
+   "rewards": {
+    "gold": 280,
+    "xp": 72
+   },
+   "first_clear": {
+    "crystals": 18,
+    "chest": "chest_victory"
+   },
+   "requires": "c1m4",
+   "waves": [
+    {
+     "delay": 4.0,
+     "units": [
+      "trappeur",
+      "kamikaze"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "voleur",
+      "ragecornes",
+      "frondeur"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "frondeur",
+      "pyrogobelin",
+      "hurleur",
+      "gardien_braise"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1m6",
+   "chapter": 1,
+   "index": 6,
+   "type": "challenge",
+   "difficulty": "easy",
+   "enemy_level": 2,
+   "enemy_deck": [
+    "gardien_braise",
+    "porte_torche",
+    "danseflammes",
+    "chef_pillard",
+    "bondisseur",
+    "croquefer",
+    "bombardier_magma",
+    "pillard"
+   ],
+   "enemy_hero": true,
+   "name": "Épreuve du Sanctuaire",
+   "tip": "Défi : seules certaines cartes sont autorisées. Lisez les règles.",
+   "rewards": {
+    "gold": 320,
+    "xp": 80
+   },
+   "first_clear": {
+    "crystals": 20,
+    "chest": "chest_victory"
+   },
+   "requires": "c1m5",
+   "modifiers": {
+    "only_families": [
+     "raider",
+     "wild"
+    ],
+    "text": "Seulement des cartes Pillards et Sauvages"
+   }
+  },
+  {
+   "id": "c1m7",
+   "chapter": 1,
+   "index": 7,
+   "type": "duel",
+   "difficulty": "easy",
+   "enemy_level": 2,
+   "enemy_deck": [
+    "gardien_braise",
+    "porte_torche",
+    "croquefer",
+    "bombardier_magma",
+    "frondeur",
+    "pyrogobelin",
+    "danseflammes",
+    "brise_os"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Tour Noire",
+   "tip": "",
+   "rewards": {
+    "gold": 360,
+    "xp": 88
+   },
+   "first_clear": {
+    "crystals": 22,
+    "chest": "chest_victory"
+   },
+   "requires": "c1m6"
+  },
+  {
+   "id": "c1m8",
+   "chapter": 1,
+   "index": 8,
+   "type": "boss",
+   "difficulty": "easy",
+   "enemy_level": 2,
+   "enemy_deck": [
+    "pillard",
+    "berserker",
+    "ragecornes",
+    "chef_pillard",
+    "bondisseur",
+    "brulecrane",
+    "trappeur",
+    "gardien_braise"
+   ],
+   "enemy_hero": false,
+   "name": "Colosse de Fer",
+   "tip": "Boss : évitez les zones rouges annoncées et frappez pendant ses phases d'épuisement.",
+   "rewards": {
+    "gold": 700,
+    "xp": 96
+   },
+   "first_clear": {
+    "crystals": 24,
+    "chest": "chest_module"
+   },
+   "requires": "c1m7",
+   "boss": "boss_colosse"
+  },
+  {
+   "id": "c2m1",
+   "chapter": 2,
+   "index": 1,
+   "type": "duel",
+   "difficulty": "easy",
+   "enemy_level": 3,
+   "enemy_deck": [
+    "frondeur",
+    "pyrogobelin",
+    "ferrailleur",
+    "broyeur",
+    "kamikaze",
+    "voleur",
+    "mecanicien_royal",
+    "catapulte_gobeline"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche du Col",
+   "tip": "",
+   "rewards": {
+    "gold": 440,
+    "xp": 104
+   },
+   "first_clear": {
+    "crystals": 26,
+    "chest": "chest_victory"
+   },
+   "requires": "c1m8"
+  },
+  {
+   "id": "c2m2",
+   "chapter": 2,
+   "index": 2,
+   "type": "duel",
+   "difficulty": "easy",
+   "enemy_level": 3,
+   "enemy_deck": [
+    "boulon",
+    "brulecrane",
+    "trappeur",
+    "gardien_braise",
+    "porte_torche",
+    "danseflammes",
+    "bombardier_magma",
+    "frondeur"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Rive",
+   "tip": "",
+   "rewards": {
+    "gold": 480,
+    "xp": 112
+   },
+   "first_clear": {
+    "crystals": 28,
+    "chest": "chest_victory"
+   },
+   "requires": "c2m1"
+  },
+  {
+   "id": "c2m3",
+   "chapter": 2,
+   "index": 3,
+   "type": "duel",
+   "difficulty": "normal",
+   "enemy_level": 3,
+   "enemy_deck": [
+    "voleur",
+    "mecanicien_royal",
+    "catapulte_gobeline",
+    "frondeur",
+    "pyrogobelin",
+    "ferrailleur",
+    "broyeur",
+    "gardien_braise"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche des Ruines",
+   "tip": "",
+   "rewards": {
+    "gold": 520,
+    "xp": 120
+   },
+   "first_clear": {
+    "crystals": 30,
+    "chest": "chest_victory",
+    "card": "ferrailleur"
+   },
+   "requires": "c2m2"
+  },
+  {
+   "id": "c2m4",
+   "chapter": 2,
+   "index": 4,
+   "type": "raid",
+   "difficulty": "normal",
+   "enemy_level": 3,
+   "enemy_deck": [
+    "danseflammes",
+    "bombardier_magma",
+    "coeur_incandescent",
+    "boulon",
+    "brulecrane",
+    "trappeur",
+    "chevaucheur_loup",
+    "pillard"
+   ],
+   "enemy_hero": true,
+   "name": "Raid du Bastion",
+   "tip": "",
+   "rewards": {
+    "gold": 560,
+    "xp": 128
+   },
+   "first_clear": {
+    "crystals": 32,
+    "chest": "chest_victory"
+   },
+   "requires": "c2m3",
+   "layout": "raid_2"
+  },
+  {
+   "id": "c2m5",
+   "chapter": 2,
+   "index": 5,
+   "type": "defense",
+   "difficulty": "normal",
+   "enemy_level": 4,
+   "enemy_deck": [
+    "scie_gobelin",
+    "chef_pillard",
+    "kamikaze",
+    "voleur",
+    "mecanicien_royal",
+    "catapulte_gobeline",
+    "frondeur",
+    "pyrogobelin"
+   ],
+   "enemy_hero": false,
+   "name": "Siège du Ravin",
+   "tip": "",
+   "rewards": {
+    "gold": 600,
+    "xp": 136
+   },
+   "first_clear": {
+    "crystals": 34,
+    "chest": "chest_victory",
+    "card": "ingenieur_terrain"
+   },
+   "requires": "c2m4",
+   "waves": [
+    {
+     "delay": 4.0,
+     "units": [
+      "scie_gobelin",
+      "chef_pillard",
+      "kamikaze"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "kamikaze",
+      "voleur",
+      "mecanicien_royal",
+      "catapulte_gobeline"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "mecanicien_royal",
+      "catapulte_gobeline",
+      "frondeur",
+      "pyrogobelin",
+      "scie_gobelin"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "frondeur",
+      "pyrogobelin",
+      "scie_gobelin",
+      "chef_pillard",
+      "kamikaze",
+      "voleur"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2m6",
+   "chapter": 2,
+   "index": 6,
+   "type": "challenge",
+   "difficulty": "normal",
+   "enemy_level": 4,
+   "enemy_deck": [
+    "broyeur",
+    "gardien_braise",
+    "porte_torche",
+    "danseflammes",
+    "bombardier_magma",
+    "coeur_incandescent",
+    "boulon",
+    "brulecrane"
+   ],
+   "enemy_hero": true,
+   "name": "Épreuve du Sanctuaire",
+   "tip": "",
+   "rewards": {
+    "gold": 640,
+    "xp": 144
+   },
+   "first_clear": {
+    "crystals": 36,
+    "chest": "chest_victory"
+   },
+   "requires": "c2m5",
+   "modifiers": {
+    "energy_rate": 2.0,
+    "text": "Rage double pendant tout le combat"
+   }
+  },
+  {
+   "id": "c2m7",
+   "chapter": 2,
+   "index": 7,
+   "type": "duel",
+   "difficulty": "normal",
+   "enemy_level": 4,
+   "enemy_deck": [
+    "chevaucheur_loup",
+    "kamikaze",
+    "voleur",
+    "mecanicien_royal",
+    "catapulte_gobeline",
+    "titan_vapeur",
+    "porte_torche",
+    "danseflammes"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Tour Noire",
+   "tip": "",
+   "rewards": {
+    "gold": 680,
+    "xp": 152
+   },
+   "first_clear": {
+    "crystals": 38,
+    "chest": "chest_victory"
+   },
+   "requires": "c2m6"
+  },
+  {
+   "id": "c2m8",
+   "chapter": 2,
+   "index": 8,
+   "type": "boss",
+   "difficulty": "normal",
+   "enemy_level": 4,
+   "enemy_deck": [
+    "titan_vapeur",
+    "porte_torche",
+    "danseflammes",
+    "bombardier_magma",
+    "coeur_incandescent",
+    "pillard",
+    "berserker",
+    "scie_gobelin"
+   ],
+   "enemy_hero": false,
+   "name": "Reine des Cendres",
+   "tip": "",
+   "rewards": {
+    "gold": 1020,
+    "xp": 160
+   },
+   "first_clear": {
+    "crystals": 40,
+    "chest": "chest_royal",
+    "item": "w_brise_fer"
+   },
+   "requires": "c2m7",
+   "boss": "boss_reine"
+  },
+  {
+   "id": "c3m1",
+   "chapter": 3,
+   "index": 1,
+   "type": "duel",
+   "difficulty": "normal",
+   "enemy_level": 5,
+   "enemy_deck": [
+    "venin",
+    "mycogobelin",
+    "tentaculaire",
+    "colosse_putride",
+    "mutagene",
+    "spectrogobelin",
+    "machoire_geante",
+    "epineux"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche du Col",
+   "tip": "",
+   "rewards": {
+    "gold": 760,
+    "xp": 168
+   },
+   "first_clear": {
+    "crystals": 42,
+    "chest": "chest_victory"
+   },
+   "requires": "c2m8"
+  },
+  {
+   "id": "c3m2",
+   "chapter": 3,
+   "index": 2,
+   "type": "duel",
+   "difficulty": "normal",
+   "enemy_level": 5,
+   "enemy_deck": [
+    "epineux",
+    "saboteur",
+    "faucheur_obscur",
+    "cracheur_acide",
+    "rodeur_fongique",
+    "devoreur",
+    "alchimiste_vert",
+    "ombre_lame"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Rive",
+   "tip": "",
+   "rewards": {
+    "gold": 800,
+    "xp": 176
+   },
+   "first_clear": {
+    "crystals": 44,
+    "chest": "chest_victory"
+   },
+   "requires": "c3m1"
+  },
+  {
+   "id": "c3m3",
+   "chapter": 3,
+   "index": 3,
+   "type": "duel",
+   "difficulty": "normal",
+   "enemy_level": 5,
+   "enemy_deck": [
+    "ombre_lame",
+    "traqueur_nocturne",
+    "colosse_putride",
+    "mutagene",
+    "spectrogobelin",
+    "machoire_geante",
+    "cracheur_acide",
+    "rodeur_fongique"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche des Ruines",
+   "tip": "",
+   "rewards": {
+    "gold": 840,
+    "xp": 184
+   },
+   "first_clear": {
+    "crystals": 46,
+    "chest": "chest_victory"
+   },
+   "requires": "c3m2"
+  },
+  {
+   "id": "c3m4",
+   "chapter": 3,
+   "index": 4,
+   "type": "raid",
+   "difficulty": "normal",
+   "enemy_level": 5,
+   "enemy_deck": [
+    "spectrogobelin",
+    "machoire_geante",
+    "cracheur_acide",
+    "rodeur_fongique",
+    "devoreur",
+    "venin",
+    "mycogobelin",
+    "tentaculaire"
+   ],
+   "enemy_hero": true,
+   "name": "Raid du Bastion",
+   "tip": "",
+   "rewards": {
+    "gold": 880,
+    "xp": 192
+   },
+   "first_clear": {
+    "crystals": 48,
+    "chest": "chest_victory",
+    "item": "r_coeur_fourneau"
+   },
+   "requires": "c3m3",
+   "layout": "raid_3"
+  },
+  {
+   "id": "c3m5",
+   "chapter": 3,
+   "index": 5,
+   "type": "defense",
+   "difficulty": "normal",
+   "enemy_level": 6,
+   "enemy_deck": [
+    "devoreur",
+    "abomination_royale",
+    "mutagene",
+    "spectrogobelin",
+    "machoire_geante",
+    "alchimiste_vert",
+    "ombre_lame",
+    "traqueur_nocturne"
+   ],
+   "enemy_hero": false,
+   "name": "Siège du Ravin",
+   "tip": "",
+   "rewards": {
+    "gold": 920,
+    "xp": 200
+   },
+   "first_clear": {
+    "crystals": 50,
+    "chest": "chest_victory"
+   },
+   "requires": "c3m4",
+   "waves": [
+    {
+     "delay": 4.0,
+     "units": [
+      "devoreur",
+      "abomination_royale",
+      "mutagene"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "mutagene",
+      "spectrogobelin",
+      "machoire_geante",
+      "alchimiste_vert"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "machoire_geante",
+      "alchimiste_vert",
+      "ombre_lame",
+      "traqueur_nocturne",
+      "devoreur"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "ombre_lame",
+      "traqueur_nocturne",
+      "devoreur",
+      "abomination_royale",
+      "mutagene",
+      "spectrogobelin"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c3m6",
+   "chapter": 3,
+   "index": 6,
+   "type": "challenge",
+   "difficulty": "normal",
+   "enemy_level": 6,
+   "enemy_deck": [
+    "maitre_ombres",
+    "cracheur_acide",
+    "rodeur_fongique",
+    "devoreur",
+    "abomination_royale",
+    "mutagene",
+    "spectrogobelin",
+    "machoire_geante"
+   ],
+   "enemy_hero": true,
+   "name": "Épreuve du Sanctuaire",
+   "tip": "",
+   "rewards": {
+    "gold": 960,
+    "xp": 208
+   },
+   "first_clear": {
+    "crystals": 52,
+    "chest": "chest_victory"
+   },
+   "requires": "c3m5",
+   "modifiers": {
+    "no_hero": true,
+    "text": "Sans King Gobelin"
+   }
+  },
+  {
+   "id": "c3m7",
+   "chapter": 3,
+   "index": 7,
+   "type": "duel",
+   "difficulty": "normal",
+   "enemy_level": 6,
+   "enemy_deck": [
+    "venin",
+    "mycogobelin",
+    "tentaculaire",
+    "maitre_ombres",
+    "cracheur_acide",
+    "rodeur_fongique",
+    "devoreur",
+    "abomination_royale"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Tour Noire",
+   "tip": "",
+   "rewards": {
+    "gold": 1000,
+    "xp": 216
+   },
+   "first_clear": {
+    "crystals": 54,
+    "chest": "chest_victory"
+   },
+   "requires": "c3m6"
+  },
+  {
+   "id": "c3m8",
+   "chapter": 3,
+   "index": 8,
+   "type": "boss",
+   "difficulty": "normal",
+   "enemy_level": 6,
+   "enemy_deck": [
+    "epineux",
+    "saboteur",
+    "faucheur_obscur",
+    "venin",
+    "mycogobelin",
+    "tentaculaire",
+    "maitre_ombres",
+    "cracheur_acide"
+   ],
+   "enemy_hero": false,
+   "name": "Dévoreur Mutant",
+   "tip": "",
+   "rewards": {
+    "gold": 1340,
+    "xp": 224
+   },
+   "first_clear": {
+    "crystals": 56,
+    "chest": "chest_royal",
+    "item": "w_croc_mythique",
+    "material": "mat_larme_ancestrale"
+   },
+   "requires": "c3m7",
+   "boss": "boss_devoreur"
+  },
+  {
+   "id": "c4m1",
+   "chapter": 4,
+   "index": 1,
+   "type": "duel",
+   "difficulty": "normal",
+   "enemy_level": 7,
+   "enemy_deck": [
+    "aile_griffe",
+    "cryochaman",
+    "champion_royaume",
+    "gardien_blizzard",
+    "givregriffes",
+    "porte_etendard",
+    "fauconneur",
+    "ravageur_celeste"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche du Col",
+   "tip": "",
+   "rewards": {
+    "gold": 1080,
+    "xp": 232
+   },
+   "first_clear": {
+    "crystals": 58,
+    "chest": "chest_victory"
+   },
+   "requires": "c3m8"
+  },
+  {
+   "id": "c4m2",
+   "chapter": 4,
+   "index": 2,
+   "type": "duel",
+   "difficulty": "normal",
+   "enemy_level": 7,
+   "enemy_deck": [
+    "heraut_guerre",
+    "bombardier_gobelin",
+    "gardien_cimes",
+    "aile_griffe",
+    "cryochaman",
+    "champion_royaume",
+    "gardien_blizzard",
+    "givregriffes"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Rive",
+   "tip": "",
+   "rewards": {
+    "gold": 1120,
+    "xp": 240
+   },
+   "first_clear": {
+    "crystals": 60,
+    "chest": "chest_victory"
+   },
+   "requires": "c4m1"
+  },
+  {
+   "id": "c4m3",
+   "chapter": 4,
+   "index": 3,
+   "type": "duel",
+   "difficulty": "expert",
+   "enemy_level": 7,
+   "enemy_deck": [
+    "garde_trone",
+    "executeur_royal",
+    "protecteur_ancestral",
+    "heraut_guerre",
+    "bombardier_gobelin",
+    "gardien_cimes",
+    "aile_griffe",
+    "cryochaman"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche des Ruines",
+   "tip": "",
+   "rewards": {
+    "gold": 1160,
+    "xp": 248
+   },
+   "first_clear": {
+    "crystals": 62,
+    "chest": "chest_victory"
+   },
+   "requires": "c4m2"
+  },
+  {
+   "id": "c4m4",
+   "chapter": 4,
+   "index": 4,
+   "type": "raid",
+   "difficulty": "expert",
+   "enemy_level": 7,
+   "enemy_deck": [
+    "briseglace",
+    "sentinelle_polaire",
+    "eclaireur_vents",
+    "garde_trone",
+    "executeur_royal",
+    "protecteur_ancestral",
+    "heraut_guerre",
+    "bombardier_gobelin"
+   ],
+   "enemy_hero": true,
+   "name": "Raid du Bastion",
+   "tip": "",
+   "rewards": {
+    "gold": 1200,
+    "xp": 256
+   },
+   "first_clear": {
+    "crystals": 64,
+    "chest": "chest_victory"
+   },
+   "requires": "c4m3",
+   "layout": "raid_1"
+  },
+  {
+   "id": "c4m5",
+   "chapter": 4,
+   "index": 5,
+   "type": "defense",
+   "difficulty": "expert",
+   "enemy_level": 8,
+   "enemy_deck": [
+    "fauconneur",
+    "ravageur_celeste",
+    "lance_givre",
+    "briseglace",
+    "sentinelle_polaire",
+    "eclaireur_vents",
+    "garde_trone",
+    "executeur_royal"
+   ],
+   "enemy_hero": false,
+   "name": "Siège du Ravin",
+   "tip": "",
+   "rewards": {
+    "gold": 1240,
+    "xp": 264
+   },
+   "first_clear": {
+    "crystals": 66,
+    "chest": "chest_victory"
+   },
+   "requires": "c4m4",
+   "waves": [
+    {
+     "delay": 4.0,
+     "units": [
+      "fauconneur",
+      "ravageur_celeste",
+      "lance_givre",
+      "briseglace"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "lance_givre",
+      "briseglace",
+      "sentinelle_polaire",
+      "eclaireur_vents",
+      "garde_trone"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "sentinelle_polaire",
+      "eclaireur_vents",
+      "garde_trone",
+      "executeur_royal",
+      "fauconneur",
+      "ravageur_celeste"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "garde_trone",
+      "executeur_royal",
+      "fauconneur",
+      "ravageur_celeste",
+      "lance_givre",
+      "briseglace",
+      "sentinelle_polaire"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "fauconneur",
+      "ravageur_celeste",
+      "lance_givre",
+      "briseglace",
+      "sentinelle_polaire",
+      "eclaireur_vents",
+      "garde_trone",
+      "executeur_royal"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c4m6",
+   "chapter": 4,
+   "index": 6,
+   "type": "challenge",
+   "difficulty": "expert",
+   "enemy_level": 8,
+   "enemy_deck": [
+    "gardien_blizzard",
+    "givregriffes",
+    "porte_etendard",
+    "fauconneur",
+    "ravageur_celeste",
+    "lance_givre",
+    "briseglace",
+    "sentinelle_polaire"
+   ],
+   "enemy_hero": true,
+   "name": "Épreuve du Sanctuaire",
+   "tip": "",
+   "rewards": {
+    "gold": 1280,
+    "xp": 272
+   },
+   "first_clear": {
+    "crystals": 68,
+    "chest": "chest_victory"
+   },
+   "requires": "c4m5",
+   "modifiers": {
+    "max_cost": 4,
+    "text": "Cartes de coût 4 maximum"
+   }
+  },
+  {
+   "id": "c4m7",
+   "chapter": 4,
+   "index": 7,
+   "type": "duel",
+   "difficulty": "expert",
+   "enemy_level": 8,
+   "enemy_deck": [
+    "aile_griffe",
+    "cryochaman",
+    "champion_royaume",
+    "gardien_blizzard",
+    "givregriffes",
+    "porte_etendard",
+    "fauconneur",
+    "ravageur_celeste"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Tour Noire",
+   "tip": "",
+   "rewards": {
+    "gold": 1320,
+    "xp": 280
+   },
+   "first_clear": {
+    "crystals": 70,
+    "chest": "chest_victory"
+   },
+   "requires": "c4m6"
+  },
+  {
+   "id": "c4m8",
+   "chapter": 4,
+   "index": 8,
+   "type": "boss",
+   "difficulty": "expert",
+   "enemy_level": 8,
+   "enemy_deck": [
+    "heraut_guerre",
+    "bombardier_gobelin",
+    "gardien_cimes",
+    "aile_griffe",
+    "cryochaman",
+    "champion_royaume",
+    "gardien_blizzard",
+    "givregriffes"
+   ],
+   "enemy_hero": false,
+   "name": "Roi Exilé",
+   "tip": "",
+   "rewards": {
+    "gold": 1660,
+    "xp": 288
+   },
+   "first_clear": {
+    "crystals": 72,
+    "chest": "chest_royal",
+    "item": "t_ancestral"
+   },
+   "requires": "c4m7",
+   "boss": "boss_roi_exile"
+  },
+  {
+   "id": "c5m1",
+   "chapter": 5,
+   "index": 1,
+   "type": "duel",
+   "difficulty": "expert",
+   "enemy_level": 9,
+   "enemy_deck": [
+    "heraut_guerre",
+    "oracle_gobelin",
+    "tentaculaire",
+    "executeur_royal",
+    "maitre_ombres",
+    "epineux",
+    "porte_etendard",
+    "traqueur_nocturne"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche du Col",
+   "tip": "",
+   "rewards": {
+    "gold": 1400,
+    "xp": 296
+   },
+   "first_clear": {
+    "crystals": 74,
+    "chest": "chest_victory"
+   },
+   "requires": "c4m8"
+  },
+  {
+   "id": "c5m2",
+   "chapter": 5,
+   "index": 2,
+   "type": "duel",
+   "difficulty": "expert",
+   "enemy_level": 9,
+   "enemy_deck": [
+    "mutagene",
+    "saboteur",
+    "chronomancien",
+    "porteur_faille",
+    "abomination_royale",
+    "ombre_lame",
+    "spectrogobelin",
+    "devoreur"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Rive",
+   "tip": "",
+   "rewards": {
+    "gold": 1440,
+    "xp": 304
+   },
+   "first_clear": {
+    "crystals": 76,
+    "chest": "chest_victory"
+   },
+   "requires": "c5m1"
+  },
+  {
+   "id": "c5m3",
+   "chapter": 5,
+   "index": 3,
+   "type": "duel",
+   "difficulty": "expert",
+   "enemy_level": 9,
+   "enemy_deck": [
+    "porte_etendard",
+    "traqueur_nocturne",
+    "faucheur_obscur",
+    "protecteur_ancestral",
+    "garde_trone",
+    "runiste",
+    "champion_royaume",
+    "machoire_geante"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche des Ruines",
+   "tip": "",
+   "rewards": {
+    "gold": 1480,
+    "xp": 312
+   },
+   "first_clear": {
+    "crystals": 78,
+    "chest": "chest_victory"
+   },
+   "requires": "c5m2"
+  },
+  {
+   "id": "c5m4",
+   "chapter": 5,
+   "index": 4,
+   "type": "raid",
+   "difficulty": "expert",
+   "enemy_level": 9,
+   "enemy_deck": [
+    "spectrogobelin",
+    "devoreur",
+    "tisseur_energie",
+    "heraut_guerre",
+    "oracle_gobelin",
+    "tentaculaire",
+    "executeur_royal",
+    "maitre_ombres"
+   ],
+   "enemy_hero": true,
+   "name": "Raid du Bastion",
+   "tip": "",
+   "rewards": {
+    "gold": 1520,
+    "xp": 320
+   },
+   "first_clear": {
+    "crystals": 80,
+    "chest": "chest_victory"
+   },
+   "requires": "c5m3",
+   "layout": "raid_2"
+  },
+  {
+   "id": "c5m5",
+   "chapter": 5,
+   "index": 5,
+   "type": "defense",
+   "difficulty": "expert",
+   "enemy_level": 10,
+   "enemy_deck": [
+    "champion_royaume",
+    "machoire_geante",
+    "gardien_ancestral",
+    "mutagene",
+    "saboteur",
+    "chronomancien",
+    "porteur_faille",
+    "abomination_royale"
+   ],
+   "enemy_hero": false,
+   "name": "Siège du Ravin",
+   "tip": "",
+   "rewards": {
+    "gold": 1560,
+    "xp": 328
+   },
+   "first_clear": {
+    "crystals": 82,
+    "chest": "chest_victory"
+   },
+   "requires": "c5m4",
+   "waves": [
+    {
+     "delay": 4.0,
+     "units": [
+      "champion_royaume",
+      "machoire_geante",
+      "gardien_ancestral",
+      "mutagene"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "gardien_ancestral",
+      "mutagene",
+      "saboteur",
+      "chronomancien",
+      "porteur_faille"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "saboteur",
+      "chronomancien",
+      "porteur_faille",
+      "abomination_royale",
+      "champion_royaume",
+      "machoire_geante"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "porteur_faille",
+      "abomination_royale",
+      "champion_royaume",
+      "machoire_geante",
+      "gardien_ancestral",
+      "mutagene",
+      "saboteur"
+     ]
+    },
+    {
+     "delay": 14.0,
+     "units": [
+      "champion_royaume",
+      "machoire_geante",
+      "gardien_ancestral",
+      "mutagene",
+      "saboteur",
+      "chronomancien",
+      "porteur_faille",
+      "abomination_royale"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c5m6",
+   "chapter": 5,
+   "index": 6,
+   "type": "challenge",
+   "difficulty": "expert",
+   "enemy_level": 10,
+   "enemy_deck": [
+    "executeur_royal",
+    "maitre_ombres",
+    "epineux",
+    "porte_etendard",
+    "traqueur_nocturne",
+    "faucheur_obscur",
+    "protecteur_ancestral",
+    "garde_trone"
+   ],
+   "enemy_hero": true,
+   "name": "Épreuve du Sanctuaire",
+   "tip": "",
+   "rewards": {
+    "gold": 1600,
+    "xp": 336
+   },
+   "first_clear": {
+    "crystals": 84,
+    "chest": "chest_victory"
+   },
+   "requires": "c5m5",
+   "modifiers": {
+    "enemy_double_hp": true,
+    "text": "Tours ennemies renforcées (x2 PV)"
+   }
+  },
+  {
+   "id": "c5m7",
+   "chapter": 5,
+   "index": 7,
+   "type": "duel",
+   "difficulty": "expert",
+   "enemy_level": 10,
+   "enemy_deck": [
+    "porteur_faille",
+    "abomination_royale",
+    "ombre_lame",
+    "spectrogobelin",
+    "devoreur",
+    "tisseur_energie",
+    "heraut_guerre",
+    "oracle_gobelin"
+   ],
+   "enemy_hero": true,
+   "name": "Escarmouche de la Tour Noire",
+   "tip": "",
+   "rewards": {
+    "gold": 1640,
+    "xp": 344
+   },
+   "first_clear": {
+    "crystals": 86,
+    "chest": "chest_victory"
+   },
+   "requires": "c5m6"
+  },
+  {
+   "id": "c5m8",
+   "chapter": 5,
+   "index": 8,
+   "type": "boss",
+   "difficulty": "expert",
+   "enemy_level": 10,
+   "enemy_deck": [
+    "protecteur_ancestral",
+    "garde_trone",
+    "runiste",
+    "champion_royaume",
+    "machoire_geante",
+    "gardien_ancestral",
+    "mutagene",
+    "saboteur"
+   ],
+   "enemy_hero": false,
+   "name": "Le Dernier Roi",
+   "tip": "",
+   "rewards": {
+    "gold": 1980,
+    "xp": 352
+   },
+   "first_clear": {
+    "crystals": 88,
+    "chest": "chest_ancestral"
+   },
+   "requires": "c5m7",
+   "boss": "boss_dernier_roi",
+   "three_star_reward": {
+    "item": "h_couronne_dernier_roi"
+   }
+  }
+ ],
+ "bosses": [
+  {
+   "id": "boss_colosse",
+   "name": "Colosse de Fer",
+   "hp": 9000,
+   "dmg": 240,
+   "hit": 2.2,
+   "speed": 0.7,
+   "radius": 1.4,
+   "armor": 60,
+   "look": {
+    "color": "#7b7f86",
+    "scale": 2.6,
+    "weapon": "hammer_big",
+    "acc": [
+     "metal_plates",
+     "chimney"
+    ]
+   },
+   "desc": "Armure destructible : brisez ses plaques (2500 PV) pour l'exposer et l'étourdir.",
+   "armor_layer": 2500,
+   "phases": [
+    {
+     "threshold": 1.0,
+     "attacks": [
+      {
+       "type": "slam",
+       "radius": 2.6,
+       "dmg": 420,
+       "telegraph": 1.6,
+       "cooldown": 7.0
+      }
+     ]
+    },
+    {
+     "threshold": 0.5,
+     "speed_mult": 1.2,
+     "attacks": [
+      {
+       "type": "slam",
+       "radius": 3.0,
+       "dmg": 480,
+       "telegraph": 1.4,
+       "cooldown": 6.0
+      },
+      {
+       "type": "shockwave",
+       "radius": 5.0,
+       "dmg": 200,
+       "telegraph": 2.0,
+       "cooldown": 12.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "boss_reine",
+   "name": "Reine des Cendres",
+   "hp": 8000,
+   "dmg": 160,
+   "hit": 1.6,
+   "speed": 0.9,
+   "radius": 1.1,
+   "armor": 20,
+   "range": 5.0,
+   "proj": 9,
+   "look": {
+    "color": "#3a1a10",
+    "scale": 2.0,
+    "weapon": "staff",
+    "acc": [
+     "flame_hair",
+     "glow",
+     "crown_small"
+    ]
+   },
+   "desc": "Pluie de feu et invocation de Pyrogobelins.",
+   "phases": [
+    {
+     "threshold": 1.0,
+     "attacks": [
+      {
+       "type": "fire_rain",
+       "count": 3,
+       "radius": 1.8,
+       "dmg": 260,
+       "telegraph": 1.8,
+       "cooldown": 8.0
+      },
+      {
+       "type": "summon",
+       "unit": "pyrogobelin",
+       "count": 2,
+       "cooldown": 14.0
+      }
+     ]
+    },
+    {
+     "threshold": 0.4,
+     "attacks": [
+      {
+       "type": "fire_rain",
+       "count": 5,
+       "radius": 1.8,
+       "dmg": 280,
+       "telegraph": 1.5,
+       "cooldown": 6.5
+      },
+      {
+       "type": "summon",
+       "unit": "danseflammes",
+       "count": 2,
+       "cooldown": 12.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "boss_devoreur",
+   "name": "Dévoreur Mutant",
+   "hp": 11000,
+   "dmg": 260,
+   "hit": 1.8,
+   "speed": 0.85,
+   "radius": 1.5,
+   "armor": 30,
+   "look": {
+    "color": "#5a1e5e",
+    "scale": 2.8,
+    "weapon": "claws",
+    "acc": [
+     "big_jaw",
+     "tentacles",
+     "boils"
+    ]
+   },
+   "desc": "Change de comportement : dévore ses proies pour se soigner, puis enrage.",
+   "phases": [
+    {
+     "threshold": 1.0,
+     "attacks": [
+      {
+       "type": "devour",
+       "range": 2.2,
+       "heal_pct": 6,
+       "cooldown": 9.0,
+       "telegraph": 1.2
+      },
+      {
+       "type": "slam",
+       "radius": 2.4,
+       "dmg": 380,
+       "telegraph": 1.5,
+       "cooldown": 8.0
+      }
+     ]
+    },
+    {
+     "threshold": 0.6,
+     "speed_mult": 1.3,
+     "attacks": [
+      {
+       "type": "charge",
+       "dist": 7.0,
+       "width": 1.5,
+       "dmg": 420,
+       "telegraph": 1.6,
+       "cooldown": 9.0
+      },
+      {
+       "type": "devour",
+       "range": 2.4,
+       "heal_pct": 5,
+       "cooldown": 10.0,
+       "telegraph": 1.0
+      }
+     ]
+    },
+    {
+     "threshold": 0.25,
+     "speed_mult": 1.5,
+     "dmg_mult": 1.4,
+     "attacks": [
+      {
+       "type": "shockwave",
+       "radius": 4.5,
+       "dmg": 300,
+       "telegraph": 1.6,
+       "cooldown": 7.0
+      },
+      {
+       "type": "charge",
+       "dist": 8.0,
+       "width": 1.6,
+       "dmg": 460,
+       "telegraph": 1.4,
+       "cooldown": 8.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "boss_roi_exile",
+   "name": "Roi Exilé",
+   "hp": 12000,
+   "dmg": 220,
+   "hit": 1.2,
+   "speed": 1.2,
+   "radius": 1.1,
+   "armor": 35,
+   "look": {
+    "color": "#4a3a5a",
+    "scale": 1.9,
+    "weapon": "axe_big",
+    "acc": [
+     "crown_small",
+     "cape",
+     "glow"
+    ]
+   },
+   "desc": "Un ancien King : Frappe du Tyran, Rugissement royal et Appel des Pillards.",
+   "phases": [
+    {
+     "threshold": 1.0,
+     "attacks": [
+      {
+       "type": "tyrant_strike",
+       "radius": 2.6,
+       "dmg": 400,
+       "telegraph": 1.2,
+       "cooldown": 8.0
+      },
+      {
+       "type": "royal_roar",
+       "radius": 6.0,
+       "pct": 30,
+       "cooldown": 16.0
+      }
+     ]
+    },
+    {
+     "threshold": 0.5,
+     "attacks": [
+      {
+       "type": "tyrant_strike",
+       "radius": 3.0,
+       "dmg": 450,
+       "telegraph": 1.0,
+       "cooldown": 6.5
+      },
+      {
+       "type": "summon",
+       "unit": "pillard",
+       "count": 2,
+       "cooldown": 12.0
+      },
+      {
+       "type": "royal_roar",
+       "radius": 6.0,
+       "pct": 35,
+       "cooldown": 14.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "boss_dernier_roi",
+   "name": "Le Dernier Roi",
+   "hp": 16000,
+   "dmg": 280,
+   "hit": 1.3,
+   "speed": 1.0,
+   "radius": 1.4,
+   "armor": 40,
+   "look": {
+    "color": "#f0e0a0",
+    "scale": 2.4,
+    "weapon": "sword_big",
+    "acc": [
+     "crown_small",
+     "cape",
+     "glow",
+     "runes"
+    ]
+   },
+   "desc": "L'ultime souverain de Varkon. Trois phases, toutes les mécaniques réunies.",
+   "armor_layer": 3000,
+   "phases": [
+    {
+     "threshold": 1.0,
+     "attacks": [
+      {
+       "type": "slam",
+       "radius": 2.8,
+       "dmg": 420,
+       "telegraph": 1.4,
+       "cooldown": 7.0
+      },
+      {
+       "type": "fire_rain",
+       "count": 3,
+       "radius": 1.8,
+       "dmg": 240,
+       "telegraph": 1.8,
+       "cooldown": 10.0
+      }
+     ]
+    },
+    {
+     "threshold": 0.66,
+     "attacks": [
+      {
+       "type": "charge",
+       "dist": 8.0,
+       "width": 1.6,
+       "dmg": 450,
+       "telegraph": 1.5,
+       "cooldown": 8.0
+      },
+      {
+       "type": "summon",
+       "unit": "garde_trone",
+       "count": 2,
+       "cooldown": 16.0
+      }
+     ]
+    },
+    {
+     "threshold": 0.33,
+     "speed_mult": 1.3,
+     "dmg_mult": 1.3,
+     "attacks": [
+      {
+       "type": "shockwave",
+       "radius": 5.0,
+       "dmg": 320,
+       "telegraph": 1.6,
+       "cooldown": 7.0
+      },
+      {
+       "type": "fire_rain",
+       "count": 6,
+       "radius": 1.6,
+       "dmg": 260,
+       "telegraph": 1.4,
+       "cooldown": 7.0
+      },
+      {
+       "type": "royal_roar",
+       "radius": 6.0,
+       "pct": 40,
+       "cooldown": 15.0
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "raid_layouts": {
+  "raid_1": {
+   "towers": [
+    [
+     25,
+     4
+    ],
+    [
+     25,
+     14
+    ]
+   ],
+   "walls": [
+    [
+     22,
+     3
+    ],
+    [
+     22,
+     4
+    ],
+    [
+     22,
+     5
+    ],
+    [
+     22,
+     6
+    ],
+    [
+     22,
+     7
+    ],
+    [
+     22,
+     8
+    ],
+    [
+     22,
+     9
+    ],
+    [
+     22,
+     10
+    ],
+    [
+     22,
+     11
+    ],
+    [
+     22,
+     12
+    ],
+    [
+     22,
+     13
+    ],
+    [
+     22,
+     14
+    ],
+    [
+     22,
+     15
+    ]
+   ],
+   "traps": [
+    [
+     20,
+     7
+    ],
+    [
+     20,
+     11
+    ]
+   ],
+   "extra_towers": []
+  },
+  "raid_2": {
+   "towers": [
+    [
+     25,
+     4
+    ],
+    [
+     25,
+     14
+    ],
+    [
+     28,
+     9
+    ]
+   ],
+   "walls": [
+    [
+     22,
+     2
+    ],
+    [
+     22,
+     3
+    ],
+    [
+     22,
+     4
+    ],
+    [
+     22,
+     5
+    ],
+    [
+     22,
+     6
+    ],
+    [
+     22,
+     7
+    ],
+    [
+     22,
+     11
+    ],
+    [
+     22,
+     12
+    ],
+    [
+     22,
+     13
+    ],
+    [
+     22,
+     14
+    ],
+    [
+     22,
+     15
+    ],
+    [
+     22,
+     16
+    ],
+    [
+     26,
+     7
+    ],
+    [
+     26,
+     8
+    ],
+    [
+     26,
+     9
+    ],
+    [
+     26,
+     10
+    ],
+    [
+     26,
+     11
+    ]
+   ],
+   "traps": [
+    [
+     22,
+     9
+    ],
+    [
+     20,
+     5
+    ],
+    [
+     20,
+     13
+    ]
+   ],
+   "extra_towers": [
+    [
+     23,
+     9
+    ]
+   ]
+  },
+  "raid_3": {
+   "towers": [
+    [
+     24,
+     3
+    ],
+    [
+     24,
+     15
+    ],
+    [
+     27,
+     6
+    ],
+    [
+     27,
+     12
+    ]
+   ],
+   "walls": [
+    [
+     21,
+     2
+    ],
+    [
+     21,
+     3
+    ],
+    [
+     21,
+     4
+    ],
+    [
+     21,
+     5
+    ],
+    [
+     21,
+     6
+    ],
+    [
+     21,
+     7
+    ],
+    [
+     21,
+     8
+    ],
+    [
+     21,
+     9
+    ],
+    [
+     21,
+     10
+    ],
+    [
+     21,
+     11
+    ],
+    [
+     21,
+     12
+    ],
+    [
+     21,
+     13
+    ],
+    [
+     21,
+     14
+    ],
+    [
+     21,
+     15
+    ],
+    [
+     21,
+     16
+    ],
+    [
+     26,
+     4
+    ],
+    [
+     26,
+     5
+    ],
+    [
+     26,
+     6
+    ],
+    [
+     26,
+     7
+    ],
+    [
+     26,
+     8
+    ],
+    [
+     26,
+     9
+    ],
+    [
+     26,
+     10
+    ],
+    [
+     26,
+     11
+    ],
+    [
+     26,
+     12
+    ],
+    [
+     26,
+     13
+    ],
+    [
+     26,
+     14
+    ]
+   ],
+   "traps": [
+    [
+     19,
+     6
+    ],
+    [
+     19,
+     9
+    ],
+    [
+     19,
+     12
+    ],
+    [
+     23,
+     9
+    ]
+   ],
+   "extra_towers": [
+    [
+     23,
+     9
+    ]
+   ]
+  }
+ },
+ "events": [
+  {
+   "id": "ev_mech_invasion",
+   "name": "Invasion mécanique",
+   "desc": "Repoussez des vagues d'unités mécaniques.",
+   "type": "defense",
+   "families": [
+    "mech"
+   ],
+   "reward": {
+    "war_tokens": 80,
+    "chest": "chest_module"
+   },
+   "difficulty": "normal"
+  },
+  {
+   "id": "ev_fire_week",
+   "name": "Semaine des gobelins de feu",
+   "desc": "Combats avec cartes de feu uniquement ; les unités de feu ennemies sont renforcées.",
+   "type": "challenge",
+   "families": [
+    "fire"
+   ],
+   "modifiers": {
+    "only_families": [
+     "fire"
+    ],
+    "text": "Cartes de feu uniquement"
+   },
+   "reward": {
+    "war_tokens": 80,
+    "chest": "chest_reinforced"
+   },
+   "difficulty": "normal"
+  },
+  {
+   "id": "ev_mutation",
+   "name": "Défi de mutation",
+   "desc": "Affrontez une armée mutante.",
+   "type": "duel",
+   "families": [
+    "mutant",
+    "toxic"
+   ],
+   "reward": {
+    "war_tokens": 80,
+    "chest": "chest_mutation"
+   },
+   "difficulty": "normal"
+  },
+  {
+   "id": "ev_boss_hunt",
+   "name": "Chasse au boss",
+   "desc": "Affrontez un boss aléatoire.",
+   "type": "boss",
+   "reward": {
+    "war_tokens": 120,
+    "chest": "chest_royal"
+   },
+   "difficulty": "expert"
+  },
+  {
+   "id": "ev_defense",
+   "name": "Défi de défense",
+   "desc": "Tenez 6 vagues.",
+   "type": "defense",
+   "families": [
+    "raider",
+    "wild"
+   ],
+   "reward": {
+    "war_tokens": 100,
+    "chest": "chest_reinforced"
+   },
+   "difficulty": "expert"
+  },
+  {
+   "id": "ev_collection",
+   "name": "Événement de collection",
+   "desc": "Gagnez avec au moins 4 familles différentes dans votre deck.",
+   "type": "duel",
+   "families": [
+    "royal",
+    "mystic"
+   ],
+   "modifiers": {
+    "min_families": 4,
+    "text": "Au moins 4 familles différentes"
+   },
+   "reward": {
+    "war_tokens": 80,
+    "chest": "chest_goblin"
+   },
+   "difficulty": "normal"
+  },
+  {
+   "id": "ev_king_trial",
+   "name": "Épreuve du King Gobelin",
+   "desc": "Votre King seul, sans cartes, contre des vagues.",
+   "type": "defense",
+   "families": [
+    "raider"
+   ],
+   "modifiers": {
+    "no_cards": true,
+    "text": "Aucune carte : King uniquement"
+   },
+   "reward": {
+    "war_tokens": 120,
+    "chest": "chest_module"
+   },
+   "difficulty": "normal"
+  }
+ ],
+ "structures": {
+  "throne": {
+   "hp": 4200,
+   "dmg": 110,
+   "hit": 1.0,
+   "range": 7.5,
+   "radius": 1.5,
+   "proj": 12
+  },
+  "tower": {
+   "hp": 2400,
+   "dmg": 90,
+   "hit": 0.9,
+   "range": 7.0,
+   "radius": 0.9,
+   "proj": 14
+  },
+  "wall": {
+   "hp": 900,
+   "radius": 0.55
+  },
+  "trap": {
+   "dmg": 220,
+   "radius": 1.2
+  },
+  "dummy": {
+   "hp": 6000,
+   "radius": 0.6
+  }
+ }
+}

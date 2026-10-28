@@ -1,0 +1,7 @@
+.godot/
+build/
+*.keystore
+!tools/*.keystore
+export_credentials.cfg
+*.tmp
+__pycache__/

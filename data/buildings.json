@@ -1,0 +1,581 @@
+{
+ "buildings": [
+  {
+   "id": "fortress",
+   "name": "Forteresse",
+   "size": [
+    4,
+    4
+   ],
+   "max_level": 10,
+   "zone": "center",
+   "desc": "Centre du royaume. Son niveau limite celui des autres bâtiments et débloque des zones.",
+   "base_cost": {
+    "gold": 400
+   },
+   "cost_growth": 2.1,
+   "base_time": 40,
+   "unique": true,
+   "color": "#6d5a4a"
+  },
+  {
+   "id": "barracks",
+   "effect": {
+    "card_stat_pct": 3
+   },
+   "name": "Caserne",
+   "size": [
+    3,
+    3
+   ],
+   "max_level": 10,
+   "zone": "center",
+   "desc": "Améliore les troupes : +3 % PV et dégâts des cartes en combat par niveau.",
+   "base_cost": {
+    "gold": 200
+   },
+   "cost_growth": 1.9,
+   "base_time": 25,
+   "unique": true,
+   "color": "#7a3a2a",
+   "req": {
+    "fortress": 1
+   }
+  },
+  {
+   "id": "treasury",
+   "effect": {
+    "mine_cap_per_level": 300
+   },
+   "name": "Trésorerie",
+   "size": [
+    2,
+    2
+   ],
+   "max_level": 10,
+   "zone": "center",
+   "desc": "Stocke l'or produit par les mines (capacité +300 par niveau).",
+   "base_cost": {
+    "gold": 150
+   },
+   "cost_growth": 1.8,
+   "base_time": 20,
+   "unique": true,
+   "color": "#d9b44a",
+   "req": {
+    "fortress": 1
+   }
+  },
+  {
+   "id": "gold_mine",
+   "production": {
+    "resource": "gold",
+    "per_hour": 40,
+    "cap_base": 300
+   },
+   "name": "Mine gobeline",
+   "size": [
+    2,
+    2
+   ],
+   "max_level": 10,
+   "zone": "center",
+   "desc": "Produit de l'or en continu (40/h par niveau), dans la limite de la Trésorerie.",
+   "base_cost": {
+    "gold": 120
+   },
+   "cost_growth": 1.8,
+   "base_time": 15,
+   "unique": false,
+   "max_count": 3,
+   "color": "#a07a3a",
+   "req": {
+    "fortress": 1
+   }
+  },
+  {
+   "id": "crystal_works",
+   "production": {
+    "resource": "crystals",
+    "per_hour": 1,
+    "cap_per_level": 6
+   },
+   "name": "Cristallerie",
+   "size": [
+    2,
+    2
+   ],
+   "max_level": 8,
+   "zone": "industrial",
+   "desc": "Produit lentement des cristaux (1/h par niveau, stock max 6 par niveau).",
+   "base_cost": {
+    "gold": 600
+   },
+   "cost_growth": 2.0,
+   "base_time": 60,
+   "unique": true,
+   "color": "#58a6ff",
+   "req": {
+    "fortress": 2
+   }
+  },
+  {
+   "id": "workshop",
+   "production": {
+    "resource": "components",
+    "per_hour": 8,
+    "cap_per_level": 60
+   },
+   "name": "Atelier",
+   "size": [
+    3,
+    2
+   ],
+   "max_level": 10,
+   "zone": "industrial",
+   "desc": "Produit des composants mécaniques (8/h par niveau) et débloque des recettes.",
+   "base_cost": {
+    "gold": 300
+   },
+   "cost_growth": 1.9,
+   "base_time": 30,
+   "unique": true,
+   "color": "#8d8f94",
+   "req": {
+    "fortress": 2
+   }
+  },
+  {
+   "id": "card_hall",
+   "name": "Salle des cartes",
+   "size": [
+    3,
+    3
+   ],
+   "max_level": 10,
+   "zone": "center",
+   "desc": "Niveau maximum des cartes = niveau de la salle + 2.",
+   "base_cost": {
+    "gold": 250
+   },
+   "cost_growth": 1.9,
+   "base_time": 25,
+   "unique": true,
+   "color": "#4a3a6a",
+   "req": {
+    "fortress": 1
+   }
+  },
+  {
+   "id": "laboratory",
+   "name": "Laboratoire",
+   "size": [
+    3,
+    3
+   ],
+   "max_level": 8,
+   "zone": "center",
+   "desc": "Conception, mutation, recherche, recyclage et reliques du King Gobelin.",
+   "base_cost": {
+    "gold": 1500,
+    "components": 100
+   },
+   "cost_growth": 2.0,
+   "base_time": 60,
+   "unique": true,
+   "color": "#3a6a5a",
+   "req": {
+    "fortress": 4
+   },
+   "locked_ruin": true
+  },
+  {
+   "id": "royal_forge",
+   "name": "Forge royale",
+   "size": [
+    3,
+    2
+   ],
+   "max_level": 8,
+   "zone": "industrial",
+   "desc": "Fabrique armes et armures. Son niveau débloque les recettes de rareté supérieure.",
+   "base_cost": {
+    "gold": 500,
+    "components": 30
+   },
+   "cost_growth": 2.0,
+   "base_time": 45,
+   "unique": true,
+   "color": "#8a3a1a",
+   "req": {
+    "fortress": 3
+   }
+  },
+  {
+   "id": "watchtower",
+   "effect": {
+    "tower_pct": 8
+   },
+   "name": "Tour de garde",
+   "size": [
+    1,
+    1
+   ],
+   "max_level": 10,
+   "zone": "center",
+   "desc": "Défense : +8 % PV et dégâts des tours en combat par niveau (tour la plus haute).",
+   "base_cost": {
+    "gold": 180
+   },
+   "cost_growth": 1.85,
+   "base_time": 20,
+   "unique": false,
+   "max_count": 4,
+   "color": "#7a6a55",
+   "req": {
+    "fortress": 1
+   }
+  },
+  {
+   "id": "wall",
+   "effect": {
+    "wall_hp": 900,
+    "wall_hp_pct": 15
+   },
+   "name": "Muraille",
+   "size": [
+    1,
+    1
+   ],
+   "max_level": 10,
+   "zone": "center",
+   "desc": "Ajoute des segments de muraille en mode Défense (1 segment pour 2 murailles) ; PV selon le niveau.",
+   "base_cost": {
+    "gold": 60
+   },
+   "cost_growth": 1.7,
+   "base_time": 5,
+   "unique": false,
+   "max_count": 12,
+   "color": "#6a6a6a",
+   "req": {
+    "fortress": 1
+   }
+  },
+  {
+   "id": "trap",
+   "effect": {
+    "trap_dmg": 220,
+    "trap_dmg_pct": 15
+   },
+   "name": "Piège gobelin",
+   "size": [
+    1,
+    1
+   ],
+   "max_level": 8,
+   "zone": "center",
+   "desc": "Ajoute un piège à pointes en mode Défense et Survie (dégâts selon le niveau).",
+   "base_cost": {
+    "gold": 150
+   },
+   "cost_growth": 1.8,
+   "base_time": 10,
+   "unique": false,
+   "max_count": 4,
+   "color": "#5a3a20",
+   "req": {
+    "fortress": 2
+   }
+  },
+  {
+   "id": "raid_portal",
+   "effect": {
+    "raid_reward_pct": 10
+   },
+   "name": "Portail de raid",
+   "size": [
+    2,
+    2
+   ],
+   "max_level": 6,
+   "zone": "center",
+   "desc": "Donne accès aux raids. Le niveau augmente les récompenses de raid (+10 %/niv.).",
+   "base_cost": {
+    "gold": 350
+   },
+   "cost_growth": 2.0,
+   "base_time": 30,
+   "unique": true,
+   "color": "#6a2a8a",
+   "req": {
+    "fortress": 2
+   }
+  },
+  {
+   "id": "trophy_hall",
+   "effect": {
+    "battle_gold_pct": 2
+   },
+   "name": "Hall des trophées",
+   "size": [
+    3,
+    2
+   ],
+   "max_level": 6,
+   "zone": "royal",
+   "desc": "Expose vos succès : +2 % d'or gagné en combat par niveau.",
+   "base_cost": {
+    "gold": 1200,
+    "crystals": 20
+   },
+   "cost_growth": 2.0,
+   "base_time": 60,
+   "unique": true,
+   "color": "#ffd23f",
+   "req": {
+    "fortress": 6
+   }
+  },
+  {
+   "id": "mutant_pen",
+   "production": {
+    "resource": "mutant_essence",
+    "per_hour": 4,
+    "cap_per_level": 40
+   },
+   "name": "Enclos mutant",
+   "size": [
+    3,
+    3
+   ],
+   "max_level": 8,
+   "zone": "mutant_garden",
+   "desc": "Étudie des créatures : produit de l'essence mutante (4/h par niveau).",
+   "base_cost": {
+    "gold": 800,
+    "components": 40
+   },
+   "cost_growth": 2.0,
+   "base_time": 45,
+   "unique": true,
+   "color": "#d03fd9",
+   "req": {
+    "fortress": 3
+   }
+  },
+  {
+   "id": "research_hall",
+   "name": "Salle de recherche",
+   "size": [
+    3,
+    2
+   ],
+   "max_level": 8,
+   "zone": "mechanical",
+   "desc": "Débloque les technologies (niveau max de recherche = niveau de la salle).",
+   "base_cost": {
+    "gold": 1000,
+    "components": 60
+   },
+   "cost_growth": 2.0,
+   "base_time": 60,
+   "unique": true,
+   "color": "#4aa3ff",
+   "req": {
+    "fortress": 5
+   }
+  }
+ ],
+ "zones": [
+  {
+   "id": "center",
+   "name": "Centre de la forteresse",
+   "rect": [
+    8,
+    8,
+    10,
+    10
+   ],
+   "cost": {},
+   "req": {
+    "fortress": 1
+   },
+   "desc": "Cœur de votre royaume."
+  },
+  {
+   "id": "industrial",
+   "name": "Quartier industriel",
+   "rect": [
+    18,
+    8,
+    6,
+    10
+   ],
+   "cost": {
+    "gold": 500
+   },
+   "req": {
+    "fortress": 2
+   },
+   "desc": "Atelier, forge et cristallerie."
+  },
+  {
+   "id": "mutant_garden",
+   "name": "Jardin mutant",
+   "rect": [
+    8,
+    2,
+    10,
+    6
+   ],
+   "cost": {
+    "gold": 1200
+   },
+   "req": {
+    "fortress": 3
+   },
+   "desc": "Végétation mutante et enclos."
+  },
+  {
+   "id": "creature_pen",
+   "name": "Enclos des créatures",
+   "rect": [
+    2,
+    8,
+    6,
+    10
+   ],
+   "cost": {
+    "gold": 2000
+   },
+   "req": {
+    "fortress": 4
+   },
+   "desc": "+6 emplacements de construction et +1 mine possible.",
+   "bonus": {
+    "gold_mine_max": 1
+   }
+  },
+  {
+   "id": "mechanical",
+   "name": "District mécanique",
+   "rect": [
+    18,
+    18,
+    6,
+    6
+   ],
+   "cost": {
+    "gold": 3500,
+    "components": 100
+   },
+   "req": {
+    "fortress": 5
+   },
+   "desc": "Salle de recherche et machines."
+  },
+  {
+   "id": "royal",
+   "name": "Zone royale",
+   "rect": [
+    8,
+    18,
+    10,
+    6
+   ],
+   "cost": {
+    "gold": 6000,
+    "crystals": 50
+   },
+   "req": {
+    "fortress": 6
+   },
+   "desc": "Hall des trophées et monuments."
+  },
+  {
+   "id": "advanced_lab",
+   "name": "Laboratoire avancé",
+   "rect": [
+    2,
+    18,
+    6,
+    6
+   ],
+   "cost": {
+    "gold": 9000,
+    "components": 300,
+    "mutant_essence": 150
+   },
+   "req": {
+    "fortress": 7,
+    "building": "laboratory"
+   },
+   "desc": "+1 emplacement de mutation et +1 configuration.",
+   "bonus": {
+    "mutation_slots": 1,
+    "loadout_slots": 1
+   }
+  }
+ ],
+ "grid": {
+  "width": 26,
+  "height": 26
+ },
+ "start": [
+  {
+   "id": "fortress",
+   "x": 11,
+   "y": 12,
+   "level": 1
+  },
+  {
+   "id": "barracks",
+   "x": 8,
+   "y": 8,
+   "level": 1
+  },
+  {
+   "id": "treasury",
+   "x": 15,
+   "y": 8,
+   "level": 1
+  },
+  {
+   "id": "gold_mine",
+   "x": 8,
+   "y": 15,
+   "level": 1
+  },
+  {
+   "id": "card_hall",
+   "x": 15,
+   "y": 15,
+   "level": 1
+  },
+  {
+   "id": "watchtower",
+   "x": 16,
+   "y": 11,
+   "level": 1
+  },
+  {
+   "id": "laboratory",
+   "x": 12,
+   "y": 8,
+   "level": 0
+  },
+  {
+   "id": "wall",
+   "x": 8,
+   "y": 12,
+   "level": 1
+  },
+  {
+   "id": "wall",
+   "x": 9,
+   "y": 12,
+   "level": 1
+  }
+ ]
+}

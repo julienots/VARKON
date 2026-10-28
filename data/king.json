@@ -1,0 +1,471 @@
+{
+ "base": {
+  "hp": 2200,
+  "dmg": 120,
+  "armor": 20,
+  "speed": 1.8,
+  "atk_speed": 1.0,
+  "range": 1.0,
+  "energy": 0,
+  "resist": 0,
+  "cdr_pct": 0,
+  "ability_power_pct": 0
+ },
+ "per_level": {
+  "hp": 0.05,
+  "dmg": 0.05
+ },
+ "caps": {
+  "armor": 80,
+  "speed_pct": 35,
+  "atk_speed_pct": 50,
+  "cdr_pct": 40,
+  "range": 5.0,
+  "resist": 60,
+  "ability_power_pct": 80,
+  "energy": 2
+ },
+ "weapon_styles": {
+  "sword": {
+   "hit": 1.0,
+   "range": 1.0,
+   "proj": 0
+  },
+  "axe": {
+   "hit": 1.25,
+   "range": 1.0,
+   "proj": 0
+  },
+  "hammer": {
+   "hit": 1.5,
+   "range": 1.1,
+   "proj": 0,
+   "splash": 1.0
+  },
+  "dagger": {
+   "hit": 0.65,
+   "range": 0.9,
+   "proj": 0
+  },
+  "spear": {
+   "hit": 1.1,
+   "range": 1.6,
+   "proj": 0
+  },
+  "magic": {
+   "hit": 1.2,
+   "range": 1.0,
+   "proj": 10
+  },
+  "mech": {
+   "hit": 1.1,
+   "range": 1.0,
+   "proj": 0
+  },
+  "claws": {
+   "hit": 0.75,
+   "range": 0.9,
+   "proj": 0
+  },
+  "ranged": {
+   "hit": 1.1,
+   "range": 1.0,
+   "proj": 12
+  },
+  "none": {
+   "hit": 1.0,
+   "range": 1.0,
+   "proj": 0
+  }
+ },
+ "abilities": [
+  {
+   "id": "tyrant_strike",
+   "slot": "active",
+   "name": "Frappe du Tyran",
+   "desc": "Frappe le sol : 250 % de dégâts dans un rayon de 2,5 et repousse les ennemis.",
+   "cooldown": 10,
+   "power": 2.5,
+   "radius": 2.5,
+   "force": 2.0,
+   "unlock": null
+  },
+  {
+   "id": "axe_throw",
+   "slot": "active",
+   "name": "Hache volante",
+   "desc": "Lance une hache sur l'ennemi le plus proche (portée 6) : 200 % de dégâts.",
+   "cooldown": 8,
+   "power": 2.0,
+   "range": 6.0,
+   "unlock": [
+    "player_level",
+    3
+   ]
+  },
+  {
+   "id": "overcharge",
+   "slot": "active",
+   "name": "Surcharge",
+   "desc": "Améliore les modules mécaniques : King et unités mécaniques +40 % de cadence pendant 6 s. Nécessite un module mécanique.",
+   "cooldown": 18,
+   "pct": 40,
+   "dur": 6,
+   "radius": 6.0,
+   "unlock": [
+    "player_level",
+    5
+   ],
+   "requires": "mech_module"
+  },
+  {
+   "id": "iron_skin",
+   "slot": "defensive",
+   "name": "Peau de fer",
+   "desc": "Bouclier égal à 30 % des PV max pendant 5 s.",
+   "cooldown": 16,
+   "pct": 30,
+   "dur": 5,
+   "unlock": null
+  },
+  {
+   "id": "royal_roar",
+   "slot": "defensive",
+   "name": "Rugissement royal",
+   "desc": "Gobelins alliés (rayon 6) : +25 % dégâts et +20 armure pendant 6 s.",
+   "cooldown": 20,
+   "pct": 25,
+   "armor": 20,
+   "dur": 6,
+   "radius": 6.0,
+   "unlock": [
+    "campaign",
+    "c1m3"
+   ]
+  },
+  {
+   "id": "mutant_fury",
+   "slot": "ultimate",
+   "name": "Fureur mutante",
+   "desc": "Transformation 10 s : +60 % dégâts, +20 % vitesse, vol de vie 20 %, taille accrue.",
+   "charge": 100,
+   "dur": 10,
+   "dmg_pct": 60,
+   "speed_pct": 20,
+   "lifesteal": 20,
+   "unlock": null
+  },
+  {
+   "id": "raider_call",
+   "slot": "ultimate",
+   "name": "Appel des Pillards",
+   "desc": "Invoque une escouade temporaire : 4 pillards et un chef pillard.",
+   "charge": 100,
+   "unlock": [
+    "campaign",
+    "c2m2"
+   ]
+  },
+  {
+   "id": "royal_presence",
+   "slot": "passive",
+   "name": "Présence royale",
+   "desc": "Alliés à moins de 4 m : +15 armure.",
+   "armor": 15,
+   "radius": 4.0,
+   "unlock": null
+  },
+  {
+   "id": "tyrant_blood",
+   "slot": "passive",
+   "name": "Sang de tyran",
+   "desc": "Vol de vie de 8 % sur les attaques du King.",
+   "pct": 8,
+   "unlock": [
+    "player_level",
+    4
+   ]
+  },
+  {
+   "id": "mech_instinct",
+   "slot": "passive",
+   "name": "Instinct mécanique",
+   "desc": "+15 % de cadence si l'arme est mécanique.",
+   "pct": 15,
+   "unlock": [
+    "player_level",
+    6
+   ]
+  }
+ ],
+ "appearance": {
+  "face_shape": [
+   "Rond",
+   "Anguleux",
+   "Allongé",
+   "Carré"
+  ],
+  "ears": [
+   "Pointues",
+   "Tombantes",
+   "Longues",
+   "Déchirées",
+   "Ailées"
+  ],
+  "nose": [
+   "Crochu",
+   "Écrasé",
+   "Long",
+   "Bulbeux"
+  ],
+  "jaw": [
+   "Étroite",
+   "Large",
+   "Proéminente",
+   "Massive"
+  ],
+  "teeth": [
+   "Alignées",
+   "Pointues",
+   "Cassées",
+   "Dents d'or"
+  ],
+  "tusks": [
+   "Aucune",
+   "Petites",
+   "Grandes",
+   "Recourbées"
+  ],
+  "eyes": [
+   "Ronds",
+   "Plissés",
+   "Grands",
+   "Fendus"
+  ],
+  "eye_color": [
+   "#ffd23f",
+   "#ff3030",
+   "#7fd8ff",
+   "#7bdc3a",
+   "#b28cff",
+   "#ffffff"
+  ],
+  "skin": [
+   "#5f8f3a",
+   "#4a7a2e",
+   "#7aa84a",
+   "#6b7f3a",
+   "#3f6b5a",
+   "#7a6b3a",
+   "#5a5a6b",
+   "#8a4a3a"
+  ],
+  "scars": [
+   "Aucune",
+   "Joue",
+   "Œil",
+   "Croisées",
+   "Multiples"
+  ],
+  "paint": [
+   "Aucune",
+   "Rayures",
+   "Crâne",
+   "Éclair",
+   "Points tribaux",
+   "Mille Visages I",
+   "Mille Visages II",
+   "Mille Visages III"
+  ],
+  "paint_color": [
+   "#c9472b",
+   "#ffffff",
+   "#1a1a1a",
+   "#3d8bff",
+   "#ffd23f"
+  ],
+  "horns": [
+   "Aucune",
+   "Petites",
+   "Bélier",
+   "Démon"
+  ],
+  "crest": [
+   "Aucune",
+   "Iroquoise",
+   "Piquants",
+   "Plumes"
+  ],
+  "hair": [
+   "Chauve",
+   "Mèches",
+   "Tresse",
+   "Crinière"
+  ],
+  "hair_color": [
+   "#1a1410",
+   "#5a3a20",
+   "#c9472b",
+   "#e8e8e8",
+   "#ffd23f"
+  ],
+  "height": [
+   0.9,
+   0.95,
+   1.0,
+   1.05,
+   1.1
+  ],
+  "bulk": [
+   0.85,
+   0.95,
+   1.0,
+   1.1,
+   1.2
+  ],
+  "muscle": [
+   "Sec",
+   "Athlétique",
+   "Massif",
+   "Colossal"
+  ],
+  "expression": [
+   "Neutre",
+   "Rictus",
+   "Furieux",
+   "Hilare"
+  ],
+  "voice": [
+   "Grave",
+   "Rocailleuse",
+   "Aiguë",
+   "Royale"
+  ]
+ },
+ "appearance_locks": {
+  "horns": {
+   "index": 2,
+   "player_level": 5
+  },
+  "crest": {
+   "index": 2,
+   "player_level": 4
+  },
+  "ears": {
+   "index": 4,
+   "player_level": 6
+  },
+  "skin": {
+   "index": 6,
+   "player_level": 7
+  }
+ },
+ "item_paints": {
+  "5": "mille_1",
+  "6": "mille_2",
+  "7": "mille_3"
+ },
+ "mutations": [
+  {
+   "id": "m_arms",
+   "name": "Bras renforcés",
+   "desc": "+8 % dégâts. Les bras du King grossissent.",
+   "cost": {
+    "mutant_essence": 80
+   },
+   "stats": {
+    "dmg_pct": 8
+   },
+   "visual": "big_arms"
+  },
+  {
+   "id": "m_scales",
+   "name": "Peau écailleuse",
+   "desc": "+10 armure. Écailles sur le corps.",
+   "cost": {
+    "mutant_essence": 80
+   },
+   "stats": {
+    "armor": 10
+   },
+   "visual": "scales"
+  },
+  {
+   "id": "m_eyes",
+   "name": "Yeux de prédateur",
+   "desc": "+0,5 portée. Yeux luminescents.",
+   "cost": {
+    "mutant_essence": 100
+   },
+   "stats": {
+    "range": 0.5
+   },
+   "visual": "glow_eyes"
+  },
+  {
+   "id": "m_spines",
+   "name": "Épines dorsales",
+   "desc": "Renvoie 10 % des dégâts de mêlée. Épines dans le dos.",
+   "cost": {
+    "mutant_essence": 140
+   },
+   "stats": {},
+   "effects": [
+    {
+     "type": "thorns",
+     "pct": 10
+    }
+   ],
+   "visual": "spines"
+  },
+  {
+   "id": "m_fangs",
+   "name": "Crocs géants",
+   "desc": "Vol de vie 5 %. Défenses immenses.",
+   "cost": {
+    "mutant_essence": 140
+   },
+   "stats": {},
+   "effects": [
+    {
+     "type": "hero_lifesteal",
+     "pct": 5
+    }
+   ],
+   "visual": "big_tusks"
+  },
+  {
+   "id": "m_regen",
+   "name": "Sang troll",
+   "desc": "Régénère 1 % des PV max par seconde.",
+   "cost": {
+    "mutant_essence": 200
+   },
+   "stats": {},
+   "effects": [
+    {
+     "type": "regen",
+     "pct": 1.0
+    }
+   ],
+   "visual": "veins"
+  },
+  {
+   "id": "m_ancestral",
+   "name": "Éveil ancestral",
+   "desc": "+5 % à toutes les statistiques, aura spectrale. Nécessite une Larme ancestrale.",
+   "cost": {
+    "mutant_essence": 300,
+    "mat_larme_ancestrale": 1
+   },
+   "stats": {},
+   "effects": [
+    {
+     "type": "all_stats",
+     "pct": 5
+    }
+   ],
+   "visual": "ancestral_glow"
+  }
+ ]
+}

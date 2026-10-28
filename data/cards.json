@@ -1,0 +1,3251 @@
+{
+ "cards": [
+  {
+   "id": "pyrogobelin",
+   "name": "Pyrogobelin",
+   "family": "fire",
+   "rarity": "common",
+   "role": "ranged",
+   "cost": 3,
+   "desc": "Lance des projectiles enflammés qui brûlent la cible.",
+   "abilities": [
+    {
+     "type": "on_hit_burn",
+     "dps": 14,
+     "dur": 3.0
+    }
+   ],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 251,
+    "dmg": 55,
+    "hit": 1.2,
+    "range": 5.2,
+    "speed": 1.45,
+    "radius": 0.4,
+    "proj": 11,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "staff",
+    "acc": [
+     "flame_hair"
+    ]
+   }
+  },
+  {
+   "id": "brulecrane",
+   "name": "Brûlecrâne",
+   "family": "fire",
+   "rarity": "rare",
+   "role": "melee",
+   "cost": 4,
+   "desc": "Ses coups appliquent une brûlure intense et durable.",
+   "abilities": [
+    {
+     "type": "on_hit_burn",
+     "dps": 30,
+     "dur": 4.0
+    }
+   ],
+   "unlock_level": 2,
+   "stats": {
+    "hp": 677,
+    "dmg": 88,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "axe",
+    "acc": [
+     "skull_mask"
+    ]
+   }
+  },
+  {
+   "id": "bombardier_magma",
+   "name": "Bombardier magma",
+   "family": "fire",
+   "rarity": "epic",
+   "role": "ranged",
+   "cost": 5,
+   "desc": "Projette des charges explosives qui touchent une zone.",
+   "abilities": [
+    {
+     "type": "splash",
+     "radius": 1.6,
+     "pct": 1.0
+    },
+    {
+     "type": "on_hit_burn",
+     "dps": 12,
+     "dur": 2.0
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 441,
+    "dmg": 125,
+    "hit": 1.8,
+    "range": 4.94,
+    "speed": 1.45,
+    "radius": 0.4,
+    "proj": 11,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "bomb",
+    "acc": [
+     "backpack"
+    ]
+   }
+  },
+  {
+   "id": "gardien_braise",
+   "name": "Gardien de braise",
+   "family": "fire",
+   "rarity": "rare",
+   "role": "tank",
+   "cost": 5,
+   "desc": "Crée une protection thermique : bouclier périodique pour les alliés proches.",
+   "abilities": [
+    {
+     "type": "shield_allies",
+     "amount": 160,
+     "radius": 3.0,
+     "cooldown": 8.0
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 2198,
+    "dmg": 135,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 0.7,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "shield",
+    "acc": [
+     "ember_plates"
+    ]
+   }
+  },
+  {
+   "id": "danseflammes",
+   "name": "Danseflammes",
+   "family": "fire",
+   "rarity": "epic",
+   "role": "assassin",
+   "cost": 4,
+   "desc": "Attaques très rapides qui enflamment l'adversaire.",
+   "abilities": [
+    {
+     "type": "on_hit_burn",
+     "dps": 10,
+     "dur": 2.0
+    }
+   ],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 497,
+    "dmg": 97,
+    "hit": 0.52,
+    "range": 0.8,
+    "speed": 2.2,
+    "radius": 0.4,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dual_dagger",
+    "acc": [
+     "flame_hair"
+    ]
+   }
+  },
+  {
+   "id": "coeur_incandescent",
+   "name": "Cœur incandescent",
+   "family": "fire",
+   "rarity": "legendary",
+   "role": "support",
+   "cost": 5,
+   "desc": "Aura : +25 % de dégâts aux unités de feu proches.",
+   "abilities": [
+    {
+     "type": "aura_buff",
+     "stat": "damage",
+     "pct": 25,
+     "radius": 4.0,
+     "family": "fire"
+    }
+   ],
+   "unlock_level": 8,
+   "stats": {
+    "hp": 936,
+    "dmg": 55,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "orb",
+    "acc": [
+     "flame_hair",
+     "glow"
+    ]
+   }
+  },
+  {
+   "id": "givregriffes",
+   "name": "Givregriffes",
+   "family": "ice",
+   "rarity": "common",
+   "role": "melee",
+   "cost": 3,
+   "desc": "Ses griffes gelées ralentissent la cible.",
+   "abilities": [
+    {
+     "type": "on_hit_slow",
+     "pct": 35,
+     "dur": 2.0
+    }
+   ],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 472,
+    "dmg": 65,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "claws",
+    "acc": [
+     "ice_spikes"
+    ]
+   }
+  },
+  {
+   "id": "cryochaman",
+   "name": "Cryochaman",
+   "family": "ice",
+   "rarity": "rare",
+   "role": "caster",
+   "cost": 4,
+   "desc": "Crée périodiquement une zone gelée qui ralentit fortement les ennemis.",
+   "abilities": [
+    {
+     "type": "periodic_zone",
+     "effect": "slow",
+     "radius": 2.5,
+     "interval": 5.0,
+     "amount": 50,
+     "dur": 2.5
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 437,
+    "dmg": 62,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "staff",
+    "acc": [
+     "ice_crown"
+    ]
+   }
+  },
+  {
+   "id": "briseglace",
+   "name": "Briseglace",
+   "family": "ice",
+   "rarity": "epic",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Inflige +80 % de dégâts aux cibles ralenties ou gelées.",
+   "abilities": [
+    {
+     "type": "bonus_vs_slowed",
+     "mult": 1.8
+    }
+   ],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 993,
+    "dmg": 142,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.5175,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "hammer",
+    "acc": [
+     "ice_spikes"
+    ],
+    "scale": 1.15
+   }
+  },
+  {
+   "id": "sentinelle_polaire",
+   "name": "Sentinelle polaire",
+   "family": "ice",
+   "rarity": "rare",
+   "role": "tank",
+   "cost": 5,
+   "desc": "Protège ses alliés avec un bouclier de glace.",
+   "abilities": [
+    {
+     "type": "shield_allies",
+     "amount": 200,
+     "radius": 3.0,
+     "cooldown": 10.0
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 2443,
+    "dmg": 135,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 0.7,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "shield",
+    "acc": [
+     "ice_crown"
+    ]
+   }
+  },
+  {
+   "id": "lance_givre",
+   "name": "Lance-givre",
+   "family": "ice",
+   "rarity": "common",
+   "role": "ranged",
+   "cost": 3,
+   "desc": "Tire des carreaux de glace qui ralentissent à distance.",
+   "abilities": [
+    {
+     "type": "on_hit_slow",
+     "pct": 25,
+     "dur": 1.5
+    }
+   ],
+   "unlock_level": 2,
+   "stats": {
+    "hp": 251,
+    "dmg": 55,
+    "hit": 1.2,
+    "range": 5.2,
+    "speed": 1.45,
+    "radius": 0.4,
+    "proj": 11,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "crossbow",
+    "acc": [
+     "hood"
+    ]
+   }
+  },
+  {
+   "id": "gardien_blizzard",
+   "name": "Gardien du blizzard",
+   "family": "ice",
+   "rarity": "legendary",
+   "role": "caster",
+   "cost": 6,
+   "desc": "Déchaîne un blizzard : zone de contrôle qui ralentit et blesse.",
+   "abilities": [
+    {
+     "type": "periodic_zone",
+     "effect": "damage_slow",
+     "radius": 3.2,
+     "interval": 4.0,
+     "amount": 90,
+     "dur": 2.0,
+     "pct": 40
+    }
+   ],
+   "unlock_level": 9,
+   "stats": {
+    "hp": 1106,
+    "dmg": 99,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.49500000000000005,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "staff",
+    "acc": [
+     "ice_crown",
+     "glow"
+    ],
+    "scale": 1.1
+   }
+  },
+  {
+   "id": "venin",
+   "name": "Venin",
+   "family": "toxic",
+   "rarity": "common",
+   "role": "melee",
+   "cost": 3,
+   "desc": "Applique un poison progressif cumulable (3 fois).",
+   "abilities": [
+    {
+     "type": "on_hit_poison",
+     "dps": 12,
+     "dur": 4.0
+    }
+   ],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 472,
+    "dmg": 65,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dagger",
+    "acc": [
+     "mushroom"
+    ]
+   }
+  },
+  {
+   "id": "cracheur_acide",
+   "name": "Cracheur acide",
+   "family": "toxic",
+   "rarity": "rare",
+   "role": "ranged",
+   "cost": 4,
+   "desc": "Son acide réduit temporairement l'armure de la cible.",
+   "abilities": [
+    {
+     "type": "on_hit_armor_shred",
+     "amount": 20,
+     "dur": 4.0
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 343,
+    "dmg": 75,
+    "hit": 1.2,
+    "range": 5.2,
+    "speed": 1.45,
+    "radius": 0.4,
+    "proj": 11,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "bomb",
+    "acc": [
+     "mask_gas"
+    ]
+   }
+  },
+  {
+   "id": "mycogobelin",
+   "name": "Mycogobelin",
+   "family": "toxic",
+   "rarity": "rare",
+   "role": "support",
+   "cost": 4,
+   "desc": "Répand des spores qui empoisonnent et ralentissent légèrement.",
+   "abilities": [
+    {
+     "type": "periodic_zone",
+     "effect": "poison_slow",
+     "radius": 2.2,
+     "interval": 3.0,
+     "amount": 10,
+     "dur": 3.0,
+     "pct": 15
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 541,
+    "dmg": 42,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "staff",
+    "acc": [
+     "mushroom",
+     "mushroom_big"
+    ]
+   }
+  },
+  {
+   "id": "alchimiste_vert",
+   "name": "Alchimiste vert",
+   "family": "toxic",
+   "rarity": "epic",
+   "role": "caster",
+   "cost": 4,
+   "desc": "Lance des fioles cycliques : poison, puis ralentissement, puis corrosion.",
+   "abilities": [
+    {
+     "type": "alchemy_cycle",
+     "radius": 1.4
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 454,
+    "dmg": 65,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "flask",
+    "acc": [
+     "backpack",
+     "goggles"
+    ]
+   }
+  },
+  {
+   "id": "rodeur_fongique",
+   "name": "Rôdeur fongique",
+   "family": "toxic",
+   "rarity": "epic",
+   "role": "assassin",
+   "cost": 4,
+   "desc": "Entre en combat camouflé (invisible 4 s) puis empoisonne.",
+   "abilities": [
+    {
+     "type": "stealth",
+     "dur": 4.0,
+     "cooldown": 12.0
+    },
+    {
+     "type": "on_hit_poison",
+     "dps": 14,
+     "dur": 3.0
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 497,
+    "dmg": 162,
+    "hit": 0.95,
+    "range": 0.8,
+    "speed": 2.2,
+    "radius": 0.4,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dagger",
+    "acc": [
+     "hood",
+     "mushroom"
+    ]
+   }
+  },
+  {
+   "id": "colosse_putride",
+   "name": "Colosse putride",
+   "family": "toxic",
+   "rarity": "legendary",
+   "role": "tank",
+   "cost": 7,
+   "desc": "Très résistant, il émet une aura toxique autour de lui.",
+   "abilities": [
+    {
+     "type": "periodic_zone",
+     "effect": "poison",
+     "radius": 2.4,
+     "interval": 1.5,
+     "amount": 18,
+     "dur": 2.0
+    }
+   ],
+   "unlock_level": 10,
+   "stats": {
+    "hp": 4708,
+    "dmg": 200,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 1.015,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "club",
+    "acc": [
+     "mushroom_big",
+     "boils"
+    ],
+    "scale": 1.45
+   }
+  },
+  {
+   "id": "ferrailleur",
+   "name": "Ferrailleur",
+   "family": "mech",
+   "rarity": "rare",
+   "role": "support",
+   "cost": 4,
+   "desc": "Construit une tourelle temporaire toutes les 12 s.",
+   "abilities": [
+    {
+     "type": "build_turret",
+     "cooldown": 12.0,
+     "hp": 300,
+     "dmg": 40,
+     "hit": 0.8,
+     "range": 5.0,
+     "life": 14.0
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 541,
+    "dmg": 42,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "wrench",
+    "acc": [
+     "goggles",
+     "backpack"
+    ]
+   }
+  },
+  {
+   "id": "boulon",
+   "name": "Boulon",
+   "family": "mech",
+   "rarity": "common",
+   "role": "ranged",
+   "cost": 3,
+   "desc": "Tireur mécanique à cadence rapide.",
+   "abilities": [],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 251,
+    "dmg": 33,
+    "hit": 0.84,
+    "range": 5.2,
+    "speed": 1.45,
+    "radius": 0.4,
+    "proj": 11,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "blaster",
+    "acc": [
+     "goggles"
+    ]
+   }
+  },
+  {
+   "id": "broyeur",
+   "name": "Broyeur",
+   "family": "mech",
+   "rarity": "epic",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Ses mâchoires mécaniques infligent des dégâts de zone.",
+   "abilities": [
+    {
+     "type": "splash",
+     "radius": 1.3,
+     "pct": 0.8
+    }
+   ],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 1159,
+    "dmg": 113,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.54,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "saw",
+    "acc": [
+     "metal_plates"
+    ],
+    "scale": 1.2
+   }
+  },
+  {
+   "id": "mecanicien_royal",
+   "name": "Mécanicien royal",
+   "family": "mech",
+   "rarity": "epic",
+   "role": "support",
+   "cost": 4,
+   "desc": "Répare les unités mécaniques et les structures alliées.",
+   "abilities": [
+    {
+     "type": "repair",
+     "amount": 70,
+     "interval": 2.0,
+     "range": 4.0,
+     "filter": "mech_or_structure"
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 562,
+    "dmg": 43,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "wrench",
+    "acc": [
+     "goggles",
+     "crown_small"
+    ]
+   }
+  },
+  {
+   "id": "scie_gobelin",
+   "name": "Scie-gobelin",
+   "family": "mech",
+   "rarity": "rare",
+   "role": "melee",
+   "cost": 4,
+   "desc": "Spécialiste des défenses : +120 % de dégâts aux structures.",
+   "abilities": [
+    {
+     "type": "bonus_vs_structures",
+     "mult": 2.2
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 645,
+    "dmg": 88,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.92,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "structures",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "saw",
+    "acc": [
+     "goggles"
+    ]
+   }
+  },
+  {
+   "id": "titan_vapeur",
+   "name": "Titan à vapeur",
+   "family": "mech",
+   "rarity": "legendary",
+   "role": "tank",
+   "cost": 7,
+   "desc": "Unité lourde : chaque coup repousse les adversaires.",
+   "abilities": [
+    {
+     "type": "knockback_on_hit",
+     "force": 1.6
+    },
+    {
+     "type": "splash",
+     "radius": 1.2,
+     "pct": 0.6
+    }
+   ],
+   "unlock_level": 10,
+   "stats": {
+    "hp": 4527,
+    "dmg": 280,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 1.0499999999999998,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "piston",
+    "acc": [
+     "metal_plates",
+     "chimney"
+    ],
+    "scale": 1.5
+   }
+  },
+  {
+   "id": "ombre_lame",
+   "name": "Ombre-lame",
+   "family": "shadow",
+   "rarity": "rare",
+   "role": "assassin",
+   "cost": 4,
+   "desc": "Se téléporte sur une cible éloignée (portée 7, recharge 9 s).",
+   "abilities": [
+    {
+     "type": "teleport_strike",
+     "range": 7.0,
+     "cooldown": 9.0,
+     "mult": 1.5
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 478,
+    "dmg": 156,
+    "hit": 0.95,
+    "range": 0.8,
+    "speed": 2.2,
+    "radius": 0.4,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dual_dagger",
+    "acc": [
+     "hood"
+    ]
+   }
+  },
+  {
+   "id": "saboteur",
+   "name": "Saboteur",
+   "family": "shadow",
+   "rarity": "epic",
+   "role": "assassin",
+   "cost": 4,
+   "desc": "Cible les défenses et les neutralise 4 s à chaque contact.",
+   "abilities": [
+    {
+     "type": "disable_structure",
+     "dur": 4.0,
+     "cooldown": 8.0
+    }
+   ],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 497,
+    "dmg": 97,
+    "hit": 0.95,
+    "range": 0.8,
+    "speed": 2.2,
+    "radius": 0.4,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "structures",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "bomb",
+    "acc": [
+     "hood",
+     "goggles"
+    ]
+   }
+  },
+  {
+   "id": "traqueur_nocturne",
+   "name": "Traqueur nocturne",
+   "family": "shadow",
+   "rarity": "rare",
+   "role": "assassin",
+   "cost": 4,
+   "desc": "Devient indétectable 3 s toutes les 10 s.",
+   "abilities": [
+    {
+     "type": "stealth",
+     "dur": 3.0,
+     "cooldown": 10.0
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 478,
+    "dmg": 156,
+    "hit": 0.95,
+    "range": 0.8,
+    "speed": 2.2,
+    "radius": 0.4,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dagger",
+    "acc": [
+     "hood"
+    ]
+   }
+  },
+  {
+   "id": "spectrogobelin",
+   "name": "Spectrogobelin",
+   "family": "shadow",
+   "rarity": "epic",
+   "role": "caster",
+   "cost": 4,
+   "desc": "Crée un leurre qui attire les attaques ennemies.",
+   "abilities": [
+    {
+     "type": "decoy",
+     "hp": 350,
+     "life": 6.0,
+     "cooldown": 9.0
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 454,
+    "dmg": 65,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "orb",
+    "acc": [
+     "hood",
+     "glow"
+    ]
+   }
+  },
+  {
+   "id": "faucheur_obscur",
+   "name": "Faucheur obscur",
+   "family": "shadow",
+   "rarity": "legendary",
+   "role": "assassin",
+   "cost": 5,
+   "desc": "Inflige +90 % de dégâts aux ennemis isolés.",
+   "abilities": [
+    {
+     "type": "bonus_vs_isolated",
+     "mult": 1.9,
+     "radius": 2.5
+    }
+   ],
+   "unlock_level": 9,
+   "stats": {
+    "hp": 828,
+    "dmg": 208,
+    "hit": 0.95,
+    "range": 0.8,
+    "speed": 2.2,
+    "radius": 0.4,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "scythe",
+    "acc": [
+     "hood",
+     "glow"
+    ]
+   }
+  },
+  {
+   "id": "maitre_ombres",
+   "name": "Maître des ombres",
+   "family": "shadow",
+   "rarity": "mythic",
+   "role": "caster",
+   "cost": 6,
+   "desc": "Rend périodiquement furtifs (3 s) les alliés proches.",
+   "abilities": [
+    {
+     "type": "stealth_aura",
+     "radius": 3.5,
+     "dur": 3.0,
+     "cooldown": 9.0
+    }
+   ],
+   "unlock_level": 12,
+   "stats": {
+    "hp": 1146,
+    "dmg": 102,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "staff",
+    "acc": [
+     "hood",
+     "glow",
+     "cape"
+    ]
+   }
+  },
+  {
+   "id": "croquefer",
+   "name": "Croquefer",
+   "family": "wild",
+   "rarity": "common",
+   "role": "tank",
+   "cost": 4,
+   "desc": "Combattant résistant et bon marché.",
+   "abilities": [],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 1615,
+    "dmg": 105,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 0.84,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "club",
+    "acc": [
+     "fur"
+    ],
+    "scale": 1.2
+   }
+  },
+  {
+   "id": "bondisseur",
+   "name": "Bondisseur",
+   "family": "wild",
+   "rarity": "rare",
+   "role": "melee",
+   "cost": 3,
+   "desc": "Franchit les murailles d'un bond.",
+   "abilities": [
+    {
+     "type": "jump_walls"
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 491,
+    "dmg": 67,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 2.0,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "claws",
+    "acc": [
+     "fur"
+    ]
+   }
+  },
+  {
+   "id": "ragecornes",
+   "name": "Ragecornes",
+   "family": "wild",
+   "rarity": "rare",
+   "role": "melee",
+   "cost": 4,
+   "desc": "Charge : son premier coup après une course inflige x2,5 et repousse.",
+   "abilities": [
+    {
+     "type": "charge",
+     "min_dist": 3.0,
+     "mult": 2.5,
+     "force": 1.5
+    }
+   ],
+   "unlock_level": 2,
+   "stats": {
+    "hp": 774,
+    "dmg": 88,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "horns",
+    "acc": [
+     "fur",
+     "horns_big"
+    ]
+   }
+  },
+  {
+   "id": "hurleur",
+   "name": "Hurleur",
+   "family": "wild",
+   "rarity": "epic",
+   "role": "support",
+   "cost": 4,
+   "desc": "Ses hurlements renforcent la cadence des alliés sauvages proches (+30 %).",
+   "abilities": [
+    {
+     "type": "aura_buff",
+     "stat": "attack_speed",
+     "pct": 30,
+     "radius": 4.0,
+     "family": "wild"
+    }
+   ],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 562,
+    "dmg": 43,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "horn",
+    "acc": [
+     "fur"
+    ]
+   }
+  },
+  {
+   "id": "brise_os",
+   "name": "Brise-os",
+   "family": "wild",
+   "rarity": "epic",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Coups dévastateurs qui ignorent 50 % de l'armure.",
+   "abilities": [
+    {
+     "type": "armor_pierce",
+     "pct": 50
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 828,
+    "dmg": 182,
+    "hit": 1.54,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.5625,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "bone_club",
+    "acc": [
+     "fur"
+    ],
+    "scale": 1.25
+   }
+  },
+  {
+   "id": "alpha_sauvage",
+   "name": "Alpha sauvage",
+   "family": "wild",
+   "rarity": "legendary",
+   "role": "tank",
+   "cost": 6,
+   "desc": "Appelle deux loups gobelins et renforce sa meute (+20 % dégâts).",
+   "abilities": [
+    {
+     "type": "summon",
+     "unit": "loup_gobelin",
+     "count": 2,
+     "cooldown": 14.0,
+     "on_deploy": true
+    },
+    {
+     "type": "aura_buff",
+     "stat": "damage",
+     "pct": 20,
+     "radius": 4.0,
+     "family": "wild"
+    }
+   ],
+   "unlock_level": 9,
+   "stats": {
+    "hp": 3128,
+    "dmg": 173,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 0.9099999999999999,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "axe",
+    "acc": [
+     "fur",
+     "horns_big",
+     "cape"
+    ],
+    "scale": 1.3
+   }
+  },
+  {
+   "id": "runiste",
+   "name": "Runiste",
+   "family": "mystic",
+   "rarity": "rare",
+   "role": "caster",
+   "cost": 4,
+   "desc": "Pose des runes qui explosent au contact d'un ennemi.",
+   "abilities": [
+    {
+     "type": "rune_trap",
+     "dmg": 160,
+     "radius": 1.5,
+     "cooldown": 6.0
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 437,
+    "dmg": 62,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "staff",
+    "acc": [
+     "runes"
+    ]
+   }
+  },
+  {
+   "id": "chronomancien",
+   "name": "Chronomancien",
+   "family": "mystic",
+   "rarity": "epic",
+   "role": "caster",
+   "cost": 5,
+   "desc": "Ralentit le temps dans une zone : vitesse et cadence ennemies -40 %.",
+   "abilities": [
+    {
+     "type": "periodic_zone",
+     "effect": "timewarp",
+     "radius": 3.0,
+     "interval": 7.0,
+     "amount": 40,
+     "dur": 3.5
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 561,
+    "dmg": 80,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "hourglass",
+    "acc": [
+     "runes",
+     "glow"
+    ]
+   }
+  },
+  {
+   "id": "porteur_faille",
+   "name": "Porteur de faille",
+   "family": "mystic",
+   "rarity": "legendary",
+   "role": "support",
+   "cost": 5,
+   "desc": "Ouvre une faille : les alliés terrestres qui y entrent sont projetés 6 m plus loin.",
+   "abilities": [
+    {
+     "type": "rift",
+     "distance": 6.0,
+     "radius": 1.2,
+     "life": 12.0
+    }
+   ],
+   "unlock_level": 9,
+   "stats": {
+    "hp": 720,
+    "dmg": 55,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "orb",
+    "acc": [
+     "runes",
+     "glow"
+    ]
+   }
+  },
+  {
+   "id": "oracle_gobelin",
+   "name": "Oracle gobelin",
+   "family": "mystic",
+   "rarity": "epic",
+   "role": "support",
+   "cost": 4,
+   "desc": "Si votre camp est en infériorité numérique, alliés proches +30 % dégâts.",
+   "abilities": [
+    {
+     "type": "underdog_aura",
+     "pct": 30,
+     "radius": 4.5
+    }
+   ],
+   "unlock_level": 7,
+   "stats": {
+    "hp": 562,
+    "dmg": 43,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "staff",
+    "acc": [
+     "blindfold",
+     "runes"
+    ]
+   }
+  },
+  {
+   "id": "tisseur_energie",
+   "name": "Tisseur d'énergie",
+   "family": "mystic",
+   "rarity": "mythic",
+   "role": "caster",
+   "cost": 5,
+   "desc": "Redirige la magie : durée des altérations sur les alliés proches -50 %.",
+   "abilities": [
+    {
+     "type": "cleanse_aura",
+     "pct": 50,
+     "radius": 4.0
+    }
+   ],
+   "unlock_level": 11,
+   "stats": {
+    "hp": 602,
+    "dmg": 86,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "orb",
+    "acc": [
+     "runes",
+     "glow",
+     "cape"
+    ]
+   }
+  },
+  {
+   "id": "gardien_ancestral",
+   "name": "Gardien ancestral",
+   "family": "mystic",
+   "rarity": "ancestral",
+   "role": "tank",
+   "cost": 7,
+   "desc": "Protège une zone avec un puissant bouclier régénéré.",
+   "abilities": [
+    {
+     "type": "shield_allies",
+     "amount": 420,
+     "radius": 4.0,
+     "cooldown": 9.0
+    }
+   ],
+   "unlock_level": 14,
+   "stats": {
+    "hp": 5432,
+    "dmg": 214,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 1.015,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "shield",
+    "acc": [
+     "runes",
+     "glow",
+     "crown_small"
+    ],
+    "scale": 1.45
+   }
+  },
+  {
+   "id": "garde_trone",
+   "name": "Garde du trône",
+   "family": "royal",
+   "rarity": "rare",
+   "role": "tank",
+   "cost": 4,
+   "desc": "Protège le King Gobelin : absorbe 40 % des dégâts qu'il subit à proximité.",
+   "abilities": [
+    {
+     "type": "protect_king",
+     "pct": 40,
+     "radius": 3.5
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 1581,
+    "dmg": 109,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 0.7,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "halberd",
+    "acc": [
+     "helm_royal"
+    ]
+   }
+  },
+  {
+   "id": "porte_etendard",
+   "name": "Porte-étendard",
+   "family": "royal",
+   "rarity": "epic",
+   "role": "support",
+   "cost": 4,
+   "desc": "Renforce armure (+20) et dégâts (+10 %) des alliés proches.",
+   "abilities": [
+    {
+     "type": "aura_buff",
+     "stat": "armor",
+     "flat": 20,
+     "radius": 4.0
+    },
+    {
+     "type": "aura_buff",
+     "stat": "damage",
+     "pct": 10,
+     "radius": 4.0
+    }
+   ],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 562,
+    "dmg": 43,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "banner",
+    "acc": [
+     "helm_royal"
+    ]
+   }
+  },
+  {
+   "id": "executeur_royal",
+   "name": "Exécuteur royal",
+   "family": "royal",
+   "rarity": "epic",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Achève les cibles affaiblies : x3 sous 30 % de vie.",
+   "abilities": [
+    {
+     "type": "execute",
+     "threshold": 0.3,
+     "mult": 3.0
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 828,
+    "dmg": 113,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.5175,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "axe_big",
+    "acc": [
+     "hood_red"
+    ],
+    "scale": 1.15
+   }
+  },
+  {
+   "id": "champion_royaume",
+   "name": "Champion du royaume",
+   "family": "royal",
+   "rarity": "legendary",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Polyvalent, il gagne +12 % de dégâts par élimination (max 5).",
+   "abilities": [
+    {
+     "type": "stacking_on_kill",
+     "pct": 12,
+     "max": 5
+    }
+   ],
+   "unlock_level": 8,
+   "stats": {
+    "hp": 1288,
+    "dmg": 118,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.5175,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "sword",
+    "acc": [
+     "helm_royal",
+     "cape"
+    ],
+    "scale": 1.15
+   }
+  },
+  {
+   "id": "heraut_guerre",
+   "name": "Héraut de guerre",
+   "family": "royal",
+   "rarity": "rare",
+   "role": "support",
+   "cost": 3,
+   "desc": "Coordonne l'équipe : +20 % de vitesse de déplacement et d'attaque autour de lui.",
+   "abilities": [
+    {
+     "type": "aura_buff",
+     "stat": "speed",
+     "pct": 20,
+     "radius": 4.0
+    },
+    {
+     "type": "aura_buff",
+     "stat": "attack_speed",
+     "pct": 20,
+     "radius": 4.0
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 411,
+    "dmg": 32,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "horn",
+    "acc": [
+     "helm_royal"
+    ]
+   }
+  },
+  {
+   "id": "protecteur_ancestral",
+   "name": "Protecteur ancestral",
+   "family": "royal",
+   "rarity": "mythic",
+   "role": "tank",
+   "cost": 6,
+   "desc": "Réduit de 30 % les dégâts subis par les unités proches.",
+   "abilities": [
+    {
+     "type": "damage_reduction_aura",
+     "pct": 30,
+     "radius": 3.5
+    }
+   ],
+   "unlock_level": 12,
+   "stats": {
+    "hp": 3888,
+    "dmg": 179,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 0.945,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "shield",
+    "acc": [
+     "helm_royal",
+     "glow",
+     "cape"
+    ],
+    "scale": 1.35
+   }
+  },
+  {
+   "id": "tentaculaire",
+   "name": "Tentaculaire",
+   "family": "mutant",
+   "rarity": "rare",
+   "role": "melee",
+   "cost": 4,
+   "desc": "Immobilise sa cible 1,5 s toutes les 6 s.",
+   "abilities": [
+    {
+     "type": "root_on_hit",
+     "dur": 1.5,
+     "cooldown": 6.0
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 645,
+    "dmg": 88,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "tentacle",
+    "acc": [
+     "tentacles"
+    ]
+   }
+  },
+  {
+   "id": "machoire_geante",
+   "name": "Mâchoire géante",
+   "family": "mutant",
+   "rarity": "epic",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Morsure dévastatrice à très courte portée.",
+   "abilities": [],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 828,
+    "dmg": 227,
+    "hit": 1.87,
+    "range": 0.56,
+    "speed": 1.6,
+    "radius": 0.5850000000000001,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "none",
+    "acc": [
+     "big_jaw"
+    ],
+    "scale": 1.3
+   }
+  },
+  {
+   "id": "epineux",
+   "name": "Épineux",
+   "family": "mutant",
+   "rarity": "rare",
+   "role": "tank",
+   "cost": 4,
+   "desc": "Renvoie 30 % des dégâts de mêlée subis.",
+   "abilities": [
+    {
+     "type": "thorns",
+     "pct": 30
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 1680,
+    "dmg": 109,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 0.7,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "claws",
+    "acc": [
+     "spikes"
+    ]
+   }
+  },
+  {
+   "id": "devoreur",
+   "name": "Dévoreur",
+   "family": "mutant",
+   "rarity": "epic",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Récupère 35 % des dégâts infligés en santé.",
+   "abilities": [
+    {
+     "type": "lifesteal",
+     "pct": 35
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 993,
+    "dmg": 113,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.54,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "claws",
+    "acc": [
+     "big_jaw",
+     "boils"
+    ],
+    "scale": 1.2
+   }
+  },
+  {
+   "id": "mutagene",
+   "name": "Mutagène",
+   "family": "mutant",
+   "rarity": "legendary",
+   "role": "support",
+   "cost": 4,
+   "desc": "Amplifie les capacités des alliés proches (+35 % de puissance).",
+   "abilities": [
+    {
+     "type": "aura_buff",
+     "stat": "ability_power",
+     "pct": 35,
+     "radius": 4.0
+    }
+   ],
+   "unlock_level": 9,
+   "stats": {
+    "hp": 582,
+    "dmg": 45,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "flask",
+    "acc": [
+     "boils",
+     "glow"
+    ]
+   }
+  },
+  {
+   "id": "abomination_royale",
+   "name": "Abomination royale",
+   "family": "mutant",
+   "rarity": "mythic",
+   "role": "tank",
+   "cost": 8,
+   "desc": "Sous 50 % de vie, entre en frénésie : +60 % dégâts, +40 % vitesse.",
+   "abilities": [
+    {
+     "type": "phase_change",
+     "threshold": 0.5,
+     "damage_pct": 60,
+     "speed_pct": 40,
+     "atk_pct": 30
+    }
+   ],
+   "unlock_level": 13,
+   "stats": {
+    "hp": 6387,
+    "dmg": 306,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 1.19,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "claws",
+    "acc": [
+     "tentacles",
+     "spikes",
+     "crown_small"
+    ],
+    "scale": 1.7
+   }
+  },
+  {
+   "id": "aile_griffe",
+   "name": "Aile-griffe",
+   "family": "air",
+   "rarity": "common",
+   "role": "flyer",
+   "cost": 3,
+   "desc": "Attaque depuis les airs, hors de portée de la mêlée.",
+   "abilities": [],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 358,
+    "dmg": 61,
+    "hit": 1.15,
+    "range": 1.6,
+    "speed": 1.9,
+    "radius": 0.5,
+    "proj": 0,
+    "count": 1,
+    "flying": true,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "claws",
+    "acc": [
+     "wings"
+    ]
+   }
+  },
+  {
+   "id": "bombardier_gobelin",
+   "name": "Bombardier gobelin",
+   "family": "air",
+   "rarity": "epic",
+   "role": "flyer",
+   "cost": 5,
+   "desc": "Survole le champ et largue des explosifs sur les défenses.",
+   "abilities": [
+    {
+     "type": "splash",
+     "radius": 1.6,
+     "pct": 1.0
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 627,
+    "dmg": 235,
+    "hit": 2.3,
+    "range": 1.28,
+    "speed": 1.9,
+    "radius": 0.5,
+    "proj": 0,
+    "count": 1,
+    "flying": true,
+    "air": false,
+    "targets": "structures",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "bomb",
+    "acc": [
+     "wings",
+     "goggles"
+    ]
+   }
+  },
+  {
+   "id": "eclaireur_vents",
+   "name": "Éclaireur des vents",
+   "family": "air",
+   "rarity": "rare",
+   "role": "flyer",
+   "cost": 3,
+   "desc": "Révèle les unités furtives et pièges dans un rayon de 5.",
+   "abilities": [
+    {
+     "type": "reveal",
+     "radius": 5.0
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 260,
+    "dmg": 38,
+    "hit": 1.15,
+    "range": 1.6,
+    "speed": 2.47,
+    "radius": 0.5,
+    "proj": 0,
+    "count": 1,
+    "flying": true,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "spear",
+    "acc": [
+     "wings"
+    ]
+   }
+  },
+  {
+   "id": "fauconneur",
+   "name": "Fauconneur gobelin",
+   "family": "air",
+   "rarity": "epic",
+   "role": "ranged",
+   "cost": 5,
+   "desc": "Dirige des faucons : invoque 2 faucons volants toutes les 10 s.",
+   "abilities": [
+    {
+     "type": "summon",
+     "unit": "faucon",
+     "count": 2,
+     "cooldown": 10.0,
+     "on_deploy": true
+    }
+   ],
+   "unlock_level": 7,
+   "stats": {
+    "hp": 441,
+    "dmg": 96,
+    "hit": 1.2,
+    "range": 5.2,
+    "speed": 1.45,
+    "radius": 0.4,
+    "proj": 11,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "crossbow",
+    "acc": [
+     "feathers"
+    ]
+   }
+  },
+  {
+   "id": "ravageur_celeste",
+   "name": "Ravageur céleste",
+   "family": "air",
+   "rarity": "legendary",
+   "role": "flyer",
+   "cost": 6,
+   "desc": "Unité aérienne offensive qui frappe en zone.",
+   "abilities": [
+    {
+     "type": "splash",
+     "radius": 1.3,
+     "pct": 0.7
+    }
+   ],
+   "unlock_level": 10,
+   "stats": {
+    "hp": 1393,
+    "dmg": 211,
+    "hit": 1.15,
+    "range": 1.6,
+    "speed": 1.9,
+    "radius": 0.65,
+    "proj": 0,
+    "count": 1,
+    "flying": true,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "spear",
+    "acc": [
+     "wings",
+     "helm_royal"
+    ],
+    "scale": 1.3
+   }
+  },
+  {
+   "id": "gardien_cimes",
+   "name": "Gardien des cimes",
+   "family": "air",
+   "rarity": "epic",
+   "role": "flyer",
+   "cost": 5,
+   "desc": "Protège les unités aériennes proches (bouclier 180).",
+   "abilities": [
+    {
+     "type": "shield_allies",
+     "amount": 180,
+     "radius": 4.0,
+     "cooldown": 8.0,
+     "filter": "flying"
+    }
+   ],
+   "unlock_level": 7,
+   "stats": {
+    "hp": 1004,
+    "dmg": 107,
+    "hit": 1.15,
+    "range": 1.6,
+    "speed": 1.9,
+    "radius": 0.5,
+    "proj": 0,
+    "count": 1,
+    "flying": true,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "shield",
+    "acc": [
+     "wings"
+    ]
+   }
+  },
+  {
+   "id": "medecin_guerre",
+   "name": "Médecin de guerre",
+   "family": "support",
+   "rarity": "common",
+   "role": "support",
+   "cost": 3,
+   "desc": "Soigne l'allié le plus blessé (75 PV / 2 s).",
+   "abilities": [
+    {
+     "type": "heal_ally",
+     "amount": 75,
+     "interval": 2.0,
+     "range": 4.5
+    }
+   ],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 396,
+    "dmg": 30,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "flask",
+    "acc": [
+     "backpack"
+    ]
+   }
+  },
+  {
+   "id": "porte_bouclier",
+   "name": "Porte-bouclier",
+   "family": "support",
+   "rarity": "common",
+   "role": "tank",
+   "cost": 3,
+   "desc": "Absorbe une partie des dégâts : bouclier pour lui et ses voisins.",
+   "abilities": [
+    {
+     "type": "shield_allies",
+     "amount": 120,
+     "radius": 2.0,
+     "cooldown": 9.0
+    }
+   ],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 1012,
+    "dmg": 80,
+    "hit": 1.6,
+    "range": 0.9,
+    "speed": 1.05,
+    "radius": 0.7,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 25
+   },
+   "look": {
+    "weapon": "shield",
+    "acc": [
+     "metal_plates"
+    ]
+   }
+  },
+  {
+   "id": "tambour_guerre",
+   "name": "Tambour de guerre",
+   "family": "support",
+   "rarity": "rare",
+   "role": "support",
+   "cost": 4,
+   "desc": "Le rythme du tambour augmente l'attaque des alliés proches (+20 %).",
+   "abilities": [
+    {
+     "type": "aura_buff",
+     "stat": "damage",
+     "pct": 20,
+     "radius": 4.0
+    }
+   ],
+   "unlock_level": 3,
+   "stats": {
+    "hp": 541,
+    "dmg": 42,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "drum",
+    "acc": [
+     "fur"
+    ]
+   }
+  },
+  {
+   "id": "fournisseur",
+   "name": "Fournisseur",
+   "family": "support",
+   "rarity": "rare",
+   "role": "support",
+   "cost": 3,
+   "desc": "Tant qu'il vit, la rage (énergie) se régénère 15 % plus vite.",
+   "abilities": [
+    {
+     "type": "energy_boost",
+     "pct": 15
+    }
+   ],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 370,
+    "dmg": 16,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "none",
+    "acc": [
+     "backpack",
+     "sack"
+    ]
+   }
+  },
+  {
+   "id": "ingenieur_terrain",
+   "name": "Ingénieur de terrain",
+   "family": "support",
+   "rarity": "rare",
+   "role": "support",
+   "cost": 4,
+   "desc": "Répare les structures alliées (90 PV / 2 s).",
+   "abilities": [
+    {
+     "type": "repair",
+     "amount": 90,
+     "interval": 2.0,
+     "range": 5.0,
+     "filter": "structure"
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 541,
+    "dmg": 42,
+    "hit": 1.3,
+    "range": 4.0,
+    "speed": 1.35,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "wrench",
+    "acc": [
+     "goggles",
+     "helmet_work"
+    ]
+   }
+  },
+  {
+   "id": "chamane_tribu",
+   "name": "Chamane de tribu",
+   "family": "support",
+   "rarity": "legendary",
+   "role": "caster",
+   "cost": 5,
+   "desc": "Amplifie les synergies : alliés de familles en synergie +25 % dégâts.",
+   "abilities": [
+    {
+     "type": "aura_buff",
+     "stat": "damage",
+     "pct": 25,
+     "radius": 5.0,
+     "filter": "synergy"
+    }
+   ],
+   "unlock_level": 9,
+   "stats": {
+    "hp": 581,
+    "dmg": 83,
+    "hit": 1.4,
+    "range": 4.8,
+    "speed": 1.3,
+    "radius": 0.45,
+    "proj": 9,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "staff",
+    "acc": [
+     "feathers",
+     "fur"
+    ]
+   }
+  },
+  {
+   "id": "pillard",
+   "name": "Pillards",
+   "family": "raider",
+   "rarity": "common",
+   "role": "swarm",
+   "cost": 2,
+   "desc": "Trois pillards rapides et bon marché.",
+   "abilities": [],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 41,
+    "dmg": 11,
+    "hit": 1.0,
+    "range": 0.7,
+    "speed": 1.8,
+    "radius": 0.35,
+    "proj": 0,
+    "count": 3,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dagger",
+    "acc": [
+     "bandana"
+    ]
+   }
+  },
+  {
+   "id": "frondeur",
+   "name": "Frondeur",
+   "family": "raider",
+   "rarity": "common",
+   "role": "ranged",
+   "cost": 2,
+   "desc": "Tireur à la fronde, fragile mais économique.",
+   "abilities": [],
+   "unlock_level": 1,
+   "stats": {
+    "hp": 137,
+    "dmg": 30,
+    "hit": 1.2,
+    "range": 5.2,
+    "speed": 1.45,
+    "radius": 0.4,
+    "proj": 11,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "sling",
+    "acc": [
+     "bandana"
+    ]
+   }
+  },
+  {
+   "id": "kamikaze",
+   "name": "Gobelin kamikaze",
+   "family": "raider",
+   "rarity": "rare",
+   "role": "swarm",
+   "cost": 2,
+   "desc": "Fonce sur les défenses et explose à sa mort.",
+   "abilities": [
+    {
+     "type": "death_explosion",
+     "dmg": 260,
+     "radius": 1.8
+    }
+   ],
+   "unlock_level": 2,
+   "stats": {
+    "hp": 129,
+    "dmg": 30,
+    "hit": 1.0,
+    "range": 0.7,
+    "speed": 2.34,
+    "radius": 0.35,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "structures",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "bomb",
+    "acc": [
+     "bandana",
+     "barrel"
+    ]
+   }
+  },
+  {
+   "id": "chef_pillard",
+   "name": "Chef pillard",
+   "family": "raider",
+   "rarity": "epic",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Appelle 2 pillards toutes les 9 s.",
+   "abilities": [
+    {
+     "type": "summon",
+     "unit": "pillard_mini",
+     "count": 2,
+     "cooldown": 9.0,
+     "on_deploy": false
+    }
+   ],
+   "unlock_level": 5,
+   "stats": {
+    "hp": 1159,
+    "dmg": 113,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.5175,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "sword",
+    "acc": [
+     "bandana",
+     "cape"
+    ],
+    "scale": 1.15
+   }
+  },
+  {
+   "id": "catapulte_gobeline",
+   "name": "Catapulte gobeline",
+   "family": "raider",
+   "rarity": "epic",
+   "role": "siege",
+   "cost": 5,
+   "desc": "Arme de siège longue portée qui pilonne les structures en zone.",
+   "abilities": [
+    {
+     "type": "splash",
+     "radius": 1.5,
+     "pct": 1.0
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 961,
+    "dmg": 227,
+    "hit": 2.0,
+    "range": 6.5,
+    "speed": 0.95,
+    "radius": 0.72,
+    "proj": 8,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "structures",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "catapult",
+    "acc": [
+     "bandana"
+    ],
+    "scale": 1.2
+   }
+  },
+  {
+   "id": "porte_torche",
+   "name": "Porte-torche",
+   "family": "raider",
+   "rarity": "common",
+   "role": "melee",
+   "cost": 3,
+   "desc": "Incendie les défenses : brûlure x2 sur les structures.",
+   "abilities": [
+    {
+     "type": "on_hit_burn",
+     "dps": 16,
+     "dur": 3.0,
+     "structure_mult": 2.0
+    }
+   ],
+   "unlock_level": 2,
+   "stats": {
+    "hp": 472,
+    "dmg": 65,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "torch",
+    "acc": [
+     "bandana"
+    ]
+   }
+  },
+  {
+   "id": "voleur",
+   "name": "Voleur",
+   "family": "raider",
+   "rarity": "rare",
+   "role": "assassin",
+   "cost": 3,
+   "desc": "Chaque coup sur une structure vole 0,25 point de rage.",
+   "abilities": [
+    {
+     "type": "energy_steal",
+     "amount": 0.25
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 364,
+    "dmg": 83,
+    "hit": 0.95,
+    "range": 0.8,
+    "speed": 2.2,
+    "radius": 0.4,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dagger",
+    "acc": [
+     "hood",
+     "sack"
+    ]
+   }
+  },
+  {
+   "id": "berserker",
+   "name": "Berserker",
+   "family": "raider",
+   "rarity": "epic",
+   "role": "melee",
+   "cost": 4,
+   "desc": "Plus il est blessé, plus il frappe fort (jusqu'à +100 %).",
+   "abilities": [
+    {
+     "type": "enrage",
+     "max_pct": 100
+    }
+   ],
+   "unlock_level": 6,
+   "stats": {
+    "hp": 670,
+    "dmg": 92,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 1.6,
+    "radius": 0.45,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dual_axe",
+    "acc": [
+     "bandana",
+     "scars"
+    ]
+   }
+  },
+  {
+   "id": "trappeur",
+   "name": "Trappeur",
+   "family": "raider",
+   "rarity": "rare",
+   "role": "ranged",
+   "cost": 4,
+   "desc": "Pose des pièges qui immobilisent 2 s les ennemis terrestres.",
+   "abilities": [
+    {
+     "type": "trap_layer",
+     "root": 2.0,
+     "dmg": 60,
+     "cooldown": 7.0
+    }
+   ],
+   "unlock_level": 4,
+   "stats": {
+    "hp": 343,
+    "dmg": 75,
+    "hit": 1.2,
+    "range": 5.2,
+    "speed": 1.45,
+    "radius": 0.4,
+    "proj": 11,
+    "count": 1,
+    "flying": false,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "crossbow",
+    "acc": [
+     "fur",
+     "sack"
+    ]
+   }
+  },
+  {
+   "id": "chevaucheur_loup",
+   "name": "Chevaucheur de loup",
+   "family": "raider",
+   "rarity": "legendary",
+   "role": "melee",
+   "cost": 5,
+   "desc": "Cavalerie rapide qui charge et frappe en premier.",
+   "abilities": [
+    {
+     "type": "charge",
+     "min_dist": 3.0,
+     "mult": 2.0,
+     "force": 1.0
+    }
+   ],
+   "unlock_level": 8,
+   "stats": {
+    "hp": 1288,
+    "dmg": 118,
+    "hit": 1.1,
+    "range": 0.8,
+    "speed": 2.4,
+    "radius": 0.54,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "spear",
+    "acc": [
+     "wolf_mount"
+    ],
+    "scale": 1.2
+   }
+  }
+ ],
+ "tokens": [
+  {
+   "id": "loup_gobelin",
+   "name": "Loup gobelin",
+   "family": "wild",
+   "rarity": "common",
+   "role": "melee",
+   "cost": 0,
+   "desc": "Invocation",
+   "abilities": [],
+   "unlock_level": 99,
+   "stats": {
+    "hp": 320,
+    "dmg": 60,
+    "hit": 0.9,
+    "range": 0.7,
+    "speed": 2.2,
+    "radius": 0.4,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "none",
+    "acc": [
+     "wolf_body"
+    ]
+   },
+   "token": true,
+   "life": 0
+  },
+  {
+   "id": "faucon",
+   "name": "Faucon",
+   "family": "air",
+   "rarity": "common",
+   "role": "flyer",
+   "cost": 0,
+   "desc": "Invocation",
+   "abilities": [],
+   "unlock_level": 99,
+   "stats": {
+    "hp": 120,
+    "dmg": 35,
+    "hit": 0.8,
+    "range": 0.8,
+    "speed": 2.6,
+    "radius": 0.3,
+    "proj": 0,
+    "count": 1,
+    "flying": true,
+    "air": true,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "none",
+    "acc": [
+     "bird_body"
+    ]
+   },
+   "token": true,
+   "life": 12.0
+  },
+  {
+   "id": "pillard_mini",
+   "name": "Pillard",
+   "family": "raider",
+   "rarity": "common",
+   "role": "melee",
+   "cost": 0,
+   "desc": "Invocation",
+   "abilities": [],
+   "unlock_level": 99,
+   "stats": {
+    "hp": 200,
+    "dmg": 50,
+    "hit": 1.0,
+    "range": 0.7,
+    "speed": 1.8,
+    "radius": 0.35,
+    "proj": 0,
+    "count": 1,
+    "flying": false,
+    "air": false,
+    "targets": "any",
+    "armor": 0
+   },
+   "look": {
+    "weapon": "dagger",
+    "acc": [
+     "bandana"
+    ]
+   },
+   "token": true,
+   "life": 0
+  }
+ ],
+ "families": {
+  "fire": {
+   "name": "Feu",
+   "color": "#ff6a1f"
+  },
+  "ice": {
+   "name": "Glace",
+   "color": "#7fd8ff"
+  },
+  "toxic": {
+   "name": "Toxique",
+   "color": "#7bdc3a"
+  },
+  "mech": {
+   "name": "Mécanique",
+   "color": "#b7a27a"
+  },
+  "shadow": {
+   "name": "Ombre",
+   "color": "#8a5cff"
+  },
+  "wild": {
+   "name": "Sauvage",
+   "color": "#b5652b"
+  },
+  "mystic": {
+   "name": "Mystique",
+   "color": "#4aa3ff"
+  },
+  "royal": {
+   "name": "Royale",
+   "color": "#ffd23f"
+  },
+  "mutant": {
+   "name": "Mutante",
+   "color": "#d03fd9"
+  },
+  "air": {
+   "name": "Aérienne",
+   "color": "#cfe8ff"
+  },
+  "support": {
+   "name": "Soutien",
+   "color": "#7fffbf"
+  },
+  "raider": {
+   "name": "Pillards",
+   "color": "#c9472b"
+  }
+ },
+ "rarities": [
+  "common",
+  "rare",
+  "epic",
+  "legendary",
+  "mythic",
+  "ancestral"
+ ],
+ "upgrade": {
+  "max_level": 10,
+  "copies": [
+   0,
+   2,
+   4,
+   10,
+   20,
+   50,
+   100,
+   200,
+   400,
+   800
+  ],
+  "copies_div": {
+   "common": 1,
+   "rare": 2,
+   "epic": 5,
+   "legendary": 10,
+   "mythic": 20,
+   "ancestral": 40
+  },
+  "gold": [
+   0,
+   50,
+   150,
+   400,
+   1000,
+   2000,
+   4000,
+   8000,
+   15000,
+   30000
+  ],
+  "gold_mult": {
+   "common": 1.0,
+   "rare": 1.2,
+   "epic": 1.5,
+   "legendary": 2.0,
+   "mythic": 2.5,
+   "ancestral": 3.0
+  },
+  "fragments_per_copy": {
+   "common": 5,
+   "rare": 20,
+   "epic": 80,
+   "legendary": 300,
+   "mythic": 800,
+   "ancestral": 2000
+  },
+  "stat_per_level": 0.1,
+  "rarity_start_level": {
+   "common": 1,
+   "rare": 1,
+   "epic": 1,
+   "legendary": 1,
+   "mythic": 1,
+   "ancestral": 1
+  }
+ },
+ "synergies": [
+  {
+   "family": "fire",
+   "need": 3,
+   "name": "Aura de chaleur",
+   "desc": "3 cartes de feu dans le deck : unités de feu +12 % dégâts.",
+   "bonus": {
+    "damage_pct": 12
+   }
+  },
+  {
+   "family": "ice",
+   "need": 3,
+   "name": "Hiver éternel",
+   "desc": "3 cartes de glace : ralentissements +30 % de durée.",
+   "bonus": {
+    "slow_dur_pct": 30
+   }
+  },
+  {
+   "family": "toxic",
+   "need": 3,
+   "name": "Miasmes",
+   "desc": "3 cartes toxiques : poisons +25 % de dégâts.",
+   "bonus": {
+    "poison_pct": 25
+   }
+  },
+  {
+   "family": "mech",
+   "need": 3,
+   "name": "Chaîne de montage",
+   "desc": "3 cartes mécaniques : unités mécaniques +15 % PV.",
+   "bonus": {
+    "hp_pct": 15
+   }
+  },
+  {
+   "family": "shadow",
+   "need": 3,
+   "name": "Voile nocturne",
+   "desc": "3 cartes de l'ombre : unités de l'ombre +15 % dégâts.",
+   "bonus": {
+    "damage_pct": 15
+   }
+  },
+  {
+   "family": "wild",
+   "need": 3,
+   "name": "Instinct de meute",
+   "desc": "3 cartes sauvages : unités sauvages +10 % vitesse et +10 % PV.",
+   "bonus": {
+    "speed_pct": 10,
+    "hp_pct": 10
+   }
+  },
+  {
+   "family": "mystic",
+   "need": 3,
+   "name": "Convergence",
+   "desc": "3 cartes mystiques : capacités +20 % de puissance.",
+   "bonus": {
+    "ability_power_pct": 20
+   }
+  },
+  {
+   "family": "royal",
+   "need": 3,
+   "name": "Garde royale",
+   "desc": "3 cartes royales : unités royales +15 armure, King +10 % PV.",
+   "bonus": {
+    "armor": 15,
+    "king_hp_pct": 10
+   }
+  },
+  {
+   "family": "mutant",
+   "need": 3,
+   "name": "Évolution",
+   "desc": "3 cartes mutantes : unités mutantes régénèrent 1 % PV/s.",
+   "bonus": {
+    "regen_pct": 1.0
+   }
+  },
+  {
+   "family": "air",
+   "need": 2,
+   "name": "Escadrille",
+   "desc": "2 cartes aériennes : unités volantes +15 % dégâts.",
+   "bonus": {
+    "damage_pct": 15
+   }
+  },
+  {
+   "family": "support",
+   "need": 3,
+   "name": "Logistique",
+   "desc": "3 cartes de soutien : soins et boucliers +25 %.",
+   "bonus": {
+    "heal_pct": 25
+   }
+  },
+  {
+   "family": "raider",
+   "need": 3,
+   "name": "Horde",
+   "desc": "3 cartes de pillards : pillards +10 % vitesse d'attaque.",
+   "bonus": {
+    "atk_speed_pct": 10
+   }
+  }
+ ]
+}
