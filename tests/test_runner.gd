@@ -32,9 +32,7 @@ func _ready() -> void:
 			tc.current = f + ":" + mname
 			tc.failures.clear()
 			var t1 := Time.get_ticks_msec()
-			var r = tc.call(mname)
-			if r is Object and r.has_signal("completed"):
-				await r
+			await tc.call(mname)
 			var dt := Time.get_ticks_msec() - t1
 			if tc.failures.is_empty():
 				print("  PASS  %s (%d ms)" % [tc.current, dt])

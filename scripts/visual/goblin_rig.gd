@@ -72,8 +72,8 @@ func build(p: Dictionary) -> GoblinRig:
 	body = MeshKit.pivot(self, Vector3.ZERO, "Body")
 	body.scale = Vector3(bulk, height_m, bulk)
 	# Legs
-	leg_l = MeshKit.pivot(body, Vector3(-0.11, 0.38, 0))
-	leg_r = MeshKit.pivot(body, Vector3(0.11, 0.38, 0))
+	leg_l = MeshKit.pivot(body, Vector3(-0.11, 0.38, 0), "LegL")
+	leg_r = MeshKit.pivot(body, Vector3(0.11, 0.38, 0), "LegR")
 	for lg in [leg_l, leg_r]:
 		MeshKit.part(lg, "capsule", [0.07, 0.36], dark, Vector3(0, -0.17, 0))
 		MeshKit.part(lg, "box", [0.14, 0.07, 0.2], MeshKit.mat(Color("#3a2a1a")), Vector3(0, -0.35, 0.04))
@@ -87,12 +87,12 @@ func build(p: Dictionary) -> GoblinRig:
 		MeshKit.part(torso, "cyl", [0.225, 0.05], MeshKit.mat(Color("#4a3018")), Vector3(0, 0.02, 0))
 	back = MeshKit.pivot(torso, Vector3(0, 0.3, -0.17), "Back")
 	# Arms
-	arm_l = MeshKit.pivot(torso, Vector3(-0.25, 0.43, 0))
-	arm_r = MeshKit.pivot(torso, Vector3(0.25, 0.43, 0))
+	arm_l = MeshKit.pivot(torso, Vector3(-0.25, 0.43, 0), "ArmL")
+	arm_r = MeshKit.pivot(torso, Vector3(0.25, 0.43, 0), "ArmR")
 	for ar in [arm_l, arm_r]:
 		MeshKit.part(ar, "sphere", [0.08 * muscle], skin_mat)
 		MeshKit.part(ar, "capsule", [0.058 * muscle, 0.36], skin_mat, Vector3(0, -0.16, 0))
-		var hand := MeshKit.pivot(ar, Vector3(0, -0.34, 0.02))
+		var hand := MeshKit.pivot(ar, Vector3(0, -0.34, 0.02), "HandL" if ar == arm_l else "HandR")
 		MeshKit.part(hand, "sphere", [0.07 * muscle], skin_mat)
 		if ar == arm_l:
 			hand_l = hand
@@ -286,34 +286,34 @@ func _apply_equipment(vis: Dictionary) -> void:
 
 func _build_wolf(p: Dictionary) -> void:
 	var fur := MeshKit.mat(Color("#5a4a3a"), 0, 0.95)
-	body = MeshKit.pivot(self, Vector3.ZERO)
-	torso = MeshKit.pivot(body, Vector3(0, 0.45, 0))
+	body = MeshKit.pivot(self, Vector3.ZERO, "Body")
+	torso = MeshKit.pivot(body, Vector3(0, 0.45, 0), "Torso")
 	MeshKit.part(torso, "capsule", [0.18, 0.75], fur, Vector3.ZERO, Vector3(90, 0, 0), Vector3.ONE, true)
-	head = MeshKit.pivot(torso, Vector3(0, 0.12, 0.42))
+	head = MeshKit.pivot(torso, Vector3(0, 0.12, 0.42), "Head")
 	MeshKit.part(head, "sphere", [0.15], fur)
 	MeshKit.part(head, "cone", [0.08, 0.2], fur, Vector3(0, -0.03, 0.15), Vector3(90, 0, 0))
 	for sx in [-1, 1]:
 		MeshKit.part(head, "cone", [0.05, 0.12], fur, Vector3(0.08 * sx, 0.14, -0.02))
 		MeshKit.part(head, "sphere", [0.025], MeshKit.mat(Color("#ffd23f"), 0, 0.3, Color("#ffd23f"), 1.5), Vector3(0.06 * sx, 0.04, 0.12))
-	leg_l = MeshKit.pivot(torso, Vector3(-0.1, -0.05, 0.25))
-	leg_r = MeshKit.pivot(torso, Vector3(0.1, -0.05, -0.25))
-	arm_l = MeshKit.pivot(torso, Vector3(0.1, -0.05, 0.25))
-	arm_r = MeshKit.pivot(torso, Vector3(-0.1, -0.05, -0.25))
+	leg_l = MeshKit.pivot(torso, Vector3(-0.1, -0.05, 0.25), "LegL")
+	leg_r = MeshKit.pivot(torso, Vector3(0.1, -0.05, -0.25), "LegR")
+	arm_l = MeshKit.pivot(torso, Vector3(0.1, -0.05, 0.25), "ArmL")
+	arm_r = MeshKit.pivot(torso, Vector3(-0.1, -0.05, -0.25), "ArmR")
 	for lg in [leg_l, leg_r, arm_l, arm_r]:
 		MeshKit.part(lg, "capsule", [0.05, 0.38], fur, Vector3(0, -0.2, 0))
-	back = MeshKit.pivot(torso, Vector3(0, 0.15, -0.2))
+	back = MeshKit.pivot(torso, Vector3(0, 0.15, -0.2), "Back")
 
 
 func _build_bird(p: Dictionary) -> void:
 	var fe := MeshKit.mat(Color("#8a6a4a"), 0, 0.9)
-	body = MeshKit.pivot(self, Vector3.ZERO)
-	torso = MeshKit.pivot(body, Vector3(0, 0.3, 0))
+	body = MeshKit.pivot(self, Vector3.ZERO, "Body")
+	torso = MeshKit.pivot(body, Vector3(0, 0.3, 0), "Torso")
 	MeshKit.part(torso, "sphere", [0.16], fe, Vector3.ZERO, Vector3.ZERO, Vector3(0.9, 0.9, 1.4))
-	head = MeshKit.pivot(torso, Vector3(0, 0.08, 0.2))
+	head = MeshKit.pivot(torso, Vector3(0, 0.08, 0.2), "Head")
 	MeshKit.part(head, "sphere", [0.09], MeshKit.mat(Color("#f0e6d0")))
 	MeshKit.part(head, "cone", [0.03, 0.08], MeshKit.mat(Color("#ffb020")), Vector3(0, -0.01, 0.1), Vector3(90, 0, 0))
 	for sx in [-1, 1]:
-		var w := MeshKit.pivot(torso, Vector3(0.12 * sx, 0.04, 0))
+		var w := MeshKit.pivot(torso, Vector3(0.12 * sx, 0.04, 0), "Wing%d" % (sx + 1))
 		MeshKit.part(w, "box", [0.45, 0.02, 0.2], fe, Vector3(0.22 * sx, 0, 0))
 		wings.append(w)
 	back = torso
@@ -443,6 +443,78 @@ func _process(delta: float) -> void:
 		if weapon:
 			weapon.rotation.y = 0
 		body.scale = Vector3.ONE
+
+
+# ------------------------------------------------------------------ batching / cloning
+## Merges the static mesh parts of every pivot into one mesh per material (fewer nodes and
+## draw calls). Pivots stay separate so the procedural animation still works.
+func merge_static() -> void:
+	_merge_node(self)
+
+
+func _merge_node(n: Node) -> void:
+	var groups := {}
+	for c in n.get_children():
+		if c is MeshInstance3D and c.mesh is PrimitiveMesh and not c.has_meta("team_ring"):
+			var key: Material = c.material_override
+			if not groups.has(key):
+				groups[key] = []
+			groups[key].append(c)
+		elif c is Node3D:
+			_merge_node(c)
+	var total := 0
+	for k in groups.keys():
+		total += groups[k].size()
+	if total < 2:
+		return
+	var am := ArrayMesh.new()
+	var shadow := false
+	for mat in groups.keys():
+		var st := SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for mi in groups[mat]:
+			st.append_from(mi.mesh, 0, mi.transform)
+			shadow = shadow or mi.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		st.commit(am)
+		am.surface_set_material(am.get_surface_count() - 1, mat)
+		for mi in groups[mat]:
+			n.remove_child(mi)
+			mi.free()
+	var merged := MeshInstance3D.new()
+	merged.name = "Merged"
+	merged.mesh = am
+	merged.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if shadow else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	n.add_child(merged)
+
+
+## Fast copy of a built rig (meshes are shared). Used to spawn many identical units.
+func clone() -> GoblinRig:
+	var c: GoblinRig = duplicate()
+	c.params = params
+	c.base_scale = base_scale
+	c.detail = detail
+	c.idle_variant = randi() % 3
+	c.t = randf() * 10.0
+	c.rebind()
+	return c
+
+
+func rebind() -> void:
+	body = find_child("Body", true, false)
+	torso = find_child("Torso", true, false)
+	head = find_child("Head", true, false)
+	back = find_child("Back", true, false)
+	leg_l = find_child("LegL", true, false)
+	leg_r = find_child("LegR", true, false)
+	arm_l = find_child("ArmL", true, false)
+	arm_r = find_child("ArmR", true, false)
+	hand_l = find_child("HandL", true, false)
+	hand_r = find_child("HandR", true, false)
+	weapon = find_child("Weapon", true, false)
+	aura = find_child("Aura", true, false)
+	wings = []
+	for w in find_children("Wing*", "Node3D", true, false):
+		wings.append(w)
 
 
 static func card_params(cid: String) -> Dictionary:

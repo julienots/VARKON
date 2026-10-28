@@ -926,13 +926,19 @@ def build_campaign():
                 if extra not in deck:
                     deck.append(extra)
             m = dict(id=mid, chapter=ch["id"], index=i + 1, type=mtype, difficulty=diff, enemy_level=lvl,
-                     enemy_deck=deck, enemy_hero=(mtype in ("duel", "challenge") and progress >= 1) or mtype == "raid",
+                     enemy_deck=deck, enemy_hero=(mtype in ("duel", "challenge") and progress >= 1) or (mtype == "raid" and ch["id"] >= 3),
                      name="", tip=TIPS.get(mid, ""),
                      rewards=dict(gold=120 + 40 * progress, xp=40 + 8 * progress),
                      first_clear=dict(crystals=10 + 2 * progress, chest="chest_victory" if mtype != "boss" else "chest_royal"),
                      requires=("c%dm%d" % (ch["id"], i) if i > 0 else ("c%dm8" % (ch["id"] - 1) if ch["id"] > 1 else None)))
             names = {"duel": "Escarmouche", "raid": "Raid", "defense": "Siège", "challenge": "Épreuve", "boss": "Affrontement"}
-            places = ["du Col", "de la Rive", "des Ruines", "du Bastion", "du Ravin", "du Sanctuaire", "de la Tour Noire", "final"]
+            places = {
+                1: ["du Col Rouillé", "de la Rive Grise", "des Ruines Brisées", "du Bastion Ferreux", "du Ravin Sanglant", "du Sanctuaire Oublié", "de la Tour Noire", "final"],
+                2: ["des Coulées de Lave", "de la Forge Brûlée", "du Pont de Cendre", "du Fort Écarlate", "des Fumerolles", "du Brasier", "de l'Enclume", "final"],
+                3: ["des Marécages", "du Bois Pourri", "de la Mare Verte", "du Repaire Fongique", "des Spores", "du Gouffre Mutant", "des Racines Noires", "final"],
+                4: ["du Glacier", "des Pics Blancs", "de la Crevasse", "de la Citadelle de Givre", "du Blizzard", "des Vents Hurlants", "du Trône de Glace", "final"],
+                5: ["de la Faille", "du Vide", "des Runes Brisées", "du Palais Déchu", "de l'Éclipse", "des Anciens", "du Dernier Seuil", "final"],
+            }[ch["id"]]
             m["name"] = "%s %s" % (names[mtype], places[i])
             if mtype == "boss":
                 m["boss"] = ch["boss"]
@@ -996,7 +1002,7 @@ PLAYER = dict(
 STRUCTURES = dict(
     throne=dict(hp=4200, dmg=110, hit=1.0, range=7.5, radius=1.5, proj=12),
     tower=dict(hp=2400, dmg=90, hit=0.9, range=7.0, radius=0.9, proj=14),
-    wall=dict(hp=900, radius=0.55),
+    wall=dict(hp=600, radius=0.55),
     trap=dict(dmg=220, radius=1.2),
     dummy=dict(hp=6000, radius=0.6),
 )

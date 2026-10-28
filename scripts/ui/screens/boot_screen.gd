@@ -37,7 +37,6 @@ func setup(_p: Dictionary) -> void:
 	sp.scale_amount_min = 1.5
 	sp.scale_amount_max = 3.5
 	sp.color = Color("#ffd23f")
-	sp.set_anchors_preset(Control.PRESET_CENTER)
 	sp.position = get_viewport_rect().size / 2
 	sp.emitting = false
 	add_child(sp)

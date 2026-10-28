@@ -204,8 +204,17 @@ static func dummy() -> Node3D:
 static func environment(world: Node3D, bright := 1.0, warm := true) -> void:
 	var env := WorldEnvironment.new()
 	var e := Environment.new()
-	e.background_mode = Environment.BG_COLOR
-	e.background_color = Color("#1a1410")
+	var sky_mat := ProceduralSkyMaterial.new()
+	sky_mat.sky_top_color = Color("#1b1a33") if warm else Color("#1a2a44")
+	sky_mat.sky_horizon_color = Color("#c87a4a") if warm else Color("#8aa0c0")
+	sky_mat.sky_curve = 0.12
+	sky_mat.ground_bottom_color = Color("#1a1410")
+	sky_mat.ground_horizon_color = Color("#6a4a32")
+	sky_mat.sun_angle_max = 20.0
+	var sky := Sky.new()
+	sky.sky_material = sky_mat
+	e.background_mode = Environment.BG_SKY
+	e.sky = sky
 	e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	e.ambient_light_color = Color("#8a7a6a") if warm else Color("#7a8aa0")
 	e.ambient_light_energy = 0.42 * bright

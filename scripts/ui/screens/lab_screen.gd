@@ -47,7 +47,13 @@ func _refresh() -> void:
 	var th: HBoxContainer = get_meta("tabs")
 	UIScreen.clear(th)
 	UIScreen.tabs(th, ["design", "mutation", "experiment", "research", "recycle", "relics"], tab, _set_tab).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var prev_scroll := 0
+	for c in body.get_children():
+		if c is ScrollContainer:
+			prev_scroll = c.scroll_vertical
 	UIScreen.clear(body)
+	if prev_scroll > 0:
+		_restore_scroll(prev_scroll)
 	var room: String = {"design": "design", "mutation": "mutation", "experiment": "experiment", "research": "research", "recycle": "recycle", "relics": "relics"}[tab]
 	if tab != "design" and not Game.lab.room_available(room):
 		_locked(room)
@@ -59,6 +65,15 @@ func _refresh() -> void:
 		"research": _research()
 		"recycle": _recycle()
 		"relics": _relics()
+
+
+## Keeps the list position when the screen refreshes its timers.
+func _restore_scroll(v: int) -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	for c in body.get_children():
+		if c is ScrollContainer and not c.is_queued_for_deletion():
+			c.scroll_vertical = v
 
 
 func _locked(room: String) -> void:

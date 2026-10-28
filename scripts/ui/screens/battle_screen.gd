@@ -31,8 +31,12 @@ var hand_signature := ""
 func setup(_params: Dictionary) -> void:
 	cfg = Game.pending_battle
 	if cfg.is_empty():
-		cfg = Game.campaign.mission_config(Game.campaign.current_mission())
+		# Direct launch (QA: --screen=battle [--param=mission:c1m8] [--param=autoplay:1])
+		var mid: String = str(_params.get("mission", Game.campaign.current_mission()))
+		cfg = Game.campaign.mission_config(mid)
 		cfg["battle_id"] = "dev_%d" % int(Game.now())
+		if _params.has("autoplay"):
+			cfg["autoplay"] = true
 	sim = BattleSim.new(cfg)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_build_hud()

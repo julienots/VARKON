@@ -259,7 +259,7 @@ static func slot_item(rig: GoblinRig, slot: String, mesh_id: String, col: Color,
 						MeshKit.part(bk, "cone", [0.04, 0.12], MeshKit.mat(emit if emit.a > 0 else Color.ORANGE, 0, 0.2, emit if emit.a > 0 else Color.ORANGE, 3.0), Vector3(0.1 * sx, -0.3, -0.12), Vector3(180, 0, 0))
 				"wings":
 					for sx in [-1, 1]:
-						var w := MeshKit.pivot(bk, Vector3(0.1 * sx, 0.05, -0.05))
+						var w := MeshKit.pivot(bk, Vector3(0.1 * sx, 0.05, -0.05), "WingK%d" % (sx + 1))
 						MeshKit.part(w, "prism", [0.6, 0.35, 0.02], m, Vector3(0.3 * sx, 0.1, 0), Vector3(0, 0, -20 * sx))
 						rig.wings.append(w)
 				"tentacles":
@@ -369,7 +369,7 @@ static func accessory(rig: GoblinRig, a: String, fam: Color) -> void:
 				MeshKit.part(to, "sphere", [0.035], MeshKit.mat(Color("#b04fb9"), 0, 0.4, Color("#d03fd9"), 0.5), Vector3(sin(k * 1.7) * 0.18, 0.15 + k * 0.07, cos(k * 1.7) * 0.15))
 		"wings":
 			for sx in [-1, 1]:
-				var w := MeshKit.pivot(rig.back, Vector3(0.08 * sx, 0.05, -0.05))
+				var w := MeshKit.pivot(rig.back, Vector3(0.08 * sx, 0.05, -0.05), "WingA%d" % (sx + 1))
 				MeshKit.part(w, "prism", [0.55, 0.32, 0.02], MeshKit.mat(Color("#6b4a3a"), 0, 0.9), Vector3(0.28 * sx, 0.08, 0), Vector3(0, 0, -20 * sx))
 				rig.wings.append(w)
 		"feathers":

@@ -81,9 +81,14 @@ func _init(config: Dictionary) -> void:
 	no_cards[0] = mods.get("no_cards", false)
 	match mode:
 		"raid":
-			duration = 150.0
+			# The attacker has the initiative: more rage, faster regen; the defending bot is slower.
+			duration = 180.0
 			_place_structures(0, false)
 			_place_raid(1, str(cfg.get("layout", "raid_1")))
+			energy[0] = energy_max * 0.8
+			energy_rate_mult[0] *= 1.2
+			energy[1] = 2.0
+			energy_rate_mult[1] *= 0.55
 		"defense", "survival":
 			duration = 600.0 if mode == "survival" else 420.0
 			_place_structures(0, true)
@@ -251,6 +256,11 @@ func _place_raid(team: int, layout_id: String) -> void:
 	for p in lay.towers + lay.get("extra_towers", []):
 		_structure(team, "tower", Vector2(float(p[0]), float(p[1])))
 	var lvl_m := 1.0 + float(sides[team].get("structure_hp_pct", 0.0)) / 100.0
+	# Raid fortresses are outposts: their buildings are lighter than a duel throne/towers.
+	for e in ents:
+		if e.team == team and e.kind == "structure":
+			e.max_hp *= 0.75
+			e.hp = e.max_hp
 	for p in lay.walls:
 		_wall(team, Vector2(float(p[0]), float(p[1]) + 0.5), float(DB.campaign_json.structures.wall.hp) * lvl_m)
 	for p in lay.traps:
@@ -333,6 +343,8 @@ func _spawn_hero(t: int) -> void:
 		e.lifesteal += float(DB.abilities.tyrant_blood.pct)
 	var home: Vector2 = thrones[t].pos if thrones[t] else Vector2(side_x(t, 2.0), W / 2)
 	e.pos = home + Vector2(2.2 if t == 0 else -2.2, 0)
+	if mode == "raid" and t == 1:
+		e.data["leash_x"] = 21.0
 	heroes[t] = e
 	_add(e)
 
@@ -723,6 +735,8 @@ func _find_target(e: BattleEnt) -> BattleEnt:
 			continue
 		if e.kind == "hero" and d > sight:
 			continue  # the King only engages what is near; the player moves him
+		if e.data.has("leash_x") and o.pos.x < float(e.data.leash_x) - 1.0:
+			continue  # a fortress chieftain does not leave his walls
 		# Prefer units over buildings when they are in sight
 		var bias := 0.0 if not o.kind in ["structure", "turret"] else 2.5
 		if e.targets == "structures":
@@ -1689,7 +1703,7 @@ func stars() -> int:
 	var s := 1
 	match mode:
 		"raid":
-			if time_left() >= 60.0:
+			if time_left() >= 75.0:
 				s += 1
 			var towers_left := 0
 			for e in ents:

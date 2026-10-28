@@ -54,13 +54,18 @@ func setup(_p: Dictionary) -> void:
 	var mm: Dictionary = DB.missions[mid]
 	var play := UI.panel_box(Color(0.08, 0.06, 0.04, 0.85), UI.GOLD)
 	play.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-	play.offset_left = -330
-	play.offset_top = -250
+	play.offset_left = -420
+	play.offset_top = -262
 	play.offset_right = -14
 	play.offset_bottom = -110
+	play.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	play.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	var pv := UI.vbox(6)
 	pv.add_child(UI.label(tr("LBL_CAMPAIGN") + " — " + mid.to_upper(), 16, UI.TEXT_DIM, "bold"))
-	pv.add_child(UI.label(str(mm.name), 20, UI.GOLD, "title"))
+	var ml := UI.label(str(mm.name), 20, UI.GOLD, "title")
+	ml.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	ml.custom_minimum_size.x = 370
+	pv.add_child(ml)
 	var start := func() -> void:
 		if not Game.collection.deck_complete():
 			Router.error("ERR_DECK_INCOMPLETE")

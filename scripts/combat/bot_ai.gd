@@ -179,6 +179,14 @@ func _think_cards(view: Dictionary) -> void:
 		return
 	var forced := full_energy_t > 3.0
 	var thr: float = p.threshold
+	# Raid attacker: build up rage and push in waves instead of trickling units into the towers.
+	if sim.mode == "raid" and team == 0 and difficulty != "easy":
+		var pushing := 0
+		for a in allies:
+			if a.kind == "unit" and a.pos.x > 12.0:
+				pushing += 1
+		if energy < sim.energy_max - 1.0 and pushing < 2 and not forced:
+			return
 	if best_score >= thr or forced:
 		if sim.play_card(team, best_play.i, best_play.pos):
 			plays += 1
@@ -244,7 +252,8 @@ func _score(prof: Dictionary, cid: String, pos: Vector2, threats: Array, allies:
 	var threat_power := 0.0
 	for c in threats:
 		threat_power += c.power
-	if threat_power < 20.0:
+	var defender := sim.mode == "raid" and team == 1
+	if threat_power < 20.0 and not defender:
 		var reserve: float = p.reserve
 		if energy - prof.cost >= reserve or energy >= sim.energy_max - 0.5:
 			var o := 0.7
@@ -321,6 +330,9 @@ func _think_hero(view: Dictionary) -> void:
 		elif view.my_throne:
 			dest = view.my_throne.pos + Vector2(fwd() * 3.0, 0)
 			has_dest = h.pos.distance_to(dest) > 2.0
+	if sim.mode == "raid" and team == 1:
+		# The fortress chieftain never leaves his walls.
+		dest.x = maxf(dest.x, 21.0)
 	if has_dest and h.target == null or (has_dest and h.pos.distance_to(dest) > 5.0):
 		sim.hero_move(team, dest)
 	# Abilities

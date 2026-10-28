@@ -19,6 +19,7 @@ var zone_highlight: MeshInstance3D
 var ghost: MeshInstance3D
 var range_ring: MeshInstance3D
 var speed := 1.0
+var protos := {}         # card id -> merged prototype rig (cloned for each spawn)
 
 
 func setup(s: BattleSim) -> void:
@@ -134,20 +135,21 @@ func _create(e: BattleEnt) -> void:
 			var h: Dictionary = sim.sides[e.team].hero
 			n = GoblinRig.new().build({"is_king": true, "appearance": h.appearance, "visuals": h.visuals, "scale": 1.25 * VIS, "color": tc.to_html()})
 			_add_team_ring(n, tc, 0.6)
+			_entry_effect(e, str(h.get("cosmetic_sel", {}).get("entry", "")))
 		"boss":
 			var bd: Dictionary = DB.bosses[e.def_id]
 			var p := {"look": bd.look, "color": bd.look.color, "skin": Color(bd.look.color).lightened(0.15).to_html(), "scale": float(bd.look.scale) * 1.3, "glow_eyes": true}
 			n = GoblinRig.new().build(p)
 			_add_team_ring(n, tc, e.radius)
 		"decoy":
-			n = GoblinRig.new().build(_unit_params(e.def_id))
+			n = _unit_rig(e.def_id)
 			for c in n.get_children():
 				if c is Node3D:
 					c.visible = true
 			n.set_meta("decoy", true)
 			_add_team_ring(n, Color("#b28cff"), e.radius)
 		_:
-			n = GoblinRig.new().build(_unit_params(e.def_id))
+			n = _unit_rig(e.def_id)
 			_add_team_ring(n, tc, e.radius / VIS * 1.2)
 			if e.flying:
 				n.position.y = 1.4
@@ -165,6 +167,38 @@ func _create(e: BattleEnt) -> void:
 		n.scale = Vector3.ONE * 0.01
 		var target_scale := (n as GoblinRig).base_scale if n is GoblinRig else 1.0
 		n.create_tween().tween_property(n, "scale", Vector3.ONE * target_scale, 0.35).set_trans(Tween.TRANS_BACK)
+
+
+## Cosmetic entry effect of the King (owned "entry" cosmetic selected in the King screen).
+func _entry_effect(e: BattleEnt, entry_id: String) -> void:
+	if entry_id == "" or not DB.cosmetics.has(entry_id):
+		return
+	match str(DB.cosmetics[entry_id].anim):
+		"smoke":
+			_puff(e.pos, Color("#5a5a5a"), 30)
+			_puff(e.pos, Color("#2a2a2a"), 20)
+		"lightning":
+			var bolt := MeshKit.part(self, "cyl", [0.12, 14.0], MeshKit.mat(Color("#bfe8ff"), 0, 0.2, Color("#9ad7ff"), 4.0 * Settings.flash_scale()), Vector3(e.pos.x, 7.0, e.pos.y))
+			var tw := bolt.create_tween()
+			tw.tween_property(bolt, "scale", Vector3(0.1, 1, 0.1), 0.35)
+			tw.tween_callback(bolt.queue_free)
+			_ring(e.pos, 2.2, Color("#9ad7ff"), 0.6, true)
+			Audio.play_sfx("zap")
+			shake = maxf(shake, 0.4)
+
+
+func _unit_rig(cid: String) -> GoblinRig:
+	if not protos.has(cid):
+		var proto := GoblinRig.new().build(_unit_params(cid))
+		proto.merge_static()
+		protos[cid] = proto
+	return (protos[cid] as GoblinRig).clone()
+
+
+func _exit_tree() -> void:
+	for p in protos.values():
+		p.free()
+	protos.clear()
 
 
 func _unit_params(cid: String) -> Dictionary:

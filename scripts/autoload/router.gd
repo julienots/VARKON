@@ -53,7 +53,8 @@ func attach(m: Node) -> void:
 	_toast_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_toast_box.add_theme_constant_override("separation", 6)
 	main.overlay_root.add_child(_toast_box)
-	EventBus.toast.connect(toast)
+	if not EventBus.toast.is_connected(toast):
+		EventBus.toast.connect(toast)
 
 
 func goto(screen: String, params: Dictionary = {}, push_history := true) -> void:

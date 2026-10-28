@@ -76,7 +76,7 @@
     "medecin_guerre"
    ],
    "enemy_hero": false,
-   "name": "Escarmouche du Col",
+   "name": "Escarmouche du Col Rouillé",
    "tip": "Faites glisser une carte sur votre moitié du terrain pour déployer une unité.",
    "rewards": {
     "gold": 120,
@@ -106,7 +106,7 @@
     "boulon"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Rive",
+   "name": "Escarmouche de la Rive Grise",
    "tip": "Touchez le sol pour déplacer votre King Gobelin, puis utilisez sa compétence active.",
    "rewards": {
     "gold": 160,
@@ -137,7 +137,7 @@
     "pillard"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche des Ruines",
+   "name": "Escarmouche des Ruines Brisées",
    "tip": "Détruisez les tours ennemies avant d'attaquer le Trône.",
    "rewards": {
     "gold": 200,
@@ -167,8 +167,8 @@
     "frondeur",
     "pyrogobelin"
    ],
-   "enemy_hero": true,
-   "name": "Raid du Bastion",
+   "enemy_hero": false,
+   "name": "Raid du Bastion Ferreux",
    "tip": "Raid : détruisez le Trône de la forteresse ennemie avant la fin du temps. Les murailles bloquent les unités terrestres.",
    "rewards": {
     "gold": 240,
@@ -200,7 +200,7 @@
     "gardien_braise"
    ],
    "enemy_hero": false,
-   "name": "Siège du Ravin",
+   "name": "Siège du Ravin Sanglant",
    "tip": "Défense : survivez aux vagues. Vos murailles, pièges et tours de garde de la base sont présents.",
    "rewards": {
     "gold": 280,
@@ -256,7 +256,7 @@
     "pillard"
    ],
    "enemy_hero": true,
-   "name": "Épreuve du Sanctuaire",
+   "name": "Épreuve du Sanctuaire Oublié",
    "tip": "Défi : seules certaines cartes sont autorisées. Lisez les règles.",
    "rewards": {
     "gold": 320,
@@ -354,7 +354,7 @@
     "catapulte_gobeline"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche du Col",
+   "name": "Escarmouche des Coulées de Lave",
    "tip": "",
    "rewards": {
     "gold": 440,
@@ -384,7 +384,7 @@
     "frondeur"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Rive",
+   "name": "Escarmouche de la Forge Brûlée",
    "tip": "",
    "rewards": {
     "gold": 480,
@@ -414,7 +414,7 @@
     "gardien_braise"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche des Ruines",
+   "name": "Escarmouche du Pont de Cendre",
    "tip": "",
    "rewards": {
     "gold": 520,
@@ -444,8 +444,8 @@
     "chevaucheur_loup",
     "pillard"
    ],
-   "enemy_hero": true,
-   "name": "Raid du Bastion",
+   "enemy_hero": false,
+   "name": "Raid du Fort Écarlate",
    "tip": "",
    "rewards": {
     "gold": 560,
@@ -476,7 +476,7 @@
     "pyrogobelin"
    ],
    "enemy_hero": false,
-   "name": "Siège du Ravin",
+   "name": "Siège des Fumerolles",
    "tip": "",
    "rewards": {
     "gold": 600,
@@ -547,7 +547,7 @@
     "brulecrane"
    ],
    "enemy_hero": true,
-   "name": "Épreuve du Sanctuaire",
+   "name": "Épreuve du Brasier",
    "tip": "",
    "rewards": {
     "gold": 640,
@@ -581,7 +581,7 @@
     "danseflammes"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Tour Noire",
+   "name": "Escarmouche de l'Enclume",
    "tip": "",
    "rewards": {
     "gold": 680,
@@ -643,7 +643,7 @@
     "epineux"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche du Col",
+   "name": "Escarmouche des Marécages",
    "tip": "",
    "rewards": {
     "gold": 760,
@@ -673,7 +673,7 @@
     "ombre_lame"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Rive",
+   "name": "Escarmouche du Bois Pourri",
    "tip": "",
    "rewards": {
     "gold": 800,
@@ -703,7 +703,7 @@
     "rodeur_fongique"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche des Ruines",
+   "name": "Escarmouche de la Mare Verte",
    "tip": "",
    "rewards": {
     "gold": 840,
@@ -733,7 +733,7 @@
     "tentaculaire"
    ],
    "enemy_hero": true,
-   "name": "Raid du Bastion",
+   "name": "Raid du Repaire Fongique",
    "tip": "",
    "rewards": {
     "gold": 880,
@@ -765,7 +765,7 @@
     "traqueur_nocturne"
    ],
    "enemy_hero": false,
-   "name": "Siège du Ravin",
+   "name": "Siège des Spores",
    "tip": "",
    "rewards": {
     "gold": 920,
@@ -835,7 +835,7 @@
     "machoire_geante"
    ],
    "enemy_hero": true,
-   "name": "Épreuve du Sanctuaire",
+   "name": "Épreuve du Gouffre Mutant",
    "tip": "",
    "rewards": {
     "gold": 960,
@@ -869,7 +869,7 @@
     "abomination_royale"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Tour Noire",
+   "name": "Escarmouche des Racines Noires",
    "tip": "",
    "rewards": {
     "gold": 1000,
@@ -932,7 +932,7 @@
     "ravageur_celeste"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche du Col",
+   "name": "Escarmouche du Glacier",
    "tip": "",
    "rewards": {
     "gold": 1080,
@@ -962,7 +962,7 @@
     "givregriffes"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Rive",
+   "name": "Escarmouche des Pics Blancs",
    "tip": "",
    "rewards": {
     "gold": 1120,
@@ -992,7 +992,7 @@
     "cryochaman"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche des Ruines",
+   "name": "Escarmouche de la Crevasse",
    "tip": "",
    "rewards": {
     "gold": 1160,
@@ -1022,7 +1022,7 @@
     "bombardier_gobelin"
    ],
    "enemy_hero": true,
-   "name": "Raid du Bastion",
+   "name": "Raid de la Citadelle de Givre",
    "tip": "",
    "rewards": {
     "gold": 1200,
@@ -1053,7 +1053,7 @@
     "executeur_royal"
    ],
    "enemy_hero": false,
-   "name": "Siège du Ravin",
+   "name": "Siège du Blizzard",
    "tip": "",
    "rewards": {
     "gold": 1240,
@@ -1140,7 +1140,7 @@
     "sentinelle_polaire"
    ],
    "enemy_hero": true,
-   "name": "Épreuve du Sanctuaire",
+   "name": "Épreuve des Vents Hurlants",
    "tip": "",
    "rewards": {
     "gold": 1280,
@@ -1174,7 +1174,7 @@
     "ravageur_celeste"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Tour Noire",
+   "name": "Escarmouche du Trône de Glace",
    "tip": "",
    "rewards": {
     "gold": 1320,
@@ -1236,7 +1236,7 @@
     "traqueur_nocturne"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche du Col",
+   "name": "Escarmouche de la Faille",
    "tip": "",
    "rewards": {
     "gold": 1400,
@@ -1266,7 +1266,7 @@
     "devoreur"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Rive",
+   "name": "Escarmouche du Vide",
    "tip": "",
    "rewards": {
     "gold": 1440,
@@ -1296,7 +1296,7 @@
     "machoire_geante"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche des Ruines",
+   "name": "Escarmouche des Runes Brisées",
    "tip": "",
    "rewards": {
     "gold": 1480,
@@ -1326,7 +1326,7 @@
     "maitre_ombres"
    ],
    "enemy_hero": true,
-   "name": "Raid du Bastion",
+   "name": "Raid du Palais Déchu",
    "tip": "",
    "rewards": {
     "gold": 1520,
@@ -1357,7 +1357,7 @@
     "abomination_royale"
    ],
    "enemy_hero": false,
-   "name": "Siège du Ravin",
+   "name": "Siège de l'Éclipse",
    "tip": "",
    "rewards": {
     "gold": 1560,
@@ -1444,7 +1444,7 @@
     "garde_trone"
    ],
    "enemy_hero": true,
-   "name": "Épreuve du Sanctuaire",
+   "name": "Épreuve des Anciens",
    "tip": "",
    "rewards": {
     "gold": 1600,
@@ -1478,7 +1478,7 @@
     "oracle_gobelin"
    ],
    "enemy_hero": true,
-   "name": "Escarmouche de la Tour Noire",
+   "name": "Escarmouche du Dernier Seuil",
    "tip": "",
    "rewards": {
     "gold": 1640,
@@ -2354,7 +2354,7 @@
    "proj": 14
   },
   "wall": {
-   "hp": 900,
+   "hp": 600,
    "radius": 0.55
   },
   "trap": {

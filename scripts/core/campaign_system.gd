@@ -182,7 +182,7 @@ func free_config(mode: String, difficulty: String) -> Dictionary:
 	var seed_v := rng.randi()
 	var cfg := {
 		"mode": mode, "title": g.tr("MODE_" + mode.to_upper()), "seed": seed_v, "modifiers": {}, "tip": "",
-		"player": player_side(), "enemy": enemy_side(deck, lvl, difficulty, mode in ["duel", "raid"], seed_v), "free": true,
+		"player": player_side(), "enemy": enemy_side(deck, lvl, difficulty, mode == "duel" or (mode == "raid" and difficulty == "expert"), seed_v), "free": true,
 	}
 	if mode == "raid":
 		cfg.layout = "raid_%d" % (1 + rng.randi() % 3)
