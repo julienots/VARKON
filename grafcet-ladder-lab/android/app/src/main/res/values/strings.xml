@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GRAFCET Ladder Lab</string>
+    <string name="title_activity_main">GRAFCET Ladder Lab</string>
+    <string name="package_name">fr.btsati.grafcetladderlab</string>
+    <string name="custom_url_scheme">fr.btsati.grafcetladderlab</string>
+</resources>
