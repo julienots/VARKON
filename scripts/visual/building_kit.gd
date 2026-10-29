@@ -3,10 +3,10 @@ extends RefCounted
 ## Procedural fortress buildings whose silhouette evolves with level, plus battle structures
 ## and environment props (ground, rocks, trees, torches).
 
-const STONE := Color("#6d655c")
-const STONE_DARK := Color("#4a443e")
-const WOOD := Color("#5a3a20")
-const ROOF := Color("#7a2a1c")
+const STONE := Color("#b3a289")
+const STONE_DARK := Color("#8c7b66")
+const WOOD := Color("#a8693a")
+const ROOF := Color("#e8443a")
 
 
 static func building(id: String, level: int, size: Vector2i, color: Color) -> Node3D:
@@ -137,7 +137,21 @@ static func building(id: String, level: int, size: Vector2i, color: Color) -> No
 	# Level plate / ornaments for high levels
 	if lv >= 7 and id != "wall" and id != "trap":
 		MeshKit.part(root, "box", [w * 0.94, 0.05, d * 0.94], gold, Vector3(0, 0.13, 0))
+	outline(root)
 	return root
+
+
+## Cartoon contour on the large pieces of a prop/building.
+static func outline(root: Node3D, min_size := 0.25) -> void:
+	if not MeshKit.outlines_enabled():
+		return
+	for n in root.find_children("*", "MeshInstance3D", true, false):
+		var mi := n as MeshInstance3D
+		if mi.mesh == null or mi.has_meta("team_ring"):
+			continue
+		var sz := mi.mesh.get_aabb().size * mi.scale
+		if maxf(sz.x, maxf(sz.y, sz.z)) >= min_size:
+			mi.material_override = MeshKit.outlined(mi.material_override, 0.025)
 
 
 static func _banner(root: Node3D, pos: Vector3, color: Color) -> void:
@@ -158,6 +172,7 @@ static func throne(team_color: Color) -> Node3D:
 	MeshKit.part(root, "box", [0.9, 1.2, 0.2], MeshKit.mat(Color("#e0b84a"), 1.0, 0.3), Vector3(0, 2.3, 0))
 	MeshKit.part(root, "cone", [0.6, 1.2], MeshKit.mat(team_color), Vector3(0, 2.6, 0), Vector3(0, 45, 0))
 	_banner(root, Vector3(0, 3.2, 0), team_color)
+	outline(root)
 	return root
 
 
@@ -170,6 +185,7 @@ static func tower(team_color: Color) -> Node3D:
 		var a := k * TAU / 6
 		MeshKit.part(root, "box", [0.25, 0.3, 0.25], stone, Vector3(cos(a) * 0.82, 2.8, sin(a) * 0.82))
 	MeshKit.part(root, "cone", [0.6, 0.9], MeshKit.mat(team_color.darkened(0.2)), Vector3(0, 3.3, 0))
+	outline(root)
 	return root
 
 
@@ -178,6 +194,7 @@ static func wall_segment() -> Node3D:
 	var stone := MeshKit.mat(STONE, 0, 0.9)
 	MeshKit.part(root, "box", [0.9, 1.0, 1.1], stone, Vector3(0, 0.5, 0), Vector3.ZERO, Vector3.ONE, true)
 	MeshKit.part(root, "box", [0.3, 0.25, 1.1], stone, Vector3(0, 1.1, 0))
+	outline(root)
 	return root
 
 
@@ -187,6 +204,7 @@ static func turret() -> Node3D:
 	MeshKit.part(root, "cyl", [0.3, 0.4, 0.4], MeshKit.mat(WOOD), Vector3(0, 0.2, 0))
 	MeshKit.part(root, "box", [0.4, 0.3, 0.4], metal, Vector3(0, 0.55, 0))
 	MeshKit.part(root, "cyl", [0.06, 0.5], metal, Vector3(0, 0.6, 0.3), Vector3(90, 0, 0))
+	outline(root)
 	return root
 
 
@@ -197,48 +215,58 @@ static func dummy() -> Node3D:
 	MeshKit.part(root, "capsule", [0.3, 0.9], straw, Vector3(0, 1.0, 0), Vector3.ZERO, Vector3.ONE, true)
 	MeshKit.part(root, "sphere", [0.22], straw, Vector3(0, 1.65, 0))
 	MeshKit.part(root, "box", [1.0, 0.1, 0.1], MeshKit.mat(WOOD), Vector3(0, 1.25, 0))
+	outline(root)
 	return root
 
 
 # ------------------------------------------------------------------ environment
 static func environment(world: Node3D, bright := 1.0, warm := true) -> void:
+	## Sunny cartoon daylight: blue sky, warm sun, soft blue fill.
 	var env := WorldEnvironment.new()
 	var e := Environment.new()
 	var sky_mat := ProceduralSkyMaterial.new()
-	sky_mat.sky_top_color = Color("#1b1a33") if warm else Color("#1a2a44")
-	sky_mat.sky_horizon_color = Color("#c87a4a") if warm else Color("#8aa0c0")
-	sky_mat.sky_curve = 0.12
-	sky_mat.ground_bottom_color = Color("#1a1410")
-	sky_mat.ground_horizon_color = Color("#6a4a32")
-	sky_mat.sun_angle_max = 20.0
+	sky_mat.sky_top_color = Color("#2f7fe8") if warm else Color("#4a8ad8")
+	sky_mat.sky_horizon_color = Color("#bfe6ff") if warm else Color("#dff0ff")
+	sky_mat.sky_curve = 0.18
+	sky_mat.ground_bottom_color = Color("#3c7a2a")
+	sky_mat.ground_horizon_color = Color("#a8d8a0")
+	sky_mat.sun_angle_max = 25.0
 	var sky := Sky.new()
 	sky.sky_material = sky_mat
 	e.background_mode = Environment.BG_SKY
 	e.sky = sky
 	e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	e.ambient_light_color = Color("#8a7a6a") if warm else Color("#7a8aa0")
+	e.ambient_light_color = Color("#b8cce8") if warm else Color("#c0d4f0")
 	e.ambient_light_energy = 0.42 * bright
-	e.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-	e.fog_enabled = Settings.effective_quality() >= 1
-	e.fog_light_color = Color("#3a2e24")
-	e.fog_density = 0.008
+	e.tonemap_mode = Environment.TONE_MAPPER_LINEAR
+	e.adjustment_enabled = true
+	e.adjustment_saturation = 1.12
+	e.adjustment_contrast = 1.05
+	e.fog_enabled = false
 	e.glow_enabled = Settings.effective_quality() >= 2
-	e.glow_intensity = 0.6 * Settings.flash_scale()
+	e.glow_intensity = 0.4 * Settings.flash_scale()
+	e.glow_hdr_threshold = 1.2
 	env.environment = e
 	world.add_child(env)
 	var sun := DirectionalLight3D.new()
-	sun.rotation_degrees = Vector3(-52, -35, 0)
-	sun.light_color = Color("#ffe2b8") if warm else Color("#e0ecff")
-	sun.light_energy = 1.05 * bright
+	sun.rotation_degrees = Vector3(-55, -30, 0)
+	sun.light_color = Color("#fff3d6")
+	sun.light_energy = 0.8 * bright
 	sun.shadow_enabled = Settings.shadows_enabled()
+	sun.shadow_opacity = 0.55
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
 	sun.directional_shadow_max_distance = 60.0
 	world.add_child(sun)
 	var fill := DirectionalLight3D.new()
-	fill.rotation_degrees = Vector3(-30, 140, 0)
-	fill.light_color = Color("#6a7aa0")
-	fill.light_energy = 0.35 * bright
+	fill.rotation_degrees = Vector3(-25, 150, 0)
+	fill.light_color = Color("#9ec4ff")
+	fill.light_energy = 0.22 * bright
 	world.add_child(fill)
+
+
+## Makes any ground tint read as bright, saturated cartoon grass/sand.
+static func vivid(col: Color) -> Color:
+	return Color.from_hsv(col.h, clampf(col.s, 0.5, 0.62), clampf(col.v, 0.55, 0.66))
 
 
 static func ground(world: Node3D, size: Vector2, center: Vector3, col := Color("#4a5a2a")) -> MeshInstance3D:
@@ -249,8 +277,10 @@ static func ground(world: Node3D, size: Vector2, center: Vector3, col := Color("
 	pm.subdivide_depth = 4
 	mi.mesh = pm
 	var m := StandardMaterial3D.new()
+	col = vivid(col)
 	m.albedo_color = col
 	m.roughness = 1.0
+	m.diffuse_mode = BaseMaterial3D.DIFFUSE_TOON
 	m.albedo_texture = _ground_texture(col)
 	m.uv1_scale = Vector3(size.x / 4.0, size.y / 4.0, 1)
 	mi.material_override = m
@@ -274,25 +304,46 @@ static func _ground_texture(col: Color) -> Texture2D:
 		for x in 128:
 			var n := noise.get_noise_2d(x, y) * 0.5 + 0.5
 			var n2 := noise.get_noise_2d(x * 4.0, y * 4.0) * 0.5 + 0.5
-			var c := Color.WHITE.lerp(Color(0.72, 0.68, 0.6), n * 0.6 + n2 * 0.25)
+			var c := Color.WHITE.lerp(Color(0.84, 0.9, 0.8), n * 0.7 + n2 * 0.3)
 			img.set_pixel(x, y, c)
 	var tex := ImageTexture.create_from_image(img)
 	_ground_tex[key] = tex
 	return tex
 
 
+static var _checker: Texture2D
+
+
+## Two-tone checkered lawn (one square per battlefield unit when uv-scaled by size / 2).
+static func checker_texture() -> Texture2D:
+	if _checker:
+		return _checker
+	var noise := FastNoiseLite.new()
+	noise.seed = 3
+	noise.frequency = 0.08
+	var img := Image.create(64, 64, false, Image.FORMAT_RGB8)
+	for y in 64:
+		for x in 64:
+			var sq := ((x / 32) + (y / 32)) % 2 == 0
+			var base := 1.0 if sq else 0.9
+			var n := noise.get_noise_2d(x, y) * 0.04
+			img.set_pixel(x, y, Color(base + n, base + n, base + n))
+	_checker = ImageTexture.create_from_image(img)
+	return _checker
+
+
 static func rock(parent: Node3D, pos: Vector3, s: float) -> void:
-	MeshKit.part(parent, "sphere", [0.5 * s], MeshKit.mat(Color("#5a544c"), 0, 0.95), pos + Vector3(0, 0.15 * s, 0), Vector3(randf() * 30, randf() * 360, 0), Vector3(1.2, 0.7, 1.0), true)
+	MeshKit.part(parent, "sphere", [0.5 * s], MeshKit.mat(Color("#b9b2a6"), 0, 0.9), pos + Vector3(0, 0.15 * s, 0), Vector3(randf() * 30, randf() * 360, 0), Vector3(1.2, 0.7, 1.0), true)
 
 
 static func tree(parent: Node3D, pos: Vector3, s: float, dead := false) -> void:
-	MeshKit.part(parent, "cyl", [0.08 * s, 1.2 * s, 0.14 * s], MeshKit.mat(Color("#3a2a1a")), pos + Vector3(0, 0.6 * s, 0), Vector3.ZERO, Vector3.ONE, true)
+	MeshKit.part(parent, "cyl", [0.08 * s, 1.2 * s, 0.14 * s], MeshKit.mat(Color("#8a5a32")), pos + Vector3(0, 0.6 * s, 0), Vector3.ZERO, Vector3.ONE, true)
 	if dead:
 		for k in 3:
-			MeshKit.part(parent, "cyl", [0.03 * s, 0.6 * s], MeshKit.mat(Color("#3a2a1a")), pos + Vector3(0, (0.8 + k * 0.2) * s, 0), Vector3(0, k * 120, 50))
+			MeshKit.part(parent, "cyl", [0.03 * s, 0.6 * s], MeshKit.mat(Color("#7a5a3a")), pos + Vector3(0, (0.8 + k * 0.2) * s, 0), Vector3(0, k * 120, 50))
 	else:
-		MeshKit.part(parent, "cone", [0.6 * s, 1.4 * s], MeshKit.mat(Color("#2f4a24"), 0, 0.9), pos + Vector3(0, 1.5 * s, 0), Vector3.ZERO, Vector3.ONE, true)
-		MeshKit.part(parent, "cone", [0.45 * s, 1.0 * s], MeshKit.mat(Color("#3a5a2a"), 0, 0.9), pos + Vector3(0, 2.1 * s, 0))
+		MeshKit.part(parent, "cone", [0.6 * s, 1.4 * s], MeshKit.mat(Color("#2f9a3a"), 0, 0.8), pos + Vector3(0, 1.5 * s, 0), Vector3.ZERO, Vector3.ONE, true)
+		MeshKit.part(parent, "cone", [0.45 * s, 1.0 * s], MeshKit.mat(Color("#55c24a"), 0, 0.8), pos + Vector3(0, 2.1 * s, 0))
 
 
 static func torch(parent: Node3D, pos: Vector3) -> void:

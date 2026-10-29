@@ -57,7 +57,7 @@ func setup(_p: Dictionary) -> void:
 	tools.add_child(UI.label(tr("LBL_BUILDERS") % [Game.base.active_builders(), BaseSystem.MAX_BUILDERS], 16, UI.TEXT_DIM))
 	set_meta("builders_label", tools.get_child(tools.get_child_count() - 1))
 	add_child(tools)
-	panel = UI.panel_box(Color(0.08, 0.06, 0.04, 0.92))
+	panel = UI.panel_box(Color("#23396f", 0.94))
 	panel.anchor_left = 1
 	panel.anchor_right = 1
 	panel.anchor_top = 0
@@ -492,7 +492,7 @@ func _open_build_menu() -> void:
 		if d.get("locked_ruin", false):
 			continue
 		var id: String = d.id
-		var row := UI.panel_box(Color("#2a1f16"))
+		var row := UI.panel_box(Color("#2a4482"))
 		var h := UI.hbox(10)
 		var vv := UI.vbox(2)
 		vv.size_flags_horizontal = Control.SIZE_EXPAND_FILL

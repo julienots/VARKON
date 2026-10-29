@@ -4,7 +4,7 @@ extends Node3D
 ## idle / walk / attack / hit / cast / death / victory and emotes. Equipment meshes are
 ## attached to sockets (head, eyes, torso, shoulders, hands, back, belt, legs, feet).
 
-const SKIN_DEFAULT := Color("#5f8f3a")
+const SKIN_DEFAULT := Color("#72cc3c")
 
 var params := {}
 var body: Node3D
@@ -65,9 +65,9 @@ func build(p: Dictionary) -> GoblinRig:
 	var mut: Array = app.get("mutation_visuals", [])
 	if "big_arms" in mut:
 		muscle *= 1.3
-	skin_mat = MeshKit.mat(skin, 0.0, 0.8)
-	var cloth := MeshKit.mat(fam_col.darkened(0.25), 0.0, 0.9)
-	var dark := MeshKit.mat(Color("#2a1e14"), 0.0, 0.9)
+	skin_mat = MeshKit.mat(skin, 0.0, 0.7)
+	var cloth := MeshKit.mat(fam_col, 0.0, 0.8)
+	var dark := MeshKit.mat(fam_col.darkened(0.55).lerp(Color("#5a3a24"), 0.5), 0.0, 0.85)
 
 	body = MeshKit.pivot(self, Vector3.ZERO, "Body")
 	body.scale = Vector3(bulk, height_m, bulk)
@@ -75,8 +75,8 @@ func build(p: Dictionary) -> GoblinRig:
 	leg_l = MeshKit.pivot(body, Vector3(-0.11, 0.38, 0), "LegL")
 	leg_r = MeshKit.pivot(body, Vector3(0.11, 0.38, 0), "LegR")
 	for lg in [leg_l, leg_r]:
-		MeshKit.part(lg, "capsule", [0.07, 0.36], dark, Vector3(0, -0.17, 0))
-		MeshKit.part(lg, "box", [0.14, 0.07, 0.2], MeshKit.mat(Color("#3a2a1a")), Vector3(0, -0.35, 0.04))
+		MeshKit.part(lg, "capsule", [0.085, 0.34], dark, Vector3(0, -0.16, 0))
+		MeshKit.part(lg, "sphere", [0.1], MeshKit.mat(Color("#7a4a2a")), Vector3(0, -0.34, 0.05), Vector3.ZERO, Vector3(0.95, 0.6, 1.35))
 	# Torso
 	torso = MeshKit.pivot(body, Vector3(0, 0.38, 0), "Torso")
 	MeshKit.part(torso, "capsule", [0.2, 0.52], skin_mat, Vector3(0, 0.24, 0), Vector3.ZERO, Vector3(1, 1, 0.85), true)
@@ -84,7 +84,8 @@ func build(p: Dictionary) -> GoblinRig:
 	# Default clothing (tunic + belt) for units; the King gets his torso item instead.
 	if not p.get("is_king", false):
 		MeshKit.part(torso, "cyl", [0.215, 0.26, 0.24], cloth, Vector3(0, 0.12, 0))
-		MeshKit.part(torso, "cyl", [0.225, 0.05], MeshKit.mat(Color("#4a3018")), Vector3(0, 0.02, 0))
+		MeshKit.part(torso, "cyl", [0.228, 0.06], MeshKit.mat(Color("#6b3f1f")), Vector3(0, 0.02, 0))
+		MeshKit.part(torso, "box", [0.07, 0.06, 0.03], MeshKit.mat(Color("#ffd23f"), 0.8), Vector3(0, 0.02, 0.23))
 	back = MeshKit.pivot(torso, Vector3(0, 0.3, -0.17), "Back")
 	# Arms
 	arm_l = MeshKit.pivot(torso, Vector3(-0.25, 0.43, 0), "ArmL")
@@ -93,7 +94,7 @@ func build(p: Dictionary) -> GoblinRig:
 		MeshKit.part(ar, "sphere", [0.08 * muscle], skin_mat)
 		MeshKit.part(ar, "capsule", [0.058 * muscle, 0.36], skin_mat, Vector3(0, -0.16, 0))
 		var hand := MeshKit.pivot(ar, Vector3(0, -0.34, 0.02), "HandL" if ar == arm_l else "HandR")
-		MeshKit.part(hand, "sphere", [0.07 * muscle], skin_mat)
+		MeshKit.part(hand, "sphere", [0.085 * muscle], skin_mat)
 		if ar == arm_l:
 			hand_l = hand
 		else:
@@ -101,7 +102,8 @@ func build(p: Dictionary) -> GoblinRig:
 	arm_l.rotation_degrees = Vector3(0, 0, -12)
 	arm_r.rotation_degrees = Vector3(0, 0, 12)
 	# Head
-	head = MeshKit.pivot(torso, Vector3(0, 0.56, 0.02), "Head")
+	head = MeshKit.pivot(torso, Vector3(0, 0.54, 0.02), "Head")
+	head.scale = Vector3.ONE * 1.22  # big expressive cartoon head
 	_build_head(head, app, skin, fam_col, p)
 	# Equipment / accessories
 	if p.get("is_king", false):
@@ -118,8 +120,23 @@ func build(p: Dictionary) -> GoblinRig:
 			Equipment.accessory(self, a, fam_col)
 	for mv in mut:
 		Equipment.mutation(self, str(mv))
+	apply_outlines()
 	scale = Vector3.ONE * base_scale
 	return self
+
+
+## Cartoon contour on every part big enough to read (skips pupils, teeth, tiny details).
+func apply_outlines() -> void:
+	if not MeshKit.outlines_enabled() or params.get("no_outline", false):
+		return
+	for n in find_children("*", "MeshInstance3D", true, false):
+		var mi := n as MeshInstance3D
+		if mi.mesh == null or mi.has_meta("team_ring"):
+			continue
+		var sz := mi.mesh.get_aabb().size * mi.scale
+		if maxf(sz.x, maxf(sz.y, sz.z)) < 0.07:
+			continue
+		mi.material_override = MeshKit.outlined(mi.material_override)
 
 
 func _build_head(h: Node3D, app: Dictionary, skin: Color, fam_col: Color, p: Dictionary) -> void:
@@ -130,9 +147,9 @@ func _build_head(h: Node3D, app: Dictionary, skin: Color, fam_col: Color, p: Dic
 	# Brow ridge gives the goblin a mean look
 	var expr := int(app.get("expression", 2 if p.get("angry", true) else 0))
 	var brow_rot: float = [0.0, 8.0, 18.0, -6.0][expr % 4]
-	var brow_mat := MeshKit.mat(skin.darkened(0.25), 0.0, 0.85)
-	MeshKit.part(h, "box", [0.1, 0.03, 0.05], brow_mat, Vector3(-0.07, 0.25, 0.17), Vector3(0, 0, -brow_rot))
-	MeshKit.part(h, "box", [0.1, 0.03, 0.05], brow_mat, Vector3(0.07, 0.25, 0.17), Vector3(0, 0, brow_rot))
+	var brow_mat := MeshKit.mat(skin.darkened(0.55), 0.0, 0.85)
+	MeshKit.part(h, "box", [0.11, 0.035, 0.05], brow_mat, Vector3(-0.08, 0.27, 0.17), Vector3(0, 0, -brow_rot))
+	MeshKit.part(h, "box", [0.11, 0.035, 0.05], brow_mat, Vector3(0.08, 0.27, 0.17), Vector3(0, 0, brow_rot))
 	# Eyes
 	var eye_col := Color(opts.eye_color[int(app.eye_color)]) if app.has("eye_color") else Color(p.get("eye_color", "#ffd23f"))
 	var eye_shape := int(app.get("eyes", 0))
@@ -143,9 +160,12 @@ func _build_head(h: Node3D, app: Dictionary, skin: Color, fam_col: Color, p: Dic
 		em = em.duplicate()  # the King's eyes can be changed by equipment without touching shared materials
 	eye_mats.append(em)
 	for sx in [-1, 1]:
-		MeshKit.part(h, "sphere", [0.048], MeshKit.mat(Color("#fff6d8"), 0, 0.4), Vector3(0.075 * sx, 0.2, 0.165), Vector3.ZERO, eye_scale)
+		# Big cartoon eyes: white, coloured iris, black pupil and a highlight
+		MeshKit.part(h, "sphere", [0.062], MeshKit.mat(Color("#ffffff"), 0, 0.3), Vector3(0.08 * sx, 0.2, 0.15), Vector3.ZERO, eye_scale)
 		var pupil_scale := Vector3(0.45, 1.0, 1.0) if eye_shape == 3 else Vector3.ONE
-		MeshKit.part(h, "sphere", [0.026], em, Vector3(0.078 * sx, 0.2, 0.203), Vector3.ZERO, pupil_scale)
+		MeshKit.part(h, "sphere", [0.036], em, Vector3(0.082 * sx, 0.2, 0.193), Vector3.ZERO, pupil_scale * Vector3(1, 1, 0.6))
+		MeshKit.part(h, "sphere", [0.019], MeshKit.mat(Color("#101018"), 0, 0.2), Vector3(0.083 * sx, 0.2, 0.213), Vector3.ZERO, pupil_scale * Vector3(1, 1, 0.5))
+		MeshKit.part(h, "sphere", [0.009], MeshKit.unshaded(Color.WHITE), Vector3(0.09 * sx, 0.212, 0.222))
 	# Ears
 	var ears := int(app.get("ears", p.get("ears", 0)))
 	var ear_len: float = [0.3, 0.26, 0.42, 0.22, 0.3][ears % 5]
@@ -522,17 +542,20 @@ static func card_params(cid: String) -> Dictionary:
 	var d: Dictionary = DB.unit_def(cid)
 	var look: Dictionary = d.get("look", {})
 	var fam_col := DB.family_color(str(d.get("family", "")))
-	var skin := Color("#5f8f3a")
+	var skin := Color("#72cc3c")
 	match str(d.get("family", "")):
-		"fire": skin = Color("#7a8a3a")
-		"ice": skin = Color("#5f8f7a")
-		"toxic": skin = Color("#6aa33a")
-		"mech": skin = Color("#6b7f4a")
-		"shadow": skin = Color("#4a5f4a")
-		"mystic": skin = Color("#4f7f6a")
-		"mutant": skin = Color("#7a5f7a")
-		"royal": skin = Color("#5f8f3a")
-		"wild": skin = Color("#6b7f3a")
+		"fire": skin = Color("#9ccc3a")
+		"ice": skin = Color("#6cd1b0")
+		"toxic": skin = Color("#8fe03c")
+		"mech": skin = Color("#86b84a")
+		"shadow": skin = Color("#5f9a6e")
+		"mystic": skin = Color("#5fc7a0")
+		"mutant": skin = Color("#b07ad1")
+		"royal": skin = Color("#72cc3c")
+		"wild": skin = Color("#8ab83a")
+		"air": skin = Color("#7fd04a")
+		"raider": skin = Color("#7cc23c")
+		"support": skin = Color("#78d070")
 	var sc := float(look.get("scale", 1.0))
 	var role := str(d.get("role", ""))
 	var fam := str(d.get("family", ""))

@@ -3,7 +3,7 @@ extends Node3D
 ## Renders a BattleSim in 2.5D (perspective 3D camera over the battlefield) and turns
 ## simulation events into animations, projectiles, damage numbers and effects.
 
-const TEAM_COLORS := [Color("#3d8bff"), Color("#e0503a")]
+const TEAM_COLORS := [Color("#2f8cff"), Color("#ff4a3a")]
 const VIS := 1.7   # visual scale of characters on the battlefield (gameplay radii are unchanged)
 
 var sim: BattleSim
@@ -25,23 +25,30 @@ var protos := {}         # card id -> merged prototype rig (cloned for each spaw
 func setup(s: BattleSim) -> void:
 	sim = s
 	BuildingKit.environment(self, 1.0, true)
-	var gcol := Color("#5a6a32")
+	var gcol := Color("#5cc23a")
 	match sim.mode:
-		"boss": gcol = Color("#4a3a32")
-		"raid": gcol = Color("#5a5a3a")
-		"defense", "survival": gcol = Color("#4f5a30")
+		"boss": gcol = Color("#d49a52")
+		"raid": gcol = Color("#9cc83a")
+		"defense", "survival": gcol = Color("#4fb84a")
 	BuildingKit.ground(self, Vector2(70, 50), Vector3(BattleSim.L / 2, 0, BattleSim.W / 2), gcol)
 	# Battlefield plate and borders
 	var fm := StandardMaterial3D.new()
-	fm.albedo_color = gcol.lightened(0.04)
-	fm.albedo_texture = BuildingKit._ground_texture(gcol)
-	fm.uv1_scale = Vector3(6, 4, 1)
+	fm.albedo_color = BuildingKit.vivid(gcol)
+	fm.albedo_texture = BuildingKit.checker_texture()
+	fm.uv1_scale = Vector3(BattleSim.L / 2.0, BattleSim.W / 2.0, 1)
+	fm.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
 	fm.roughness = 1.0
+	fm.diffuse_mode = BaseMaterial3D.DIFFUSE_TOON
 	MeshKit.part(self, "box", [BattleSim.L, 0.06, BattleSim.W], fm, Vector3(BattleSim.L / 2, 0.0, BattleSim.W / 2))
 	# Faint lane paths toward the towers
 	for lane in [4.0, BattleSim.W - 4.0]:
-		MeshKit.part(self, "box", [BattleSim.L - 8.0, 0.065, 1.3], MeshKit.mat(Color("#6a5a3c"), 0, 1.0), Vector3(BattleSim.L / 2, 0.0, lane))
-	MeshKit.part(self, "box", [0.12, 0.08, BattleSim.W], MeshKit.unshaded(Color(1, 1, 1), 0.18), Vector3(BattleSim.MID, 0.05, BattleSim.W / 2))
+		MeshKit.part(self, "box", [BattleSim.L - 8.0, 0.065, 1.3], MeshKit.mat(Color("#cfa76a"), 0, 1.0), Vector3(BattleSim.L / 2, 0.0, lane))
+	MeshKit.part(self, "box", [0.12, 0.08, BattleSim.W], MeshKit.unshaded(Color(1, 1, 1), 0.45), Vector3(BattleSim.MID, 0.05, BattleSim.W / 2))
+	# Field border (stone kerb) frames the arena like a game board
+	for z in [-0.15, BattleSim.W + 0.15]:
+		MeshKit.part(self, "box", [BattleSim.L + 0.6, 0.3, 0.3], MeshKit.mat(Color("#d9cdb4")), Vector3(BattleSim.L / 2, 0.15, z), Vector3.ZERO, Vector3.ONE, true)
+	for x in [-0.15, BattleSim.L + 0.15]:
+		MeshKit.part(self, "box", [0.3, 0.3, BattleSim.W + 0.6], MeshKit.mat(Color("#d9cdb4")), Vector3(x, 0.15, BattleSim.W / 2), Vector3.ZERO, Vector3.ONE, true)
 	for z in [-0.4, BattleSim.W + 0.4]:
 		for k in 16:
 			BuildingKit.rock(self, Vector3(k * 2.1 + randf(), 0, z + randf_range(-0.3, 0.3)), randf_range(0.6, 1.2))

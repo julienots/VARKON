@@ -8,7 +8,7 @@ var body: VBoxContainer
 func setup(p: Dictionary) -> void:
 	tab = str(p.get("tab", "daily"))
 	Game.missions.refresh_rotations()
-	UIScreen.background(self)
+	UIScreen.background(self, Color("#2a9a5a"))
 	var root := UIScreen.frame(self, tr("MENU_MISSIONS"))
 	var th := UI.hbox()
 	root.add_child(th)
@@ -70,7 +70,7 @@ func _reset_seconds() -> float:
 
 
 func _row(title: String, progress: int, target: int, reward: Dictionary, claimed: bool, on_claim: Callable) -> Control:
-	var p := UI.panel_box(Color("#221a13"), UI.GREEN if (progress >= target and not claimed) else UI.BORDER)
+	var p := UI.panel_box(Color("#2a4482"), UI.GREEN if (progress >= target and not claimed) else UI.BORDER)
 	var h := UI.hbox(12)
 	p.add_child(h)
 	var v := UI.vbox(4)

@@ -4,14 +4,14 @@ extends Control
 
 
 func setup(_p: Dictionary) -> void:
-	UIScreen.background(self, Color("#14100e"))
+	UIScreen.background(self, Color("#d0552a"))
 	var root := UIScreen.frame(self, tr("MENU_EVENTS"))
 	root.add_child(UI.para(tr("DESC_EVENTS_LOCAL"), 16, Color("#9ad7ff")))
 	var ev: Dictionary = Game.campaign.current_event()
 	if ev.is_empty():
 		root.add_child(UI.label(tr("LBL_NONE"), 18))
 		return
-	var p := UI.panel_box(Color("#2a1f16"), UI.GOLD)
+	var p := UI.panel_box(Color("#2a4482"), UI.GOLD)
 	var v := UI.vbox(8)
 	p.add_child(v)
 	v.add_child(UI.label(tr("LBL_THIS_WEEK"), 16, UI.TEXT_DIM, "bold"))

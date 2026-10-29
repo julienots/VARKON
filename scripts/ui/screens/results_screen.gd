@@ -8,10 +8,7 @@ func setup(_p: Dictionary) -> void:
 	var cfg: Dictionary = data.get("cfg", {})
 	var report: Dictionary = data.get("report", {})
 	Audio.play_music("music_menu")
-	var bg := ColorRect.new()
-	bg.color = Color(0.05, 0.035, 0.03, 0.96)
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	add_child(bg)
+	UIScreen.background(self, Color("#2f8a3a") if res.get("won", false) else Color("#b83a3a"))
 	var root := UI.vbox(14)
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.offset_left = 60

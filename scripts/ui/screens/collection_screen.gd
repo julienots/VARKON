@@ -11,7 +11,7 @@ var deck_pick := ""   # card selected in the deck to swap out
 
 func setup(p: Dictionary) -> void:
 	tab = str(p.get("tab", "cards"))
-	UIScreen.background(self)
+	UIScreen.background(self, Color("#3a63d6"))
 	var root := UIScreen.frame(self, tr("MENU_COLLECTION"), null, true, ["gold", "fragments"])
 	var tabs_holder := UI.hbox()
 	root.add_child(tabs_holder)
@@ -277,7 +277,7 @@ func _synergies() -> void:
 	for fam in DB.synergies.keys():
 		var s: Dictionary = DB.synergies[fam]
 		var active := int(counts.get(fam, 0)) >= int(s.need)
-		var row := UI.panel_box(Color("#2a1f16"), DB.family_color(fam) if active else UI.BORDER)
+		var row := UI.panel_box(Color("#2a4482"), DB.family_color(fam) if active else UI.BORDER)
 		var h := UI.hbox(12)
 		var fl := UI.label(DB.family_name(fam), 19, DB.family_color(fam), "bold")
 		fl.custom_minimum_size.x = 150

@@ -6,7 +6,7 @@ var body: VBoxContainer
 
 func setup(_p: Dictionary) -> void:
 	Game.season.ensure_season()
-	UIScreen.background(self, Color("#120f16"))
+	UIScreen.background(self, Color("#7a3fd0"))
 	var root := UIScreen.frame(self, tr("MENU_PASS"))
 	body = UI.vbox(10)
 	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -106,7 +106,7 @@ func _cell(t: int, track: String, reward: Dictionary, cur_tier: int) -> Control:
 	var claimed: bool = Game.season.is_claimed(t, track)
 	var can: String = Game.season.can_claim(t, track)
 	var border := DB.rarity_color(info[1]) if can == "" else (UI.GREEN if claimed else UI.BORDER.darkened(0.3))
-	p.add_theme_stylebox_override("panel", UI.box(Color("#221a13") if t <= cur_tier else Color("#151110"), border, 10, 2, 8))
+	p.add_theme_stylebox_override("panel", UI.box(Color("#2a4482") if t <= cur_tier else Color("#1f305e"), border, 10, 2, 8))
 	p.custom_minimum_size = Vector2(140, 120)
 	var v := UI.vbox(4)
 	p.add_child(v)

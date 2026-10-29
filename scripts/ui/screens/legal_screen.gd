@@ -5,7 +5,7 @@ extends Control
 
 func setup(p: Dictionary) -> void:
 	var doc := str(p.get("doc", "privacy"))
-	UIScreen.background(self)
+	UIScreen.background(self, Color("#3a5fa8"))
 	var root := UIScreen.frame(self, tr("DOC_" + doc.to_upper()), null, false)
 	var data := {}
 	var f := FileAccess.open("res://data/legal.json", FileAccess.READ)

@@ -11,7 +11,7 @@ var slot_open := ""
 
 func setup(p: Dictionary) -> void:
 	tab = str(p.get("tab", "equipment"))
-	UIScreen.background(self, Color("#14100c"))
+	UIScreen.background(self, Color("#2f6fd6"))
 	var root := UIScreen.frame(self, tr("MENU_KING"), null, true, ["gold", "mutant_essence"])
 	var body := UI.hbox(14)
 	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -274,7 +274,7 @@ func _mutations() -> void:
 		var mid: String = m.id
 		var owned: bool = mid in Game.state.king.mutations_owned
 		var active: bool = mid in Game.state.king.mutations_active
-		var row := UI.panel_box(Color("#2a1f16"), Color("#d03fd9") if active else UI.BORDER)
+		var row := UI.panel_box(Color("#2a4482"), Color("#d03fd9") if active else UI.BORDER)
 		var h := UI.hbox(10)
 		var v := UI.vbox(2)
 		v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -308,7 +308,7 @@ func _loadouts() -> void:
 	for i in Game.king.loadout_slots():
 		var idx := i
 		var lo = Game.state.king.loadouts[i] if i < Game.state.king.loadouts.size() else null
-		var row := UI.panel_box(Color("#2a1f16"), UI.GOLD if int(Game.state.king.active_loadout) == i else UI.BORDER)
+		var row := UI.panel_box(Color("#2a4482"), UI.GOLD if int(Game.state.king.active_loadout) == i else UI.BORDER)
 		var h := UI.hbox(10)
 		var name_edit := LineEdit.new()
 		name_edit.text = str(lo.name) if lo != null else tr(names[i % names.size()])

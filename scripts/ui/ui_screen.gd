@@ -3,16 +3,21 @@ extends RefCounted
 ## Shared layout for 2D sub-screens: background + header (back button, title, extra) + body.
 
 
-static func background(owner: Control, tint := Color("#120e0b")) -> void:
+static var _pattern: Texture2D
+
+## Bright gradient backdrop with a subtle diagonal pattern; `tint` gives each screen its colour.
+static func background(owner: Control, tint := Color("#2b6fd0")) -> void:
+	if tint.v < 0.35:
+		tint = Color("#2b6fd0")  # legacy dark tints -> default blue
 	var bg := TextureRect.new()
 	var grad := Gradient.new()
-	grad.set_color(0, tint.lightened(0.07))
-	grad.set_color(1, tint.darkened(0.3))
+	grad.set_color(0, tint.lightened(0.28))
+	grad.set_color(1, tint.darkened(0.35))
 	var gt := GradientTexture2D.new()
 	gt.gradient = grad
 	gt.fill = GradientTexture2D.FILL_RADIAL
-	gt.fill_from = Vector2(0.5, 0.3)
-	gt.fill_to = Vector2(1.1, 1.1)
+	gt.fill_from = Vector2(0.5, 0.25)
+	gt.fill_to = Vector2(1.15, 1.2)
 	gt.width = 256
 	gt.height = 256
 	bg.texture = gt
@@ -21,6 +26,20 @@ static func background(owner: Control, tint := Color("#120e0b")) -> void:
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	owner.add_child(bg)
+	if _pattern == null:
+		var img := Image.create(64, 64, false, Image.FORMAT_RGBA8)
+		for y in 64:
+			for x in 64:
+				var stripe := ((x + y) % 32) < 12
+				img.set_pixel(x, y, Color(1, 1, 1, 0.05 if stripe else 0.0))
+		_pattern = ImageTexture.create_from_image(img)
+	var pat := TextureRect.new()
+	pat.texture = _pattern
+	pat.stretch_mode = TextureRect.STRETCH_TILE
+	pat.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	pat.set_anchors_preset(Control.PRESET_FULL_RECT)
+	pat.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	owner.add_child(pat)
 
 
 static func frame(owner: Control, title_text: String, extra: Control = null, compact_bar := true, resources: Array = []) -> VBoxContainer:

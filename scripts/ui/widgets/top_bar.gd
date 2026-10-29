@@ -19,13 +19,13 @@ static func make(is_compact := false, resources: Array = []) -> TopBar:
 
 
 func _ready() -> void:
-	add_theme_stylebox_override("panel", UI.box(Color(0.07, 0.05, 0.04, 0.82), UI.BORDER, 12, 2, 10))
+	add_theme_stylebox_override("panel", UI.panel_style(Color("#23396f"), UI.BORDER, 16, 10))
 	var h := UI.hbox(14)
 	add_child(h)
 	if not compact:
 		var av := Panel.new()
 		av.custom_minimum_size = Vector2(54, 54)
-		av.add_theme_stylebox_override("panel", UI.box(Color("#3a5a2a"), UI.GOLD, 27, 3, 0))
+		av.add_theme_stylebox_override("panel", UI.box(Color("#3fbf2f"), UI.GOLD, 27, 3, 0))
 		var al := UI.label(str(Game.state.profile.name).substr(0, 1).to_upper(), 28, Color.WHITE, "display")
 		al.set_anchors_preset(Control.PRESET_FULL_RECT)
 		al.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -48,7 +48,7 @@ func _ready() -> void:
 	var list: Array = shown if not shown.is_empty() else (["gold", "crystals", "war_tokens"] if not compact else ["gold", "crystals"])
 	for r in list:
 		var box := PanelContainer.new()
-		box.add_theme_stylebox_override("panel", UI.box(Color(0, 0, 0, 0.45), UI.BORDER.darkened(0.3), 16, 1, 8))
+		box.add_theme_stylebox_override("panel", UI.box(Color("#14193a"), Color("#3a5aa8"), 16, 2, 8))
 		var row := UI.hbox(6)
 		row.add_child(UI.res_icon(r, 26))
 		var l := UI.label("", 19, Color.WHITE, "bold")

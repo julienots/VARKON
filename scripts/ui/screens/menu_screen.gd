@@ -37,14 +37,15 @@ func setup(_p: Dictionary) -> void:
 				Router.goto("missions", {"tab": "achievements"})
 			else:
 				Router.goto(target)
-		var b := UI.button(tr(e[1]), go, "secondary", 230, 52)
+		var b := UI.button(tr(e[1]), go, "secondary", 230, 54)
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		for st in ["normal", "hover", "pressed"]:
-			var sb: StyleBoxFlat = b.get_theme_stylebox(st).duplicate()
-			sb.content_margin_left = 50
-			b.add_theme_stylebox_override(st, sb)
-		var gl := Glyph.make(e[2], 24, UI.GOLD)
-		gl.position = Vector2(14, 14)
+		var scol: Color = {"chests": Color("#f0a51f"), "missions": Color("#3fbf2f"), "pass": Color("#8a55f0"), "events": Color("#f06a2a"),
+			"achievements": Color("#1fb5b0"), "inventory": Color("#3d8ef0")}[target]
+		b.add_theme_stylebox_override("normal", UI.candy(scol, false, true, 52))
+		b.add_theme_stylebox_override("hover", UI.candy(scol.lightened(0.1), false, true, 52))
+		b.add_theme_stylebox_override("pressed", UI.candy(scol, true, true, 52))
+		var gl := Glyph.make(e[2], 26, Color.WHITE)
+		gl.position = Vector2(14, 12)
 		b.add_child(gl)
 		side.add_child(b)
 		side_buttons[target] = b
@@ -52,7 +53,7 @@ func setup(_p: Dictionary) -> void:
 	# Campaign quick-play
 	var mid: String = Game.campaign.current_mission()
 	var mm: Dictionary = DB.missions[mid]
-	var play := UI.panel_box(Color(0.08, 0.06, 0.04, 0.85), UI.GOLD)
+	var play := UI.panel_box(Color("#23396f"), UI.GOLD)
 	play.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
 	play.offset_left = -420
 	play.offset_top = -262

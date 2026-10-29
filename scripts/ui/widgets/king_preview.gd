@@ -25,9 +25,9 @@ func _ready() -> void:
 	var env := WorldEnvironment.new()
 	var e := Environment.new()
 	e.background_mode = Environment.BG_COLOR
-	e.background_color = Color("#16110d")
+	e.background_color = Color("#4a8ae0")
 	e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	e.ambient_light_color = Color("#a09080")
+	e.ambient_light_color = Color("#c8d8f0")
 	e.ambient_light_energy = 0.55
 	e.glow_enabled = Settings.effective_quality() >= 2
 	env.environment = e
@@ -42,7 +42,7 @@ func _ready() -> void:
 	rim.light_color = Color("#8aa0ff")
 	rim.light_energy = 0.9
 	world.add_child(rim)
-	MeshKit.part(world, "cyl", [0.9, 0.12, 1.0], MeshKit.mat(Color("#4a443e"), 0, 0.9), Vector3(0, -0.06, 0), Vector3.ZERO, Vector3.ONE, true)
+	MeshKit.part(world, "cyl", [0.9, 0.12, 1.0], MeshKit.mat(Color("#e8d6a8"), 0, 0.8), Vector3(0, -0.06, 0), Vector3.ZERO, Vector3.ONE, true)
 	MeshKit.part(world, "torus", [0.85, 0.95], MeshKit.unshaded(UI.GOLD, 0.5), Vector3(0, 0.01, 0)).scale = Vector3(1, 0.2, 1)
 	var cam := Camera3D.new()
 	cam.fov = 32

@@ -7,7 +7,7 @@ var body: VBoxContainer
 
 func setup(p: Dictionary) -> void:
 	tab = str(p.get("tab", "graphics"))
-	UIScreen.background(self)
+	UIScreen.background(self, Color("#3a5fa8"))
 	var root := UIScreen.frame(self, tr("MENU_SETTINGS"), null, false)
 	var th := UI.hbox()
 	root.add_child(th)

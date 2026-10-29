@@ -31,17 +31,17 @@ func _ready() -> void:
 	var frame := Panel.new()
 	frame.set_anchors_preset(Control.PRESET_FULL_RECT)
 	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	frame.add_theme_stylebox_override("panel", UI.box(Color("#1a140f"), rc, 10, 3, 0))
+	frame.add_theme_stylebox_override("panel", UI.tile(rc, 0))
 	add_child(frame)
 	_tex = TextureRect.new()
 	_tex.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_tex.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	_tex.anchor_right = 1
 	_tex.anchor_bottom = 1
-	_tex.offset_left = 5
-	_tex.offset_top = 5
-	_tex.offset_right = -5
-	_tex.offset_bottom = -38
+	_tex.offset_left = 6
+	_tex.offset_top = 6
+	_tex.offset_right = -6
+	_tex.offset_bottom = -36
 	_tex.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_tex)
 	var tex: Texture2D = Router.portraits.get_portrait(card_id) if Router.portraits else null
@@ -59,7 +59,7 @@ func _ready() -> void:
 	band.offset_right = -3
 	band.offset_bottom = -3
 	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	band.add_theme_stylebox_override("panel", UI.box(fc.darkened(0.55), fc.darkened(0.2), 7, 1, 0))
+	band.add_theme_stylebox_override("panel", UI.candy(fc.darkened(0.1), true, true, 0))
 	add_child(band)
 	var nm := UI.label(DB.txt(d), 13 if size.x < 120 else 15, Color.WHITE, "bold")
 	nm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -74,7 +74,11 @@ func _ready() -> void:
 	gem.position = Vector2(-4, -4)
 	gem.size = Vector2(34, 34)
 	gem.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	gem.add_theme_stylebox_override("panel", UI.box(Color("#7a1aa8"), Color("#e0a0ff"), 17, 2, 0))
+	var gsb := UI.box(Color("#d23ad8"), UI.OUTLINE, 17, 3, 0)
+	gsb.border_width_top = 2
+	gsb.shadow_color = Color(0, 0, 0, 0.35)
+	gsb.shadow_size = 3
+	gem.add_theme_stylebox_override("panel", gsb)
 	add_child(gem)
 	var cl := UI.label(str(int(d.get("cost", 0))), 20, Color.WHITE, "display")
 	cl.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -92,7 +96,7 @@ func _ready() -> void:
 	_sel = Panel.new()
 	_sel.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_sel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_sel.add_theme_stylebox_override("panel", UI.box(Color(0, 0, 0, 0), UI.GOLD, 10, 4, 0))
+	_sel.add_theme_stylebox_override("panel", UI.box(Color(1, 1, 1, 0.08), Color.WHITE, 14, 5, 0))
 	_sel.visible = selected
 	add_child(_sel)
 	_refresh()
@@ -115,7 +119,7 @@ func set_dim(v: bool) -> void:
 
 
 func _refresh() -> void:
-	modulate = Color(0.35, 0.35, 0.35) if locked else (Color(0.55, 0.55, 0.6) if dim else Color.WHITE)
+	modulate = Color(0.45, 0.48, 0.58) if locked else (Color(0.62, 0.64, 0.72) if dim else Color.WHITE)
 
 
 var _press_pos := Vector2(-999, -999)

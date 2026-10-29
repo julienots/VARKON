@@ -11,7 +11,7 @@ var grid: GridContainer
 
 
 func setup(_p: Dictionary) -> void:
-	UIScreen.background(self)
+	UIScreen.background(self, Color("#5a52c8"))
 	var root := UIScreen.frame(self, tr("MENU_INVENTORY"))
 	var filters := UI.hbox(8)
 	root.add_child(filters)
@@ -96,7 +96,7 @@ func _refresh() -> void:
 
 func _cell(e: Dictionary) -> Control:
 	var p := PanelContainer.new()
-	p.add_theme_stylebox_override("panel", UI.box(Color("#221a13"), DB.rarity_color(e.rarity), 10, 2, 10))
+	p.add_theme_stylebox_override("panel", UI.box(Color("#2a4482"), DB.rarity_color(e.rarity), 10, 2, 10))
 	p.custom_minimum_size = Vector2(290, 92)
 	var v := UI.vbox(2)
 	p.add_child(v)

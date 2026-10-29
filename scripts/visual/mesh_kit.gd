@@ -11,14 +11,16 @@ static func mat(color: Color, metal := 0.0, rough := 0.75, emit := Color(0, 0, 0
 	if _mats.has(key):
 		return _mats[key]
 	var m := StandardMaterial3D.new()
+	# Cartoon look: toon diffuse ramp + toon specular, slightly glossy "painted plastic".
 	m.albedo_color = Color(color.r, color.g, color.b, alpha)
-	m.metallic = metal
-	m.roughness = rough if metal < 0.5 else minf(rough, 0.45)
-	if metal > 0.5:
-		m.metallic_specular = 0.8
+	m.diffuse_mode = BaseMaterial3D.DIFFUSE_TOON
+	m.specular_mode = BaseMaterial3D.SPECULAR_TOON
+	m.metallic = metal * 0.6
+	m.roughness = clampf(rough * 0.7, 0.25, 0.7) if metal < 0.5 else 0.3
+	m.metallic_specular = 0.6 if metal > 0.5 else 0.35
 	m.rim_enabled = true
-	m.rim = 0.25
-	m.rim_tint = 0.6
+	m.rim = 0.35
+	m.rim_tint = 0.3
 	if emit.a > 0:
 		m.emission_enabled = true
 		m.emission = emit
@@ -29,6 +31,38 @@ static func mat(color: Color, metal := 0.0, rough := 0.75, emit := Color(0, 0, 0
 		m.cull_mode = BaseMaterial3D.CULL_DISABLED
 	_mats[key] = m
 	return m
+
+
+static var _outlined := {}
+static var _outline_mats := {}
+
+
+## Same material with a dark "inverted hull" outline pass (cartoon contour).
+static func outlined(m: Material, width := 0.012) -> Material:
+	if m == null or not m is StandardMaterial3D or (m as StandardMaterial3D).transparency != BaseMaterial3D.TRANSPARENCY_DISABLED:
+		return m
+	if (m as StandardMaterial3D).next_pass != null:
+		return m  # already outlined
+	var key := [m, width]
+	if _outlined.has(key):
+		return _outlined[key]
+	var om: StandardMaterial3D = _outline_mats.get(width)
+	if om == null:
+		om = StandardMaterial3D.new()
+		om.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		om.albedo_color = Color("#141a2e")
+		om.cull_mode = BaseMaterial3D.CULL_FRONT
+		om.grow = true
+		om.grow_amount = width
+		_outline_mats[width] = om
+	var c: StandardMaterial3D = (m as StandardMaterial3D).duplicate()
+	c.next_pass = om
+	_outlined[key] = c
+	return c
+
+
+static func outlines_enabled() -> bool:
+	return Settings.effective_quality() >= 1
 
 
 static func unshaded(color: Color, alpha := 1.0) -> StandardMaterial3D:

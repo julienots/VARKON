@@ -12,7 +12,7 @@ const TABS := ["campaign", "raid", "defense", "survival", "challenges", "trainin
 func setup(p: Dictionary) -> void:
 	tab = str(p.get("tab", "campaign"))
 	chapter = int(DB.missions[Game.campaign.current_mission()].chapter)
-	UIScreen.background(self)
+	UIScreen.background(self, Color("#2f7ad6"))
 	var root := UIScreen.frame(self, tr("MENU_COMBAT"), UI.button(tr("BTN_DECK"), func() -> void: Router.goto("collection", {"tab": "deck"}), "secondary", 160, 52))
 	var body := UI.hbox(14)
 	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -99,7 +99,7 @@ func _mission_tile(m: Dictionary) -> Control:
 	var is_boss: bool = m.type == "boss"
 	var p := PanelContainer.new()
 	var border := UI.GOLD if is_boss else (UI.GREEN if st > 0 else UI.BORDER)
-	p.add_theme_stylebox_override("panel", UI.box(Color("#2a1f16") if avail else Color("#1a1512"), border, 12, 3 if is_boss else 2, 10))
+	p.add_theme_stylebox_override("panel", UI.box(Color("#2a4482") if avail else Color("#1f305e"), border, 12, 3 if is_boss else 2, 10))
 	p.custom_minimum_size = Vector2(196, 128)
 	var v := UI.vbox(4)
 	p.add_child(v)
@@ -196,7 +196,7 @@ func _challenges() -> void:
 	content.add_child(UI.title(tr("TAB_CHALLENGES"), 28))
 	var ev: Dictionary = Game.campaign.current_event()
 	if not ev.is_empty():
-		var ep := UI.panel_box(Color("#2a1f16"), UI.GOLD)
+		var ep := UI.panel_box(Color("#2a4482"), UI.GOLD)
 		var ev_v := UI.vbox(6)
 		ev_v.add_child(UI.label(tr("LBL_WEEKLY_EVENT") + " : " + DB.txt(ev), 20, UI.GOLD, "title"))
 		ev_v.add_child(UI.para(DB.txt(ev, "desc"), 16))
@@ -250,7 +250,7 @@ func _bosses() -> void:
 		var bid: String = ch.boss
 		var bd: Dictionary = DB.bosses[bid]
 		var beaten: bool = Game.campaign.is_completed("c%dm8" % int(ch.id))
-		var row := UI.panel_box(Color("#2a1f16"), UI.GOLD if beaten else UI.BORDER)
+		var row := UI.panel_box(Color("#2a4482"), UI.GOLD if beaten else UI.BORDER)
 		var rh := UI.hbox(10)
 		var rv := UI.vbox(2)
 		rv.size_flags_horizontal = Control.SIZE_EXPAND_FILL

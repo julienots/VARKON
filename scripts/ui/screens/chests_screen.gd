@@ -6,7 +6,7 @@ var opening := false
 
 
 func setup(_p: Dictionary) -> void:
-	UIScreen.background(self, Color("#15100c"))
+	UIScreen.background(self, Color("#d9831f"))
 	var root := UIScreen.frame(self, tr("MENU_CHESTS"))
 	root.add_child(UI.para(tr("DESC_CHESTS"), 16))
 	grid = GridContainer.new()
@@ -23,7 +23,7 @@ func _refresh() -> void:
 		var cid: String = ch.id
 		var n: int = Game.chests.count(cid)
 		var p := PanelContainer.new()
-		p.add_theme_stylebox_override("panel", UI.box(Color("#221a13"), DB.rarity_color(ch.rarity), 14, 3 if n > 0 else 1, 12))
+		p.add_theme_stylebox_override("panel", UI.box(Color("#2a4482"), DB.rarity_color(ch.rarity), 14, 3 if n > 0 else 1, 12))
 		p.custom_minimum_size = Vector2(280, 230)
 		var v := UI.vbox(6)
 		p.add_child(v)

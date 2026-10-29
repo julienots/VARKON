@@ -10,7 +10,7 @@ var tick := 0.0
 func setup(p: Dictionary) -> void:
 	tab = str(p.get("tab", "design"))
 	Game.lab.process_timers()
-	UIScreen.background(self, Color("#0f1412"))
+	UIScreen.background(self, Color("#1f9a8a"))
 	var root := UIScreen.frame(self, tr("MENU_LAB"), null, true, ["gold", "components", "mutant_essence", "ancestral"])
 	var th := UI.hbox()
 	root.add_child(th)
@@ -116,7 +116,7 @@ func _design() -> void:
 	var list := UI.vbox(6)
 	for rc in DB.lab.recipes:
 		var it: Dictionary = DB.items[rc.item]
-		var row2 := UI.panel_box(Color("#1f1a14"), DB.rarity_color(it.rarity).darkened(0.3))
+		var row2 := UI.panel_box(Color("#2a4482"), DB.rarity_color(it.rarity).darkened(0.3))
 		var h := UI.hbox(10)
 		var v := UI.vbox(2)
 		v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
