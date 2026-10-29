@@ -8,7 +8,7 @@ Le joueur crée et équipe son **King Gobelin** unique, collectionne **76 gobeli
 développe sa **forteresse** en 3D et affronte des **bots** dans une campagne de **40 missions**,
 des raids, des défenses, la survie, des défis et **5 boss** à phases.
 
-> État : **version de test jouable (0.9.0)**. Voir [`docs/STATUS.md`](docs/STATUS.md) pour la
+> État : **version de test jouable (0.10.0)**. Voir [`docs/STATUS.md`](docs/STATUS.md) pour la
 > liste exacte de ce qui est terminé, incomplet, et les problèmes connus.
 
 ## Captures
@@ -18,6 +18,8 @@ des raids, des défenses, la survie, des défis et **5 boss** à phases.
 | ![menu](docs/screenshots/menu.png) | ![combat](docs/screenshots/battle.png) | ![boss](docs/screenshots/boss.png) |
 | **King Gobelin** | **Ma base** | **Collection** |
 | ![king](docs/screenshots/king.png) | ![base](docs/screenshots/base.png) | ![collection](docs/screenshots/collection.png) |
+| **Boutique** | | |
+| ![shop](docs/screenshots/shop.png) | | |
 
 ## Contenu de la version
 
@@ -54,7 +56,7 @@ des raids, des défenses, la survie, des défis et **5 boss** à phases.
 
 ## Télécharger l'APK de test
 
-**[`releases/VARKON-0.9.0-debug.apk`](releases/VARKON-0.9.0-debug.apk)** — Android 5.0+,
+**[`releases/VARKON-0.10.0-debug.apk`](releases/VARKON-0.10.0-debug.apk)** — Android 5.0+,
 arm64-v8a / armeabi-v7a, signé avec une clé de débogage (installation directe). Voir
 [`releases/README.md`](releases/README.md).
 

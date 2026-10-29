@@ -240,7 +240,7 @@ ENUMS = {
     "STATION_": {"FORGE": ("Forge royale", "Royal forge"), "WORKSHOP": ("Atelier", "Workshop"), "LAB": ("Laboratoire", "Laboratory")},
     "ST_": {"HP": ("PV", "HP"), "DMG": ("Dégâts", "Damage"), "ARMOR": ("Armure", "Armor"), "SPEED_PCT": ("Vitesse %", "Speed %"), "ATK_SPEED_PCT": ("Vit. d'attaque %", "Attack speed %"),
             "RANGE": ("Portée", "Range"), "ENERGY": ("Rage", "Rage"), "RESIST": ("Résistance", "Resistance"), "CDR_PCT": ("Recharge %", "Cooldown %"), "ABILITY_POWER_PCT": ("Puissance %", "Power %"), "DMG_PCT": ("Dégâts %", "Damage %")},
-    "SHOP_": {"DAILY": ("Offres du jour", "Daily offers"), "CHESTS": ("Coffres", "Chests"), "WEAPONS": ("Armes", "Weapons"), "ARMORS": ("Armures", "Armor"), "ACCESSORIES": ("Accessoires", "Accessories"),
+    "SHOP_": {"DAILY": ("Offres du jour", "Daily offers"), "GEAR": ("Équipement", "Gear"), "CHESTS": ("Coffres", "Chests"), "WEAPONS": ("Armes", "Weapons"), "ARMORS": ("Armures", "Armor"), "ACCESSORIES": ("Accessoires", "Accessories"),
               "AURAS": ("Auras", "Auras"), "COSMETICS": ("Apparences et emotes", "Looks and emotes"), "EVENT": ("Objets d'événement", "Event items"), "CRYSTALS": ("Cristaux", "Crystals"), "PASS": ("Pass saisonnier", "Season pass")},
     "TAB_": {"CAMPAIGN": ("Campagne", "Campaign"), "RAID": ("Raids", "Raids"), "DEFENSE": ("Défense", "Defense"), "SURVIVAL": ("Survie", "Survival"), "CHALLENGES": ("Défis", "Challenges"),
              "TRAINING": ("Entraînement", "Training"), "BOSSES": ("Boss", "Bosses"), "ONLINE": ("Multijoueur", "Multiplayer"), "CARDS": ("Cartes", "Cards"), "DECK": ("Deck", "Deck"),

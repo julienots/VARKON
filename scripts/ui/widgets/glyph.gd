@@ -2,7 +2,7 @@ class_name Glyph
 extends Control
 ## Vector icons drawn in code (no emoji/font dependency).
 
-const KINDS := ["bell", "gear", "back", "pause", "smile", "star", "star_empty", "lock", "check", "swords", "flag", "plus", "close", "chest", "info"]
+const KINDS := ["bell", "gear", "back", "pause", "smile", "star", "star_empty", "lock", "check", "swords", "flag", "plus", "close", "chest", "info", "bag", "cart", "cards", "castle", "crown"]
 
 var kind := "star"
 var color := Color.WHITE
@@ -80,6 +80,30 @@ func _draw() -> void:
 			draw_rect(Rect2(c + Vector2(-r, -r * 0.2), Vector2(r * 2, r * 1.1)), color)
 			draw_rect(Rect2(c + Vector2(-r, -r * 0.75), Vector2(r * 2, r * 0.5)), color.darkened(0.3))
 			draw_rect(Rect2(c + Vector2(-r * 0.15, -r * 0.35), Vector2(r * 0.3, r * 0.4)), Color("#ffd23f"))
+		"bag":
+			draw_colored_polygon(PackedVector2Array([c + Vector2(-r * 0.8, -r * 0.3), c + Vector2(r * 0.8, -r * 0.3), c + Vector2(r * 0.95, r * 0.9), c + Vector2(-r * 0.95, r * 0.9)]), color)
+			draw_arc(c + Vector2(0, -r * 0.35), r * 0.42, PI, TAU, 12, color, w, true)
+			draw_rect(Rect2(c + Vector2(-r * 0.5, r * 0.05), Vector2(r, r * 0.12)), color.darkened(0.35))
+		"cart":
+			draw_colored_polygon(PackedVector2Array([c + Vector2(-r * 0.85, -r * 0.45), c + Vector2(r * 0.95, -r * 0.45), c + Vector2(r * 0.6, r * 0.35), c + Vector2(-r * 0.55, r * 0.35)]), color)
+			draw_line(c + Vector2(-r * 1.0, -r * 0.8), c + Vector2(-r * 0.75, -r * 0.45), color, w)
+			draw_circle(c + Vector2(-r * 0.4, r * 0.72), r * 0.2, color)
+			draw_circle(c + Vector2(r * 0.45, r * 0.72), r * 0.2, color)
+		"cards":
+			draw_set_transform(c, -0.25, Vector2.ONE)
+			draw_rect(Rect2(Vector2(-r * 0.75, -r * 0.85), Vector2(r * 1.1, r * 1.5)), color.darkened(0.3))
+			draw_set_transform(c, 0.15, Vector2.ONE)
+			draw_rect(Rect2(Vector2(-r * 0.4, -r * 0.8), Vector2(r * 1.1, r * 1.5)), color)
+			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		"castle":
+			draw_rect(Rect2(c + Vector2(-r * 0.9, -r * 0.2), Vector2(r * 1.8, r * 1.1)), color)
+			for i in 3:
+				draw_rect(Rect2(c + Vector2(-r * 0.9 + i * r * 0.7, -r * 0.55), Vector2(r * 0.4, r * 0.4)), color)
+			draw_colored_polygon(PackedVector2Array([c + Vector2(-r * 0.25, r * 0.9), c + Vector2(-r * 0.25, r * 0.35), c + Vector2(0, r * 0.15), c + Vector2(r * 0.25, r * 0.35), c + Vector2(r * 0.25, r * 0.9)]), color.darkened(0.45))
+		"crown":
+			draw_colored_polygon(PackedVector2Array([c + Vector2(-r * 0.95, r * 0.6), c + Vector2(-r * 0.95, -r * 0.5), c + Vector2(-r * 0.45, r * 0.05), c + Vector2(0, -r * 0.75),
+				c + Vector2(r * 0.45, r * 0.05), c + Vector2(r * 0.95, -r * 0.5), c + Vector2(r * 0.95, r * 0.6)]), color)
+			draw_rect(Rect2(c + Vector2(-r * 0.95, r * 0.62), Vector2(r * 1.9, r * 0.25)), color.darkened(0.2))
 		"info":
 			draw_arc(c, r, 0, TAU, 24, color, w, true)
 			draw_line(c + Vector2(0, -r * 0.05), c + Vector2(0, r * 0.55), color, w)

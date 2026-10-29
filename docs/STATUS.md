@@ -1,4 +1,4 @@
-# État du projet — VARKON 0.9.0 (version de test)
+# État du projet — VARKON 0.10.0 (version de test)
 
 Ce document distingue ce qui est **opérationnel et testé**, ce qui est **incomplet**, et les
 **problèmes connus**. Rien n'est présenté comme terminé sans l'être.
@@ -18,6 +18,17 @@ Ce document distingue ce qui est **opérationnel et testé**, ce qui est **incom
 | Export complet exécuté hors éditeur (PCK filtré, Linux + Xvfb) | OK : lancement, combat en mode Défense, aucune ressource manquante |
 | Exécution sur un vrai téléphone Android | **non réalisée** (aucun appareil ni émulateur disponible dans l'environnement) |
 | Mesure de fréquence d'images sur appareil | **non réalisée** — aucune valeur de FPS n'est revendiquée |
+
+## Direction artistique (0.10.0)
+
+- Décors peints façon « jeu mobile stylisé » : ciel dessiné (shader) avec nuages, montagnes
+  low-poly dans la brume, herbe peinte, arbres et rochers à facettes, touffes d'herbe instanciées,
+  tonemapping filmique. Gobelins aux tons olive (moins néon).
+- Interface simplifiée : menu principal avec 5 tuiles d'icônes, un seul gros bouton « Combattre »
+  et une barre d'onglets en bas ; boutique en 5 onglets (Offres du jour, Coffres, Équipement,
+  Apparences, Cristaux) au lieu de 10 sections ; coffres avec un seul bouton « Ouvrir ».
+- Vérifié uniquement par captures sous Xvfb (rendu logiciel) ; le rendu sur un vrai GPU de
+  téléphone peut différer légèrement (luminosité, brume).
 
 ## Fonctionnalités terminées (opérationnelles)
 
@@ -76,7 +87,7 @@ Ce document distingue ce qui est **opérationnel et testé**, ce qui est **incom
 
 | Fichier | Description |
 |---|---|
-| `releases/VARKON-0.9.0-debug.apk` | APK de test signé avec une clé de **débogage** (installation directe, pas pour le Play Store) |
+| `releases/VARKON-0.10.0-debug.apk` | APK de test signé avec une clé de **débogage** (installation directe, pas pour le Play Store) |
 | `build/VARKON-debug.aab` (non versionné) | AAB de test (signature de débogage) produit par le build Gradle ; pour Google Play, ré-exporter en *release* avec votre keystore de production |
 
 Note : dans l'environnement de développement, Maven Central a renvoyé des erreurs 429 (limite de

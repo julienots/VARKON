@@ -1,1 +1,1 @@
-61a88d07fb97927b13a39ef62c7647ebf1d9dd2ed03b507ab975f5e1963864cd  releases/VARKON-0.9.0-debug.apk
+2aeccb4026080a52e7193cae366fa8b73a70fa614b359313eb7b95e21397170e  releases/VARKON-0.10.0-debug.apk

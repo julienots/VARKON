@@ -30,14 +30,17 @@ func _ready() -> void:
 	e.background_mode = Environment.BG_COLOR
 	e.background_color = Color("#5a9ae0")
 	e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	e.ambient_light_color = Color("#c8d8f0")
-	e.ambient_light_energy = 0.55
+	e.ambient_light_color = Color("#b4c6e0")
+	e.ambient_light_energy = 0.45
+	e.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	e.tonemap_white = 1.6
 	env_res = e
 	env.environment = e
 	world.add_child(env)
 	var key := DirectionalLight3D.new()
 	key.rotation_degrees = Vector3(-35, 30, 0)
-	key.light_energy = 1.3
+	key.light_energy = 1.15
+	key.light_color = Color("#ffe8c8")
 	world.add_child(key)
 	var rim := DirectionalLight3D.new()
 	rim.rotation_degrees = Vector3(-20, 200, 0)
@@ -70,7 +73,7 @@ func _stage_unit(id: String) -> void:
 	env_res.background_mode = Environment.BG_COLOR
 	# Bright family-coloured backdrop (cards read at a glance)
 	var fam := str(DB.unit_def(id).get("family", ""))
-	env_res.background_color = DB.family_color(fam).lerp(Color("#7fc4ff"), 0.45).lightened(0.15)
+	env_res.background_color = DB.family_color(fam).lerp(Color("#6a9ad0"), 0.4)
 	cam.position = Vector3(0, 1.05, 2.8)
 	cam.look_at(Vector3(0, 0.74, 0))
 	var rig := GoblinRig.new()

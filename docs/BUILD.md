@@ -21,7 +21,7 @@ apksigner verify --verbose build/VARKON-debug.apk
 ```
 
 Résultat vérifié dans l'environnement de développement :
-`com.superessence.varkon`, versionCode 1, versionName 0.9.0, minSdk 21, targetSdk 34,
+`com.superessence.varkon`, versionCode 2, versionName 0.10.0, minSdk 21, targetSdk 34,
 architectures arm64-v8a + armeabi-v7a, permission unique `VIBRATE`, signature v1+v2+v3 (clé de
 **débogage**). Installation : `adb install -r build/VARKON-debug.apk` ou copie du fichier sur le
 téléphone (autoriser les sources inconnues).

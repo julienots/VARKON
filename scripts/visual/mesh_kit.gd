@@ -11,16 +11,15 @@ static func mat(color: Color, metal := 0.0, rough := 0.75, emit := Color(0, 0, 0
 	if _mats.has(key):
 		return _mats[key]
 	var m := StandardMaterial3D.new()
-	# Cartoon look: toon diffuse ramp + toon specular, slightly glossy "painted plastic".
+	# Hand-painted look: soft wrapped lambert, matte surfaces, gentle sky-tinted rim.
 	m.albedo_color = Color(color.r, color.g, color.b, alpha)
-	m.diffuse_mode = BaseMaterial3D.DIFFUSE_TOON
-	m.specular_mode = BaseMaterial3D.SPECULAR_TOON
-	m.metallic = metal * 0.6
-	m.roughness = clampf(rough * 0.7, 0.25, 0.7) if metal < 0.5 else 0.3
-	m.metallic_specular = 0.6 if metal > 0.5 else 0.35
+	m.diffuse_mode = BaseMaterial3D.DIFFUSE_LAMBERT_WRAP
+	m.metallic = metal * 0.5
+	m.roughness = clampf(rough, 0.6, 1.0) if metal < 0.5 else 0.4
+	m.metallic_specular = 0.4 if metal > 0.5 else 0.2
 	m.rim_enabled = true
-	m.rim = 0.35
-	m.rim_tint = 0.3
+	m.rim = 0.12
+	m.rim_tint = 0.6
 	if emit.a > 0:
 		m.emission_enabled = true
 		m.emission = emit
@@ -38,7 +37,7 @@ static var _outline_mats := {}
 
 
 ## Same material with a dark "inverted hull" outline pass (cartoon contour).
-static func outlined(m: Material, width := 0.012) -> Material:
+static func outlined(m: Material, width := 0.008) -> Material:
 	if m == null or not m is StandardMaterial3D or (m as StandardMaterial3D).transparency != BaseMaterial3D.TRANSPARENCY_DISABLED:
 		return m
 	if (m as StandardMaterial3D).next_pass != null:
@@ -50,7 +49,7 @@ static func outlined(m: Material, width := 0.012) -> Material:
 	if om == null:
 		om = StandardMaterial3D.new()
 		om.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		om.albedo_color = Color("#141a2e")
+		om.albedo_color = Color("#1c2414")
 		om.cull_mode = BaseMaterial3D.CULL_FRONT
 		om.grow = true
 		om.grow_amount = width
@@ -142,6 +141,21 @@ static func mesh(shape: String, a := 1.0, b := 1.0, c := 1.0) -> Mesh:
 			var qm := QuadMesh.new()
 			qm.size = Vector2(a, b)
 			m = qm
+		"lowsphere", "rocky":
+			var ls := SphereMesh.new()
+			ls.radius = a
+			ls.height = a * 2.0
+			ls.radial_segments = 7
+			ls.rings = 4
+			m = facet(ls, 0.18 * a if shape == "rocky" else 0.06 * a, int(b * 97.0))
+		"lowcone":
+			var lc := CylinderMesh.new()
+			lc.top_radius = 0.0
+			lc.bottom_radius = a
+			lc.height = b
+			lc.radial_segments = 7
+			lc.rings = 2
+			m = facet(lc, 0.05 * a, int(c * 31.0))
 		"disc":
 			var dm := CylinderMesh.new()
 			dm.top_radius = a
@@ -152,6 +166,46 @@ static func mesh(shape: String, a := 1.0, b := 1.0, c := 1.0) -> Mesh:
 			m = dm
 	_meshes[key] = m
 	return m
+
+
+## Low-poly faceted copy of a mesh: per-face normals plus optional vertex jitter
+## (stylised painted-scenery look for foliage, rocks and mountains).
+static func facet(src: Mesh, jitter := 0.0, seed_v := 0) -> ArrayMesh:
+	var arr: Array = src.surface_get_arrays(0)
+	var verts: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+	var idx: PackedInt32Array = arr[Mesh.ARRAY_INDEX]
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 1234 + seed_v
+	# Jitter shared positions consistently so faces stay closed.
+	var moved := {}
+	var out_v := PackedVector3Array()
+	var out_n := PackedVector3Array()
+	var count := idx.size() if idx.size() > 0 else verts.size()
+	for t in range(0, count, 3):
+		var tri: Array[Vector3] = []
+		for k in 3:
+			var v: Vector3 = verts[idx[t + k] if idx.size() > 0 else t + k]
+			if jitter > 0.0:
+				var key := Vector3i(roundi(v.x * 1000), roundi(v.y * 1000), roundi(v.z * 1000))
+				if not moved.has(key):
+					moved[key] = v + Vector3(rng.randf_range(-1, 1), rng.randf_range(-0.6, 0.6), rng.randf_range(-1, 1)) * jitter
+				v = moved[key]
+			tri.append(v)
+		var n := (tri[2] - tri[0]).cross(tri[1] - tri[0]).normalized()
+		if n == Vector3.ZERO:
+			continue
+		if n.dot(tri[0] + tri[1] + tri[2]) < 0.0:  # convex source: normals point away from origin
+			n = -n
+		for k in 3:
+			out_v.append(tri[k])
+			out_n.append(n)
+	var a2 := []
+	a2.resize(Mesh.ARRAY_MAX)
+	a2[Mesh.ARRAY_VERTEX] = out_v
+	a2[Mesh.ARRAY_NORMAL] = out_n
+	var am := ArrayMesh.new()
+	am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, a2)
+	return am
 
 
 static func part(parent: Node3D, shape: String, dims: Array, material: Material, pos := Vector3.ZERO, rot_deg := Vector3.ZERO, scl := Vector3.ONE, shadow := false) -> MeshInstance3D:

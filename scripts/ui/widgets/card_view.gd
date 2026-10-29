@@ -61,7 +61,13 @@ func _ready() -> void:
 	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	band.add_theme_stylebox_override("panel", UI.candy(fc.darkened(0.1), true, true, 0))
 	add_child(band)
-	var nm := UI.label(DB.txt(d), 13 if size.x < 120 else 15, Color.WHITE, "bold")
+	var nm_text := DB.txt(d)
+	var nm_size := 13 if size.x < 120 else 15
+	if nm_text.length() > 13:
+		nm_size -= 2  # long names: shrink rather than spill past the frame
+	var nm := UI.label(nm_text, nm_size, Color.WHITE, "bold")
+	nm.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	nm.clip_text = true
 	nm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	nm.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	nm.set_anchors_preset(Control.PRESET_FULL_RECT)

@@ -3,10 +3,10 @@ extends RefCounted
 ## Procedural fortress buildings whose silhouette evolves with level, plus battle structures
 ## and environment props (ground, rocks, trees, torches).
 
-const STONE := Color("#b3a289")
-const STONE_DARK := Color("#8c7b66")
-const WOOD := Color("#a8693a")
-const ROOF := Color("#e8443a")
+const STONE := Color("#9a958a")
+const STONE_DARK := Color("#726f66")
+const WOOD := Color("#8f5a32")
+const ROOF := Color("#c9432e")
 
 
 static func building(id: String, level: int, size: Vector2i, color: Color) -> Node3D:
@@ -143,7 +143,7 @@ static func building(id: String, level: int, size: Vector2i, color: Color) -> No
 
 ## Cartoon contour on the large pieces of a prop/building.
 static func outline(root: Node3D, min_size := 0.25) -> void:
-	if not MeshKit.outlines_enabled():
+	if not MeshKit.outlines_enabled() or not root.has_meta("force_outline"):
 		return
 	for n in root.find_children("*", "MeshInstance3D", true, false):
 		var mi := n as MeshInstance3D
@@ -185,6 +185,13 @@ static func tower(team_color: Color) -> Node3D:
 		var a := k * TAU / 6
 		MeshKit.part(root, "box", [0.25, 0.3, 0.25], stone, Vector3(cos(a) * 0.82, 2.8, sin(a) * 0.82))
 	MeshKit.part(root, "cone", [0.6, 0.9], MeshKit.mat(team_color.darkened(0.2)), Vector3(0, 3.3, 0))
+	# Wooden bands, stone base and a team pennant: warmer, hand-built look
+	var wood := MeshKit.mat(WOOD, 0, 1.0)
+	MeshKit.part(root, "cyl", [0.76, 0.14, 0.8], wood, Vector3(0, 1.6, 0))
+	MeshKit.part(root, "cyl", [0.98, 0.3, 1.05], MeshKit.mat(STONE_DARK, 0, 1.0), Vector3(0, 0.15, 0), Vector3.ZERO, Vector3.ONE, true)
+	MeshKit.part(root, "box", [0.36, 0.6, 0.1], wood, Vector3(0, 0.45, 0.82))
+	MeshKit.part(root, "cyl", [0.025, 0.8], wood, Vector3(0, 4.0, 0))
+	MeshKit.part(root, "box", [0.4, 0.24, 0.02], MeshKit.mat(team_color, 0, 1.0), Vector3(0.21, 4.22, 0))
 	outline(root)
 	return root
 
@@ -220,53 +227,68 @@ static func dummy() -> Node3D:
 
 
 # ------------------------------------------------------------------ environment
-static func environment(world: Node3D, bright := 1.0, warm := true) -> void:
-	## Sunny cartoon daylight: blue sky, warm sun, soft blue fill.
+static var _sky_shader: Shader
+
+
+static func environment(world: Node3D, bright := 1.0, warm := true, haze := true) -> void:
+	## Painted daylight: blue sky with soft clouds, warm low sun, hazy distance.
 	var env := WorldEnvironment.new()
 	var e := Environment.new()
-	var sky_mat := ProceduralSkyMaterial.new()
-	sky_mat.sky_top_color = Color("#2f7fe8") if warm else Color("#4a8ad8")
-	sky_mat.sky_horizon_color = Color("#bfe6ff") if warm else Color("#dff0ff")
-	sky_mat.sky_curve = 0.18
-	sky_mat.ground_bottom_color = Color("#3c7a2a")
-	sky_mat.ground_horizon_color = Color("#a8d8a0")
-	sky_mat.sun_angle_max = 25.0
+	if _sky_shader == null:
+		_sky_shader = load("res://shaders/painted_sky.gdshader")
+	var sky_mat := ShaderMaterial.new()
+	sky_mat.shader = _sky_shader
+	sky_mat.set_shader_parameter("horizon", Color("#9cc4e8"))
+	sky_mat.set_shader_parameter("zenith", Color("#2f63b8"))
+	if not warm:
+		sky_mat.set_shader_parameter("zenith", Color("#3a62a8"))
+		sky_mat.set_shader_parameter("cloud_cover", 0.62)
 	var sky := Sky.new()
 	sky.sky_material = sky_mat
+	sky.radiance_size = Sky.RADIANCE_SIZE_32
 	e.background_mode = Environment.BG_SKY
 	e.sky = sky
 	e.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	e.ambient_light_color = Color("#b8cce8") if warm else Color("#c0d4f0")
-	e.ambient_light_energy = 0.42 * bright
-	e.tonemap_mode = Environment.TONE_MAPPER_LINEAR
+	e.ambient_light_color = Color("#a9bedc")
+	e.ambient_light_energy = 0.36 * bright
+	e.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	e.tonemap_exposure = 0.95
+	e.tonemap_white = 1.6
 	e.adjustment_enabled = true
-	e.adjustment_saturation = 1.12
-	e.adjustment_contrast = 1.05
-	e.fog_enabled = false
-	e.glow_enabled = Settings.effective_quality() >= 2
-	e.glow_intensity = 0.4 * Settings.flash_scale()
-	e.glow_hdr_threshold = 1.2
+	e.adjustment_saturation = 1.22
+	e.adjustment_contrast = 1.06
+	# Aerial perspective: far scenery fades into a pale blue haze.
+	e.fog_enabled = haze and Settings.effective_quality() >= 1
+	e.fog_light_color = Color("#b9cfe6")
+	e.fog_mode = Environment.FOG_MODE_DEPTH
+	e.fog_density = 1.0
+	e.fog_depth_begin = 38.0
+	e.fog_depth_end = 150.0
+	e.fog_depth_curve = 1.4
+	e.fog_sky_affect = 0.0
+	e.glow_enabled = false
 	env.environment = e
 	world.add_child(env)
 	var sun := DirectionalLight3D.new()
-	sun.rotation_degrees = Vector3(-55, -30, 0)
-	sun.light_color = Color("#fff3d6")
-	sun.light_energy = 0.8 * bright
+	sun.rotation_degrees = Vector3(-48, -35, 0)
+	sun.light_color = Color("#ffe6bf")
+	sun.light_energy = 0.95 * bright
 	sun.shadow_enabled = Settings.shadows_enabled()
-	sun.shadow_opacity = 0.55
+	sun.shadow_opacity = 0.7
+	sun.shadow_blur = 1.5
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
 	sun.directional_shadow_max_distance = 60.0
 	world.add_child(sun)
 	var fill := DirectionalLight3D.new()
 	fill.rotation_degrees = Vector3(-25, 150, 0)
-	fill.light_color = Color("#9ec4ff")
-	fill.light_energy = 0.22 * bright
+	fill.light_color = Color("#8fb4ff")
+	fill.light_energy = 0.25 * bright
 	world.add_child(fill)
 
 
-## Makes any ground tint read as bright, saturated cartoon grass/sand.
+## Rich painted grass / earth tone (deep, not neon).
 static func vivid(col: Color) -> Color:
-	return Color.from_hsv(col.h, clampf(col.s, 0.5, 0.62), clampf(col.v, 0.55, 0.66))
+	return Color.from_hsv(col.h, clampf(col.s, 0.68, 0.8), clampf(col.v, 0.4, 0.46))
 
 
 static func ground(world: Node3D, size: Vector2, center: Vector3, col := Color("#4a5a2a")) -> MeshInstance3D:
@@ -278,11 +300,11 @@ static func ground(world: Node3D, size: Vector2, center: Vector3, col := Color("
 	mi.mesh = pm
 	var m := StandardMaterial3D.new()
 	col = vivid(col)
-	m.albedo_color = col
+	m.albedo_color = Color.WHITE
 	m.roughness = 1.0
-	m.diffuse_mode = BaseMaterial3D.DIFFUSE_TOON
+	m.diffuse_mode = BaseMaterial3D.DIFFUSE_LAMBERT_WRAP
 	m.albedo_texture = _ground_texture(col)
-	m.uv1_scale = Vector3(size.x / 4.0, size.y / 4.0, 1)
+	m.uv1_scale = Vector3(size.x / 12.0, size.y / 12.0, 1)
 	mi.material_override = m
 	mi.position = center
 	world.add_child(mi)
@@ -292,58 +314,173 @@ static func ground(world: Node3D, size: Vector2, center: Vector3, col := Color("
 static var _ground_tex := {}
 
 
+## Painterly grass: big soft patches of warm/cool greens with small brush flecks.
 static func _ground_texture(col: Color) -> Texture2D:
 	var key := col.to_html()
 	if _ground_tex.has(key):
 		return _ground_tex[key]
 	var noise := FastNoiseLite.new()
 	noise.seed = 7
-	noise.frequency = 0.05
-	var img := Image.create(128, 128, false, Image.FORMAT_RGB8)
-	for y in 128:
-		for x in 128:
-			var n := noise.get_noise_2d(x, y) * 0.5 + 0.5
-			var n2 := noise.get_noise_2d(x * 4.0, y * 4.0) * 0.5 + 0.5
-			var c := Color.WHITE.lerp(Color(0.84, 0.9, 0.8), n * 0.7 + n2 * 0.3)
+	noise.frequency = 0.022
+	noise.fractal_octaves = 3
+	var fleck := FastNoiseLite.new()
+	fleck.seed = 11
+	fleck.frequency = 0.25
+	var warm := Color.from_hsv(col.h - 0.05, col.s * 0.95, col.v * 1.15)
+	var cool := Color.from_hsv(col.h + 0.04, col.s, col.v * 0.78)
+	var sz := 192
+	var img := Image.create(sz, sz, false, Image.FORMAT_RGB8)
+	for y in sz:
+		for x in sz:
+			# Tileable sampling on a torus.
+			var ax := x / float(sz) * TAU
+			var ay := y / float(sz) * TAU
+			var n := noise.get_noise_3d(cos(ax) * 30.0, sin(ax) * 30.0, cos(ay) * 30.0 + sin(ay) * 17.0) * 0.5 + 0.5
+			var f := fleck.get_noise_2d(x, y)
+			var c := cool.lerp(col, smoothstep(0.2, 0.5, n)).lerp(warm, smoothstep(0.55, 0.8, n))
+			if f > 0.55:
+				c = c.lightened(0.08)
+			elif f < -0.6:
+				c = c.darkened(0.08)
 			img.set_pixel(x, y, c)
+	img.generate_mipmaps()
 	var tex := ImageTexture.create_from_image(img)
 	_ground_tex[key] = tex
 	return tex
 
 
-static var _checker: Texture2D
+static var _field_tex := {}
 
 
-## Two-tone checkered lawn (one square per battlefield unit when uv-scaled by size / 2).
-static func checker_texture() -> Texture2D:
-	if _checker:
-		return _checker
-	var noise := FastNoiseLite.new()
-	noise.seed = 3
-	noise.frequency = 0.08
-	var img := Image.create(64, 64, false, Image.FORMAT_RGB8)
-	for y in 64:
-		for x in 64:
-			var sq := ((x / 32) + (y / 32)) % 2 == 0
-			var base := 1.0 if sq else 0.9
-			var n := noise.get_noise_2d(x, y) * 0.04
-			img.set_pixel(x, y, Color(base + n, base + n, base + n))
-	_checker = ImageTexture.create_from_image(img)
-	return _checker
+## Battlefield lawn: the painted grass with soft mowing stripes (4 stripes per 8 m tile).
+static func field_texture(col: Color) -> Texture2D:
+	var key := col.to_html()
+	if _field_tex.has(key):
+		return _field_tex[key]
+	var base: Image = (_ground_texture(vivid(col.lightened(0.06))) as ImageTexture).get_image()
+	base.decompress()
+	if base.has_mipmaps():
+		base.clear_mipmaps()
+	var sz := base.get_width()
+	for y in sz:
+		for x in sz:
+			var stripe := int(x * 4 / sz) % 2 == 0
+			var c := base.get_pixel(x, y)
+			base.set_pixel(x, y, c.lightened(0.05) if stripe else c.darkened(0.04))
+	base.generate_mipmaps()
+	var tex := ImageTexture.create_from_image(base)
+	_field_tex[key] = tex
+	return tex
 
 
 static func rock(parent: Node3D, pos: Vector3, s: float) -> void:
-	MeshKit.part(parent, "sphere", [0.5 * s], MeshKit.mat(Color("#b9b2a6"), 0, 0.9), pos + Vector3(0, 0.15 * s, 0), Vector3(randf() * 30, randf() * 360, 0), Vector3(1.2, 0.7, 1.0), true)
+	var m := MeshKit.mat(Color("#9c968a").lerp(Color("#8a8f98"), randf()), 0, 0.95)
+	MeshKit.part(parent, "rocky", [0.5 * s, float(randi() % 5)], m, pos + Vector3(0, 0.12 * s, 0), Vector3(0, randf() * 360, 0), Vector3(1.25, 0.75, 1.0), true)
+	if randf() < 0.6:
+		MeshKit.part(parent, "rocky", [0.25 * s, float(randi() % 5 + 5)], m, pos + Vector3(0.45 * s, 0.05 * s, 0.2 * s), Vector3(0, randf() * 360, 0), Vector3(1.1, 0.7, 1.0))
 
 
+const LEAF_COLS := [Color("#2a6226"), Color("#346f28"), Color("#417a2b"), Color("#285a33")]
+
+
+## Low-poly painted tree: chunky round canopy (oak) or stacked faceted pine.
 static func tree(parent: Node3D, pos: Vector3, s: float, dead := false) -> void:
-	MeshKit.part(parent, "cyl", [0.08 * s, 1.2 * s, 0.14 * s], MeshKit.mat(Color("#8a5a32")), pos + Vector3(0, 0.6 * s, 0), Vector3.ZERO, Vector3.ONE, true)
+	var trunk := MeshKit.mat(Color("#6b4a2e"), 0, 0.95)
 	if dead:
+		MeshKit.part(parent, "cyl", [0.06 * s, 1.2 * s, 0.12 * s], trunk, pos + Vector3(0, 0.6 * s, 0), Vector3.ZERO, Vector3.ONE, true)
 		for k in 3:
-			MeshKit.part(parent, "cyl", [0.03 * s, 0.6 * s], MeshKit.mat(Color("#7a5a3a")), pos + Vector3(0, (0.8 + k * 0.2) * s, 0), Vector3(0, k * 120, 50))
+			MeshKit.part(parent, "cyl", [0.03 * s, 0.6 * s], MeshKit.mat(Color("#5e4630")), pos + Vector3(0, (0.8 + k * 0.2) * s, 0), Vector3(0, k * 120, 50))
+		return
+	var leaf: Color = LEAF_COLS[randi() % LEAF_COLS.size()]
+	if randf() < 0.55:
+		MeshKit.part(parent, "cyl", [0.09 * s, 1.3 * s, 0.16 * s], trunk, pos + Vector3(0, 0.65 * s, 0), Vector3(0, 0, randf_range(-6, 6)), Vector3.ONE, true)
+		var blobs := [[Vector3(0, 1.75, 0), 0.85], [Vector3(0.5, 1.45, 0.2), 0.6], [Vector3(-0.45, 1.5, -0.15), 0.62], [Vector3(0.1, 2.25, -0.1), 0.55]]
+		for i in blobs.size():
+			var b: Array = blobs[i]
+			var lc := leaf.lightened(0.06 * (i % 2)) if i < 3 else leaf.lightened(0.12)
+			MeshKit.part(parent, "lowsphere", [b[1] * s, float(i)], MeshKit.mat(lc, 0, 1.0), pos + b[0] * s, Vector3(0, randf() * 360, 0), Vector3(1, 0.85, 1), true)
 	else:
-		MeshKit.part(parent, "cone", [0.6 * s, 1.4 * s], MeshKit.mat(Color("#2f9a3a"), 0, 0.8), pos + Vector3(0, 1.5 * s, 0), Vector3.ZERO, Vector3.ONE, true)
-		MeshKit.part(parent, "cone", [0.45 * s, 1.0 * s], MeshKit.mat(Color("#55c24a"), 0, 0.8), pos + Vector3(0, 2.1 * s, 0))
+		MeshKit.part(parent, "cyl", [0.07 * s, 0.9 * s, 0.11 * s], trunk, pos + Vector3(0, 0.45 * s, 0), Vector3.ZERO, Vector3.ONE, true)
+		var pine := leaf.darkened(0.1)
+		MeshKit.part(parent, "lowcone", [0.75 * s, 1.3 * s, 1.0], MeshKit.mat(pine, 0, 1.0), pos + Vector3(0, 1.3 * s, 0), Vector3(0, randf() * 360, 0), Vector3.ONE, true)
+		MeshKit.part(parent, "lowcone", [0.58 * s, 1.1 * s, 2.0], MeshKit.mat(pine.lightened(0.06), 0, 1.0), pos + Vector3(0, 1.9 * s, 0), Vector3(0, randf() * 360, 0))
+		MeshKit.part(parent, "lowcone", [0.38 * s, 0.8 * s, 3.0], MeshKit.mat(pine.lightened(0.12), 0, 1.0), pos + Vector3(0, 2.45 * s, 0), Vector3(0, randf() * 360, 0))
+
+
+static func bush(parent: Node3D, pos: Vector3, s: float) -> void:
+	var c: Color = LEAF_COLS[randi() % LEAF_COLS.size()]
+	for k in 3:
+		MeshKit.part(parent, "lowsphere", [(0.35 - k * 0.06) * s, float(k + 4)], MeshKit.mat(c.lightened(k * 0.04), 0, 1.0),
+			pos + Vector3((k - 1) * 0.3 * s, (0.2 - k * 0.03) * s, randf_range(-0.1, 0.1) * s), Vector3(0, randf() * 360, 0), Vector3(1, 0.8, 1), k == 0)
+
+
+## Distant scenery ring: faceted blue-green hills/mountains, tree line and tufts of grass.
+static func scenery(parent: Node3D, center: Vector3, radius: float, mountains := true) -> void:
+	if mountains:
+		for k in 14:
+			var a := k / 14.0 * TAU + randf_range(-0.1, 0.1)
+			var r := radius + randf_range(14, 26)
+			var h := randf_range(9, 20)
+			var col := Color("#5f7f8e").lerp(Color("#7a93a6"), randf())
+			MeshKit.part(parent, "lowcone", [h * randf_range(0.8, 1.1), h, float(k)], MeshKit.mat(col, 0, 1.0),
+				center + Vector3(cos(a) * r, h / 2.0 - 1.0, sin(a) * r), Vector3(0, randf() * 360, 0))
+			if h > 15:
+				MeshKit.part(parent, "lowcone", [h * 0.28, h * 0.27, float(k + 20)], MeshKit.mat(Color("#e8eef4"), 0, 1.0),
+					center + Vector3(cos(a) * r, h - 1.0 - h * 0.13, sin(a) * r), Vector3(0, randf() * 360, 0))
+		for k in 10:
+			var a2 := k / 10.0 * TAU + randf_range(-0.2, 0.2)
+			var r2 := radius + randf_range(5, 10)
+			MeshKit.part(parent, "lowsphere", [randf_range(5, 8), float(k)], MeshKit.mat(Color("#4f7a3a").lerp(Color("#5d8a48"), randf()), 0, 1.0),
+				center + Vector3(cos(a2) * r2, -2.5, sin(a2) * r2), Vector3(0, randf() * 360, 0), Vector3(1.6, 0.6, 1.2))
+	grass_tufts(parent, center, radius, 220)
+
+
+static var _tuft_mesh: Mesh
+
+
+## Instanced grass tufts (one draw call) for a painted, lived-in ground.
+static func grass_tufts(parent: Node3D, center: Vector3, radius: float, count: int, avoid := Rect2()) -> void:
+	if Settings.effective_quality() < 1:
+		return
+	if _tuft_mesh == null:
+		var cm := CylinderMesh.new()
+		cm.top_radius = 0.0
+		cm.bottom_radius = 0.07
+		cm.height = 0.32
+		cm.radial_segments = 4
+		cm.rings = 1
+		_tuft_mesh = MeshKit.facet(cm)
+	var mm := MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_3D
+	mm.use_colors = true
+	mm.mesh = _tuft_mesh
+	var xf: Array[Transform3D] = []
+	var cols: Array[Color] = []
+	var tries := 0
+	while xf.size() < count * 3 and tries < count * 12:
+		tries += 1
+		var p := center + Vector3(randf_range(-radius, radius), 0, randf_range(-radius, radius))
+		if avoid.size != Vector2.ZERO and avoid.has_point(Vector2(p.x, p.z)):
+			continue
+		var gc := Color("#3f7d2a").lerp(Color("#7aa83a"), randf())
+		for b in 3:
+			var t := Transform3D(Basis.from_euler(Vector3(randf_range(-0.35, 0.35), randf() * TAU, randf_range(-0.35, 0.35))).scaled(Vector3.ONE * randf_range(0.7, 1.3)),
+				p + Vector3(randf_range(-0.08, 0.08), 0.12, randf_range(-0.08, 0.08)))
+			xf.append(t)
+			cols.append(gc)
+	mm.instance_count = xf.size()
+	for i in xf.size():
+		mm.set_instance_transform(i, xf[i])
+		mm.set_instance_color(i, cols[i])
+	var mmi := MultiMeshInstance3D.new()
+	mmi.multimesh = mm
+	var m := StandardMaterial3D.new()
+	m.vertex_color_use_as_albedo = true
+	m.diffuse_mode = BaseMaterial3D.DIFFUSE_LAMBERT_WRAP
+	m.roughness = 1.0
+	mmi.material_override = m
+	mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	parent.add_child(mmi)
 
 
 static func torch(parent: Node3D, pos: Vector3) -> void:

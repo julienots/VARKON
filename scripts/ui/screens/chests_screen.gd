@@ -23,26 +23,28 @@ func _refresh() -> void:
 		var cid: String = ch.id
 		var n: int = Game.chests.count(cid)
 		var p := PanelContainer.new()
-		p.add_theme_stylebox_override("panel", UI.box(Color("#2a4482"), DB.rarity_color(ch.rarity), 14, 3 if n > 0 else 1, 12))
-		p.custom_minimum_size = Vector2(280, 230)
-		var v := UI.vbox(6)
+		var tcol := Color(ch.color).lerp(DB.rarity_color(ch.rarity), 0.35)
+		p.add_theme_stylebox_override("panel", UI.tile(tcol if n > 0 else tcol.lerp(Color("#5a6a8a"), 0.55), 10))
+		p.custom_minimum_size = Vector2(286, 236)
+		var v := UI.vbox(4)
 		p.add_child(v)
-		var icon := ChestIcon.make(Color(ch.color), 90)
+		var top := UI.hbox(4)
+		top.add_child(UI.rarity_badge(ch.rarity, 12))
+		top.add_child(UI.spacer())
+		top.add_child(UI.icon_button("info", _odds.bind(cid), 40, tr("BTN_ODDS")))
+		v.add_child(top)
+		var icon := ChestIcon.make(Color(ch.color), 84)
 		icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		v.add_child(icon)
-		var nl := UI.label(DB.txt(ch), 19, DB.rarity_color(ch.rarity), "title")
+		var nl := UI.label(DB.txt(ch), 19, Color.WHITE, "display")
 		nl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		nl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		nl.add_theme_constant_override("outline_size", 6)
 		v.add_child(nl)
-		var cl := UI.label(tr("LBL_OWNED") % n, 16, Color.WHITE if n > 0 else UI.TEXT_DIM, "bold")
-		cl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		v.add_child(cl)
-		var h := UI.hbox(8)
-		h.alignment = BoxContainer.ALIGNMENT_CENTER
-		h.add_child(UI.button(tr("BTN_ODDS"), _odds.bind(cid), "secondary", 110, 44))
-		var ob := UI.button(tr("BTN_OPEN"), _open.bind(cid), "primary", 120, 44)
+		var ob := UI.button(tr("BTN_OPEN") + ("  x%d" % n if n > 0 else ""), _open.bind(cid), "primary" if n > 0 else "grey", 220, 48)
 		ob.disabled = n <= 0
-		h.add_child(ob)
-		v.add_child(h)
+		ob.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		v.add_child(ob)
 		grid.add_child(p)
 
 

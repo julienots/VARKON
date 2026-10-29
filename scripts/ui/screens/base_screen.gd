@@ -92,7 +92,7 @@ func setup(_p: Dictionary) -> void:
 
 func build_world() -> Node3D:
 	world = Node3D.new()
-	BuildingKit.environment(world, 1.0)
+	BuildingKit.environment(world, 1.0, true, false)  # top-down view: no distance haze
 	var g: Dictionary = DB.buildings_json.grid
 	var gw := int(g.width)
 	var gh := int(g.height)
@@ -101,6 +101,7 @@ func build_world() -> Node3D:
 		var a := randf() * TAU
 		var r := randf_range(gw * 0.75, gw * 1.1)
 		BuildingKit.tree(world, Vector3(gw / 2.0 + cos(a) * r, 0, gh / 2.0 + sin(a) * r), randf_range(1.0, 1.8))
+	BuildingKit.grass_tufts(world, Vector3(gw / 2.0, 0, gh / 2.0), gw * 1.2, 160, Rect2(-1, -1, gw + 2, gh + 2))
 	cam = Camera3D.new()
 	cam.projection = Camera3D.PROJECTION_ORTHOGONAL
 	world.add_child(cam)
@@ -132,23 +133,34 @@ func _build_zones() -> void:
 		var r: Array = z.rect
 		var unlocked := Game.base.zone_unlocked(z.id)
 		var center := Vector3(float(r[0]) + float(r[2]) / 2.0, 0.0, float(r[1]) + float(r[3]) / 2.0)
-		var col := Color("#5a5040") if unlocked else Color("#151210")
-		MeshKit.part(root, "box", [float(r[2]) - 0.05, 0.05, float(r[3]) - 0.05], MeshKit.mat(col, 0, 1.0), center)
 		if unlocked:
+			MeshKit.part(root, "box", [float(r[2]) - 0.05, 0.05, float(r[3]) - 0.05], MeshKit.mat(Color("#9a8460"), 0, 1.0), center)
 			for x in int(r[2]) + 1:
 				MeshKit.part(root, "box", [0.03, 0.06, float(r[3])], MeshKit.unshaded(Color(1, 1, 1), 0.08), Vector3(float(r[0]) + x, 0.03, center.z))
 			for y in int(r[3]) + 1:
 				MeshKit.part(root, "box", [float(r[2]), 0.06, 0.03], MeshKit.unshaded(Color(1, 1, 1), 0.08), Vector3(center.x, 0.03, float(r[1]) + y))
 		else:
+			# Locked land stays wild: a faint shade, a few trees and rocks, and a sign.
+			MeshKit.part(root, "box", [float(r[2]) - 0.1, 0.02, float(r[3]) - 0.1], MeshKit.unshaded(Color("#1c3a12"), 0.28), center)
+			seed(hash(str(z.id)))
+			for k in 4:
+				var tp := Vector3(float(r[0]) + randf_range(0.6, float(r[2]) - 0.6), 0, float(r[1]) + randf_range(0.6, float(r[3]) - 0.6))
+				if k < 2:
+					BuildingKit.tree(root, tp, randf_range(0.9, 1.3))
+				else:
+					BuildingKit.rock(root, tp, randf_range(0.5, 0.9))
+			randomize()
 			var l := Label3D.new()
 			l.text = DB.txt(z) + "\n" + tr("LBL_LOCKED")
-			l.font = UI.font("title")
-			l.font_size = 64
-			l.pixel_size = 0.012
+			l.font = UI.font("display")
+			l.font_size = 48
+			l.pixel_size = 0.011
 			l.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-			l.modulate = Color(1, 0.85, 0.5, 0.8)
-			l.outline_size = 12
-			l.position = center + Vector3(0, 0.8, 0)
+			l.modulate = Color(1.6, 1.6, 1.6)  # compensates the filmic tonemap on unshaded text
+			l.outline_modulate = UI.OUTLINE
+			l.no_depth_test = true
+			l.outline_size = 14
+			l.position = center + Vector3(0, 1.2, 0)
 			root.add_child(l)
 		set_meta("zones_root", root)
 

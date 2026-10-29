@@ -25,36 +25,39 @@ var protos := {}         # card id -> merged prototype rig (cloned for each spaw
 func setup(s: BattleSim) -> void:
 	sim = s
 	BuildingKit.environment(self, 1.0, true)
-	var gcol := Color("#5cc23a")
+	var gcol := Color("#4f9a2e")
 	match sim.mode:
-		"boss": gcol = Color("#d49a52")
-		"raid": gcol = Color("#9cc83a")
-		"defense", "survival": gcol = Color("#4fb84a")
-	BuildingKit.ground(self, Vector2(70, 50), Vector3(BattleSim.L / 2, 0, BattleSim.W / 2), gcol)
-	# Battlefield plate and borders
+		"boss": gcol = Color("#9a7a48")
+		"raid": gcol = Color("#6f9a32")
+		"defense", "survival": gcol = Color("#478f34")
+	BuildingKit.ground(self, Vector2(90, 70), Vector3(BattleSim.L / 2, -0.01, BattleSim.W / 2), gcol.darkened(0.08))
+	BuildingKit.scenery(self, Vector3(BattleSim.L / 2, 0, BattleSim.W / 2), 32.0)
+	# Battlefield: painted lawn with soft mowing stripes
 	var fm := StandardMaterial3D.new()
-	fm.albedo_color = BuildingKit.vivid(gcol)
-	fm.albedo_texture = BuildingKit.checker_texture()
-	fm.uv1_scale = Vector3(BattleSim.L / 2.0, BattleSim.W / 2.0, 1)
-	fm.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
+	fm.albedo_texture = BuildingKit.field_texture(gcol)
+	fm.uv1_scale = Vector3(BattleSim.L / 8.0, BattleSim.W / 8.0, 1)
 	fm.roughness = 1.0
-	fm.diffuse_mode = BaseMaterial3D.DIFFUSE_TOON
+	fm.diffuse_mode = BaseMaterial3D.DIFFUSE_LAMBERT_WRAP
 	MeshKit.part(self, "box", [BattleSim.L, 0.06, BattleSim.W], fm, Vector3(BattleSim.L / 2, 0.0, BattleSim.W / 2))
-	# Faint lane paths toward the towers
+	# Worn dirt paths toward the towers
 	for lane in [4.0, BattleSim.W - 4.0]:
-		MeshKit.part(self, "box", [BattleSim.L - 8.0, 0.065, 1.3], MeshKit.mat(Color("#cfa76a"), 0, 1.0), Vector3(BattleSim.L / 2, 0.0, lane))
-	MeshKit.part(self, "box", [0.12, 0.08, BattleSim.W], MeshKit.unshaded(Color(1, 1, 1), 0.45), Vector3(BattleSim.MID, 0.05, BattleSim.W / 2))
-	# Field border (stone kerb) frames the arena like a game board
+		MeshKit.part(self, "box", [BattleSim.L - 8.0, 0.065, 1.2], MeshKit.mat(Color("#a8835a"), 0, 1.0), Vector3(BattleSim.L / 2, 0.0, lane))
+		MeshKit.part(self, "box", [BattleSim.L - 7.6, 0.062, 1.6], MeshKit.mat(Color("#8a8a4a"), 0, 1.0), Vector3(BattleSim.L / 2, 0.0, lane))
+	MeshKit.part(self, "box", [0.1, 0.08, BattleSim.W], MeshKit.unshaded(Color(1, 1, 1), 0.3), Vector3(BattleSim.MID, 0.05, BattleSim.W / 2))
+	# Field border: low stone kerb
+	var kerb := MeshKit.mat(BuildingKit.STONE, 0, 1.0)
 	for z in [-0.15, BattleSim.W + 0.15]:
-		MeshKit.part(self, "box", [BattleSim.L + 0.6, 0.3, 0.3], MeshKit.mat(Color("#d9cdb4")), Vector3(BattleSim.L / 2, 0.15, z), Vector3.ZERO, Vector3.ONE, true)
+		MeshKit.part(self, "box", [BattleSim.L + 0.6, 0.26, 0.3], kerb, Vector3(BattleSim.L / 2, 0.13, z), Vector3.ZERO, Vector3.ONE, true)
 	for x in [-0.15, BattleSim.L + 0.15]:
-		MeshKit.part(self, "box", [0.3, 0.3, BattleSim.W + 0.6], MeshKit.mat(Color("#d9cdb4")), Vector3(x, 0.15, BattleSim.W / 2), Vector3.ZERO, Vector3.ONE, true)
+		MeshKit.part(self, "box", [0.3, 0.26, BattleSim.W + 0.6], kerb, Vector3(x, 0.13, BattleSim.W / 2), Vector3.ZERO, Vector3.ONE, true)
 	for z in [-0.4, BattleSim.W + 0.4]:
 		for k in 16:
 			BuildingKit.rock(self, Vector3(k * 2.1 + randf(), 0, z + randf_range(-0.3, 0.3)), randf_range(0.6, 1.2))
-	for k in 10:
-		BuildingKit.tree(self, Vector3(randf_range(-6, BattleSim.L + 6), 0, randf_range(-9, -2)), randf_range(0.9, 1.5), sim.mode == "boss")
+	for k in 12:
+		BuildingKit.tree(self, Vector3(randf_range(-6, BattleSim.L + 6), 0, randf_range(-10, -2.5)), randf_range(1.0, 1.6), sim.mode == "boss")
 		BuildingKit.tree(self, Vector3(randf_range(-6, BattleSim.L + 6), 0, randf_range(BattleSim.W + 3, BattleSim.W + 8)), randf_range(0.9, 1.4), sim.mode == "boss")
+	for k in 8:
+		BuildingKit.bush(self, Vector3(randf_range(-4, BattleSim.L + 4), 0, randf_range(-2.4, -1.2)), randf_range(0.8, 1.2))
 	for x in [-1.5, BattleSim.L + 1.5]:
 		for z in [3.0, BattleSim.W - 3.0]:
 			BuildingKit.torch(self, Vector3(x, 0, z))

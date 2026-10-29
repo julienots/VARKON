@@ -4,31 +4,34 @@ extends Control
 
 var section := "daily"
 var body: VBoxContainer
+var page: VBoxContainer
 
-const SECTIONS := ["daily", "chests", "weapons", "armors", "accessories", "auras", "cosmetics", "event", "crystals", "pass"]
+## Five simple tabs; equipment slots are grouped on one page with small headers.
+const SECTIONS := ["daily", "chests", "gear", "cosmetics", "crystals"]
 const SECTION_COLORS := {
-	"daily": Color("#ff9f1a"), "chests": Color("#e8b21f"), "weapons": Color("#ef4a3a"), "armors": Color("#3d8ef0"),
-	"accessories": Color("#9b5cf5"), "auras": Color("#1fbfb0"), "cosmetics": Color("#f0509a"), "event": Color("#d0552a"),
-	"crystals": Color("#2fb5ff"), "pass": Color("#7a4fe0"),
+	"daily": Color("#ff9f1a"), "chests": Color("#e8b21f"), "gear": Color("#ef4a3a"), "cosmetics": Color("#f0509a"), "crystals": Color("#2fb5ff"),
+	"weapons": Color("#ef4a3a"), "armors": Color("#3d8ef0"), "accessories": Color("#9b5cf5"), "auras": Color("#1fbfb0"), "event": Color("#d0552a"),
 }
+const GEAR := ["weapons", "armors", "accessories", "auras"]
+const TAB_ICONS := {"daily": "star", "chests": "chest", "gear": "swords", "cosmetics": "smile", "crystals": "plus"}
 
 
 func setup(p: Dictionary) -> void:
 	section = str(p.get("section", "daily"))
+	if section in GEAR:
+		section = "gear"
+	elif section in ["event", "pass"]:
+		section = "daily"
+	elif not section in SECTIONS:
+		section = "daily"
 	UIScreen.background(self, Color("#c23a8a"))
 	var root := UIScreen.frame(self, tr("MENU_SHOP"), null, true, ["gold", "crystals", "war_tokens"])
-	var h := UI.hbox(14)
-	h.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	root.add_child(h)
-	var side := UI.vbox(7)
-	var sc := UI.scroll(side)
-	sc.custom_minimum_size.x = 214
-	sc.size_flags_horizontal = Control.SIZE_FILL
-	h.add_child(sc)
-	set_meta("side", side)
+	var tabs := UI.hbox(10)
+	root.add_child(tabs)
+	set_meta("tabs", tabs)
 	body = UI.vbox(12)
-	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	h.add_child(body)
+	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	root.add_child(body)
 	EventBus.resources_changed.connect(_refresh)
 	_refresh()
 
@@ -42,44 +45,65 @@ func _set_section(s: String) -> void:
 func _refresh() -> void:
 	if not is_inside_tree():
 		return
-	var side: VBoxContainer = get_meta("side")
-	UIScreen.clear(side)
+	var tabs: HBoxContainer = get_meta("tabs")
+	UIScreen.clear(tabs)
 	for s in SECTIONS:
 		var col: Color = SECTION_COLORS[s]
-		var b := UI.button(tr("SHOP_" + s.to_upper()), _set_section.bind(s), "secondary", 200, 50)
-		b.add_theme_font_size_override("font_size", int(18 * UI.ts()))
-		b.add_theme_stylebox_override("normal", UI.candy(col if s == section else col.darkened(0.18)))
+		var sel: bool = s == section
+		var b := UI.button(tr("SHOP_" + s.to_upper()), _set_section.bind(s), "secondary", 0, 54 if sel else 48)
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		b.size_flags_vertical = Control.SIZE_SHRINK_END
+		b.add_theme_font_size_override("font_size", int(19 * UI.ts()))
+		b.add_theme_stylebox_override("normal", UI.candy(col if sel else col.darkened(0.25)))
 		b.add_theme_stylebox_override("hover", UI.candy(col.lightened(0.1)))
 		b.add_theme_stylebox_override("pressed", UI.candy(col, true))
-		if s == section:
-			b.custom_minimum_size.x = 210
-		side.add_child(b)
+		if not sel:
+			b.add_theme_color_override("font_color", Color(1, 1, 1, 0.8))
+		tabs.add_child(b)
 	UIScreen.clear(body)
-	var col2: Color = SECTION_COLORS[section]
-	var head := UI.hbox(12)
-	var rib := UI.ribbon(tr("SHOP_" + section.to_upper()), col2, 26)
-	rib.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	head.add_child(rib)
-	if section == "daily":
-		var pill := PanelContainer.new()
-		pill.add_theme_stylebox_override("panel", UI.box(Color("#14193a"), Color.WHITE, 20, 2, 14))
-		pill.add_child(UI.label(tr("LBL_DAILY_RESET") % UI.time_fmt(_seconds_to_midnight()), 17, Color.WHITE, "bold"))
-		head.add_child(pill)
-	body.add_child(head)
+	page = UI.vbox(14)
+	page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var sc := UI.scroll(page)
+	sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	body.add_child(sc)
 	match section:
 		"daily":
 			_free_daily()
+			_header("daily", tr("LBL_DAILY_RESET") % UI.time_fmt(_seconds_to_midnight()))
 			_offer_grid(Game.shop.daily_offers())
-		"pass":
+			var ev := _section_offers("event")
+			if not ev.is_empty():
+				_header("event")
+				_offer_grid(ev)
 			_pass_card()
+		"gear":
+			for g in GEAR:
+				_header(g)
+				_offer_grid(_section_offers(g))
 		"crystals":
 			var warn := PanelContainer.new()
 			warn.add_theme_stylebox_override("panel", UI.tile(Color("#e0503a"), 12))
 			warn.add_child(UI.para(tr("DESC_IAP_DISABLED"), 17, Color.WHITE))
-			body.add_child(warn)
+			page.add_child(warn)
 			_offer_grid(_section_offers("crystals"))
 		_:
 			_offer_grid(_section_offers(section))
+
+
+func _header(sid: String, extra := "") -> void:
+	var h := UI.hbox(12)
+	if sid == section:
+		h.add_child(UI.spacer())  # the tab already names it: only show the extra info
+	else:
+		var rib := UI.ribbon(tr("SHOP_" + sid.to_upper()), SECTION_COLORS.get(sid, UI.C_BLUE), 22)
+		rib.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		h.add_child(rib)
+	if extra != "":
+		var pill := PanelContainer.new()
+		pill.add_theme_stylebox_override("panel", UI.box(Color("#14193a"), Color.WHITE, 20, 2, 14))
+		pill.add_child(UI.label(extra, 16, Color.WHITE, "bold"))
+		h.add_child(pill)
+	page.add_child(h)
 
 
 func _seconds_to_midnight() -> float:
@@ -116,7 +140,7 @@ func _free_daily() -> void:
 	b.disabled = not avail
 	h.add_child(b)
 	card.add_child(h)
-	body.add_child(card)
+	page.add_child(card)
 	if avail and not Settings.get_v("limit_animations"):
 		icon.pivot_offset = Vector2(38, 38)
 		var tw := icon.create_tween().set_loops()
@@ -136,17 +160,17 @@ func _pass_card() -> void:
 	go.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	v.add_child(go)
 	card.add_child(v)
-	body.add_child(card)
+	page.add_child(card)
 
 
 func _offer_grid(offers: Array) -> void:
 	var grid := GridContainer.new()
-	grid.columns = 3
+	grid.columns = 4
 	grid.add_theme_constant_override("h_separation", 14)
 	grid.add_theme_constant_override("v_separation", 14)
 	for o in offers:
 		grid.add_child(_offer_card(o))
-	body.add_child(UI.scroll(grid))
+	page.add_child(grid)
 
 
 func _offer_info(o: Dictionary) -> Dictionary:
@@ -180,7 +204,7 @@ func _offer_card(o: Dictionary) -> Control:
 	var rcol := DB.rarity_color(info.rarity)
 	var p := PanelContainer.new()
 	p.add_theme_stylebox_override("panel", UI.tile(rcol.darkened(0.05), 10))
-	p.custom_minimum_size = Vector2(300, 300)
+	p.custom_minimum_size = Vector2(292, 300)
 	var v := UI.vbox(4)
 	p.add_child(v)
 	var top := UI.hbox(6)

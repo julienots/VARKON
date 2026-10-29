@@ -1,6 +1,6 @@
 extends Control
-## Main menu: living 3D fortress scene with the player's King Gobelin, top bar, side shortcuts
-## (chests, missions, pass, events, achievements, inventory) and the five main entries.
+## Main menu: living 3D fortress scene with the player's King Gobelin, top bar, compact side
+## shortcuts (chests, missions, pass, events, inventory), one big play button and a tab bar.
 
 var king: GoblinRig
 var cam: Camera3D
@@ -24,73 +24,68 @@ func setup(_p: Dictionary) -> void:
 	top.offset_right = -12
 	top.offset_top = 8
 	add_child(top)
-	# Side shortcuts
+	# Side shortcuts: one compact coloured tile each (achievements live in the Missions tabs)
 	var side := UI.vbox(10)
 	side.position = Vector2(14, 96)
 	add_child(side)
-	for e in [["chests", "MENU_CHESTS", "chest"], ["missions", "MENU_MISSIONS", "check"], ["pass", "MENU_PASS", "star"],
-			["events", "MENU_EVENTS", "flag"], ["achievements", "MENU_ACHIEVEMENTS", "star_empty"], ["inventory", "MENU_INVENTORY", "info"]]:
+	for e in [["chests", "MENU_CHESTS", "chest", Color("#f0a51f")], ["missions", "MENU_MISSIONS", "check", Color("#3fbf2f")],
+			["pass", "MENU_PASS", "star", Color("#8a55f0")], ["events", "MENU_EVENTS", "flag", Color("#f06a2a")], ["inventory", "MENU_INVENTORY", "bag", Color("#3d8ef0")]]:
 		var target: String = e[0]
-		var go := func() -> void:
+		var b := _tile(tr(e[1]), e[2], e[3], func() -> void:
 			_king_react()
-			if target == "achievements":
-				Router.goto("missions", {"tab": "achievements"})
-			else:
-				Router.goto(target)
-		var b := UI.button(tr(e[1]), go, "secondary", 230, 54)
-		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		var scol: Color = {"chests": Color("#f0a51f"), "missions": Color("#3fbf2f"), "pass": Color("#8a55f0"), "events": Color("#f06a2a"),
-			"achievements": Color("#1fb5b0"), "inventory": Color("#3d8ef0")}[target]
-		b.add_theme_stylebox_override("normal", UI.candy(scol, false, true, 52))
-		b.add_theme_stylebox_override("hover", UI.candy(scol.lightened(0.1), false, true, 52))
-		b.add_theme_stylebox_override("pressed", UI.candy(scol, true, true, 52))
-		var gl := Glyph.make(e[2], 26, Color.WHITE)
-		gl.position = Vector2(14, 12)
-		b.add_child(gl)
+			Router.goto(target), Vector2(96, 92))
 		side.add_child(b)
 		side_buttons[target] = b
 	_refresh_badges()
-	# Campaign quick-play
+	# One big play button: next campaign mission
 	var mid: String = Game.campaign.current_mission()
 	var mm: Dictionary = DB.missions[mid]
-	var play := UI.panel_box(Color("#23396f"), UI.GOLD)
-	play.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-	play.offset_left = -420
-	play.offset_top = -262
-	play.offset_right = -14
-	play.offset_bottom = -110
-	play.grow_horizontal = Control.GROW_DIRECTION_BEGIN
-	play.grow_vertical = Control.GROW_DIRECTION_BEGIN
-	var pv := UI.vbox(6)
-	pv.add_child(UI.label(tr("LBL_CAMPAIGN") + " — " + mid.to_upper(), 16, UI.TEXT_DIM, "bold"))
-	var ml := UI.label(str(mm.name), 20, UI.GOLD, "title")
-	ml.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	ml.custom_minimum_size.x = 370
-	pv.add_child(ml)
+	var play := UI.vbox(4)
+	play.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	play.offset_left = -190
+	play.offset_right = 190
+	play.offset_top = -214
+	play.offset_bottom = -112
+	play.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	var ml := UI.label(str(mm.name), 18, Color.WHITE, "bold")
+	ml.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	ml.add_theme_constant_override("outline_size", 6)
+	play.add_child(ml)
 	var start := func() -> void:
 		if not Game.collection.deck_complete():
 			Router.error("ERR_DECK_INCOMPLETE")
 			return
 		Router.start_battle(Game.campaign.mission_config(mid))
-	pv.add_child(UI.button(tr("BTN_FIGHT"), start, "big", 280, 60))
-	play.add_child(pv)
+	var pb := UI.button(tr("BTN_FIGHT"), start, "big", 380, 76)
+	pb.add_theme_font_size_override("font_size", int(34 * UI.ts()))
+	play.add_child(pb)
 	add_child(play)
-	# Bottom navigation
-	var nav := UI.hbox(10)
-	nav.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
-	nav.offset_left = 14
-	nav.offset_right = -14
-	nav.offset_top = -96
-	nav.offset_bottom = -12
-	nav.alignment = BoxContainer.ALIGNMENT_CENTER
-	add_child(nav)
-	for e2 in [["combat", "MENU_COMBAT"], ["collection", "MENU_COLLECTION"], ["base", "MENU_BASE"], ["king", "MENU_KING"], ["shop", "MENU_SHOP"]]:
+	# Bottom navigation bar: five tabs, Combat raised in the middle
+	var bar := PanelContainer.new()
+	var bsb := StyleBoxFlat.new()
+	bsb.bg_color = Color(0.08, 0.1, 0.23, 0.88)
+	bsb.corner_radius_top_left = 22
+	bsb.corner_radius_top_right = 22
+	bsb.border_width_top = 3
+	bsb.border_color = Color("#3a5aa8")
+	bsb.content_margin_left = 10
+	bsb.content_margin_right = 10
+	bsb.content_margin_top = 6
+	bsb.content_margin_bottom = 6
+	bar.add_theme_stylebox_override("panel", bsb)
+	bar.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	bar.offset_top = -96
+	bar.offset_left = 0
+	bar.offset_right = 0
+	add_child(bar)
+	var nav := UI.hbox(8)
+	bar.add_child(nav)
+	for e2 in [["shop", "MENU_SHOP", "cart", Color("#e83a8a")], ["collection", "MENU_COLLECTION", "cards", Color("#3d8ef0")], ["combat", "MENU_COMBAT", "swords", Color("#ff9f1a")],
+			["king", "MENU_KING", "crown", Color("#f0c020")], ["base", "MENU_BASE", "castle", Color("#3fbf2f")]]:
 		var scr: String = e2[0]
-		var go2 := func() -> void:
+		var nb := _tile(tr(e2[1]), e2[2], e2[3], func() -> void:
 			_king_react()
-			Router.goto(scr)
-		var nb := UI.button(tr(e2[1]), go2, "primary" if scr == "combat" else "secondary", 200, 76)
-		nb.add_theme_font_size_override("font_size", int(22 * UI.ts()))
+			Router.goto(scr), Vector2(0, 84), scr != "combat")
 		nb.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		nav.add_child(nb)
 	if SaveSys.last_load_source == "backup" and not Game.flag("backup_notice"):
@@ -99,6 +94,40 @@ func setup(_p: Dictionary) -> void:
 	EventBus.missions_changed.connect(_refresh_badges)
 	EventBus.pass_changed.connect(_refresh_badges)
 	EventBus.inventory_changed.connect(_refresh_badges)
+
+
+## Icon-over-label tile. `flat` tiles show only a coloured icon (used in the nav bar).
+func _tile(text: String, glyph: String, col: Color, cb: Callable, sz: Vector2, flat := false) -> Button:
+	var b := UI.button("", cb, "secondary", int(sz.x), int(sz.y))
+	if flat:
+		var empty := StyleBoxFlat.new()
+		empty.bg_color = Color(1, 1, 1, 0.0)
+		empty.set_corner_radius_all(16)
+		var hov := empty.duplicate()
+		hov.bg_color = Color(1, 1, 1, 0.08)
+		b.add_theme_stylebox_override("normal", empty)
+		b.add_theme_stylebox_override("hover", hov)
+		b.add_theme_stylebox_override("pressed", hov)
+		b.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	else:
+		b.add_theme_stylebox_override("normal", UI.candy(col, false, true, 0))
+		b.add_theme_stylebox_override("hover", UI.candy(col.lightened(0.1), false, true, 0))
+		b.add_theme_stylebox_override("pressed", UI.candy(col, true, true, 0))
+	var v := UI.vbox(2)
+	v.set_anchors_preset(Control.PRESET_FULL_RECT)
+	v.alignment = BoxContainer.ALIGNMENT_CENTER
+	v.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var ic := Glyph.make(glyph, 40 if not flat else 38, col if flat else Color.WHITE)
+	ic.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	v.add_child(ic)
+	var l := UI.label(text, 15, Color.WHITE, "display")
+	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	l.add_theme_constant_override("outline_size", 5)
+	l.clip_text = true
+	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	v.add_child(l)
+	b.add_child(v)
+	return b
 
 
 func _refresh_badges() -> void:
@@ -118,8 +147,9 @@ func _refresh_badges() -> void:
 
 func build_world() -> Node3D:
 	var w := Node3D.new()
-	BuildingKit.environment(w, 0.95)
-	BuildingKit.ground(w, Vector2(60, 60), Vector3.ZERO, Color("#4a5a2a"))
+	BuildingKit.environment(w, 1.0)
+	BuildingKit.ground(w, Vector2(140, 140), Vector3.ZERO, Color("#4a5a2a"))
+	BuildingKit.scenery(w, Vector3(0, 0, -6), 30.0)
 	var flvl: int = Game.base.building_level("fortress")
 	var fort := BuildingKit.building("fortress", flvl, Vector2i(4, 4), Color("#c9472b"))
 	fort.position = Vector3(1.2, 0, -5)
@@ -131,12 +161,18 @@ func build_world() -> Node3D:
 		b.position = o[1]
 		w.add_child(b)
 	# Courtyard platform
-	MeshKit.part(w, "cyl", [1.6, 0.18, 1.7], MeshKit.mat(Color("#6d655c"), 0, 0.9), Vector3(0, 0.09, 0.4), Vector3.ZERO, Vector3.ONE, true)
+	MeshKit.part(w, "cyl", [1.6, 0.14, 1.7], MeshKit.mat(Color("#857f73"), 0, 1.0), Vector3(0, 0.07, 0.4), Vector3.ZERO, Vector3.ONE, true)
+	# Worn dirt path from the courtyard to the fortress gate
+	MeshKit.part(w, "box", [2.2, 0.03, 5.0], MeshKit.mat(Color("#a8835a"), 0, 1.0), Vector3(0.6, 0.01, -2.4), Vector3(0, -6, 0))
 	for x in [-1.8, 1.8]:
 		BuildingKit.torch(w, Vector3(x, 0, -0.6))
-	for k in 8:
-		BuildingKit.tree(w, Vector3(randf_range(-14, 14), 0, randf_range(-16, -10)), randf_range(1.0, 1.6))
+	for k in 14:
+		BuildingKit.tree(w, Vector3(randf_range(-16, 16), 0, randf_range(-18, -10)), randf_range(1.1, 1.8))
+	for k in 4:
+		BuildingKit.tree(w, Vector3([-9.5, -8.0, 9.0, 10.5][k], 0, randf_range(-3, 1)), randf_range(1.3, 1.7))
+	for k in 6:
 		BuildingKit.rock(w, Vector3(randf_range(-10, 10), 0, randf_range(2, 6)), randf_range(0.4, 0.9))
+		BuildingKit.bush(w, Vector3(randf_range(3.5, 9) * (1 if k % 2 == 0 else -1), 0, randf_range(-1, 3)), randf_range(0.7, 1.1))
 	king = GoblinRig.new().build(Game.campaign.player_hero().merged({"is_king": true, "scale": 1.5}))
 	king.position = Vector3(0, 0.18, 0.4)
 	w.add_child(king)

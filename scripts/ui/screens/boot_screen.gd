@@ -148,7 +148,10 @@ func _build_scene() -> void:
 	world = Node3D.new()
 	Router.main.world_root.add_child(world)
 	BuildingKit.environment(world, 0.9)
-	BuildingKit.ground(world, Vector2(40, 40), Vector3.ZERO, Color("#4a5a2a"))
+	BuildingKit.ground(world, Vector2(120, 120), Vector3.ZERO, Color("#4a5a2a"))
+	BuildingKit.scenery(world, Vector3(0, 0, -4), 26.0)
+	for k in 8:
+		BuildingKit.tree(world, Vector3(randf_range(-12, 12), 0, randf_range(-14, -8)), randf_range(1.1, 1.7))
 	var fort := BuildingKit.building("fortress", Game.base.building_level("fortress"), Vector2i(4, 4), Color("#c9472b"))
 	fort.position = Vector3(0, 0, -4)
 	world.add_child(fort)

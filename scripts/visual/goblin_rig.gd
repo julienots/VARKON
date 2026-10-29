@@ -4,7 +4,7 @@ extends Node3D
 ## idle / walk / attack / hit / cast / death / victory and emotes. Equipment meshes are
 ## attached to sockets (head, eyes, torso, shoulders, hands, back, belt, legs, feet).
 
-const SKIN_DEFAULT := Color("#72cc3c")
+const SKIN_DEFAULT := Color("#7ea83e")
 
 var params := {}
 var body: Node3D
@@ -58,6 +58,8 @@ func build(p: Dictionary) -> GoblinRig:
 	var skin := Color(p.get("skin", SKIN_DEFAULT))
 	if app.has("skin"):
 		skin = Color(opts.skin[int(app.skin)])
+	# Painted olive tones: tame the saturation so goblins read as earthy, not neon.
+	skin = Color.from_hsv(skin.h, skin.s * 0.82, skin.v * 0.84)
 	var fam_col := Color(p.get("color", "#8a6a40"))
 	var bulk: float = float(opts.bulk[int(app.bulk)]) if app.has("bulk") else float(p.get("bulk", 1.0))
 	var height_m: float = float(opts.height[int(app.height)]) if app.has("height") else 1.0
@@ -542,20 +544,20 @@ static func card_params(cid: String) -> Dictionary:
 	var d: Dictionary = DB.unit_def(cid)
 	var look: Dictionary = d.get("look", {})
 	var fam_col := DB.family_color(str(d.get("family", "")))
-	var skin := Color("#72cc3c")
+	var skin := Color("#7ea83e")
 	match str(d.get("family", "")):
-		"fire": skin = Color("#9ccc3a")
-		"ice": skin = Color("#6cd1b0")
-		"toxic": skin = Color("#8fe03c")
-		"mech": skin = Color("#86b84a")
-		"shadow": skin = Color("#5f9a6e")
-		"mystic": skin = Color("#5fc7a0")
-		"mutant": skin = Color("#b07ad1")
-		"royal": skin = Color("#72cc3c")
-		"wild": skin = Color("#8ab83a")
-		"air": skin = Color("#7fd04a")
-		"raider": skin = Color("#7cc23c")
-		"support": skin = Color("#78d070")
+		"fire": skin = Color("#9aa83a")
+		"ice": skin = Color("#6fb3a0")
+		"toxic": skin = Color("#8cbf3a")
+		"mech": skin = Color("#8aa04e")
+		"shadow": skin = Color("#5f8a68")
+		"mystic": skin = Color("#62a890")
+		"mutant": skin = Color("#9a74b8")
+		"royal": skin = Color("#7ea83e")
+		"wild": skin = Color("#8aa23e")
+		"air": skin = Color("#84b44c")
+		"raider": skin = Color("#7aa23c")
+		"support": skin = Color("#7cb060")
 	var sc := float(look.get("scale", 1.0))
 	var role := str(d.get("role", ""))
 	var fam := str(d.get("family", ""))

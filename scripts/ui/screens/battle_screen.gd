@@ -77,14 +77,14 @@ func _build_hud() -> void:
 	top.offset_top = 10
 	top.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(top)
-	var title_p := UI.panel_box(Color(0, 0, 0, 0.55))
+	var title_p := UI.panel_box(Color(0.1, 0.16, 0.36, 0.82))
 	var tv := UI.vbox(0)
 	tv.add_child(UI.label(str(cfg.get("title", tr("MODE_" + sim.mode.to_upper()))), 18, UI.GOLD, "title"))
 	tv.add_child(UI.label(tr("MODE_" + sim.mode.to_upper()), 14, UI.TEXT_DIM))
 	title_p.add_child(tv)
 	top.add_child(title_p)
 	top.add_child(UI.spacer())
-	var tp := UI.panel_box(Color(0, 0, 0, 0.6))
+	var tp := UI.panel_box(Color(0.1, 0.16, 0.36, 0.85))
 	var th := UI.hbox(18)
 	score_label = UI.label("", 24, Color.WHITE, "display")
 	th.add_child(score_label)
@@ -139,7 +139,7 @@ func _build_hud() -> void:
 	erow.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var gem := Panel.new()
 	gem.custom_minimum_size = Vector2(40, 40)
-	gem.add_theme_stylebox_override("panel", UI.box(Color("#7a1aa8"), Color("#e0a0ff"), 20, 2, 0))
+	gem.add_theme_stylebox_override("panel", UI.box(Color("#d23ad8"), UI.OUTLINE, 20, 3, 0))
 	energy_label = UI.label("5", 22, Color.WHITE, "display")
 	energy_label.set_anchors_preset(Control.PRESET_FULL_RECT)
 	energy_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -209,7 +209,7 @@ func _build_hud() -> void:
 	# Tip
 	var tip: String = str(cfg.get("tip", ""))
 	if tip != "":
-		tip_panel = UI.panel_box(Color(0, 0, 0, 0.75), UI.GOLD)
+		tip_panel = UI.panel_box(Color(0.1, 0.16, 0.36, 0.9), UI.GOLD)
 		tip_panel.set_anchors_preset(Control.PRESET_CENTER_TOP)
 		tip_panel.offset_top = 130
 		tip_panel.offset_left = -330
